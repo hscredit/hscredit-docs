@@ -1,0 +1,930 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hscredit.core.metrics.stability &mdash; hscredit 0.1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/translations.js?v=beaddf03"></script>
+      <script src="../../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../../_static/copy-code.js?v=60bfc96f"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #140e35" >
+  
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            hscredit
+              <img src="../../../../_static/hengshucredit_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  <div class="hs-brand-actions" aria-label="衡枢外部链接">
+    <a class="hs-brand-action hs-brand-action--primary"
+       href="https://hengshucredit.com"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span class="hs-brand-action__mark" aria-hidden="true">衡</span>
+      公司官网
+    </a>
+    <a class="hs-brand-action"
+       href="https://github.com/hengshu-credit/hscredit"
+       target="_blank"
+       rel="noopener noreferrer">
+      <svg class="hs-brand-action__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.9 10.9 0 0 1 12 6.31c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.07.79 2.16v3.04c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/>
+      </svg>
+      GitHub 仓库
+    </a>
+  </div>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview.html">功能总览</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../overview.html#id2">适用场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../overview.html#id3">数据探索与策略分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../overview.html#id4">分箱、编码与筛选</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../overview.html#id5">建模、评估与监控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../overview.html#id6">规则、报告与交付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../overview.html#id7">架构设计</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#id2">基础安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#id3">可选能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#id4">开发模式安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#id5">验证安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#id6">构建文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#id2">1. 数据和变量初筛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#id3">2. 分箱、编码和变量筛选</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#id4">3. 评分卡建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#id5">4. 机器学习风控模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#id6">5. 策略规则挖掘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#excel">6. 模型报告和 Excel 交付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#id7">规则表达式</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API 参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">API 参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/core.html">核心模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/binning.html">分箱 <code class="docutils literal notranslate"><span class="pre">hscredit.core.binning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.BaseBinning"><code class="docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.UniformBinning"><code class="docutils literal notranslate"><span class="pre">UniformBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.QuantileBinning"><code class="docutils literal notranslate"><span class="pre">QuantileBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.TreeBinning"><code class="docutils literal notranslate"><span class="pre">TreeBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.CartBinning"><code class="docutils literal notranslate"><span class="pre">CartBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.ChiMergeBinning"><code class="docutils literal notranslate"><span class="pre">ChiMergeBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.BestKSBinning"><code class="docutils literal notranslate"><span class="pre">BestKSBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.BestIVBinning"><code class="docutils literal notranslate"><span class="pre">BestIVBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.OptimalBinning"><code class="docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.MDLPBinning"><code class="docutils literal notranslate"><span class="pre">MDLPBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.ORBinning"><code class="docutils literal notranslate"><span class="pre">ORBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.CustomObjectives"><code class="docutils literal notranslate"><span class="pre">CustomObjectives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.CPSATBinning"><code class="docutils literal notranslate"><span class="pre">CPSATBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.KMeansBinning"><code class="docutils literal notranslate"><span class="pre">KMeansBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.MonotonicBinning"><code class="docutils literal notranslate"><span class="pre">MonotonicBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.GeneticBinning"><code class="docutils literal notranslate"><span class="pre">GeneticBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.SmoothBinning"><code class="docutils literal notranslate"><span class="pre">SmoothBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.KernelDensityBinning"><code class="docutils literal notranslate"><span class="pre">KernelDensityBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.BestLiftBinning"><code class="docutils literal notranslate"><span class="pre">BestLiftBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.TargetBadRateBinning"><code class="docutils literal notranslate"><span class="pre">TargetBadRateBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/binning.html#hscredit.core.binning.OptimalBinning2D"><code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/encoders.html">编码器 <code class="docutils literal notranslate"><span class="pre">hscredit.core.encoders</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.BaseEncoder"><code class="docutils literal notranslate"><span class="pre">BaseEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.WOEEncoder"><code class="docutils literal notranslate"><span class="pre">WOEEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.TargetEncoder"><code class="docutils literal notranslate"><span class="pre">TargetEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.CountEncoder"><code class="docutils literal notranslate"><span class="pre">CountEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.OneHotEncoder"><code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.OrdinalEncoder"><code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.QuantileEncoder"><code class="docutils literal notranslate"><span class="pre">QuantileEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.CatBoostEncoder"><code class="docutils literal notranslate"><span class="pre">CatBoostEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.GBMEncoder"><code class="docutils literal notranslate"><span class="pre">GBMEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/encoders.html#hscredit.core.encoders.CardinalityEncoder"><code class="docutils literal notranslate"><span class="pre">CardinalityEncoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/selectors.html">特征筛选 <code class="docutils literal notranslate"><span class="pre">hscredit.core.selectors</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.BaseFeatureSelector"><code class="docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.SelectionReportCollector"><code class="docutils literal notranslate"><span class="pre">SelectionReportCollector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.TypeSelector"><code class="docutils literal notranslate"><span class="pre">TypeSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.RegexSelector"><code class="docutils literal notranslate"><span class="pre">RegexSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.NullSelector"><code class="docutils literal notranslate"><span class="pre">NullSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.ModeSelector"><code class="docutils literal notranslate"><span class="pre">ModeSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.CardinalitySelector"><code class="docutils literal notranslate"><span class="pre">CardinalitySelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.VarianceSelector"><code class="docutils literal notranslate"><span class="pre">VarianceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.CorrSelector"><code class="docutils literal notranslate"><span class="pre">CorrSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.VIFSelector"><code class="docutils literal notranslate"><span class="pre">VIFSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.IVSelector"><code class="docutils literal notranslate"><span class="pre">IVSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.LiftSelector"><code class="docutils literal notranslate"><span class="pre">LiftSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.PSISelector"><code class="docutils literal notranslate"><span class="pre">PSISelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.FeatureImportanceSelector"><code class="docutils literal notranslate"><span class="pre">FeatureImportanceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.NullImportanceSelector"><code class="docutils literal notranslate"><span class="pre">NullImportanceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.RFESelector"><code class="docutils literal notranslate"><span class="pre">RFESelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.SequentialFeatureSelector"><code class="docutils literal notranslate"><span class="pre">SequentialFeatureSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.StepwiseSelector"><code class="docutils literal notranslate"><span class="pre">StepwiseSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.BorutaSelector"><code class="docutils literal notranslate"><span class="pre">BorutaSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.MutualInfoSelector"><code class="docutils literal notranslate"><span class="pre">MutualInfoSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.Chi2Selector"><code class="docutils literal notranslate"><span class="pre">Chi2Selector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.FTestSelector"><code class="docutils literal notranslate"><span class="pre">FTestSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.StabilityAwareSelector"><code class="docutils literal notranslate"><span class="pre">StabilityAwareSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.ScorecardFeatureSelection"><code class="docutils literal notranslate"><span class="pre">ScorecardFeatureSelection</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/selectors.html#hscredit.core.selectors.CompositeFeatureSelector"><code class="docutils literal notranslate"><span class="pre">CompositeFeatureSelector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/metrics.html">指标 <code class="docutils literal notranslate"><span class="pre">hscredit.core.metrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.ks"><code class="docutils literal notranslate"><span class="pre">ks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.auc"><code class="docutils literal notranslate"><span class="pre">auc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.gini"><code class="docutils literal notranslate"><span class="pre">gini()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.precision"><code class="docutils literal notranslate"><span class="pre">precision()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.recall"><code class="docutils literal notranslate"><span class="pre">recall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.f1"><code class="docutils literal notranslate"><span class="pre">f1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.ks_bucket"><code class="docutils literal notranslate"><span class="pre">ks_bucket()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.confusion_matrix"><code class="docutils literal notranslate"><span class="pre">confusion_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.classification_report"><code class="docutils literal notranslate"><span class="pre">classification_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.ks_2samps"><code class="docutils literal notranslate"><span class="pre">ks_2samps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.iv"><code class="docutils literal notranslate"><span class="pre">iv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.iv_table"><code class="docutils literal notranslate"><span class="pre">iv_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.chi2_test"><code class="docutils literal notranslate"><span class="pre">chi2_test()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.cramers_v"><code class="docutils literal notranslate"><span class="pre">cramers_v()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.feature_importance"><code class="docutils literal notranslate"><span class="pre">feature_importance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.psi"><code class="docutils literal notranslate"><span class="pre">psi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.psi_table"><code class="docutils literal notranslate"><span class="pre">psi_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.psi_rating"><code class="docutils literal notranslate"><span class="pre">psi_rating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.csi"><code class="docutils literal notranslate"><span class="pre">csi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.csi_table"><code class="docutils literal notranslate"><span class="pre">csi_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.batch_psi"><code class="docutils literal notranslate"><span class="pre">batch_psi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.lift"><code class="docutils literal notranslate"><span class="pre">lift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.lift_at"><code class="docutils literal notranslate"><span class="pre">lift_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.lift_table"><code class="docutils literal notranslate"><span class="pre">lift_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.lift_curve"><code class="docutils literal notranslate"><span class="pre">lift_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.lift_monotonicity_check"><code class="docutils literal notranslate"><span class="pre">lift_monotonicity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.rule_lift"><code class="docutils literal notranslate"><span class="pre">rule_lift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.badrate"><code class="docutils literal notranslate"><span class="pre">badrate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.badrate_by_group"><code class="docutils literal notranslate"><span class="pre">badrate_by_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.badrate_trend"><code class="docutils literal notranslate"><span class="pre">badrate_trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.badrate_by_score_bin"><code class="docutils literal notranslate"><span class="pre">badrate_by_score_bin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.score_stats"><code class="docutils literal notranslate"><span class="pre">score_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.score_stability"><code class="docutils literal notranslate"><span class="pre">score_stability()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.mse"><code class="docutils literal notranslate"><span class="pre">mse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.mae"><code class="docutils literal notranslate"><span class="pre">mae()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.rmse"><code class="docutils literal notranslate"><span class="pre">rmse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.r2"><code class="docutils literal notranslate"><span class="pre">r2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.compute_bin_stats"><code class="docutils literal notranslate"><span class="pre">compute_bin_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.add_margins"><code class="docutils literal notranslate"><span class="pre">add_margins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.quadratic_curve_coefficient"><code class="docutils literal notranslate"><span class="pre">quadratic_curve_coefficient()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/metrics.html#hscredit.core.metrics.composite_binning_quality"><code class="docutils literal notranslate"><span class="pre">composite_binning_quality()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/feature_engineering.html">特征衍生 <code class="docutils literal notranslate"><span class="pre">hscredit.core.feature_engineering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/feature_engineering.html#hscredit.core.feature_engineering.NumExprDerive"><code class="docutils literal notranslate"><span class="pre">NumExprDerive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/eda.html">数据探索 <code class="docutils literal notranslate"><span class="pre">hscredit.core.eda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.data_info"><code class="docutils literal notranslate"><span class="pre">data_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.missing_analysis"><code class="docutils literal notranslate"><span class="pre">missing_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_summary"><code class="docutils literal notranslate"><span class="pre">feature_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.numeric_summary"><code class="docutils literal notranslate"><span class="pre">numeric_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.category_summary"><code class="docutils literal notranslate"><span class="pre">category_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.data_quality_report"><code class="docutils literal notranslate"><span class="pre">data_quality_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_group_analysis"><code class="docutils literal notranslate"><span class="pre">feature_group_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_stability_monitor"><code class="docutils literal notranslate"><span class="pre">population_stability_monitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.target_distribution"><code class="docutils literal notranslate"><span class="pre">target_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.bad_rate_overall"><code class="docutils literal notranslate"><span class="pre">bad_rate_overall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.bad_rate_by_dimension"><code class="docutils literal notranslate"><span class="pre">bad_rate_by_dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.bad_rate_trend"><code class="docutils literal notranslate"><span class="pre">bad_rate_trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.bad_rate_by_bins"><code class="docutils literal notranslate"><span class="pre">bad_rate_by_bins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.sample_distribution"><code class="docutils literal notranslate"><span class="pre">sample_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_type_inference"><code class="docutils literal notranslate"><span class="pre">feature_type_inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.numeric_distribution"><code class="docutils literal notranslate"><span class="pre">numeric_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.categorical_distribution"><code class="docutils literal notranslate"><span class="pre">categorical_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.outlier_detection"><code class="docutils literal notranslate"><span class="pre">outlier_detection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.rare_category_detection"><code class="docutils literal notranslate"><span class="pre">rare_category_detection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.concentration_analysis"><code class="docutils literal notranslate"><span class="pre">concentration_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_stability_over_time"><code class="docutils literal notranslate"><span class="pre">feature_stability_over_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.iv_analysis"><code class="docutils literal notranslate"><span class="pre">iv_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.batch_iv_analysis"><code class="docutils literal notranslate"><span class="pre">batch_iv_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.woe_analysis"><code class="docutils literal notranslate"><span class="pre">woe_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.binning_bad_rate"><code class="docutils literal notranslate"><span class="pre">binning_bad_rate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.monotonicity_check"><code class="docutils literal notranslate"><span class="pre">monotonicity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.univariate_auc"><code class="docutils literal notranslate"><span class="pre">univariate_auc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_importance_ranking"><code class="docutils literal notranslate"><span class="pre">feature_importance_ranking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">correlation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.high_correlation_pairs"><code class="docutils literal notranslate"><span class="pre">high_correlation_pairs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.correlation_filter"><code class="docutils literal notranslate"><span class="pre">correlation_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.vif_analysis"><code class="docutils literal notranslate"><span class="pre">vif_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.psi_analysis"><code class="docutils literal notranslate"><span class="pre">psi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.batch_psi_analysis"><code class="docutils literal notranslate"><span class="pre">batch_psi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.csi_analysis"><code class="docutils literal notranslate"><span class="pre">csi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.time_psi_tracking"><code class="docutils literal notranslate"><span class="pre">time_psi_tracking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.stability_report"><code class="docutils literal notranslate"><span class="pre">stability_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.segment_drift_analysis"><code class="docutils literal notranslate"><span class="pre">segment_drift_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_cross_segment_effectiveness"><code class="docutils literal notranslate"><span class="pre">feature_cross_segment_effectiveness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.approval_badrate_tradeoff"><code class="docutils literal notranslate"><span class="pre">approval_badrate_tradeoff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.score_strategy_simulation"><code class="docutils literal notranslate"><span class="pre">score_strategy_simulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.vintage_performance_summary"><code class="docutils literal notranslate"><span class="pre">vintage_performance_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.roll_rate_matrix"><code class="docutils literal notranslate"><span class="pre">roll_rate_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.label_leakage_check"><code class="docutils literal notranslate"><span class="pre">label_leakage_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.multi_label_correlation"><code class="docutils literal notranslate"><span class="pre">multi_label_correlation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.vintage_analysis"><code class="docutils literal notranslate"><span class="pre">vintage_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.vintage_summary"><code class="docutils literal notranslate"><span class="pre">vintage_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.roll_rate_analysis"><code class="docutils literal notranslate"><span class="pre">roll_rate_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.eda_summary"><code class="docutils literal notranslate"><span class="pre">eda_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.generate_report"><code class="docutils literal notranslate"><span class="pre">generate_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.export_report_to_excel"><code class="docutils literal notranslate"><span class="pre">export_report_to_excel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/viz.html">可视化 <code class="docutils literal notranslate"><span class="pre">hscredit.core.viz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.bin_plot"><code class="docutils literal notranslate"><span class="pre">bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.bin_2d_plot"><code class="docutils literal notranslate"><span class="pre">bin_2d_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.corr_plot"><code class="docutils literal notranslate"><span class="pre">corr_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.ks_plot"><code class="docutils literal notranslate"><span class="pre">ks_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.hist_plot"><code class="docutils literal notranslate"><span class="pre">hist_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.psi_plot"><code class="docutils literal notranslate"><span class="pre">psi_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.dataframe_plot"><code class="docutils literal notranslate"><span class="pre">dataframe_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.distribution_plot"><code class="docutils literal notranslate"><span class="pre">distribution_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.bin_trend_plot"><code class="docutils literal notranslate"><span class="pre">bin_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.batch_bin_trend_plot"><code class="docutils literal notranslate"><span class="pre">batch_bin_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.bin_overdues_plot"><code class="docutils literal notranslate"><span class="pre">bin_overdues_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.plot_weights"><code class="docutils literal notranslate"><span class="pre">plot_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.roc_plot"><code class="docutils literal notranslate"><span class="pre">roc_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.pr_plot"><code class="docutils literal notranslate"><span class="pre">pr_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.lift_plot"><code class="docutils literal notranslate"><span class="pre">lift_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.gain_plot"><code class="docutils literal notranslate"><span class="pre">gain_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.confusion_matrix_plot"><code class="docutils literal notranslate"><span class="pre">confusion_matrix_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.calibration_plot"><code class="docutils literal notranslate"><span class="pre">calibration_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_dist_plot"><code class="docutils literal notranslate"><span class="pre">score_dist_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_bin_plot"><code class="docutils literal notranslate"><span class="pre">score_bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.threshold_analysis_plot"><code class="docutils literal notranslate"><span class="pre">threshold_analysis_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.strategy_compare_plot"><code class="docutils literal notranslate"><span class="pre">strategy_compare_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.vintage_plot"><code class="docutils literal notranslate"><span class="pre">vintage_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.feature_importance_plot"><code class="docutils literal notranslate"><span class="pre">feature_importance_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.approval_rate_trend_plot"><code class="docutils literal notranslate"><span class="pre">approval_rate_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.bad_rate_trend_plot"><code class="docutils literal notranslate"><span class="pre">bad_rate_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.metric_comparison_plot"><code class="docutils literal notranslate"><span class="pre">metric_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.variable_iv_plot"><code class="docutils literal notranslate"><span class="pre">variable_iv_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.variable_woe_trend_plot"><code class="docutils literal notranslate"><span class="pre">variable_woe_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.variable_psi_heatmap"><code class="docutils literal notranslate"><span class="pre">variable_psi_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.variable_importance_grouped_plot"><code class="docutils literal notranslate"><span class="pre">variable_importance_grouped_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.variable_missing_badrate_plot"><code class="docutils literal notranslate"><span class="pre">variable_missing_badrate_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_ks_plot"><code class="docutils literal notranslate"><span class="pre">score_ks_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_distribution_comparison_plot"><code class="docutils literal notranslate"><span class="pre">score_distribution_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_badrate_bin_plot"><code class="docutils literal notranslate"><span class="pre">score_badrate_bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_lift_plot"><code class="docutils literal notranslate"><span class="pre">score_lift_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.score_approval_badrate_curve"><code class="docutils literal notranslate"><span class="pre">score_approval_badrate_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.rule_swap_plot"><code class="docutils literal notranslate"><span class="pre">rule_swap_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.strategy_simulation_plot"><code class="docutils literal notranslate"><span class="pre">strategy_simulation_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.feature_trend_by_time"><code class="docutils literal notranslate"><span class="pre">feature_trend_by_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.feature_drift_comparison"><code class="docutils literal notranslate"><span class="pre">feature_drift_comparison()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.feature_effectiveness_by_segment"><code class="docutils literal notranslate"><span class="pre">feature_effectiveness_by_segment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.feature_cross_heatmap"><code class="docutils literal notranslate"><span class="pre">feature_cross_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.population_drift_monitor"><code class="docutils literal notranslate"><span class="pre">population_drift_monitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.segment_scorecard_comparison"><code class="docutils literal notranslate"><span class="pre">segment_scorecard_comparison()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.DecisionTreeViz"><code class="docutils literal notranslate"><span class="pre">DecisionTreeViz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.plot_tree"><code class="docutils literal notranslate"><span class="pre">plot_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.plot_tree_matplotlib"><code class="docutils literal notranslate"><span class="pre">plot_tree_matplotlib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.plot_tree_pyecharts"><code class="docutils literal notranslate"><span class="pre">plot_tree_pyecharts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.plot_tree_graphviz"><code class="docutils literal notranslate"><span class="pre">plot_tree_graphviz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.tree_leaf_comparison_plot"><code class="docutils literal notranslate"><span class="pre">tree_leaf_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.setup_axis_style"><code class="docutils literal notranslate"><span class="pre">setup_axis_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.save_figure"><code class="docutils literal notranslate"><span class="pre">save_figure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_palette"><code class="docutils literal notranslate"><span class="pre">get_palette()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_font_sizes"><code class="docutils literal notranslate"><span class="pre">get_font_sizes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_defaults"><code class="docutils literal notranslate"><span class="pre">get_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_expr_variables"><code class="docutils literal notranslate"><span class="pre">get_expr_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleState"><code class="docutils literal notranslate"><span class="pre">RuleState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleStateError"><code class="docutils literal notranslate"><span class="pre">RuleStateError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleUnAppliedError"><code class="docutils literal notranslate"><span class="pre">RuleUnAppliedError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/financial.html">金融计算 <code class="docutils literal notranslate"><span class="pre">hscredit.core.financial</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.fv"><code class="docutils literal notranslate"><span class="pre">fv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.pv"><code class="docutils literal notranslate"><span class="pre">pv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.pmt"><code class="docutils literal notranslate"><span class="pre">pmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.nper"><code class="docutils literal notranslate"><span class="pre">nper()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.ipmt"><code class="docutils literal notranslate"><span class="pre">ipmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.ppmt"><code class="docutils literal notranslate"><span class="pre">ppmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.rate"><code class="docutils literal notranslate"><span class="pre">rate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.npv"><code class="docutils literal notranslate"><span class="pre">npv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.irr"><code class="docutils literal notranslate"><span class="pre">irr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/financial.html#hscredit.core.financial.mirr"><code class="docutils literal notranslate"><span class="pre">mirr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/boosting.html#hscredit.core.models.boosting.xgboost_model.XGBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">XGBoostRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel"><code class="docutils literal notranslate"><span class="pre">LightGBMRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/boosting.html#hscredit.core.models.boosting.catboost_model.CatBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">CatBoostRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/boosting.html#hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">NGBoostRiskModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/tuning.html">超参数调优 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.tuning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner"><code class="docutils literal notranslate"><span class="pre">ModelTuner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/tuning.html#hscredit.core.models.tuning.tuning.AutoTuner"><code class="docutils literal notranslate"><span class="pre">AutoTuner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/tuning.html#hscredit.core.models.tuning.tuning.TuningObjective"><code class="docutils literal notranslate"><span class="pre">TuningObjective</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/tuning.html#hscredit.core.models.tuning.tuning.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/tooling.html">报告与工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/report.html">报告 <code class="docutils literal notranslate"><span class="pre">hscredit.report</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.feature_bin_stats"><code class="docutils literal notranslate"><span class="pre">feature_bin_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.feature_binning_summary"><code class="docutils literal notranslate"><span class="pre">feature_binning_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.feature_efficiency_analysis"><code class="docutils literal notranslate"><span class="pre">feature_efficiency_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.auto_feature_analysis"><code class="docutils literal notranslate"><span class="pre">auto_feature_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ruleset_analysis"><code class="docutils literal notranslate"><span class="pre">ruleset_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.multi_label_rule_analysis"><code class="docutils literal notranslate"><span class="pre">multi_label_rule_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_swap_analysis"><code class="docutils literal notranslate"><span class="pre">rule_swap_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_report_table"><code class="docutils literal notranslate"><span class="pre">rule_report_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapRiskConfig"><code class="docutils literal notranslate"><span class="pre">SwapRiskConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.create_swap_dataset"><code class="docutils literal notranslate"><span class="pre">create_swap_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.create_swap_dataset_from_rules"><code class="docutils literal notranslate"><span class="pre">create_swap_dataset_from_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.swap_analysis"><code class="docutils literal notranslate"><span class="pre">swap_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.population_drift"><code class="docutils literal notranslate"><span class="pre">population_drift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit-report-mining">规则挖掘 <code class="docutils literal notranslate"><span class="pre">hscredit.report.mining</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/excel.html">Excel <code class="docutils literal notranslate"><span class="pre">hscredit.excel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.seed_everything"><code class="docutils literal notranslate"><span class="pre">seed_everything()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.load_pickle"><code class="docutils literal notranslate"><span class="pre">load_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.save_pickle"><code class="docutils literal notranslate"><span class="pre">save_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.feature_describe"><code class="docutils literal notranslate"><span class="pre">feature_describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.groupby_feature_describe"><code class="docutils literal notranslate"><span class="pre">groupby_feature_describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.style_bin_table"><code class="docutils literal notranslate"><span class="pre">style_bin_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.style_rule_table"><code class="docutils literal notranslate"><span class="pre">style_rule_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.BinTableDisplay"><code class="docutils literal notranslate"><span class="pre">BinTableDisplay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.register_extensions"><code class="docutils literal notranslate"><span class="pre">register_extensions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.check_xy_inputs"><code class="docutils literal notranslate"><span class="pre">check_xy_inputs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.convert_to_dataframe"><code class="docutils literal notranslate"><span class="pre">convert_to_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.extract_target_from_df"><code class="docutils literal notranslate"><span class="pre">extract_target_from_df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.check_array_1d"><code class="docutils literal notranslate"><span class="pre">check_array_1d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_feature_dtypes"><code class="docutils literal notranslate"><span class="pre">get_feature_dtypes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.check_missing_values"><code class="docutils literal notranslate"><span class="pre">check_missing_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/exceptions.html">异常 <code class="docutils literal notranslate"><span class="pre">hscredit.exceptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.HSCreditError"><code class="docutils literal notranslate"><span class="pre">HSCreditError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.ValidationError"><code class="docutils literal notranslate"><span class="pre">ValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.InputValidationError"><code class="docutils literal notranslate"><span class="pre">InputValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.InputTypeError"><code class="docutils literal notranslate"><span class="pre">InputTypeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.FeatureNotFoundError"><code class="docutils literal notranslate"><span class="pre">FeatureNotFoundError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.StateError"><code class="docutils literal notranslate"><span class="pre">StateError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.NotFittedError"><code class="docutils literal notranslate"><span class="pre">NotFittedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.DependencyError"><code class="docutils literal notranslate"><span class="pre">DependencyError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.SerializationError"><code class="docutils literal notranslate"><span class="pre">SerializationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.raise_not_fitted"><code class="docutils literal notranslate"><span class="pre">raise_not_fitted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.raise_feature_not_found"><code class="docutils literal notranslate"><span class="pre">raise_feature_not_found()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/exceptions.html#hscredit.exceptions.raise_missing_columns"><code class="docutils literal notranslate"><span class="pre">raise_missing_columns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">项目</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ROADMAP.html">hscredit Roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id1">一、产品定位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id2">二、当前代码结构与已实现能力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id3">2.1 模块总览</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id4">2.2 已实现能力清单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id5">2.3 设计约定</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id6">三、业务场景映射</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id7">3.1 贷前评分卡建模</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id8">3.2 机器学习风控模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id9">3.3 策略规则挖掘与运营</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id10">3.4 贷后监控与稳定性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id11">四、竞品对标</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#toad">4.1 toad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#optbinning">4.2 optbinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#scorecardpipeline">4.3 scorecardpipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#scorecardpy">4.4 scorecardpy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id12">五、竞争策略</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id13">5.1 不建议的外部表述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id14">5.2 推荐定位</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id15">六、能力缺口与优先级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id16">七、版本规划</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#v0-1-x">v0.1.x：可信度建设</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#v0-2-0">v0.2.0：特征工程与拒绝推断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#v0-3-0">v0.3.0：分箱与规则运营增强</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#v0-4-0">v0.4.0：报告、解释与上线交付</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#v0-5-0">v0.5.0：易用性和生态完善</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id17">八、工程质量计划</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id18">8.1 测试优先级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#ci">8.2 CI 与兼容性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ROADMAP.html#id19">8.3 文档质量要求</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id20">九、当前短期任务清单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ROADMAP.html#id21">十、长期方向</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #140e35" >
+  
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">hscredit</a>
+  <div class="hs-mobile-actions" aria-label="衡枢外部链接">
+    <a href="https://hengshucredit.com" target="_blank" rel="noopener noreferrer">官网</a>
+    <a href="https://github.com/hengshu-credit/hscredit" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">模块代码</a></li>
+      <li class="breadcrumb-item active">hscredit.core.metrics.stability</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>hscredit.core.metrics.stability 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;稳定性指标计算.</span>
+
+<span class="sd">提供评估模型稳定性和分布变化的指标。</span>
+
+<span class="sd">**参考样例**</span>
+
+<span class="sd">&gt;&gt;&gt; from hscredit.core.metrics import psi, psi_table, batch_psi, psi_rating</span>
+<span class="sd">&gt;&gt;&gt; import numpy as np</span>
+<span class="sd">&gt;&gt;&gt; np.random.seed(42)</span>
+<span class="sd">&gt;&gt;&gt; train = np.random.randn(1000)  # 训练集分布（期望）</span>
+<span class="sd">&gt;&gt;&gt; test = np.random.randn(1000) + 0.5  # 测试集分布偏移（实际）</span>
+<span class="sd">&gt;&gt;&gt; print(f&quot;PSI={psi(train, test):.4f}&quot;)  # PSI&gt;0.25表示分布变化显著</span>
+<span class="sd">&gt;&gt;&gt; print(psi_rating(psi(train, test)))  # 稳定性评级</span>
+<span class="sd">&gt;&gt;&gt; print(psi_table(train, test).head())</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">chi2_contingency</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">._base</span><span class="w"> </span><span class="kn">import</span> <span class="n">_create_bin_edges</span>
+
+
+<div class="viewcode-block" id="psi">
+<a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.psi">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">psi</span><span class="p">(</span><span class="n">expected</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+        <span class="n">actual</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;quantile&#39;</span><span class="p">,</span>
+        <span class="n">max_n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">min_bin_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算Population Stability Index (群体稳定性指标).</span>
+
+<span class="sd">    PSI用于衡量两个分布之间的差异，评估模型或特征的稳定性。</span>
+<span class="sd">    值越小表示两个分布越接近，模型越稳定。</span>
+
+<span class="sd">    PSI分级标准:</span>
+
+<span class="sd">    - PSI &lt; 0.1: 没有显著变化，分布稳定</span>
+<span class="sd">    - 0.1 &lt;= PSI &lt; 0.25: 有轻微变化，需关注</span>
+<span class="sd">    - PSI &gt;= 0.25: 有显著变化，模型可能需要重新训练</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param expected: 期望分布数据（通常是训练集或基准数据的特征/评分）</span>
+<span class="sd">    :param actual: 实际分布数据（通常是测试集或新上线数据的特征/评分）</span>
+<span class="sd">    :param method: 分箱方法，默认为&#39;quantile&#39;（等频分箱）</span>
+<span class="sd">    :param max_n_bins: 最大分箱数，默认为10</span>
+<span class="sd">    :param min_bin_size: 每箱最小样本占比，默认为0.01</span>
+<span class="sd">    :param kwargs: 其他传递给OptimalBinning的参数</span>
+<span class="sd">    :return: PSI值</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import psi, psi_rating</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; np.random.seed(42)</span>
+<span class="sd">    &gt;&gt;&gt; train_scores = np.random.randn(1000)  # 训练集评分分布</span>
+<span class="sd">    &gt;&gt;&gt; test_scores = np.random.randn(1000) + 0.3  # 测试集评分分布偏移</span>
+<span class="sd">    &gt;&gt;&gt; p = psi(train_scores, test_scores)  # 计算PSI评估分布稳定性</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;PSI={p:.4f}, 评级: {psi_rating(p)}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">psi_table</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">max_n_bins</span><span class="p">,</span> <span class="n">min_bin_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;PSI贡献&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="psi_table">
+<a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.psi_table">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">psi_table</span><span class="p">(</span><span class="n">expected</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+              <span class="n">actual</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+              <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;quantile&#39;</span><span class="p">,</span>
+              <span class="n">max_n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+              <span class="n">min_bin_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+              <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算PSI详细统计表.</span>
+
+<span class="sd">    返回每个分箱的期望占比、实际占比及PSI贡献，用于分析分布变化的具体来源。</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param expected: 期望分布数据（通常是训练集或基准数据）</span>
+<span class="sd">    :param actual: 实际分布数据（通常是测试集或新数据）</span>
+<span class="sd">    :param method: 分箱方法，默认为&#39;quantile&#39;（等频分箱）</span>
+<span class="sd">    :param max_n_bins: 最大分箱数，默认为10</span>
+<span class="sd">    :param min_bin_size: 每箱最小样本占比，默认为0.01</span>
+<span class="sd">    :param kwargs: 其他传递给OptimalBinning的参数</span>
+<span class="sd">    :return: 包含各分箱详细统计的DataFrame，列包括：</span>
+<span class="sd">        - 分箱: 分箱标签</span>
+<span class="sd">        - 期望样本数: 该分箱内期望数据量</span>
+<span class="sd">        - 实际样本数: 该分箱内实际数据量</span>
+<span class="sd">        - 期望占比: 期望样本占总样本比例</span>
+<span class="sd">        - 实际占比: 实际样本占总样本比例</span>
+<span class="sd">        - PSI贡献: 该分箱对总PSI的贡献</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import psi_table</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; np.random.seed(42)</span>
+<span class="sd">    &gt;&gt;&gt; train = np.random.randn(1000)</span>
+<span class="sd">    &gt;&gt;&gt; test = np.random.randn(1000) + 0.5</span>
+<span class="sd">    &gt;&gt;&gt; table = psi_table(train, test)</span>
+<span class="sd">    &gt;&gt;&gt; print(table)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span>
+
+    <span class="c1"># 移除缺失值</span>
+    <span class="n">expected_clean</span> <span class="o">=</span> <span class="n">expected</span><span class="p">[</span><span class="o">~</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">expected</span><span class="p">)]</span>
+    <span class="n">actual_clean</span> <span class="o">=</span> <span class="n">actual</span><span class="p">[</span><span class="o">~</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">actual</span><span class="p">)]</span>
+
+    <span class="c1"># 使用OptimalBinning进行分箱</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimalBinning</span>
+
+    <span class="c1"># 构建DataFrame</span>
+    <span class="n">df_expected</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">expected_clean</span><span class="p">,</span> <span class="s1">&#39;is_expected&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="n">df_actual</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">actual_clean</span><span class="p">,</span> <span class="s1">&#39;is_expected&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+    <span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_expected</span><span class="p">,</span> <span class="n">df_actual</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># 创建临时目标用于分箱</span>
+    <span class="n">dummy_target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df_combined</span><span class="p">))</span>
+
+    <span class="n">binner</span> <span class="o">=</span> <span class="n">OptimalBinning</span><span class="p">(</span>
+        <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+        <span class="n">max_n_bins</span><span class="o">=</span><span class="n">max_n_bins</span><span class="p">,</span>
+        <span class="n">min_bin_size</span><span class="o">=</span><span class="n">min_bin_size</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>
+    <span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_combined</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]],</span> <span class="n">dummy_target</span><span class="p">)</span>
+
+    <span class="c1"># 分别转换expected和actual</span>
+    <span class="n">bins_expected</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_expected</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;indices&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">bins_actual</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_actual</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;indices&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="c1"># 计算每个箱的统计</span>
+    <span class="n">unique_bins</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">bins_expected</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">bins_actual</span><span class="p">))</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-10</span>
+
+    <span class="n">total_expected</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_clean</span><span class="p">)</span>
+    <span class="n">total_actual</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual_clean</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">bin_idx</span> <span class="ow">in</span> <span class="n">unique_bins</span><span class="p">:</span>
+        <span class="n">expected_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bins_expected</span> <span class="o">==</span> <span class="n">bin_idx</span><span class="p">)</span>
+        <span class="n">actual_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bins_actual</span> <span class="o">==</span> <span class="n">bin_idx</span><span class="p">)</span>
+
+        <span class="n">expected_prop</span> <span class="o">=</span> <span class="n">expected_count</span> <span class="o">/</span> <span class="n">total_expected</span> <span class="k">if</span> <span class="n">total_expected</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">epsilon</span>
+        <span class="n">actual_prop</span> <span class="o">=</span> <span class="n">actual_count</span> <span class="o">/</span> <span class="n">total_actual</span> <span class="k">if</span> <span class="n">total_actual</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">epsilon</span>
+
+        <span class="c1"># 避免除零</span>
+        <span class="n">expected_prop</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">expected_prop</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span>
+        <span class="n">actual_prop</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">actual_prop</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span>
+
+        <span class="n">psi_contrib</span> <span class="o">=</span> <span class="p">(</span><span class="n">actual_prop</span> <span class="o">-</span> <span class="n">expected_prop</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">actual_prop</span> <span class="o">/</span> <span class="n">expected_prop</span><span class="p">)</span>
+
+        <span class="c1"># 获取分箱标签</span>
+        <span class="n">bin_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Bin_</span><span class="si">{</span><span class="n">bin_idx</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;value&#39;</span> <span class="ow">in</span> <span class="n">binner</span><span class="o">.</span><span class="n">bin_tables_</span><span class="p">:</span>
+            <span class="n">bin_table</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">bin_tables_</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">bin_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bin_table</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;分箱标签&#39;</span> <span class="ow">in</span> <span class="n">bin_table</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">bin_label</span> <span class="o">=</span> <span class="n">bin_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">bin_idx</span><span class="p">][</span><span class="s1">&#39;分箱标签&#39;</span><span class="p">]</span>
+
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;分箱&#39;</span><span class="p">:</span> <span class="n">bin_label</span><span class="p">,</span>
+            <span class="s1">&#39;期望样本数&#39;</span><span class="p">:</span> <span class="n">expected_count</span><span class="p">,</span>
+            <span class="s1">&#39;实际样本数&#39;</span><span class="p">:</span> <span class="n">actual_count</span><span class="p">,</span>
+            <span class="s1">&#39;期望占比&#39;</span><span class="p">:</span> <span class="n">expected_prop</span><span class="p">,</span>
+            <span class="s1">&#39;实际占比&#39;</span><span class="p">:</span> <span class="n">actual_prop</span><span class="p">,</span>
+            <span class="s1">&#39;PSI贡献&#39;</span><span class="p">:</span> <span class="n">psi_contrib</span><span class="p">,</span>
+        <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="psi_rating">
+<a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.psi_rating">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">psi_rating</span><span class="p">(</span><span class="n">psi_value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;根据PSI值返回稳定性评级.</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param psi_value: PSI值（通常由psi()函数计算得到）</span>
+<span class="sd">    :return: 稳定性评级描述字符串</span>
+<span class="sd">        - PSI &lt; 0.1: &quot;没有显著变化 (PSI &lt; 0.1)&quot;</span>
+<span class="sd">        - 0.1 &lt;= PSI &lt; 0.25: &quot;有轻微变化 (0.1 &lt;= PSI &lt; 0.25)&quot;</span>
+<span class="sd">        - PSI &gt;= 0.25: &quot;有显著变化 (PSI &gt;= 0.25)&quot;</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import psi_rating</span>
+<span class="sd">    &gt;&gt;&gt; psi_rating(0.05)</span>
+<span class="sd">    &#39;没有显著变化 (PSI &lt; 0.1)&#39;</span>
+<span class="sd">    &gt;&gt;&gt; psi_rating(0.3)</span>
+<span class="sd">    &#39;有显著变化 (PSI &gt;= 0.25)&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">psi_value</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;没有显著变化 (PSI &lt; 0.1)&quot;</span>
+    <span class="k">elif</span> <span class="n">psi_value</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;有轻微变化 (0.1 &lt;= PSI &lt; 0.25)&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;有显著变化 (PSI &gt;= 0.25)&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="csi">
+<a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.csi">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">csi</span><span class="p">(</span><span class="n">expected</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+        <span class="n">actual</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;quantile&#39;</span><span class="p">,</span>
+        <span class="n">max_n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">min_bin_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算Characteristic Stability Index (特征稳定性指标).</span>
+
+<span class="sd">    CSI是PSI的变体，专门用于衡量单个特征分布的稳定性。</span>
+<span class="sd">    与PSI的区别在于CSI通常针对单一特征，而非模型评分。</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param expected: 期望分布数据（通常是训练集的特征数据）</span>
+<span class="sd">    :param actual: 实际分布数据（通常是测试集或新数据的特征）</span>
+<span class="sd">    :param method: 分箱方法，默认为&#39;quantile&#39;（等频分箱）</span>
+<span class="sd">    :param max_n_bins: 最大分箱数，默认为10</span>
+<span class="sd">    :param min_bin_size: 每箱最小样本占比，默认为0.01</span>
+<span class="sd">    :param kwargs: 其他传递给OptimalBinning的参数</span>
+<span class="sd">    :return: CSI值（计算方法与PSI相同）</span>
+<span class="sd">    :raises ValueError: 数据为空时</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import csi</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; np.random.seed(42)</span>
+<span class="sd">    &gt;&gt;&gt; train = np.random.randn(1000)</span>
+<span class="sd">    &gt;&gt;&gt; test = np.random.randn(1000) + 0.5</span>
+<span class="sd">    &gt;&gt;&gt; csi(train, test)</span>
+<span class="sd">    0.34</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">psi</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">max_n_bins</span><span class="p">,</span> <span class="n">min_bin_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="csi_table">
+<a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.csi_table">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">csi_table</span><span class="p">(</span><span class="n">expected</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+              <span class="n">actual</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">],</span>
+              <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;quantile&#39;</span><span class="p">,</span>
+              <span class="n">max_n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+              <span class="n">min_bin_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+              <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算CSI详细统计表.</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param expected: 期望分布数据（通常是训练集的特征数据）</span>
+<span class="sd">    :param actual: 实际分布数据（通常是测试集或新数据的特征）</span>
+<span class="sd">    :param method: 分箱方法，默认为&#39;quantile&#39;（等频分箱）</span>
+<span class="sd">    :param max_n_bins: 最大分箱数，默认为10</span>
+<span class="sd">    :param min_bin_size: 每箱最小样本占比，默认为0.01</span>
+<span class="sd">    :param kwargs: 其他传递给OptimalBinning的参数</span>
+<span class="sd">    :return: 包含各分箱详细统计的DataFrame，列与psi_table相同，PSI贡献列重命名为CSI贡献</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import csi_table</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; np.random.seed(42)</span>
+<span class="sd">    &gt;&gt;&gt; train = np.random.randn(1000)</span>
+<span class="sd">    &gt;&gt;&gt; test = np.random.randn(1000) + 0.5</span>
+<span class="sd">    &gt;&gt;&gt; table = csi_table(train, test)</span>
+<span class="sd">    &gt;&gt;&gt; print(table)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">psi_table</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">max_n_bins</span><span class="p">,</span> <span class="n">min_bin_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;PSI贡献&#39;</span><span class="p">:</span> <span class="s1">&#39;CSI贡献&#39;</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">table</span></div>
+
+
+
+<div class="viewcode-block" id="batch_psi">
+<a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.batch_psi">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">batch_psi</span><span class="p">(</span><span class="n">X_train</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+              <span class="n">X_test</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+              <span class="n">features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;quantile&#39;</span><span class="p">,</span>
+              <span class="n">max_n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+              <span class="n">min_bin_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+              <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;批量计算多特征的PSI.</span>
+
+<span class="sd">    对指定的多个特征同时计算PSI，返回各特征的PSI值和稳定性评级。</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param X_train: 训练集特征DataFrame</span>
+<span class="sd">    :param X_test: 测试集特征DataFrame（与X_train列结构一致）</span>
+<span class="sd">    :param features: 需要计算PSI的特征列表，默认为None（计算全部共同列）</span>
+<span class="sd">    :param method: 分箱方法，默认为&#39;quantile&#39;（等频分箱）</span>
+<span class="sd">    :param max_n_bins: 最大分箱数，默认为10</span>
+<span class="sd">    :param min_bin_size: 每箱最小样本占比，默认为0.01</span>
+<span class="sd">    :param kwargs: 其他传递给OptimalBinning的参数</span>
+<span class="sd">    :return: 包含各特征PSI结果的DataFrame，列包括：</span>
+<span class="sd">        - 特征: 特征名称</span>
+<span class="sd">        - PSI: PSI值</span>
+<span class="sd">        - 评级: 稳定性评级（由psi_rating函数返回）</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import batch_psi</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; np.random.seed(42)</span>
+<span class="sd">    &gt;&gt;&gt; cols = [&#39;age&#39;, &#39;income&#39;, &#39;credit_score&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; X_train = pd.DataFrame(np.random.randn(1000, 3), columns=cols)</span>
+<span class="sd">    &gt;&gt;&gt; X_test = pd.DataFrame(np.random.randn(1000, 3) + 0.5, columns=cols)</span>
+<span class="sd">    &gt;&gt;&gt; result = batch_psi(X_train, X_test)</span>
+<span class="sd">    &gt;&gt;&gt; print(result)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">psi_value</span> <span class="o">=</span> <span class="n">psi</span><span class="p">(</span>
+                    <span class="n">X_train</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span>
+                    <span class="n">method</span><span class="p">,</span> <span class="n">max_n_bins</span><span class="p">,</span> <span class="n">min_bin_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+                <span class="p">)</span>
+                <span class="n">rating</span> <span class="o">=</span> <span class="n">psi_rating</span><span class="p">(</span><span class="n">psi_value</span><span class="p">)</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;特征&#39;</span><span class="p">:</span> <span class="n">feature</span><span class="p">,</span>
+                    <span class="s1">&#39;PSI&#39;</span><span class="p">:</span> <span class="n">psi_value</span><span class="p">,</span>
+                    <span class="s1">&#39;评级&#39;</span><span class="p">:</span> <span class="n">rating</span><span class="p">,</span>
+                <span class="p">})</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;特征&#39;</span><span class="p">:</span> <span class="n">feature</span><span class="p">,</span>
+                    <span class="s1">&#39;PSI&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s1">&#39;评级&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;计算失败: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, hscredit team。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

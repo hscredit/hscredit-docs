@@ -1,0 +1,1259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工具 hscredit.utils &mdash; hscredit 0.1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+
+  
+    <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+      <script src="../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../_static/copy-code.js?v=60bfc96f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="异常 hscredit.exceptions" href="exceptions.html" />
+    <link rel="prev" title="Excel hscredit.excel" href="excel.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #140e35" >
+  
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            hscredit
+              <img src="../_static/hengshucredit_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  <div class="hs-brand-actions" aria-label="衡枢外部链接">
+    <a class="hs-brand-action hs-brand-action--primary"
+       href="https://hengshucredit.com"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span class="hs-brand-action__mark" aria-hidden="true">衡</span>
+      公司官网
+    </a>
+    <a class="hs-brand-action"
+       href="https://github.com/hengshu-credit/hscredit"
+       target="_blank"
+       rel="noopener noreferrer">
+      <svg class="hs-brand-action__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.9 10.9 0 0 1 12 6.31c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.07.79 2.16v3.04c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/>
+      </svg>
+      GitHub 仓库
+    </a>
+  </div>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">功能总览</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#id2">适用场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#id3">数据探索与策略分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#id4">分箱、编码与筛选</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#id5">建模、评估与监控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#id6">规则、报告与交付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#id7">架构设计</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#id2">基础安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#id3">可选能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#id4">开发模式安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#id5">验证安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#id6">构建文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#id2">1. 数据和变量初筛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#id3">2. 分箱、编码和变量筛选</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#id4">3. 评分卡建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#id5">4. 机器学习风控模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#id6">5. 策略规则挖掘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#excel">6. 模型报告和 Excel 交付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#id7">规则表达式</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API 参考</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API 参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core.html">核心模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="binning.html">分箱 <code class="docutils literal notranslate"><span class="pre">hscredit.core.binning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.BaseBinning"><code class="docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.UniformBinning"><code class="docutils literal notranslate"><span class="pre">UniformBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.QuantileBinning"><code class="docutils literal notranslate"><span class="pre">QuantileBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.TreeBinning"><code class="docutils literal notranslate"><span class="pre">TreeBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.CartBinning"><code class="docutils literal notranslate"><span class="pre">CartBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.ChiMergeBinning"><code class="docutils literal notranslate"><span class="pre">ChiMergeBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.BestKSBinning"><code class="docutils literal notranslate"><span class="pre">BestKSBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.BestIVBinning"><code class="docutils literal notranslate"><span class="pre">BestIVBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning"><code class="docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.MDLPBinning"><code class="docutils literal notranslate"><span class="pre">MDLPBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.ORBinning"><code class="docutils literal notranslate"><span class="pre">ORBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.CustomObjectives"><code class="docutils literal notranslate"><span class="pre">CustomObjectives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.CPSATBinning"><code class="docutils literal notranslate"><span class="pre">CPSATBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.KMeansBinning"><code class="docutils literal notranslate"><span class="pre">KMeansBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.MonotonicBinning"><code class="docutils literal notranslate"><span class="pre">MonotonicBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.GeneticBinning"><code class="docutils literal notranslate"><span class="pre">GeneticBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.SmoothBinning"><code class="docutils literal notranslate"><span class="pre">SmoothBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.KernelDensityBinning"><code class="docutils literal notranslate"><span class="pre">KernelDensityBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.BestLiftBinning"><code class="docutils literal notranslate"><span class="pre">BestLiftBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.TargetBadRateBinning"><code class="docutils literal notranslate"><span class="pre">TargetBadRateBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning2D"><code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="encoders.html">编码器 <code class="docutils literal notranslate"><span class="pre">hscredit.core.encoders</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.BaseEncoder"><code class="docutils literal notranslate"><span class="pre">BaseEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.WOEEncoder"><code class="docutils literal notranslate"><span class="pre">WOEEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.TargetEncoder"><code class="docutils literal notranslate"><span class="pre">TargetEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.CountEncoder"><code class="docutils literal notranslate"><span class="pre">CountEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.OneHotEncoder"><code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.OrdinalEncoder"><code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.QuantileEncoder"><code class="docutils literal notranslate"><span class="pre">QuantileEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.CatBoostEncoder"><code class="docutils literal notranslate"><span class="pre">CatBoostEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.GBMEncoder"><code class="docutils literal notranslate"><span class="pre">GBMEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="encoders.html#hscredit.core.encoders.CardinalityEncoder"><code class="docutils literal notranslate"><span class="pre">CardinalityEncoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="selectors.html">特征筛选 <code class="docutils literal notranslate"><span class="pre">hscredit.core.selectors</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.BaseFeatureSelector"><code class="docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.SelectionReportCollector"><code class="docutils literal notranslate"><span class="pre">SelectionReportCollector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.TypeSelector"><code class="docutils literal notranslate"><span class="pre">TypeSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.RegexSelector"><code class="docutils literal notranslate"><span class="pre">RegexSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.NullSelector"><code class="docutils literal notranslate"><span class="pre">NullSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.ModeSelector"><code class="docutils literal notranslate"><span class="pre">ModeSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.CardinalitySelector"><code class="docutils literal notranslate"><span class="pre">CardinalitySelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.VarianceSelector"><code class="docutils literal notranslate"><span class="pre">VarianceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.CorrSelector"><code class="docutils literal notranslate"><span class="pre">CorrSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.VIFSelector"><code class="docutils literal notranslate"><span class="pre">VIFSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.IVSelector"><code class="docutils literal notranslate"><span class="pre">IVSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.LiftSelector"><code class="docutils literal notranslate"><span class="pre">LiftSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.PSISelector"><code class="docutils literal notranslate"><span class="pre">PSISelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.FeatureImportanceSelector"><code class="docutils literal notranslate"><span class="pre">FeatureImportanceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.NullImportanceSelector"><code class="docutils literal notranslate"><span class="pre">NullImportanceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.RFESelector"><code class="docutils literal notranslate"><span class="pre">RFESelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.SequentialFeatureSelector"><code class="docutils literal notranslate"><span class="pre">SequentialFeatureSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.StepwiseSelector"><code class="docutils literal notranslate"><span class="pre">StepwiseSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.BorutaSelector"><code class="docutils literal notranslate"><span class="pre">BorutaSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.MutualInfoSelector"><code class="docutils literal notranslate"><span class="pre">MutualInfoSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.Chi2Selector"><code class="docutils literal notranslate"><span class="pre">Chi2Selector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.FTestSelector"><code class="docutils literal notranslate"><span class="pre">FTestSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.StabilityAwareSelector"><code class="docutils literal notranslate"><span class="pre">StabilityAwareSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.ScorecardFeatureSelection"><code class="docutils literal notranslate"><span class="pre">ScorecardFeatureSelection</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="selectors.html#hscredit.core.selectors.CompositeFeatureSelector"><code class="docutils literal notranslate"><span class="pre">CompositeFeatureSelector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html">指标 <code class="docutils literal notranslate"><span class="pre">hscredit.core.metrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.ks"><code class="docutils literal notranslate"><span class="pre">ks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.auc"><code class="docutils literal notranslate"><span class="pre">auc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.gini"><code class="docutils literal notranslate"><span class="pre">gini()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.precision"><code class="docutils literal notranslate"><span class="pre">precision()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.recall"><code class="docutils literal notranslate"><span class="pre">recall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.f1"><code class="docutils literal notranslate"><span class="pre">f1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.ks_bucket"><code class="docutils literal notranslate"><span class="pre">ks_bucket()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.confusion_matrix"><code class="docutils literal notranslate"><span class="pre">confusion_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.classification_report"><code class="docutils literal notranslate"><span class="pre">classification_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.ks_2samps"><code class="docutils literal notranslate"><span class="pre">ks_2samps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.iv"><code class="docutils literal notranslate"><span class="pre">iv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.iv_table"><code class="docutils literal notranslate"><span class="pre">iv_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.chi2_test"><code class="docutils literal notranslate"><span class="pre">chi2_test()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.cramers_v"><code class="docutils literal notranslate"><span class="pre">cramers_v()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.feature_importance"><code class="docutils literal notranslate"><span class="pre">feature_importance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.psi"><code class="docutils literal notranslate"><span class="pre">psi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.psi_table"><code class="docutils literal notranslate"><span class="pre">psi_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.psi_rating"><code class="docutils literal notranslate"><span class="pre">psi_rating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.csi"><code class="docutils literal notranslate"><span class="pre">csi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.csi_table"><code class="docutils literal notranslate"><span class="pre">csi_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.batch_psi"><code class="docutils literal notranslate"><span class="pre">batch_psi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.lift"><code class="docutils literal notranslate"><span class="pre">lift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.lift_at"><code class="docutils literal notranslate"><span class="pre">lift_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.lift_table"><code class="docutils literal notranslate"><span class="pre">lift_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.lift_curve"><code class="docutils literal notranslate"><span class="pre">lift_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.lift_monotonicity_check"><code class="docutils literal notranslate"><span class="pre">lift_monotonicity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.rule_lift"><code class="docutils literal notranslate"><span class="pre">rule_lift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.badrate"><code class="docutils literal notranslate"><span class="pre">badrate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.badrate_by_group"><code class="docutils literal notranslate"><span class="pre">badrate_by_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.badrate_trend"><code class="docutils literal notranslate"><span class="pre">badrate_trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.badrate_by_score_bin"><code class="docutils literal notranslate"><span class="pre">badrate_by_score_bin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.score_stats"><code class="docutils literal notranslate"><span class="pre">score_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.score_stability"><code class="docutils literal notranslate"><span class="pre">score_stability()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.mse"><code class="docutils literal notranslate"><span class="pre">mse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.mae"><code class="docutils literal notranslate"><span class="pre">mae()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.rmse"><code class="docutils literal notranslate"><span class="pre">rmse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.r2"><code class="docutils literal notranslate"><span class="pre">r2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.compute_bin_stats"><code class="docutils literal notranslate"><span class="pre">compute_bin_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.add_margins"><code class="docutils literal notranslate"><span class="pre">add_margins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.quadratic_curve_coefficient"><code class="docutils literal notranslate"><span class="pre">quadratic_curve_coefficient()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="metrics.html#hscredit.core.metrics.composite_binning_quality"><code class="docutils literal notranslate"><span class="pre">composite_binning_quality()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="feature_engineering.html">特征衍生 <code class="docutils literal notranslate"><span class="pre">hscredit.core.feature_engineering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="feature_engineering.html#hscredit.core.feature_engineering.NumExprDerive"><code class="docutils literal notranslate"><span class="pre">NumExprDerive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="eda.html">数据探索 <code class="docutils literal notranslate"><span class="pre">hscredit.core.eda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.data_info"><code class="docutils literal notranslate"><span class="pre">data_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.missing_analysis"><code class="docutils literal notranslate"><span class="pre">missing_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_summary"><code class="docutils literal notranslate"><span class="pre">feature_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.numeric_summary"><code class="docutils literal notranslate"><span class="pre">numeric_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.category_summary"><code class="docutils literal notranslate"><span class="pre">category_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.data_quality_report"><code class="docutils literal notranslate"><span class="pre">data_quality_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_group_analysis"><code class="docutils literal notranslate"><span class="pre">feature_group_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_stability_monitor"><code class="docutils literal notranslate"><span class="pre">population_stability_monitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.target_distribution"><code class="docutils literal notranslate"><span class="pre">target_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.bad_rate_overall"><code class="docutils literal notranslate"><span class="pre">bad_rate_overall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.bad_rate_by_dimension"><code class="docutils literal notranslate"><span class="pre">bad_rate_by_dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.bad_rate_trend"><code class="docutils literal notranslate"><span class="pre">bad_rate_trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.bad_rate_by_bins"><code class="docutils literal notranslate"><span class="pre">bad_rate_by_bins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.sample_distribution"><code class="docutils literal notranslate"><span class="pre">sample_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_type_inference"><code class="docutils literal notranslate"><span class="pre">feature_type_inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.numeric_distribution"><code class="docutils literal notranslate"><span class="pre">numeric_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.categorical_distribution"><code class="docutils literal notranslate"><span class="pre">categorical_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.outlier_detection"><code class="docutils literal notranslate"><span class="pre">outlier_detection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.rare_category_detection"><code class="docutils literal notranslate"><span class="pre">rare_category_detection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.concentration_analysis"><code class="docutils literal notranslate"><span class="pre">concentration_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_stability_over_time"><code class="docutils literal notranslate"><span class="pre">feature_stability_over_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.iv_analysis"><code class="docutils literal notranslate"><span class="pre">iv_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.batch_iv_analysis"><code class="docutils literal notranslate"><span class="pre">batch_iv_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.woe_analysis"><code class="docutils literal notranslate"><span class="pre">woe_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.binning_bad_rate"><code class="docutils literal notranslate"><span class="pre">binning_bad_rate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.monotonicity_check"><code class="docutils literal notranslate"><span class="pre">monotonicity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.univariate_auc"><code class="docutils literal notranslate"><span class="pre">univariate_auc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_importance_ranking"><code class="docutils literal notranslate"><span class="pre">feature_importance_ranking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">correlation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.high_correlation_pairs"><code class="docutils literal notranslate"><span class="pre">high_correlation_pairs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.correlation_filter"><code class="docutils literal notranslate"><span class="pre">correlation_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.vif_analysis"><code class="docutils literal notranslate"><span class="pre">vif_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.psi_analysis"><code class="docutils literal notranslate"><span class="pre">psi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.batch_psi_analysis"><code class="docutils literal notranslate"><span class="pre">batch_psi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.csi_analysis"><code class="docutils literal notranslate"><span class="pre">csi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.time_psi_tracking"><code class="docutils literal notranslate"><span class="pre">time_psi_tracking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.stability_report"><code class="docutils literal notranslate"><span class="pre">stability_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.segment_drift_analysis"><code class="docutils literal notranslate"><span class="pre">segment_drift_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_cross_segment_effectiveness"><code class="docutils literal notranslate"><span class="pre">feature_cross_segment_effectiveness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.approval_badrate_tradeoff"><code class="docutils literal notranslate"><span class="pre">approval_badrate_tradeoff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.score_strategy_simulation"><code class="docutils literal notranslate"><span class="pre">score_strategy_simulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.vintage_performance_summary"><code class="docutils literal notranslate"><span class="pre">vintage_performance_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.roll_rate_matrix"><code class="docutils literal notranslate"><span class="pre">roll_rate_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.label_leakage_check"><code class="docutils literal notranslate"><span class="pre">label_leakage_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.multi_label_correlation"><code class="docutils literal notranslate"><span class="pre">multi_label_correlation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.vintage_analysis"><code class="docutils literal notranslate"><span class="pre">vintage_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.vintage_summary"><code class="docutils literal notranslate"><span class="pre">vintage_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.roll_rate_analysis"><code class="docutils literal notranslate"><span class="pre">roll_rate_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.eda_summary"><code class="docutils literal notranslate"><span class="pre">eda_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.generate_report"><code class="docutils literal notranslate"><span class="pre">generate_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.export_report_to_excel"><code class="docutils literal notranslate"><span class="pre">export_report_to_excel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="viz.html">可视化 <code class="docutils literal notranslate"><span class="pre">hscredit.core.viz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.bin_plot"><code class="docutils literal notranslate"><span class="pre">bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.bin_2d_plot"><code class="docutils literal notranslate"><span class="pre">bin_2d_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.corr_plot"><code class="docutils literal notranslate"><span class="pre">corr_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.ks_plot"><code class="docutils literal notranslate"><span class="pre">ks_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.hist_plot"><code class="docutils literal notranslate"><span class="pre">hist_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.psi_plot"><code class="docutils literal notranslate"><span class="pre">psi_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.dataframe_plot"><code class="docutils literal notranslate"><span class="pre">dataframe_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.distribution_plot"><code class="docutils literal notranslate"><span class="pre">distribution_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.bin_trend_plot"><code class="docutils literal notranslate"><span class="pre">bin_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.batch_bin_trend_plot"><code class="docutils literal notranslate"><span class="pre">batch_bin_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.bin_overdues_plot"><code class="docutils literal notranslate"><span class="pre">bin_overdues_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.plot_weights"><code class="docutils literal notranslate"><span class="pre">plot_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.roc_plot"><code class="docutils literal notranslate"><span class="pre">roc_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.pr_plot"><code class="docutils literal notranslate"><span class="pre">pr_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.lift_plot"><code class="docutils literal notranslate"><span class="pre">lift_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.gain_plot"><code class="docutils literal notranslate"><span class="pre">gain_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.confusion_matrix_plot"><code class="docutils literal notranslate"><span class="pre">confusion_matrix_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.calibration_plot"><code class="docutils literal notranslate"><span class="pre">calibration_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_dist_plot"><code class="docutils literal notranslate"><span class="pre">score_dist_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_bin_plot"><code class="docutils literal notranslate"><span class="pre">score_bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.threshold_analysis_plot"><code class="docutils literal notranslate"><span class="pre">threshold_analysis_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.strategy_compare_plot"><code class="docutils literal notranslate"><span class="pre">strategy_compare_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.vintage_plot"><code class="docutils literal notranslate"><span class="pre">vintage_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.feature_importance_plot"><code class="docutils literal notranslate"><span class="pre">feature_importance_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.approval_rate_trend_plot"><code class="docutils literal notranslate"><span class="pre">approval_rate_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.bad_rate_trend_plot"><code class="docutils literal notranslate"><span class="pre">bad_rate_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.metric_comparison_plot"><code class="docutils literal notranslate"><span class="pre">metric_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.variable_iv_plot"><code class="docutils literal notranslate"><span class="pre">variable_iv_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.variable_woe_trend_plot"><code class="docutils literal notranslate"><span class="pre">variable_woe_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.variable_psi_heatmap"><code class="docutils literal notranslate"><span class="pre">variable_psi_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.variable_importance_grouped_plot"><code class="docutils literal notranslate"><span class="pre">variable_importance_grouped_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.variable_missing_badrate_plot"><code class="docutils literal notranslate"><span class="pre">variable_missing_badrate_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_ks_plot"><code class="docutils literal notranslate"><span class="pre">score_ks_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_distribution_comparison_plot"><code class="docutils literal notranslate"><span class="pre">score_distribution_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_badrate_bin_plot"><code class="docutils literal notranslate"><span class="pre">score_badrate_bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_lift_plot"><code class="docutils literal notranslate"><span class="pre">score_lift_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.score_approval_badrate_curve"><code class="docutils literal notranslate"><span class="pre">score_approval_badrate_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.rule_swap_plot"><code class="docutils literal notranslate"><span class="pre">rule_swap_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.strategy_simulation_plot"><code class="docutils literal notranslate"><span class="pre">strategy_simulation_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.feature_trend_by_time"><code class="docutils literal notranslate"><span class="pre">feature_trend_by_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.feature_drift_comparison"><code class="docutils literal notranslate"><span class="pre">feature_drift_comparison()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.feature_effectiveness_by_segment"><code class="docutils literal notranslate"><span class="pre">feature_effectiveness_by_segment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.feature_cross_heatmap"><code class="docutils literal notranslate"><span class="pre">feature_cross_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.population_drift_monitor"><code class="docutils literal notranslate"><span class="pre">population_drift_monitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.segment_scorecard_comparison"><code class="docutils literal notranslate"><span class="pre">segment_scorecard_comparison()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.DecisionTreeViz"><code class="docutils literal notranslate"><span class="pre">DecisionTreeViz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.plot_tree"><code class="docutils literal notranslate"><span class="pre">plot_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.plot_tree_matplotlib"><code class="docutils literal notranslate"><span class="pre">plot_tree_matplotlib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.plot_tree_pyecharts"><code class="docutils literal notranslate"><span class="pre">plot_tree_pyecharts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.plot_tree_graphviz"><code class="docutils literal notranslate"><span class="pre">plot_tree_graphviz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.tree_leaf_comparison_plot"><code class="docutils literal notranslate"><span class="pre">tree_leaf_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.setup_axis_style"><code class="docutils literal notranslate"><span class="pre">setup_axis_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.save_figure"><code class="docutils literal notranslate"><span class="pre">save_figure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_palette"><code class="docutils literal notranslate"><span class="pre">get_palette()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_font_sizes"><code class="docutils literal notranslate"><span class="pre">get_font_sizes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_defaults"><code class="docutils literal notranslate"><span class="pre">get_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_expr_variables"><code class="docutils literal notranslate"><span class="pre">get_expr_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleState"><code class="docutils literal notranslate"><span class="pre">RuleState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleStateError"><code class="docutils literal notranslate"><span class="pre">RuleStateError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleUnAppliedError"><code class="docutils literal notranslate"><span class="pre">RuleUnAppliedError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="financial.html">金融计算 <code class="docutils literal notranslate"><span class="pre">hscredit.core.financial</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.fv"><code class="docutils literal notranslate"><span class="pre">fv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.pv"><code class="docutils literal notranslate"><span class="pre">pv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.pmt"><code class="docutils literal notranslate"><span class="pre">pmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.nper"><code class="docutils literal notranslate"><span class="pre">nper()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.ipmt"><code class="docutils literal notranslate"><span class="pre">ipmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.ppmt"><code class="docutils literal notranslate"><span class="pre">ppmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.rate"><code class="docutils literal notranslate"><span class="pre">rate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.npv"><code class="docutils literal notranslate"><span class="pre">npv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.irr"><code class="docutils literal notranslate"><span class="pre">irr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="financial.html#hscredit.core.financial.mirr"><code class="docutils literal notranslate"><span class="pre">mirr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="boosting.html#hscredit.core.models.boosting.xgboost_model.XGBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">XGBoostRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel"><code class="docutils literal notranslate"><span class="pre">LightGBMRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="boosting.html#hscredit.core.models.boosting.catboost_model.CatBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">CatBoostRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="boosting.html#hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">NGBoostRiskModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tuning.html">超参数调优 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.tuning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#hscredit.core.models.tuning.tuning.ModelTuner"><code class="docutils literal notranslate"><span class="pre">ModelTuner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#hscredit.core.models.tuning.tuning.AutoTuner"><code class="docutils literal notranslate"><span class="pre">AutoTuner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#hscredit.core.models.tuning.tuning.TuningObjective"><code class="docutils literal notranslate"><span class="pre">TuningObjective</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tuning.html#hscredit.core.models.tuning.tuning.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="tooling.html">报告与工具</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="report.html">报告 <code class="docutils literal notranslate"><span class="pre">hscredit.report</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.feature_bin_stats"><code class="docutils literal notranslate"><span class="pre">feature_bin_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.feature_binning_summary"><code class="docutils literal notranslate"><span class="pre">feature_binning_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.feature_efficiency_analysis"><code class="docutils literal notranslate"><span class="pre">feature_efficiency_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.auto_feature_analysis"><code class="docutils literal notranslate"><span class="pre">auto_feature_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ruleset_analysis"><code class="docutils literal notranslate"><span class="pre">ruleset_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.multi_label_rule_analysis"><code class="docutils literal notranslate"><span class="pre">multi_label_rule_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_swap_analysis"><code class="docutils literal notranslate"><span class="pre">rule_swap_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_report_table"><code class="docutils literal notranslate"><span class="pre">rule_report_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapRiskConfig"><code class="docutils literal notranslate"><span class="pre">SwapRiskConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.create_swap_dataset"><code class="docutils literal notranslate"><span class="pre">create_swap_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.create_swap_dataset_from_rules"><code class="docutils literal notranslate"><span class="pre">create_swap_dataset_from_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.swap_analysis"><code class="docutils literal notranslate"><span class="pre">swap_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.population_drift"><code class="docutils literal notranslate"><span class="pre">population_drift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit-report-mining">规则挖掘 <code class="docutils literal notranslate"><span class="pre">hscredit.report.mining</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="excel.html">Excel <code class="docutils literal notranslate"><span class="pre">hscredit.excel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.seed_everything"><code class="docutils literal notranslate"><span class="pre">seed_everything()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.load_pickle"><code class="docutils literal notranslate"><span class="pre">load_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.save_pickle"><code class="docutils literal notranslate"><span class="pre">save_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.feature_describe"><code class="docutils literal notranslate"><span class="pre">feature_describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.groupby_feature_describe"><code class="docutils literal notranslate"><span class="pre">groupby_feature_describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.style_bin_table"><code class="docutils literal notranslate"><span class="pre">style_bin_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.style_rule_table"><code class="docutils literal notranslate"><span class="pre">style_rule_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.BinTableDisplay"><code class="docutils literal notranslate"><span class="pre">BinTableDisplay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.register_extensions"><code class="docutils literal notranslate"><span class="pre">register_extensions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.check_xy_inputs"><code class="docutils literal notranslate"><span class="pre">check_xy_inputs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.convert_to_dataframe"><code class="docutils literal notranslate"><span class="pre">convert_to_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.extract_target_from_df"><code class="docutils literal notranslate"><span class="pre">extract_target_from_df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.check_array_1d"><code class="docutils literal notranslate"><span class="pre">check_array_1d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.get_feature_dtypes"><code class="docutils literal notranslate"><span class="pre">get_feature_dtypes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.utils.check_missing_values"><code class="docutils literal notranslate"><span class="pre">check_missing_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html">异常 <code class="docutils literal notranslate"><span class="pre">hscredit.exceptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.HSCreditError"><code class="docutils literal notranslate"><span class="pre">HSCreditError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.ValidationError"><code class="docutils literal notranslate"><span class="pre">ValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputValidationError"><code class="docutils literal notranslate"><span class="pre">InputValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputTypeError"><code class="docutils literal notranslate"><span class="pre">InputTypeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.FeatureNotFoundError"><code class="docutils literal notranslate"><span class="pre">FeatureNotFoundError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.StateError"><code class="docutils literal notranslate"><span class="pre">StateError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError"><code class="docutils literal notranslate"><span class="pre">NotFittedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.DependencyError"><code class="docutils literal notranslate"><span class="pre">DependencyError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.SerializationError"><code class="docutils literal notranslate"><span class="pre">SerializationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.raise_not_fitted"><code class="docutils literal notranslate"><span class="pre">raise_not_fitted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.raise_feature_not_found"><code class="docutils literal notranslate"><span class="pre">raise_feature_not_found()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#hscredit.exceptions.raise_missing_columns"><code class="docutils literal notranslate"><span class="pre">raise_missing_columns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">项目</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ROADMAP.html">hscredit Roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id1">一、产品定位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id2">二、当前代码结构与已实现能力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id3">2.1 模块总览</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id4">2.2 已实现能力清单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id5">2.3 设计约定</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id6">三、业务场景映射</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id7">3.1 贷前评分卡建模</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id8">3.2 机器学习风控模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id9">3.3 策略规则挖掘与运营</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id10">3.4 贷后监控与稳定性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id11">四、竞品对标</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#toad">4.1 toad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#optbinning">4.2 optbinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#scorecardpipeline">4.3 scorecardpipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#scorecardpy">4.4 scorecardpy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id12">五、竞争策略</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id13">5.1 不建议的外部表述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id14">5.2 推荐定位</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id15">六、能力缺口与优先级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id16">七、版本规划</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#v0-1-x">v0.1.x：可信度建设</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#v0-2-0">v0.2.0：特征工程与拒绝推断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#v0-3-0">v0.3.0：分箱与规则运营增强</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#v0-4-0">v0.4.0：报告、解释与上线交付</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#v0-5-0">v0.5.0：易用性和生态完善</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id17">八、工程质量计划</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id18">8.1 测试优先级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#ci">8.2 CI 与兼容性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ROADMAP.html#id19">8.3 文档质量要求</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id20">九、当前短期任务清单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ROADMAP.html#id21">十、长期方向</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #140e35" >
+  
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hscredit</a>
+  <div class="hs-mobile-actions" aria-label="衡枢外部链接">
+    <a href="https://hengshucredit.com" target="_blank" rel="noopener noreferrer">官网</a>
+    <a href="https://github.com/hengshu-credit/hscredit" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API 参考</a></li>
+          <li class="breadcrumb-item"><a href="tooling.html">报告与工具</a></li>
+      <li class="breadcrumb-item active">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/utils.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hscredit-utils">
+<h1>工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code><a class="headerlink" href="#hscredit-utils" title="Link to this heading"></a></h1>
+<p>随机种子、pickle IO、数据描述、Pandas 扩展（<code class="docutils literal notranslate"><span class="pre">df.summary()</span></code> / <code class="docutils literal notranslate"><span class="pre">df.save()</span></code> /
+<code class="docutils literal notranslate"><span class="pre">df.show()</span></code>）、日志等通用工具。<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">hscredit</span></code> 时自动注册 Pandas 扩展方法。</p>
+<p id="module-hscredit.utils">工具函数模块.</p>
+<p>提供常用的工具函数，包括随机种子设置、数据IO、特征描述、分箱表美化展示、环境初始化、日志管理等。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.seed_everything">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">seed_everything</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freeze_torch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/random.html#seed_everything"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.seed_everything" title="Link to this definition"></a></dt>
+<dd><p>固定当前环境随机种子，以保证后续实验可重复。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<em>int</em>) -- 随机种子</p></li>
+<li><p><strong>freeze_torch</strong> (<em>bool</em>) -- 是否固定 pytorch 的随机种子</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seed_everything</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seed_everything</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">freeze_torch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.load_pickle">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">load_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/io.html#load_pickle"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.load_pickle" title="Link to this definition"></a></dt>
+<dd><p>导入 pickle 文件。</p>
+<p>支持多种序列化引擎（joblib/dill/cloudpickle/pickle）和压缩格式
+（gzip/bz2/xz/lz4/zstd）。支持根据文件扩展名自动检测。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>str</em><em> | </em><em>Path</em>) -- pickle 文件路径，支持 .pkl, .pkl.gz, .joblib, .dill 等格式</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) -- 使用的序列化引擎，可选：
+- 'auto': 自动检测（根据文件内容和扩展名推断，默认）
+- 'joblib': 使用 joblib（推荐用于 numpy/scipy/sklearn 对象）
+- 'dill': 使用 dill（支持 lambda、嵌套函数等复杂对象）
+- 'cloudpickle': 使用 cloudpickle（常用于分布式计算如 PyTorch/Spark）
+- 'pickle': 使用标准库 pickle</p></li>
+<li><p><strong>compression</strong> (<em>str</em><em> | </em><em>None</em>) -- 压缩格式，可选：
+- None: 根据文件扩展名自动检测（.gz/.bz2/.xz/.lz4/.zst）
+- 'gzip'/'gz': gzip 压缩
+- 'bz2': bzip2 压缩
+- 'xz': xz/lzma 压缩
+- 'lz4': lz4 压缩（需安装 lz4）
+- 'zstd'/'zstandard': zstd 压缩（需安装 zstandard）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>反序列化后的对象</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;model.pkl.gz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;model.dill&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dill&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;cloudpickle&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.save_pickle">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">save_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'joblib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/io.html#save_pickle"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.save_pickle" title="Link to this definition"></a></dt>
+<dd><p>保存数据至 pickle 文件。</p>
+<p>支持多种序列化引擎（joblib/dill/cloudpickle/pickle）和压缩格式
+（gzip/bz2/xz/lz4/zstd），可处理大型模型和复杂对象。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Any</em>) -- 需要保存的数据对象</p></li>
+<li><p><strong>file</strong> (<em>str</em><em> | </em><em>Path</em>) -- 文件路径，建议扩展名 .pkl, .joblib, .dill 等</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) -- 使用的序列化引擎，可选：
+- 'joblib': joblib（默认，推荐用于 numpy/scipy/sklearn 对象）
+- 'dill': dill（支持 lambda、嵌套函数等复杂对象）
+- 'cloudpickle': cloudpickle（常用于分布式计算）
+- 'pickle': 标准库 pickle</p></li>
+<li><p><strong>compression</strong> (<em>str</em><em> | </em><em>None</em>) -- 压缩格式，可选：
+- None: 不压缩（默认）
+- 'gzip'/'gz': gzip 压缩（兼容性好）
+- 'bz2': bzip2 压缩（压缩率高但较慢）
+- 'xz': xz/lzma 压缩（最高压缩率）
+- 'lz4': lz4 压缩（速度最快，需安装 lz4）
+- 'zstd'/'zstandard': zstd 压缩（速度与压缩率平衡，需安装 zstandard）
+- 'auto': 根据文件扩展名自动选择</p></li>
+<li><p><strong>compression_level</strong> (<em>int</em><em> | </em><em>None</em>) -- 压缩级别（1-9，数字越大压缩率越高，默认取决于压缩算法）</p></li>
+<li><p><strong>protocol</strong> (<em>int</em><em> | </em><em>None</em>) -- pickle 协议版本（默认使用最高可用版本）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>保存的文件路径</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">save_pickle</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_pickle</span><span class="p">(</span><span class="n">lambda_func</span><span class="p">,</span> <span class="s1">&#39;func.dill&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dill&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_pickle</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;cloudpickle&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_pickle</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;model.pkl.gz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_pickle</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;zstd&#39;</span><span class="p">,</span> <span class="n">compression_level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_pickle</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;model.pkl.xz&#39;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;xz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.feature_describe">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">feature_describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cardinality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/describe.html#feature_describe"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.feature_describe" title="Link to this definition"></a></dt>
+<dd><p>特征描述统计。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 数据DataFrame或Series</p></li>
+<li><p><strong>feature</strong> (<em>str</em><em> | </em><em>None</em>) -- 特征名称，如果data是DataFrame则需要指定</p></li>
+<li><p><strong>percentiles</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) -- 分位数列表，默认使用常用分位数</p></li>
+<li><p><strong>missing</strong> -- 缺失值标记，会将其替换为np.nan</p></li>
+<li><p><strong>cardinality</strong> (<em>int</em><em> | </em><em>None</em>) -- 基数阈值，小于等于此值按类别型处理</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>描述统计结果Series</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Series</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.groupby_feature_describe">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">groupby_feature_describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/describe.html#groupby_feature_describe"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.groupby_feature_describe" title="Link to this definition"></a></dt>
+<dd><p>按分组进行特征描述统计。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 数据DataFrame</p></li>
+<li><p><strong>by</strong> -- 分组字段或字段列表</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em>) -- 并行任务数，-1表示使用所有CPU</p></li>
+<li><p><strong>kwargs</strong> -- 传递给feature_describe的其他参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>描述统计结果DataFrame</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">groupby_feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">groupby_feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;age_group&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.germancredit">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">germancredit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/datasets.html#germancredit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.germancredit" title="Link to this definition"></a></dt>
+<dd><p>加载德国信贷数据集 German Credit Data。</p>
+<p>数据来源：<a class="reference external" href="https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data">https://archive.ics.uci.edu/dataset/144/statlog+german+credit+data</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">germancredit</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(1000, 21)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.round_float">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">round_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/misc.html#round_float"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.round_float" title="Link to this definition"></a></dt>
+<dd><p>调整数值分箱的上下界小数点精度，如未超出精度保持原样输出。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> -- 分箱的上界或者下界</p></li>
+<li><p><strong>decimal</strong> (<em>int</em>) -- 小数点保留的精度</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>精度调整后的数值</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">round_float</span><span class="p">(</span><span class="mf">3.14159265</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">3.1416</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.force_reload_module">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">force_reload_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/misc.html#force_reload_module"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.force_reload_module" title="Link to this definition"></a></dt>
+<dd><p>在jupyter中强制重载模块，忽略所有缓存</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>module_name</strong> -- 模块名称</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>重新导入的模块</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">hscredit.utils.misc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hscredit</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">force_reload_module</span><span class="p">(</span><span class="s1">&#39;hscredit.utils.misc&#39;</span><span class="p">)</span>
+<span class="go">&lt;module &#39;hscredit.utils.misc&#39; from &#39;...&#39;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.init_setting">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">init_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freeze_torch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/init.html#init_setting"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.init_setting" title="Link to this definition"></a></dt>
+<dd><p>初始化环境配置。</p>
+<p>去除警告信息、修改 pandas 默认配置、固定随机种子。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>font_path</strong> -- 画图时图像使用的字体，支持系统字体名称、本地字体文件路径</p></li>
+<li><p><strong>seed</strong> -- 随机种子，默认为 None</p></li>
+<li><p><strong>freeze_torch</strong> -- 是否固定 pytorch 环境</p></li>
+<li><p><strong>logger</strong> -- 是否需要初始化日志器，默认为 False</p></li>
+<li><p><strong>kwargs</strong> -- 日志初始化传入的相关参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>当 logger 为 True 时返回 logging.Logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.init_logger">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">init_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hscredit'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/logger.html#init_logger"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.init_logger" title="Link to this definition"></a></dt>
+<dd><p>初始化日志记录器。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- logger 名称，默认为 &quot;hscredit&quot;</p></li>
+<li><p><strong>level</strong> (<em>int</em>) -- 日志级别，默认为 logging.INFO</p></li>
+<li><p><strong>log_file</strong> (<em>str</em><em> | </em><em>None</em>) -- 日志文件路径，默认为 None（不写入文件）</p></li>
+<li><p><strong>format</strong> (<em>str</em><em> | </em><em>None</em>) -- 日志格式，默认为 &quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;</p></li>
+<li><p><strong>console</strong> (<em>bool</em>) -- 是否输出到控制台，默认为 True</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>配置好的 logger 对象</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Logger</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.get_logger">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hscredit'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/logger.html#get_logger"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.get_logger" title="Link to this definition"></a></dt>
+<dd><p>获取已存在的 logger。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- logger 名称</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>logger 对象</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Logger</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.style_bin_table">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">style_bin_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_iv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_lift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_ks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_as_bin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_tech_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#style_bin_table"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.style_bin_table" title="Link to this definition"></a></dt>
+<dd><p>美化分箱表展示.</p>
+<p>使用 pandas Styler 对分箱表进行格式化和高亮，使其在 Jupyter 中更易读。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) -- 分箱统计表 DataFrame</p></li>
+<li><p><strong>max_rows</strong> (<em>int</em><em> | </em><em>None</em>) -- 最大显示行数，None 表示显示全部</p></li>
+<li><p><strong>highlight_iv</strong> (<em>bool</em>) -- 是否高亮 IV 值</p></li>
+<li><p><strong>highlight_bad_rate</strong> (<em>bool</em>) -- 是否高亮坏样本率（进度条）</p></li>
+<li><p><strong>highlight_lift</strong> (<em>bool</em>) -- 是否高亮 LIFT 值（进度条）</p></li>
+<li><p><strong>highlight_ks</strong> (<em>bool</em>) -- 是否高亮 KS 值（进度条）</p></li>
+<li><p><strong>compact</strong> (<em>bool</em>) -- 是否使用紧凑模式（隐藏部分列）</p></li>
+<li><p><strong>precision</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>] </em><em>| </em><em>None</em>) -- 自定义小数位数，格式为 {'列名': 位数}</p></li>
+<li><p><strong>index_as_bin</strong> (<em>bool</em>) -- 是否将分箱作为索引显示</p></li>
+<li><p><strong>percent_format</strong> (<em>bool</em>) -- 是否将百分比相关列显示为百分比格式（默认True）</p></li>
+<li><p><strong>high_tech_style</strong> (<em>bool</em>) -- 是否使用高科技/AI风格样式</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>格式化后的 Styler 对象</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">feature_bin_stats</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">style_bin_table</span><span class="p">(</span><span class="n">table</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.style_rule_table">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">style_rule_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overall_badrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#style_rule_table"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.style_rule_table" title="Link to this definition"></a></dt>
+<dd><p>美化决策树规则表展示。</p>
+<p>使用 pandas Styler 对规则表进行格式化、高亮和颜色标注，
+使其在 Jupyter 中更易读。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) -- <p>规则表 DataFrame，兼容两种来源：</p>
+<ul>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">ManualTreeExtractor.get_rule_table()</span></code> / <code class="xref py py-meth docutils literal notranslate"><span class="pre">report()</span></code> 的报告格式
+（节点编号、是否叶子、指标含义、样本总数、样本占比、坏样本率、LIFT值、…）</p></li>
+<li><p>旧版精简格式（节点编号、是否叶子、规则表达式、样本数、坏账率、LIFT值、…）</p></li>
+</ul>
+</p></li>
+<li><p><strong>overall_badrate</strong> (<em>float</em><em> | </em><em>None</em>) -- 全局坏样本率（用于计算颜色梯度），默认从数据推断</p></li>
+<li><p><strong>precision</strong> (<em>dict</em><em> | </em><em>None</em>) -- 自定义小数位数，格式为 {'列名': 位数}</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>格式化后的 Styler 对象</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report.mining</span><span class="w"> </span><span class="kn">import</span> <span class="n">ManualTreeExtractor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ext</span> <span class="o">=</span> <span class="n">ManualTreeExtractor</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;IS_BAD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ext</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">styled</span> <span class="o">=</span> <span class="n">style_rule_table</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">get_rule_table</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">styled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="hscredit.utils.BinTableDisplay">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">BinTableDisplay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#BinTableDisplay"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.BinTableDisplay" title="Link to this definition"></a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>分箱表展示器.</p>
+<p>提供链式调用接口，方便在 Jupyter 中展示美观的分箱表。</p>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">feature_bin_stats</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">compact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">highlight_iv</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.utils.BinTableDisplay.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_iv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_lift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlight_ks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_as_bin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_tech_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#BinTableDisplay.show"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.BinTableDisplay.show" title="Link to this definition"></a></dt>
+<dd><p>展示美化的分箱表.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_rows</strong> (<em>int</em><em> | </em><em>None</em>) -- 最大显示行数</p></li>
+<li><p><strong>highlight_iv</strong> (<em>bool</em>) -- 是否高亮 IV 值</p></li>
+<li><p><strong>highlight_bad_rate</strong> (<em>bool</em>) -- 是否高亮坏样本率</p></li>
+<li><p><strong>highlight_lift</strong> (<em>bool</em>) -- 是否高亮 LIFT 值</p></li>
+<li><p><strong>highlight_ks</strong> (<em>bool</em>) -- 是否高亮 KS 值</p></li>
+<li><p><strong>compact</strong> (<em>bool</em>) -- 是否使用紧凑模式</p></li>
+<li><p><strong>precision</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>int</em><em>] </em><em>| </em><em>None</em>) -- 自定义小数位数</p></li>
+<li><p><strong>index_as_bin</strong> (<em>bool</em>) -- 是否将分箱作为索引显示</p></li>
+<li><p><strong>percent_format</strong> (<em>bool</em>) -- 是否将百分比相关列显示为百分比格式（默认True）</p></li>
+<li><p><strong>high_tech_style</strong> (<em>bool</em>) -- 是否使用高科技/AI风格样式</p></li>
+<li><p><strong>kwargs</strong> -- 其他参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>self，支持链式调用</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.utils.BinTableDisplay" title="hscredit.utils.pandas_extensions.BinTableDisplay"><em>BinTableDisplay</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.utils.BinTableDisplay.highlight_bins">
+<span class="sig-name descname"><span class="pre">highlight_bins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#e3f2fd'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#BinTableDisplay.highlight_bins"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.BinTableDisplay.highlight_bins" title="Link to this definition"></a></dt>
+<dd><p>高亮指定的分箱行.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bins</strong> (<em>int</em><em> | </em><em>List</em><em>[</em><em>int</em><em>]</em>) -- 要高亮的分箱索引或索引列表</p></li>
+<li><p><strong>color</strong> (<em>str</em>) -- 高亮颜色</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>self，支持链式调用</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.utils.BinTableDisplay" title="hscredit.utils.pandas_extensions.BinTableDisplay"><em>BinTableDisplay</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.utils.BinTableDisplay.export_html">
+<span class="sig-name descname"><span class="pre">export_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#BinTableDisplay.export_html"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.BinTableDisplay.export_html" title="Link to this definition"></a></dt>
+<dd><p>导出为 HTML 文件.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) -- 文件名</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>self，支持链式调用</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.utils.BinTableDisplay" title="hscredit.utils.pandas_extensions.BinTableDisplay"><em>BinTableDisplay</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.utils.BinTableDisplay.to_excel">
+<span class="sig-name descname"><span class="pre">to_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'分箱统计'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#BinTableDisplay.to_excel"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.BinTableDisplay.to_excel" title="Link to this definition"></a></dt>
+<dd><p>导出为 Excel 文件.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) -- 文件名</p></li>
+<li><p><strong>sheet_name</strong> (<em>str</em>) -- 工作表名称</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>self，支持链式调用</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.utils.BinTableDisplay" title="hscredit.utils.pandas_extensions.BinTableDisplay"><em>BinTableDisplay</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.register_extensions">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">register_extensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/pandas_extensions.html#register_extensions"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.register_extensions" title="Link to this definition"></a></dt>
+<dd><p>注册 pandas DataFrame/Series 扩展方法.</p>
+<p>在导入 hscredit 时自动调用，将以下方法添加到 pandas:
+- df.summary(): 综合特征描述统计
+- df.eda_info(): EDA基础信息
+- df.missing_analysis(): 缺失值分析
+- df.show(): 美化展示分箱表
+- df.save(): 保存到Excel
+- s.save(): Series保存到Excel</p>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">hscredit</span>  <span class="c1"># 自动注册扩展</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="o">...</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;report.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.check_xy_inputs">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">check_xy_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accept_numpy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#check_xy_inputs"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.check_xy_inputs" title="Link to this definition"></a></dt>
+<dd><p>统一检查并处理X和y输入.</p>
+<p>支持两种API风格:
+1. sklearn风格: fit(X, y)
+2. scorecardpipeline风格: fit(df) - target列在df中</p>
+<p>优先级: fit传入的y &gt; 从X中提取target列</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数据 (DataFrame或numpy数组)</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>List</em><em> | </em><em>None</em>) -- 目标变量 (可选，优先使用)</p></li>
+<li><p><strong>target</strong> (<em>str</em>) -- 目标列名，当y为None时从X中提取</p></li>
+<li><p><strong>accept_numpy</strong> (<em>bool</em>) -- 是否接受numpy数组输入</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>处理后的DataFrame
+y_series: 目标变量的Series
+feature_names: 特征名称列表</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>X_df</p>
+</dd>
+<dt class="field-even">抛出<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> -- 当输入格式不正确时</p></li>
+<li><p><strong>TypeError</strong> -- 当输入类型不支持时</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># sklearn风格</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_df</span><span class="p">,</span> <span class="n">y_series</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">check_xy_inputs</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># scorecardpipeline风格</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_df</span><span class="p">,</span> <span class="n">y_series</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">check_xy_inputs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.convert_to_dataframe">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">convert_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#convert_to_dataframe"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.convert_to_dataframe" title="Link to this definition"></a></dt>
+<dd><p>将输入转换为DataFrame.</p>
+<p>支持DataFrame, numpy数组, list等输入.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数据</p></li>
+<li><p><strong>columns</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 列名列表，当X不是DataFrame时使用</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>转换后的DataFrame</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TypeError</strong> -- 当输入类型不支持时</p></li>
+<li><p><strong>ValueError</strong> -- 当列名数量不匹配时</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">convert_to_dataframe</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">convert_to_dataframe</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.extract_target_from_df">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">extract_target_from_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#extract_target_from_df"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.extract_target_from_df" title="Link to this definition"></a></dt>
+<dd><p>从DataFrame中提取目标变量.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入DataFrame</p></li>
+<li><p><strong>target</strong> (<em>str</em>) -- 目标列名</p></li>
+<li><p><strong>drop</strong> (<em>bool</em>) -- 是否从df中删除target列</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>特征DataFrame
+y: 目标Series</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>X</p>
+</dd>
+<dt class="field-even">抛出<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> -- 当target列不存在时</p></li>
+<li><p><strong>TypeError</strong> -- 当输入不是DataFrame时</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extract_target_from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extract_target_from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.check_array_1d">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">check_array_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'array'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#check_array_1d"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.check_array_1d" title="Link to this definition"></a></dt>
+<dd><p>检查并转换为一维数组.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arr</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数组</p></li>
+<li><p><strong>name</strong> (<em>str</em>) -- 数组名称，用于错误信息</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>一维Series</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> -- 当数组为空或多维时</p></li>
+<li><p><strong>TypeError</strong> -- 当类型不支持时</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Series</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.get_feature_dtypes">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">get_feature_dtypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#get_feature_dtypes"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.get_feature_dtypes" title="Link to this definition"></a></dt>
+<dd><p>获取特征的数据类型分类.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em>) -- 特征DataFrame</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>包含数值型和类别型特征名称的字典</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dtypes</span> <span class="o">=</span> <span class="n">get_feature_dtypes</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numeric_features</span> <span class="o">=</span> <span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;numeric&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">categorical_features</span> <span class="o">=</span> <span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;categorical&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.utils.check_missing_values">
+<span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">check_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#check_missing_values"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.check_missing_values" title="Link to this definition"></a></dt>
+<dd><p>检查缺失值情况.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>DataFrame</em>) -- 特征DataFrame</p></li>
+<li><p><strong>y</strong> (<em>Series</em><em> | </em><em>None</em>) -- 目标Series（可选）</p></li>
+<li><p><strong>raise_error</strong> (<em>bool</em>) -- 当存在缺失值时是否抛出异常</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>缺失值统计字典</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> -- 当raise_error=True且存在缺失值时</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="excel.html" class="btn btn-neutral float-left" title="Excel hscredit.excel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="异常 hscredit.exceptions" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, hscredit team。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

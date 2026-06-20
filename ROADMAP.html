@@ -1,0 +1,1471 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hscredit Roadmap &mdash; hscredit 0.1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=bb381e50" />
+
+  
+    <link rel="shortcut icon" href="_static/hengshucredit_logo.svg"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+      <script src="_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="_static/copy-code.js?v=60bfc96f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="异常 hscredit.exceptions" href="api/exceptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #140e35" >
+  
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            hscredit
+              <img src="_static/hengshucredit_logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+  <div class="hs-brand-actions" aria-label="衡枢外部链接">
+    <a class="hs-brand-action hs-brand-action--primary"
+       href="https://hengshucredit.com"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span class="hs-brand-action__mark" aria-hidden="true">衡</span>
+      公司官网
+    </a>
+    <a class="hs-brand-action"
+       href="https://github.com/hengshu-credit/hscredit"
+       target="_blank"
+       rel="noopener noreferrer">
+      <svg class="hs-brand-action__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.9 10.9 0 0 1 12 6.31c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.07.79 2.16v3.04c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/>
+      </svg>
+      GitHub 仓库
+    </a>
+  </div>
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">功能总览</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id2">适用场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id3">数据探索与策略分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id4">分箱、编码与筛选</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id5">建模、评估与监控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id6">规则、报告与交付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id7">架构设计</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id2">基础安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id3">可选能力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id4">开发模式安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id5">验证安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#id6">构建文档</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id2">1. 数据和变量初筛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id3">2. 分箱、编码和变量筛选</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id4">3. 评分卡建模</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id5">4. 机器学习风控模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id6">5. 策略规则挖掘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#excel">6. 模型报告和 Excel 交付</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id7">规则表达式</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API 参考</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API 参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html">核心模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/binning.html">分箱 <code class="docutils literal notranslate"><span class="pre">hscredit.core.binning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.BaseBinning"><code class="docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.UniformBinning"><code class="docutils literal notranslate"><span class="pre">UniformBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.QuantileBinning"><code class="docutils literal notranslate"><span class="pre">QuantileBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.TreeBinning"><code class="docutils literal notranslate"><span class="pre">TreeBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.CartBinning"><code class="docutils literal notranslate"><span class="pre">CartBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.ChiMergeBinning"><code class="docutils literal notranslate"><span class="pre">ChiMergeBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.BestKSBinning"><code class="docutils literal notranslate"><span class="pre">BestKSBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.BestIVBinning"><code class="docutils literal notranslate"><span class="pre">BestIVBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.OptimalBinning"><code class="docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.MDLPBinning"><code class="docutils literal notranslate"><span class="pre">MDLPBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.ORBinning"><code class="docutils literal notranslate"><span class="pre">ORBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.CustomObjectives"><code class="docutils literal notranslate"><span class="pre">CustomObjectives</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.CPSATBinning"><code class="docutils literal notranslate"><span class="pre">CPSATBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.KMeansBinning"><code class="docutils literal notranslate"><span class="pre">KMeansBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.MonotonicBinning"><code class="docutils literal notranslate"><span class="pre">MonotonicBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.GeneticBinning"><code class="docutils literal notranslate"><span class="pre">GeneticBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.SmoothBinning"><code class="docutils literal notranslate"><span class="pre">SmoothBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.KernelDensityBinning"><code class="docutils literal notranslate"><span class="pre">KernelDensityBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.BestLiftBinning"><code class="docutils literal notranslate"><span class="pre">BestLiftBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.TargetBadRateBinning"><code class="docutils literal notranslate"><span class="pre">TargetBadRateBinning</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/binning.html#hscredit.core.binning.OptimalBinning2D"><code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/encoders.html">编码器 <code class="docutils literal notranslate"><span class="pre">hscredit.core.encoders</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.BaseEncoder"><code class="docutils literal notranslate"><span class="pre">BaseEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.WOEEncoder"><code class="docutils literal notranslate"><span class="pre">WOEEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.TargetEncoder"><code class="docutils literal notranslate"><span class="pre">TargetEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.CountEncoder"><code class="docutils literal notranslate"><span class="pre">CountEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.OneHotEncoder"><code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.OrdinalEncoder"><code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.QuantileEncoder"><code class="docutils literal notranslate"><span class="pre">QuantileEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.CatBoostEncoder"><code class="docutils literal notranslate"><span class="pre">CatBoostEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.GBMEncoder"><code class="docutils literal notranslate"><span class="pre">GBMEncoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/encoders.html#hscredit.core.encoders.CardinalityEncoder"><code class="docutils literal notranslate"><span class="pre">CardinalityEncoder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/selectors.html">特征筛选 <code class="docutils literal notranslate"><span class="pre">hscredit.core.selectors</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.BaseFeatureSelector"><code class="docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.SelectionReportCollector"><code class="docutils literal notranslate"><span class="pre">SelectionReportCollector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.TypeSelector"><code class="docutils literal notranslate"><span class="pre">TypeSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.RegexSelector"><code class="docutils literal notranslate"><span class="pre">RegexSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.NullSelector"><code class="docutils literal notranslate"><span class="pre">NullSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.ModeSelector"><code class="docutils literal notranslate"><span class="pre">ModeSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.CardinalitySelector"><code class="docutils literal notranslate"><span class="pre">CardinalitySelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.VarianceSelector"><code class="docutils literal notranslate"><span class="pre">VarianceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.CorrSelector"><code class="docutils literal notranslate"><span class="pre">CorrSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.VIFSelector"><code class="docutils literal notranslate"><span class="pre">VIFSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.IVSelector"><code class="docutils literal notranslate"><span class="pre">IVSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.LiftSelector"><code class="docutils literal notranslate"><span class="pre">LiftSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.PSISelector"><code class="docutils literal notranslate"><span class="pre">PSISelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.FeatureImportanceSelector"><code class="docutils literal notranslate"><span class="pre">FeatureImportanceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.NullImportanceSelector"><code class="docutils literal notranslate"><span class="pre">NullImportanceSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.RFESelector"><code class="docutils literal notranslate"><span class="pre">RFESelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.SequentialFeatureSelector"><code class="docutils literal notranslate"><span class="pre">SequentialFeatureSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.StepwiseSelector"><code class="docutils literal notranslate"><span class="pre">StepwiseSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.BorutaSelector"><code class="docutils literal notranslate"><span class="pre">BorutaSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.MutualInfoSelector"><code class="docutils literal notranslate"><span class="pre">MutualInfoSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.Chi2Selector"><code class="docutils literal notranslate"><span class="pre">Chi2Selector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.FTestSelector"><code class="docutils literal notranslate"><span class="pre">FTestSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.StabilityAwareSelector"><code class="docutils literal notranslate"><span class="pre">StabilityAwareSelector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.ScorecardFeatureSelection"><code class="docutils literal notranslate"><span class="pre">ScorecardFeatureSelection</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/selectors.html#hscredit.core.selectors.CompositeFeatureSelector"><code class="docutils literal notranslate"><span class="pre">CompositeFeatureSelector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/metrics.html">指标 <code class="docutils literal notranslate"><span class="pre">hscredit.core.metrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.ks"><code class="docutils literal notranslate"><span class="pre">ks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.auc"><code class="docutils literal notranslate"><span class="pre">auc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.gini"><code class="docutils literal notranslate"><span class="pre">gini()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.precision"><code class="docutils literal notranslate"><span class="pre">precision()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.recall"><code class="docutils literal notranslate"><span class="pre">recall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.f1"><code class="docutils literal notranslate"><span class="pre">f1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.ks_bucket"><code class="docutils literal notranslate"><span class="pre">ks_bucket()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.confusion_matrix"><code class="docutils literal notranslate"><span class="pre">confusion_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.classification_report"><code class="docutils literal notranslate"><span class="pre">classification_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.ks_2samps"><code class="docutils literal notranslate"><span class="pre">ks_2samps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.iv"><code class="docutils literal notranslate"><span class="pre">iv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.iv_table"><code class="docutils literal notranslate"><span class="pre">iv_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.chi2_test"><code class="docutils literal notranslate"><span class="pre">chi2_test()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.cramers_v"><code class="docutils literal notranslate"><span class="pre">cramers_v()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.feature_importance"><code class="docutils literal notranslate"><span class="pre">feature_importance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.psi"><code class="docutils literal notranslate"><span class="pre">psi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.psi_table"><code class="docutils literal notranslate"><span class="pre">psi_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.psi_rating"><code class="docutils literal notranslate"><span class="pre">psi_rating()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.csi"><code class="docutils literal notranslate"><span class="pre">csi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.csi_table"><code class="docutils literal notranslate"><span class="pre">csi_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.batch_psi"><code class="docutils literal notranslate"><span class="pre">batch_psi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.lift"><code class="docutils literal notranslate"><span class="pre">lift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.lift_at"><code class="docutils literal notranslate"><span class="pre">lift_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.lift_table"><code class="docutils literal notranslate"><span class="pre">lift_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.lift_curve"><code class="docutils literal notranslate"><span class="pre">lift_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.lift_monotonicity_check"><code class="docutils literal notranslate"><span class="pre">lift_monotonicity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.rule_lift"><code class="docutils literal notranslate"><span class="pre">rule_lift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.badrate"><code class="docutils literal notranslate"><span class="pre">badrate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.badrate_by_group"><code class="docutils literal notranslate"><span class="pre">badrate_by_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.badrate_trend"><code class="docutils literal notranslate"><span class="pre">badrate_trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.badrate_by_score_bin"><code class="docutils literal notranslate"><span class="pre">badrate_by_score_bin()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.score_stats"><code class="docutils literal notranslate"><span class="pre">score_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.score_stability"><code class="docutils literal notranslate"><span class="pre">score_stability()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.mse"><code class="docutils literal notranslate"><span class="pre">mse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.mae"><code class="docutils literal notranslate"><span class="pre">mae()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.rmse"><code class="docutils literal notranslate"><span class="pre">rmse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.r2"><code class="docutils literal notranslate"><span class="pre">r2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.compute_bin_stats"><code class="docutils literal notranslate"><span class="pre">compute_bin_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.add_margins"><code class="docutils literal notranslate"><span class="pre">add_margins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.quadratic_curve_coefficient"><code class="docutils literal notranslate"><span class="pre">quadratic_curve_coefficient()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/metrics.html#hscredit.core.metrics.composite_binning_quality"><code class="docutils literal notranslate"><span class="pre">composite_binning_quality()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/feature_engineering.html">特征衍生 <code class="docutils literal notranslate"><span class="pre">hscredit.core.feature_engineering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/feature_engineering.html#hscredit.core.feature_engineering.NumExprDerive"><code class="docutils literal notranslate"><span class="pre">NumExprDerive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/eda.html">数据探索 <code class="docutils literal notranslate"><span class="pre">hscredit.core.eda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.data_info"><code class="docutils literal notranslate"><span class="pre">data_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.missing_analysis"><code class="docutils literal notranslate"><span class="pre">missing_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_summary"><code class="docutils literal notranslate"><span class="pre">feature_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.numeric_summary"><code class="docutils literal notranslate"><span class="pre">numeric_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.category_summary"><code class="docutils literal notranslate"><span class="pre">category_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.data_quality_report"><code class="docutils literal notranslate"><span class="pre">data_quality_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_group_analysis"><code class="docutils literal notranslate"><span class="pre">feature_group_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.population_stability_monitor"><code class="docutils literal notranslate"><span class="pre">population_stability_monitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.target_distribution"><code class="docutils literal notranslate"><span class="pre">target_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.bad_rate_overall"><code class="docutils literal notranslate"><span class="pre">bad_rate_overall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.bad_rate_by_dimension"><code class="docutils literal notranslate"><span class="pre">bad_rate_by_dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.bad_rate_trend"><code class="docutils literal notranslate"><span class="pre">bad_rate_trend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.bad_rate_by_bins"><code class="docutils literal notranslate"><span class="pre">bad_rate_by_bins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.sample_distribution"><code class="docutils literal notranslate"><span class="pre">sample_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_type_inference"><code class="docutils literal notranslate"><span class="pre">feature_type_inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.numeric_distribution"><code class="docutils literal notranslate"><span class="pre">numeric_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.categorical_distribution"><code class="docutils literal notranslate"><span class="pre">categorical_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.outlier_detection"><code class="docutils literal notranslate"><span class="pre">outlier_detection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.rare_category_detection"><code class="docutils literal notranslate"><span class="pre">rare_category_detection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.concentration_analysis"><code class="docutils literal notranslate"><span class="pre">concentration_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_stability_over_time"><code class="docutils literal notranslate"><span class="pre">feature_stability_over_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.iv_analysis"><code class="docutils literal notranslate"><span class="pre">iv_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.batch_iv_analysis"><code class="docutils literal notranslate"><span class="pre">batch_iv_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.woe_analysis"><code class="docutils literal notranslate"><span class="pre">woe_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.binning_bad_rate"><code class="docutils literal notranslate"><span class="pre">binning_bad_rate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.monotonicity_check"><code class="docutils literal notranslate"><span class="pre">monotonicity_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.univariate_auc"><code class="docutils literal notranslate"><span class="pre">univariate_auc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_importance_ranking"><code class="docutils literal notranslate"><span class="pre">feature_importance_ranking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.correlation_matrix"><code class="docutils literal notranslate"><span class="pre">correlation_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.high_correlation_pairs"><code class="docutils literal notranslate"><span class="pre">high_correlation_pairs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.correlation_filter"><code class="docutils literal notranslate"><span class="pre">correlation_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.vif_analysis"><code class="docutils literal notranslate"><span class="pre">vif_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.psi_analysis"><code class="docutils literal notranslate"><span class="pre">psi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.batch_psi_analysis"><code class="docutils literal notranslate"><span class="pre">batch_psi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.csi_analysis"><code class="docutils literal notranslate"><span class="pre">csi_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.time_psi_tracking"><code class="docutils literal notranslate"><span class="pre">time_psi_tracking()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.stability_report"><code class="docutils literal notranslate"><span class="pre">stability_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.segment_drift_analysis"><code class="docutils literal notranslate"><span class="pre">segment_drift_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.feature_cross_segment_effectiveness"><code class="docutils literal notranslate"><span class="pre">feature_cross_segment_effectiveness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.approval_badrate_tradeoff"><code class="docutils literal notranslate"><span class="pre">approval_badrate_tradeoff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.score_strategy_simulation"><code class="docutils literal notranslate"><span class="pre">score_strategy_simulation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.vintage_performance_summary"><code class="docutils literal notranslate"><span class="pre">vintage_performance_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.roll_rate_matrix"><code class="docutils literal notranslate"><span class="pre">roll_rate_matrix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.label_leakage_check"><code class="docutils literal notranslate"><span class="pre">label_leakage_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.multi_label_correlation"><code class="docutils literal notranslate"><span class="pre">multi_label_correlation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.vintage_analysis"><code class="docutils literal notranslate"><span class="pre">vintage_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.vintage_summary"><code class="docutils literal notranslate"><span class="pre">vintage_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.roll_rate_analysis"><code class="docutils literal notranslate"><span class="pre">roll_rate_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.eda_summary"><code class="docutils literal notranslate"><span class="pre">eda_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.generate_report"><code class="docutils literal notranslate"><span class="pre">generate_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/eda.html#hscredit.core.eda.export_report_to_excel"><code class="docutils literal notranslate"><span class="pre">export_report_to_excel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/viz.html">可视化 <code class="docutils literal notranslate"><span class="pre">hscredit.core.viz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.bin_plot"><code class="docutils literal notranslate"><span class="pre">bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.bin_2d_plot"><code class="docutils literal notranslate"><span class="pre">bin_2d_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.corr_plot"><code class="docutils literal notranslate"><span class="pre">corr_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.ks_plot"><code class="docutils literal notranslate"><span class="pre">ks_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.hist_plot"><code class="docutils literal notranslate"><span class="pre">hist_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.psi_plot"><code class="docutils literal notranslate"><span class="pre">psi_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.dataframe_plot"><code class="docutils literal notranslate"><span class="pre">dataframe_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.distribution_plot"><code class="docutils literal notranslate"><span class="pre">distribution_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.bin_trend_plot"><code class="docutils literal notranslate"><span class="pre">bin_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.batch_bin_trend_plot"><code class="docutils literal notranslate"><span class="pre">batch_bin_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.bin_overdues_plot"><code class="docutils literal notranslate"><span class="pre">bin_overdues_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.plot_weights"><code class="docutils literal notranslate"><span class="pre">plot_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.roc_plot"><code class="docutils literal notranslate"><span class="pre">roc_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.pr_plot"><code class="docutils literal notranslate"><span class="pre">pr_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.lift_plot"><code class="docutils literal notranslate"><span class="pre">lift_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.gain_plot"><code class="docutils literal notranslate"><span class="pre">gain_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.confusion_matrix_plot"><code class="docutils literal notranslate"><span class="pre">confusion_matrix_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.calibration_plot"><code class="docutils literal notranslate"><span class="pre">calibration_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_dist_plot"><code class="docutils literal notranslate"><span class="pre">score_dist_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_bin_plot"><code class="docutils literal notranslate"><span class="pre">score_bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.threshold_analysis_plot"><code class="docutils literal notranslate"><span class="pre">threshold_analysis_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.strategy_compare_plot"><code class="docutils literal notranslate"><span class="pre">strategy_compare_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.vintage_plot"><code class="docutils literal notranslate"><span class="pre">vintage_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.feature_importance_plot"><code class="docutils literal notranslate"><span class="pre">feature_importance_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.approval_rate_trend_plot"><code class="docutils literal notranslate"><span class="pre">approval_rate_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.bad_rate_trend_plot"><code class="docutils literal notranslate"><span class="pre">bad_rate_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.metric_comparison_plot"><code class="docutils literal notranslate"><span class="pre">metric_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.variable_iv_plot"><code class="docutils literal notranslate"><span class="pre">variable_iv_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.variable_woe_trend_plot"><code class="docutils literal notranslate"><span class="pre">variable_woe_trend_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.variable_psi_heatmap"><code class="docutils literal notranslate"><span class="pre">variable_psi_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.variable_importance_grouped_plot"><code class="docutils literal notranslate"><span class="pre">variable_importance_grouped_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.variable_missing_badrate_plot"><code class="docutils literal notranslate"><span class="pre">variable_missing_badrate_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_ks_plot"><code class="docutils literal notranslate"><span class="pre">score_ks_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_distribution_comparison_plot"><code class="docutils literal notranslate"><span class="pre">score_distribution_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_badrate_bin_plot"><code class="docutils literal notranslate"><span class="pre">score_badrate_bin_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_lift_plot"><code class="docutils literal notranslate"><span class="pre">score_lift_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.score_approval_badrate_curve"><code class="docutils literal notranslate"><span class="pre">score_approval_badrate_curve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.rule_swap_plot"><code class="docutils literal notranslate"><span class="pre">rule_swap_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.strategy_simulation_plot"><code class="docutils literal notranslate"><span class="pre">strategy_simulation_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.feature_trend_by_time"><code class="docutils literal notranslate"><span class="pre">feature_trend_by_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.feature_drift_comparison"><code class="docutils literal notranslate"><span class="pre">feature_drift_comparison()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.feature_effectiveness_by_segment"><code class="docutils literal notranslate"><span class="pre">feature_effectiveness_by_segment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.feature_cross_heatmap"><code class="docutils literal notranslate"><span class="pre">feature_cross_heatmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.population_drift_monitor"><code class="docutils literal notranslate"><span class="pre">population_drift_monitor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.segment_scorecard_comparison"><code class="docutils literal notranslate"><span class="pre">segment_scorecard_comparison()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.DecisionTreeViz"><code class="docutils literal notranslate"><span class="pre">DecisionTreeViz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.plot_tree"><code class="docutils literal notranslate"><span class="pre">plot_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.plot_tree_matplotlib"><code class="docutils literal notranslate"><span class="pre">plot_tree_matplotlib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.plot_tree_pyecharts"><code class="docutils literal notranslate"><span class="pre">plot_tree_pyecharts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.plot_tree_graphviz"><code class="docutils literal notranslate"><span class="pre">plot_tree_graphviz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.tree_leaf_comparison_plot"><code class="docutils literal notranslate"><span class="pre">tree_leaf_comparison_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.setup_axis_style"><code class="docutils literal notranslate"><span class="pre">setup_axis_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.save_figure"><code class="docutils literal notranslate"><span class="pre">save_figure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_palette"><code class="docutils literal notranslate"><span class="pre">get_palette()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_font_sizes"><code class="docutils literal notranslate"><span class="pre">get_font_sizes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_defaults"><code class="docutils literal notranslate"><span class="pre">get_defaults()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.get_expr_variables"><code class="docutils literal notranslate"><span class="pre">get_expr_variables()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.RuleState"><code class="docutils literal notranslate"><span class="pre">RuleState</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.RuleStateError"><code class="docutils literal notranslate"><span class="pre">RuleStateError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.RuleUnAppliedError"><code class="docutils literal notranslate"><span class="pre">RuleUnAppliedError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/financial.html">金融计算 <code class="docutils literal notranslate"><span class="pre">hscredit.core.financial</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.fv"><code class="docutils literal notranslate"><span class="pre">fv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.pv"><code class="docutils literal notranslate"><span class="pre">pv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.pmt"><code class="docutils literal notranslate"><span class="pre">pmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.nper"><code class="docutils literal notranslate"><span class="pre">nper()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.ipmt"><code class="docutils literal notranslate"><span class="pre">ipmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.ppmt"><code class="docutils literal notranslate"><span class="pre">ppmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.rate"><code class="docutils literal notranslate"><span class="pre">rate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.npv"><code class="docutils literal notranslate"><span class="pre">npv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.irr"><code class="docutils literal notranslate"><span class="pre">irr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/financial.html#hscredit.core.financial.mirr"><code class="docutils literal notranslate"><span class="pre">mirr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/modeling.html">模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id1">经典模型与评分卡</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id2">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id3">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id10">模型报告</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/boosting.html#hscredit.core.models.boosting.xgboost_model.XGBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">XGBoostRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel"><code class="docutils literal notranslate"><span class="pre">LightGBMRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/boosting.html#hscredit.core.models.boosting.catboost_model.CatBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">CatBoostRiskModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/boosting.html#hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel"><code class="docutils literal notranslate"><span class="pre">NGBoostRiskModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/tuning.html">超参数调优 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.tuning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner"><code class="docutils literal notranslate"><span class="pre">ModelTuner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/tuning.html#hscredit.core.models.tuning.tuning.AutoTuner"><code class="docutils literal notranslate"><span class="pre">AutoTuner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/tuning.html#hscredit.core.models.tuning.tuning.TuningObjective"><code class="docutils literal notranslate"><span class="pre">TuningObjective</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/tuning.html#hscredit.core.models.tuning.tuning.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/tooling.html">报告与工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/report.html">报告 <code class="docutils literal notranslate"><span class="pre">hscredit.report</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.feature_bin_stats"><code class="docutils literal notranslate"><span class="pre">feature_bin_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.feature_binning_summary"><code class="docutils literal notranslate"><span class="pre">feature_binning_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.feature_efficiency_analysis"><code class="docutils literal notranslate"><span class="pre">feature_efficiency_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.auto_feature_analysis"><code class="docutils literal notranslate"><span class="pre">auto_feature_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.ruleset_analysis"><code class="docutils literal notranslate"><span class="pre">ruleset_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.multi_label_rule_analysis"><code class="docutils literal notranslate"><span class="pre">multi_label_rule_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_swap_analysis"><code class="docutils literal notranslate"><span class="pre">rule_swap_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_report_table"><code class="docutils literal notranslate"><span class="pre">rule_report_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.SwapRiskConfig"><code class="docutils literal notranslate"><span class="pre">SwapRiskConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.create_swap_dataset"><code class="docutils literal notranslate"><span class="pre">create_swap_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.create_swap_dataset_from_rules"><code class="docutils literal notranslate"><span class="pre">create_swap_dataset_from_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.swap_analysis"><code class="docutils literal notranslate"><span class="pre">swap_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.population_drift"><code class="docutils literal notranslate"><span class="pre">population_drift()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit-report-mining">规则挖掘 <code class="docutils literal notranslate"><span class="pre">hscredit.report.mining</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/excel.html">Excel <code class="docutils literal notranslate"><span class="pre">hscredit.excel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.seed_everything"><code class="docutils literal notranslate"><span class="pre">seed_everything()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.load_pickle"><code class="docutils literal notranslate"><span class="pre">load_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.save_pickle"><code class="docutils literal notranslate"><span class="pre">save_pickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.feature_describe"><code class="docutils literal notranslate"><span class="pre">feature_describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.groupby_feature_describe"><code class="docutils literal notranslate"><span class="pre">groupby_feature_describe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.style_bin_table"><code class="docutils literal notranslate"><span class="pre">style_bin_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.style_rule_table"><code class="docutils literal notranslate"><span class="pre">style_rule_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.BinTableDisplay"><code class="docutils literal notranslate"><span class="pre">BinTableDisplay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.register_extensions"><code class="docutils literal notranslate"><span class="pre">register_extensions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.check_xy_inputs"><code class="docutils literal notranslate"><span class="pre">check_xy_inputs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.convert_to_dataframe"><code class="docutils literal notranslate"><span class="pre">convert_to_dataframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.extract_target_from_df"><code class="docutils literal notranslate"><span class="pre">extract_target_from_df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.check_array_1d"><code class="docutils literal notranslate"><span class="pre">check_array_1d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.get_feature_dtypes"><code class="docutils literal notranslate"><span class="pre">get_feature_dtypes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#hscredit.utils.check_missing_values"><code class="docutils literal notranslate"><span class="pre">check_missing_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/exceptions.html">异常 <code class="docutils literal notranslate"><span class="pre">hscredit.exceptions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.HSCreditError"><code class="docutils literal notranslate"><span class="pre">HSCreditError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.ValidationError"><code class="docutils literal notranslate"><span class="pre">ValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.InputValidationError"><code class="docutils literal notranslate"><span class="pre">InputValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.InputTypeError"><code class="docutils literal notranslate"><span class="pre">InputTypeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.FeatureNotFoundError"><code class="docutils literal notranslate"><span class="pre">FeatureNotFoundError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.StateError"><code class="docutils literal notranslate"><span class="pre">StateError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.NotFittedError"><code class="docutils literal notranslate"><span class="pre">NotFittedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.DependencyError"><code class="docutils literal notranslate"><span class="pre">DependencyError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.SerializationError"><code class="docutils literal notranslate"><span class="pre">SerializationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.raise_not_fitted"><code class="docutils literal notranslate"><span class="pre">raise_not_fitted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.raise_feature_not_found"><code class="docutils literal notranslate"><span class="pre">raise_feature_not_found()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/exceptions.html#hscredit.exceptions.raise_missing_columns"><code class="docutils literal notranslate"><span class="pre">raise_missing_columns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">项目</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">hscredit Roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">一、产品定位</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">二、当前代码结构与已实现能力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1 模块总览</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2 已实现能力清单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.3 设计约定</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">三、业务场景映射</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.1 贷前评分卡建模</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">3.2 机器学习风控模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3.3 策略规则挖掘与运营</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">3.4 贷后监控与稳定性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">四、竞品对标</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#toad">4.1 toad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optbinning">4.2 optbinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scorecardpipeline">4.3 scorecardpipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scorecardpy">4.4 scorecardpy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">五、竞争策略</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">5.1 不建议的外部表述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">5.2 推荐定位</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">六、能力缺口与优先级</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">七、版本规划</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v0-1-x">v0.1.x：可信度建设</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v0-2-0">v0.2.0：特征工程与拒绝推断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v0-3-0">v0.3.0：分箱与规则运营增强</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v0-4-0">v0.4.0：报告、解释与上线交付</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v0-5-0">v0.5.0：易用性和生态完善</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">八、工程质量计划</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">8.1 测试优先级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ci">8.2 CI 与兼容性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">8.3 文档质量要求</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">九、当前短期任务清单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">十、长期方向</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单"  style="background: #140e35" >
+  
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hscredit</a>
+  <div class="hs-mobile-actions" aria-label="衡枢外部链接">
+    <a href="https://hengshucredit.com" target="_blank" rel="noopener noreferrer">官网</a>
+    <a href="https://github.com/hengshu-credit/hscredit" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">hscredit Roadmap</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ROADMAP.md.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hscredit-roadmap">
+<h1>hscredit Roadmap<a class="headerlink" href="#hscredit-roadmap" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>版本：2026-06-18
+定位：面向金融信贷风控策略分析与评分模型研发的 Python 量化建模工具箱。
+方法：基于当前代码结构、公开 API、业务场景和 toad / optbinning / scorecardpipeline / scorecardpy 等同类库对标整理。</p>
+</div></blockquote>
+<section id="id1">
+<h2>一、产品定位<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">hscredit</span></code> 的核心目标不是单点复刻某个开源库，而是围绕信贷风控团队的日常工作流，形成一套可计算、可解释、可交付的建模工具链。</p>
+<p>信贷风控建模的真实链路通常包含：</p>
+<ol class="arabic simple">
+<li><p>数据质量检查和客群画像。</p></li>
+<li><p>目标变量、逾期标签、Vintage 和 Roll Rate 分析。</p></li>
+<li><p>单变量有效性、分箱、WOE、IV、KS、Lift、PSI 分析。</p></li>
+<li><p>多维特征筛选和稳定性筛选。</p></li>
+<li><p>评分卡、机器学习模型和策略规则模型训练。</p></li>
+<li><p>模型评估、调参、概率校准、分数转换和漂移监控。</p></li>
+<li><p>策略规则挖掘、规则集效果评估和新旧策略 Swap 分析。</p></li>
+<li><p>Excel 报告、图表和上线交付材料生成。</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">hscredit</span></code> 当前已经覆盖上述链路中的大部分常见任务，但仍处于早期版本。下一阶段重点是增强工程可信度、文档可用性、测试覆盖、特征工程、拒绝推断、规则运营和可解释性能力。</p>
+</section>
+<section id="id2">
+<h2>二、当前代码结构与已实现能力<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>2.1 模块总览<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>hscredit/
+├── core/
+│   ├── binning/              # 分箱算法
+│   ├── encoders/             # 特征编码
+│   ├── selectors/            # 特征筛选
+│   ├── models/               # 风控模型、评分卡、损失函数、调参、评估
+│   ├── metrics/              # 指标体系
+│   ├── eda/                  # 数据探索、策略、Vintage、稳定性分析
+│   ├── rules/                # 规则表达式
+│   ├── financial/            # 金融计算
+│   ├── feature_engineering/  # 表达式特征衍生
+│   └── viz/                  # 可视化
+├── report/                   # 规则挖掘、模型报告、Swap、逾期预测、漂移报告
+├── excel/                    # Excel 输出
+└── utils/                    # pandas 扩展、数据集、IO、日志、随机种子
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>2.2 已实现能力清单<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>领域</p></th>
+<th class="head text-left"><p>模块</p></th>
+<th class="head text-left"><p>已实现能力</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>数据探索</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.eda</span></code></p></td>
+<td class="text-left"><p>数据概览、缺失分析、目标分布、坏率趋势、特征分布、相关性、IV/WOE、PSI/CSI、客群迁移、策略仿真、Vintage、Roll Rate</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>分箱</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.binning</span></code></p></td>
+<td class="text-left"><p>等宽、等频、树、CART、卡方、Best IV、Best KS、Best Lift、MDLP、OR-Tools、CP-SAT、KMeans、单调、遗传算法、平滑、核密度、目标坏率、二维分箱</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>编码</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.encoders</span></code></p></td>
+<td class="text-left"><p>WOE、Target、Count、OneHot、Ordinal、Quantile、CatBoost、Cardinality、GBM 编码</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>筛选</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.selectors</span></code></p></td>
+<td class="text-left"><p>缺失率、众数率、基数、方差、相关性、VIF、IV、Lift、PSI、模型重要性、零重要性、RFE、序列选择、逐步回归、Boruta、互信息、卡方、F 检验、稳定性感知、组合筛选</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>模型</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.models</span></code></p></td>
+<td class="text-left"><p>LogisticRegression、RandomForest、ExtraTrees、GradientBoosting、XGBoost、LightGBM、CatBoost、NGBoost、ScoreCard、RuleSet、RulesClassifier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>损失函数</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.models.losses</span></code></p></td>
+<td class="text-left"><p>Focal、非对称 Focal、加权 BCE、成本敏感、坏账、审批率、利润最大化、排序、KS 聚焦、Top-K 捕获、金额加权、期望收益等</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>调参与评估</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.models.tuning</span></code> / <code class="docutils literal notranslate"><span class="pre">evaluation</span></code></p></td>
+<td class="text-left"><p>Optuna 调参、模型报告、概率校准、解释性分析</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>指标</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.metrics</span></code></p></td>
+<td class="text-left"><p>KS、AUC、Gini、Lift、坏率、IV、PSI、CSI、分类/回归指标、分箱统计</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>规则</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.rules</span></code> / <code class="docutils literal notranslate"><span class="pre">report.mining</span></code></p></td>
+<td class="text-left"><p>Rule 表达式、规则优化、单特征规则、多特征规则、多标签规则、树规则提取、手工树分析、规则指标</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>策略分析</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">report.swap_analysis</span></code> / <code class="docutils literal notranslate"><span class="pre">report.rule_analysis</span></code></p></td>
+<td class="text-left"><p>策略置换、规则集分析、多标签规则分析、规则 Swap 分析</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>逾期预测</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">report.overdue_predictor</span></code></p></td>
+<td class="text-left"><p>MOB 逾期预测、逾期预测报告</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>报告</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">report.model_report</span></code> / <code class="docutils literal notranslate"><span class="pre">excel</span></code></p></td>
+<td class="text-left"><p>快速模型报告、模型对比、ExcelWriter、dataframe2excel、pandas 扩展输出</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>金融计算</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">core.financial</span></code></p></td>
+<td class="text-left"><p>FV、PV、PMT、NPER、IPMT、PPMT、RATE、NPV、IRR、MIRR</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>2.3 设计约定<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>维度</p></th>
+<th class="head text-left"><p>约定</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>API 风格</p></td>
+<td class="text-left"><p>核心建模组件尽量兼容 <code class="docutils literal notranslate"><span class="pre">fit</span></code> / <code class="docutils literal notranslate"><span class="pre">transform</span></code> / <code class="docutils literal notranslate"><span class="pre">predict</span></code> / <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Pipeline</p></td>
+<td class="text-left"><p>主要分箱、编码、筛选和模型组件遵循 sklearn 风格，便于 Pipeline 与调参集成</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>目标列</p></td>
+<td class="text-left"><p>支持 <code class="docutils literal notranslate"><span class="pre">X,</span> <span class="pre">y</span></code> 风格，也支持 DataFrame 内通过 <code class="docutils literal notranslate"><span class="pre">target</span></code> 参数指定目标列</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>输出语言</p></td>
+<td class="text-left"><p>用户可见的列名、错误消息、报告内容尽量使用中文</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>可选依赖</p></td>
+<td class="text-left"><p>Boosting、深度学习、调参、解释、PMML 按 optional extras 安装</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>报告交付</p></td>
+<td class="text-left"><p>重要分析结果优先支持 DataFrame 和 Excel 输出</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id6">
+<h2>三、业务场景映射<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id7">
+<h3>3.1 贷前评分卡建模<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>业务任务</p></th>
+<th class="head text-left"><p>推荐能力</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>数据质量检查</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">eda.data_info</span></code>、<code class="docutils literal notranslate"><span class="pre">eda.missing_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">eda.data_quality_report</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>变量有效性分析</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">eda.batch_iv_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">eda.woe_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">metrics.iv</span></code>、<code class="docutils literal notranslate"><span class="pre">metrics.lift</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>分箱</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">OptimalBinning</span></code>、<code class="docutils literal notranslate"><span class="pre">BestIVBinning</span></code>、<code class="docutils literal notranslate"><span class="pre">BestKSBinning</span></code>、<code class="docutils literal notranslate"><span class="pre">MonotonicBinning</span></code>、<code class="docutils literal notranslate"><span class="pre">GeneticBinning</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>WOE 编码</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">WOEEncoder</span></code>、<code class="docutils literal notranslate"><span class="pre">OptimalBinning.transform(metric='woe')</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>特征筛选</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">IVSelector</span></code>、<code class="docutils literal notranslate"><span class="pre">VIFSelector</span></code>、<code class="docutils literal notranslate"><span class="pre">CorrSelector</span></code>、<code class="docutils literal notranslate"><span class="pre">PSISelector</span></code>、<code class="docutils literal notranslate"><span class="pre">CompositeFeatureSelector</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>建模</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>、<code class="docutils literal notranslate"><span class="pre">ScoreCard</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>评估</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ks</span></code>、<code class="docutils literal notranslate"><span class="pre">auc</span></code>、<code class="docutils literal notranslate"><span class="pre">gini</span></code>、<code class="docutils literal notranslate"><span class="pre">lift_table</span></code>、<code class="docutils literal notranslate"><span class="pre">ks_bucket</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>交付</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">auto_model_report</span></code>、<code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code>、<code class="docutils literal notranslate"><span class="pre">dataframe2excel</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>3.2 机器学习风控模型<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>业务任务</p></th>
+<th class="head text-left"><p>推荐能力</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>树模型训练</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">RandomForestRiskModel</span></code>、<code class="docutils literal notranslate"><span class="pre">GradientBoostingRiskModel</span></code>、<code class="docutils literal notranslate"><span class="pre">XGBoostRiskModel</span></code>、<code class="docutils literal notranslate"><span class="pre">LightGBMRiskModel</span></code>、<code class="docutils literal notranslate"><span class="pre">CatBoostRiskModel</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>不平衡样本处理</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FocalLoss</span></code>、<code class="docutils literal notranslate"><span class="pre">BalancedFocalLoss</span></code>、<code class="docutils literal notranslate"><span class="pre">WeightedBCELoss</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>业务目标优化</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">BadDebtLoss</span></code>、<code class="docutils literal notranslate"><span class="pre">ApprovalRateLoss</span></code>、<code class="docutils literal notranslate"><span class="pre">ProfitMaxLoss</span></code>、<code class="docutils literal notranslate"><span class="pre">TopKBadCaptureLoss</span></code>、<code class="docutils literal notranslate"><span class="pre">AmountWeightedLoss</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>模型调参</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ModelTuner</span></code>、<code class="docutils literal notranslate"><span class="pre">AutoTuner</span></code>、<code class="docutils literal notranslate"><span class="pre">TuningObjective</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>概率校准</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PlattCalibrator</span></code>、<code class="docutils literal notranslate"><span class="pre">IsotonicCalibrator</span></code>、<code class="docutils literal notranslate"><span class="pre">ProbabilityCalibrator</span></code>、<code class="docutils literal notranslate"><span class="pre">CalibratedModel</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>解释性</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ModelExplainer</span></code>、<code class="docutils literal notranslate"><span class="pre">plot_feature_importance</span></code>、SHAP 可选依赖</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>3.3 策略规则挖掘与运营<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>业务任务</p></th>
+<th class="head text-left"><p>推荐能力</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>单变量规则发现</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">SingleFeatureRuleMiner</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>交叉规则发现</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MultiFeatureRuleMiner</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>多标签规则分析</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MultiLabelRuleMiner</span></code>、<code class="docutils literal notranslate"><span class="pre">multi_label_rule_analysis</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>树模型规则提取</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">TreeRuleExtractor</span></code>、<code class="docutils literal notranslate"><span class="pre">DecisionTreeAnalyzer</span></code>、<code class="docutils literal notranslate"><span class="pre">ManualTreeExtractor</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>规则指标</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">RuleMetrics</span></code>、<code class="docutils literal notranslate"><span class="pre">calculate_rule_metrics</span></code>、<code class="docutils literal notranslate"><span class="pre">rule_lift</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>规则分类器</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">RuleSet</span></code>、<code class="docutils literal notranslate"><span class="pre">RulesClassifier</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>策略置换</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code>、<code class="docutils literal notranslate"><span class="pre">swap_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">rule_swap_analysis</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>3.4 贷后监控与稳定性<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>业务任务</p></th>
+<th class="head text-left"><p>推荐能力</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>客群漂移</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">population_shift_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">population_monitoring_report</span></code>、<code class="docutils literal notranslate"><span class="pre">population_drift_monitor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>变量漂移</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">psi_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">batch_psi_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">feature_drift_report</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>分数漂移</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">score_drift_report</span></code>、<code class="docutils literal notranslate"><span class="pre">ScoreDriftCalibrator</span></code>、<code class="docutils literal notranslate"><span class="pre">QuantileAligner</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Vintage / MOB</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">vintage_analysis</span></code>、<code class="docutils literal notranslate"><span class="pre">vintage_summary</span></code>、<code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Roll Rate</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">roll_rate_matrix</span></code>、<code class="docutils literal notranslate"><span class="pre">roll_rate_analysis</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>策略阈值仿真</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">approval_badrate_tradeoff</span></code>、<code class="docutils literal notranslate"><span class="pre">score_strategy_simulation</span></code>、<code class="docutils literal notranslate"><span class="pre">threshold_analysis_plot</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id11">
+<h2>四、竞品对标<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="toad">
+<h3>4.1 toad<a class="headerlink" href="#toad" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">toad</span></code> 是评分卡建模领域常用的实用型工具，典型流程包括 <code class="docutils literal notranslate"><span class="pre">detect</span></code>、<code class="docutils literal notranslate"><span class="pre">quality</span></code>、<code class="docutils literal notranslate"><span class="pre">select</span></code>、<code class="docutils literal notranslate"><span class="pre">Combiner</span></code>、<code class="docutils literal notranslate"><span class="pre">WOETransformer</span></code>、<code class="docutils literal notranslate"><span class="pre">ScoreCard</span></code> 和基础指标。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>维度</p></th>
+<th class="head text-left"><p>toad</p></th>
+<th class="head text-left"><p>hscredit 当前状态</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>易用性</p></td>
+<td class="text-left"><p>API 极简，快速上手</p></td>
+<td class="text-left"><p>需要提供更多快捷入口，降低学习成本</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>分箱</p></td>
+<td class="text-left"><p>常用分箱方法成熟</p></td>
+<td class="text-left"><p>已实现更多分箱方法，但需要持续验证边界条件和性能</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>特征筛选</p></td>
+<td class="text-left"><p>支持常见筛选</p></td>
+<td class="text-left"><p>已实现更丰富的筛选器和组合筛选报告</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>评分卡</p></td>
+<td class="text-left"><p>成熟易用</p></td>
+<td class="text-left"><p>已实现 ScoreCard，并支持评分转换和组件提取</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>报告</p></td>
+<td class="text-left"><p>相对基础</p></td>
+<td class="text-left"><p>hscredit 更强调中文 Excel 报告和业务交付</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>策略分析</p></td>
+<td class="text-left"><p>非核心能力</p></td>
+<td class="text-left"><p>hscredit 已实现更多规则、Swap、Vintage、客群分析能力</p></td>
+</tr>
+</tbody>
+</table>
+<p>建议：学习 <code class="docutils literal notranslate"><span class="pre">toad</span></code> 的简洁入口，补充 <code class="docutils literal notranslate"><span class="pre">quality</span></code>、<code class="docutils literal notranslate"><span class="pre">detect</span></code>、<code class="docutils literal notranslate"><span class="pre">select</span></code> 等快捷 API 风格的高层封装。</p>
+</section>
+<section id="optbinning">
+<h3>4.2 optbinning<a class="headerlink" href="#optbinning" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">optbinning</span></code> 是最优分箱方向的专业库，优势在数学规划分箱、分箱质量分析、二维分箱、连续/多分类目标和反事实解释。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>维度</p></th>
+<th class="head text-left"><p>optbinning</p></th>
+<th class="head text-left"><p>hscredit 当前状态</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>数学最优分箱</p></td>
+<td class="text-left"><p>MIP/CP 体系成熟</p></td>
+<td class="text-left"><p>已有 OR-Tools、CP-SAT 等实现，但质量报告和求解状态说明可增强</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>分箱质量分析</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">BinningTable.analysis()</span></code> 专业</p></td>
+<td class="text-left"><p>需要补充分箱质量评分和统计显著性分析</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>二维分箱</p></td>
+<td class="text-left"><p>支持 <code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code></p></td>
+<td class="text-left"><p>已有 <code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code> 文件与导出，需要补充文档、示例和测试</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>多目标类型</p></td>
+<td class="text-left"><p>连续、多分类等支持完善</p></td>
+<td class="text-left"><p>当前重点仍是二分类信贷风控场景</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>XAI</p></td>
+<td class="text-left"><p>提供反事实解释</p></td>
+<td class="text-left"><p>hscredit 尚需规划反事实解释和合规解释报告</p></td>
+</tr>
+</tbody>
+</table>
+<p>建议：优先补充分箱质量分析、求解状态报告、二维分箱示例和反事实解释能力。</p>
+</section>
+<section id="scorecardpipeline">
+<h3>4.3 scorecardpipeline<a class="headerlink" href="#scorecardpipeline" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">scorecardpipeline</span></code> 将 <code class="docutils literal notranslate"><span class="pre">toad</span></code>、<code class="docutils literal notranslate"><span class="pre">scorecardpy</span></code>、<code class="docutils literal notranslate"><span class="pre">optbinning</span></code> 等能力封装为 sklearn Pipeline 风格，强调端到端评分卡建模、Excel 报告、规则分析和 PMML 交付。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>维度</p></th>
+<th class="head text-left"><p>scorecardpipeline</p></th>
+<th class="head text-left"><p>hscredit 当前状态</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Pipeline 风格</p></td>
+<td class="text-left"><p>集成度高</p></td>
+<td class="text-left"><p>hscredit 继承该方向，核心组件尽量兼容 sklearn 风格</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>target 传递</p></td>
+<td class="text-left"><p>DataFrame + target 体验好</p></td>
+<td class="text-left"><p>hscredit 多数监督组件支持 <code class="docutils literal notranslate"><span class="pre">target</span></code> 参数</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>报告</p></td>
+<td class="text-left"><p>Excel 报告成熟</p></td>
+<td class="text-left"><p>hscredit 已有 Excel 与模型报告，需继续补齐模板和示例</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>规则分析</p></td>
+<td class="text-left"><p>较完整</p></td>
+<td class="text-left"><p>hscredit 已有 Rule、RuleSet、规则挖掘、树规则和 Swap 分析</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>依赖</p></td>
+<td class="text-left"><p>底层依赖较多</p></td>
+<td class="text-left"><p>hscredit 更强调原生实现和低依赖基础安装</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>维护方向</p></td>
+<td class="text-left"><p>与 hscredit 存在传承关系</p></td>
+<td class="text-left"><p>hscredit 应承接其成熟经验并减少多库拼装成本</p></td>
+</tr>
+</tbody>
+</table>
+<p>建议：保留 scorecardpipeline 的 Pipeline、报告、PMML 和规则分析经验，同时强化 hscredit 的原生实现、文档和测试。</p>
+</section>
+<section id="scorecardpy">
+<h3>4.4 scorecardpy<a class="headerlink" href="#scorecardpy" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">scorecardpy</span></code> 提供评分卡基础流程，适合快速完成分箱、WOE、评分卡建模。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>维度</p></th>
+<th class="head text-left"><p>scorecardpy</p></th>
+<th class="head text-left"><p>hscredit 当前状态</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>评分卡主流程</p></td>
+<td class="text-left"><p>简单直接</p></td>
+<td class="text-left"><p>hscredit 覆盖评分卡主流程，并扩展模型、策略、报告和稳定性分析</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>工程化</p></td>
+<td class="text-left"><p>相对基础</p></td>
+<td class="text-left"><p>hscredit 更贴近 sklearn 和 Python 工程体系</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>中文报告</p></td>
+<td class="text-left"><p>非重点</p></td>
+<td class="text-left"><p>hscredit 输出更贴近中文风控交付</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id12">
+<h2>五、竞争策略<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="id13">
+<h3>5.1 不建议的外部表述<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>不建议写法</p></th>
+<th class="head text-left"><p>原因</p></th>
+<th class="head text-left"><p>建议写法</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>全面超越 toad / optbinning / scorecardpipeline</p></td>
+<td class="text-left"><p>缺少统一基准，容易夸大</p></td>
+<td class="text-left"><p>在信贷风控全流程集成和中文化交付上形成互补优势</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>hscredit 全搞定，告别所有库</p></td>
+<td class="text-left"><p>高级分箱、XAI、PMML、CI 等仍需增强</p></td>
+<td class="text-left"><p>减少多库拼装成本，覆盖常见评分卡建模与策略分析流程</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>分箱能力超过 optbinning</p></td>
+<td class="text-left"><p>optbinning 在数学规划和质量分析上仍很强</p></td>
+<td class="text-left"><p>提供多种分箱方法，并持续增强质量分析和二维分箱能力</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>生产级全面成熟</p></td>
+<td class="text-left"><p>当前早期版本，测试和文档仍需补强</p></td>
+<td class="text-left"><p>面向生产实践设计，持续完善工程化能力</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>支持所有 Python 新版本和所有可选依赖</p></td>
+<td class="text-left"><p>可选依赖对新版本支持不一定一致</p></td>
+<td class="text-left"><p>支持 Python 3.8+，可选依赖兼容性以实际环境为准</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h3>5.2 推荐定位<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">hscredit</span></code> 的竞争策略应围绕以下方向展开：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>方向</p></th>
+<th class="head text-left"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>一体化</p></td>
+<td class="text-left"><p>将 EDA、分箱、编码、筛选、建模、评估、策略和报告放在统一 API 下</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>中文化</p></td>
+<td class="text-left"><p>面向国内风控团队的字段、报表、错误提示和业务解释</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>低依赖</p></td>
+<td class="text-left"><p>基础安装轻量，增强能力通过 extras 按需安装</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Pipeline</p></td>
+<td class="text-left"><p>保持 sklearn 风格，便于与现有建模流水线集成</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>场景化</p></td>
+<td class="text-left"><p>聚焦信贷评分卡、策略规则、逾期预测、稳定性监控和 Excel 交付</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>差异化</p></td>
+<td class="text-left"><p>特征工程、拒绝推断、规则运营、反事实解释和模型上线交付</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id15">
+<h2>六、能力缺口与优先级<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>优先级</p></th>
+<th class="head text-left"><p>能力缺口</p></th>
+<th class="head text-left"><p>价值</p></th>
+<th class="head text-left"><p>参考</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>文档、测试、CI、示例和 README 真实性修正</p></td>
+<td class="text-left"><p>建立项目可信度</p></td>
+<td class="text-left"><p>所有成熟开源库</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>特征工程模块扩展</p></td>
+<td class="text-left"><p>三方竞品普遍薄弱，适合形成差异化</p></td>
+<td class="text-left"><p>内部业务实践</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>拒绝推断</p></td>
+<td class="text-left"><p>处理审批样本选择偏差，是信贷建模强场景能力</p></td>
+<td class="text-left"><p>信贷建模实践</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>分箱质量分析和批量导出</p></td>
+<td class="text-left"><p>提升分箱专业度和交付效率</p></td>
+<td class="text-left"><p>optbinning</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>规则运营工具</p></td>
+<td class="text-left"><p>支持策略人员做规则覆盖、冲突、跨期追踪</p></td>
+<td class="text-left"><p>策略运营实践</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>报告模板体系</p></td>
+<td class="text-left"><p>提升模型报告、特征报告、策略报告可交付性</p></td>
+<td class="text-left"><p>scorecardpipeline</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P2</p></td>
+<td class="text-left"><p>二维分箱文档、示例和测试</p></td>
+<td class="text-left"><p>捕捉变量交互效应</p></td>
+<td class="text-left"><p>optbinning</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P2</p></td>
+<td class="text-left"><p>SHAP 与反事实解释</p></td>
+<td class="text-left"><p>支持监管、可解释性和拒绝原因说明</p></td>
+<td class="text-left"><p>optbinning / XAI 实践</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P2</p></td>
+<td class="text-left"><p>PMML / SQL / Python / Java 导出完善</p></td>
+<td class="text-left"><p>支持模型上线交付闭环</p></td>
+<td class="text-left"><p>scorecardpipeline</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P3</p></td>
+<td class="text-left"><p>快捷入口 API</p></td>
+<td class="text-left"><p>降低新用户学习成本</p></td>
+<td class="text-left"><p>toad</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id16">
+<h2>七、版本规划<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<section id="v0-1-x">
+<h3>v0.1.x：可信度建设<a class="headerlink" href="#v0-1-x" title="Link to this heading"></a></h3>
+<p>目标：修正文档、补充测试、统一口径，让现有能力能被稳定理解和复现。</p>
+<p>任务：</p>
+<ol class="arabic simple">
+<li><p>重写 README，突出真实代码能力和业务场景。</p></li>
+<li><p>更新 ROADMAP，形成清晰竞品策略和版本规划。</p></li>
+<li><p>修正 <code class="docutils literal notranslate"><span class="pre">hscredit.info()</span></code> 中过期描述。</p></li>
+<li><p>补充核心模块示例：EDA、分箱、WOE、筛选、ScoreCard、规则挖掘、Swap、模型报告。</p></li>
+<li><p>建立 CI：Python 3.8 到当前主流版本的测试矩阵。</p></li>
+<li><p>补充 <code class="docutils literal notranslate"><span class="pre">core.metrics</span></code>、<code class="docutils literal notranslate"><span class="pre">core.eda</span></code>、<code class="docutils literal notranslate"><span class="pre">report.mining</span></code>、<code class="docutils literal notranslate"><span class="pre">ScoreCard</span></code>、<code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code> 的基础测试。</p></li>
+<li><p>完善打包校验：<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">build</span></code>、<code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">check</span></code>、<code class="docutils literal notranslate"><span class="pre">check-manifest</span></code>。</p></li>
+</ol>
+<p>验收标准：</p>
+<ol class="arabic simple">
+<li><p>README 中示例可运行或标注依赖前提。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">check</span></code> 在主开发环境通过。</p></li>
+<li><p>核心公开 API 有最小测试覆盖。</p></li>
+<li><p>文档不再包含明显夸大或已过期内容。</p></li>
+</ol>
+</section>
+<section id="v0-2-0">
+<h3>v0.2.0：特征工程与拒绝推断<a class="headerlink" href="#v0-2-0" title="Link to this heading"></a></h3>
+<p>目标：补齐信贷建模前置处理和样本选择偏差处理能力，形成差异化。</p>
+<p>计划新增模块：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>hscredit/core/feature_engineering/
+├── time_features.py
+├── cross_features.py
+├── preprocessing.py
+└── aggregations.py
+
+hscredit/core/reject_inference/
+├── __init__.py
+└── reject_inference.py
+</pre></div>
+</div>
+<p>建议能力：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>类/函数</p></th>
+<th class="head text-left"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">TimeFeatureGenerator</span></code></p></td>
+<td class="text-left"><p>从日期字段生成月份、星期、季度、月末、账龄、距参考日期天数等变量</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">CrossFeatureGenerator</span></code></p></td>
+<td class="text-left"><p>生成比值、差值、乘积、log ratio 等交叉变量</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">MissingValueImputer</span></code></p></td>
+<td class="text-left"><p>数值/类别缺失填充，保留 DataFrame 列名</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">OutlierClipper</span></code></p></td>
+<td class="text-left"><p>分位数、IQR、固定边界异常值截断</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FeatureScaler</span></code></p></td>
+<td class="text-left"><p>标准化、归一化、RobustScaler 封装</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">GroupAggregationTransformer</span></code></p></td>
+<td class="text-left"><p>按客户、设备、手机号、商户等实体聚合行为变量</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">RejectInference</span></code></p></td>
+<td class="text-left"><p>hard cutoff、fuzzy augmentation、parceling、twin 方法</p></td>
+</tr>
+</tbody>
+</table>
+<p>验收标准：</p>
+<ol class="arabic simple">
+<li><p>所有 Transformer 兼容 sklearn Pipeline。</p></li>
+<li><p>支持 DataFrame 输入输出并保留列名。</p></li>
+<li><p>拒绝推断提供模拟数据验证和业务说明。</p></li>
+<li><p>文档说明每种方法适用前提和风险。</p></li>
+</ol>
+</section>
+<section id="v0-3-0">
+<h3>v0.3.0：分箱与规则运营增强<a class="headerlink" href="#v0-3-0" title="Link to this heading"></a></h3>
+<p>目标：提升策略和模型团队最常用的分箱、规则分析、Excel 交付效率。</p>
+<p>计划能力：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>能力</p></th>
+<th class="head text-left"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">get_quality_report()</span></code></p></td>
+<td class="text-left"><p>输出 IV、KS、Gini、HHI、单调性、样本占比、综合评分</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">batch_to_excel()</span></code></p></td>
+<td class="text-left"><p>批量分箱汇总、单变量分箱表、图表和质量报告输出</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">BestPSIBinning</span></code></p></td>
+<td class="text-left"><p>在训练/验证集稳定性约束下选择分箱</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">auto_select_bins()</span></code></p></td>
+<td class="text-left"><p>根据样本量、唯一值数和监督指标推荐箱数</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ruleset_overlap_matrix()</span></code></p></td>
+<td class="text-left"><p>规则覆盖重叠矩阵</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rule_effectiveness_tracking()</span></code></p></td>
+<td class="text-left"><p>单条规则跨期覆盖率、坏率、Lift 追踪</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">detect_rule_conflicts()</span></code></p></td>
+<td class="text-left"><p>规则冲突、包含关系、高重叠检测</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rule_strategy_simulation()</span></code></p></td>
+<td class="text-left"><p>规则集审批率、坏率、通过人群变化仿真</p></td>
+</tr>
+</tbody>
+</table>
+<p>验收标准：</p>
+<ol class="arabic simple">
+<li><p>批量分箱 Excel 能直接用于业务评审。</p></li>
+<li><p>规则分析支持单期和跨期报告。</p></li>
+<li><p>每个新增函数有至少一个真实风控语义示例。</p></li>
+</ol>
+</section>
+<section id="v0-4-0">
+<h3>v0.4.0：报告、解释与上线交付<a class="headerlink" href="#v0-4-0" title="Link to this heading"></a></h3>
+<p>目标：将建模结果转换为更完整的解释报告和上线材料。</p>
+<p>计划能力：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>能力</p></th>
+<th class="head text-left"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>SHAP 报告 Sheet</p></td>
+<td class="text-left"><p>模型解释汇总、Top 特征贡献、依赖图导出</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ScoreCard.score_segment_analysis()</span></code></p></td>
+<td class="text-left"><p>分数段客群特征分布和坏率对比</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code> 增强</p></td>
+<td class="text-left"><p>多模型 KS、AUC、Lift、分数分布、校准曲线对比</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">CounterfactualExplainer</span></code></p></td>
+<td class="text-left"><p>输出最小特征变化方案和拒绝原因解释</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">scorecard2sql()</span></code></p></td>
+<td class="text-left"><p>评分卡 SQL 部署代码导出</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">scorecard2python()</span></code></p></td>
+<td class="text-left"><p>Python 评分函数导出</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">scorecard2pmml()</span></code></p></td>
+<td class="text-left"><p>PMML 导出能力完善</p></td>
+</tr>
+</tbody>
+</table>
+<p>验收标准：</p>
+<ol class="arabic simple">
+<li><p>模型报告可覆盖评分卡和树模型两类主流模型。</p></li>
+<li><p>导出代码有单元测试验证预测一致性。</p></li>
+<li><p>解释性输出明确标注假设、限制和不可变特征。</p></li>
+</ol>
+</section>
+<section id="v0-5-0">
+<h3>v0.5.0：易用性和生态完善<a class="headerlink" href="#v0-5-0" title="Link to this heading"></a></h3>
+<p>目标：降低新用户学习成本，形成稳定 API 和教程体系。</p>
+<p>计划能力：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>能力</p></th>
+<th class="head text-left"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">hscredit.detect()</span></code></p></td>
+<td class="text-left"><p>快速数据画像入口</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">hscredit.quality()</span></code></p></td>
+<td class="text-left"><p>快速变量质量评估入口</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">hscredit.select()</span></code></p></td>
+<td class="text-left"><p>多条件特征筛选入口</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">hscredit.scorecard_pipeline()</span></code></p></td>
+<td class="text-left"><p>标准评分卡 Pipeline 快速构建</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>示例项目</p></td>
+<td class="text-left"><p>贷前评分卡、贷后 Vintage、策略规则、模型监控完整示例</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>API 文档</p></td>
+<td class="text-left"><p>Sphinx 自动文档和 Notebook 教程</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id17">
+<h2>八、工程质量计划<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<section id="id18">
+<h3>8.1 测试优先级<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>测试目录</p></th>
+<th class="head text-left"><p>重点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_binning/</span></code></p></td>
+<td class="text-left"><p>各分箱器 fit/transform、边界值、特殊值、单调性、DataFrame 输入</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_encoders/</span></code></p></td>
+<td class="text-left"><p>WOE、Target、Count、类别编码器输出一致性</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_selectors/</span></code></p></td>
+<td class="text-left"><p>每个筛选器选择结果、报告字段、Pipeline 兼容性</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_models/</span></code></p></td>
+<td class="text-left"><p>LR、ScoreCard、Boosting 可选依赖、损失函数、校准</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_metrics/</span></code></p></td>
+<td class="text-left"><p>KS、AUC、Lift、IV、PSI、CSI 的数值正确性</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_eda/</span></code></p></td>
+<td class="text-left"><p>数据概览、策略分析、Vintage、稳定性报告</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_report/</span></code></p></td>
+<td class="text-left"><p>模型报告、规则报告、Swap、Excel 输出</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tests/test_utils/</span></code></p></td>
+<td class="text-left"><p>pandas 扩展、IO、随机种子、输入校验</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ci">
+<h3>8.2 CI 与兼容性<a class="headerlink" href="#ci" title="Link to this heading"></a></h3>
+<p>建议 CI 矩阵：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>环境</p></th>
+<th class="head text-left"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Python 3.8</p></td>
+<td class="text-left"><p>最低支持版本</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Python 3.9 / 3.10 / 3.11 / 3.12</p></td>
+<td class="text-left"><p>主流生产环境</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Python 3.13 / 3.14</p></td>
+<td class="text-left"><p>跟进验证，特别注意可选依赖支持情况</p></td>
+</tr>
+</tbody>
+</table>
+<p>CI 阶段：</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&quot;.[dev]&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">lint</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">type-check</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tests/</span> <span class="pre">-m</span> <span class="pre">&quot;not</span> <span class="pre">slow</span> <span class="pre">and</span> <span class="pre">not</span> <span class="pre">integration&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">build</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">twine</span> <span class="pre">check</span> <span class="pre">dist/*</span></code></p></li>
+</ol>
+</section>
+<section id="id19">
+<h3>8.3 文档质量要求<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>README 只描述已经实现或明确标注“规划中”的能力。</p></li>
+<li><p>示例代码必须与当前公开 API 保持一致。</p></li>
+<li><p>每个核心模块至少提供一个最小可运行示例。</p></li>
+<li><p>竞品对比避免“全面超越”等绝对化表述。</p></li>
+<li><p>涉及监管、拒绝原因、反事实解释等内容必须说明假设和限制。</p></li>
+</ol>
+</section>
+</section>
+<section id="id20">
+<h2>九、当前短期任务清单<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>优先级</p></th>
+<th class="head text-left"><p>任务</p></th>
+<th class="head text-left"><p>产出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>修正 <code class="docutils literal notranslate"><span class="pre">hscredit.info()</span></code> 过期内容</p></td>
+<td class="text-left"><p>顶层信息与当前模块一致</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>校验 README 示例</p></td>
+<td class="text-left"><p>可运行示例或明确依赖条件</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>补充 <code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code> 文档</p></td>
+<td class="text-left"><p>示例、参数说明、测试</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P0</p></td>
+<td class="text-left"><p>增加核心 API smoke tests</p></td>
+<td class="text-left"><p>导入、fit/transform、报告生成</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>建立 GitHub Actions</p></td>
+<td class="text-left"><p>lint、type-check、test、build</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>完善模型报告示例</p></td>
+<td class="text-left"><p>评分卡、树模型各一个端到端示例</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>增加规则挖掘 notebook</p></td>
+<td class="text-left"><p>单特征、多特征、树规则、手工树</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P1</p></td>
+<td class="text-left"><p>分箱质量报告设计</p></td>
+<td class="text-left"><p>指标定义、输出格式、Excel 模板</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>P2</p></td>
+<td class="text-left"><p>拒绝推断设计文档</p></td>
+<td class="text-left"><p>方法说明、适用前提、风险提示</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>P2</p></td>
+<td class="text-left"><p>特征工程模块接口设计</p></td>
+<td class="text-left"><p>Transformer API 和命名规范</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id21">
+<h2>十、长期方向<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">hscredit</span></code> 的长期方向是成为面向信贷风控团队的场景化建模基础设施，而不是只提供若干算法函数。后续建设重点应落在：</p>
+<ol class="arabic simple">
+<li><p>稳定、可测试、可持续发布的工程体系。</p></li>
+<li><p>从变量到模型到策略到报告的统一数据结构和审计轨迹。</p></li>
+<li><p>贴近业务术语的中文报告和可解释输出。</p></li>
+<li><p>面向审批偏差、客群迁移、规则衰减、收益约束的风控专用算法。</p></li>
+<li><p>支持模型上线、策略迭代和贷后监控的交付闭环。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="api/exceptions.html" class="btn btn-neutral float-left" title="异常 hscredit.exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, hscredit team。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
