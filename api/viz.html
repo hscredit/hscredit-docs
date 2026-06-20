@@ -9,7 +9,7 @@
   <title>可视化 hscredit.core.viz &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1abff590" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=348ebd38" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -559,36 +559,42 @@
 <p>46+ 种风控可视化图表：分箱趋势、KS / ROC / PR / Lift / Gain、评分分布、策略阈值、
 Vintage、变量稳定性、客群漂移、决策树图等。</p>
 <p id="module-hscredit.core.viz">可视化模块 (viz).</p>
-<p>提供评分卡开发过程中常用的可视化功能，包括：
-- 特征分箱图 (bin_plot)
-- 特征相关性热力图 (corr_plot)
-- KS/ROC曲线图 (ks_plot)
-- 特征分布图 (hist_plot)
-- PSI稳定性分析图 (psi_plot)
-- CSI特征稳定性图 (csi_plot)
-- DataFrame表格图 (dataframe_plot)
-- 时间分布图 (distribution_plot)
-- 逻辑回归系数误差图 (plot_weights)</p>
-<p>金融风控专用图表 (risk_plots)：
-- ROC曲线图 (roc_plot)
-- PR曲线图 (pr_plot)
-- Lift提升图 (lift_plot)
-- Gain增益图 (gain_plot)
-- 混淆矩阵图 (confusion_matrix_plot)
-- 校准曲线图 (calibration_plot)
-- 评分分布对比图 (score_dist_plot)
-- 评分分箱效果图 (score_bin_plot)
-- 决策阈值分析图 (threshold_analysis_plot)
-- 策略效果对比图 (strategy_compare_plot)
-- Vintage账龄曲线图 (vintage_plot)
-- 特征重要性图 (feature_importance_plot)
-- 审批通过率趋势图 (approval_rate_trend_plot)
-- 逾期率趋势图 (bad_rate_trend_plot)</p>
-<p>辅助函数已移至 utils 模块：
-- init_setting -&gt; hscredit.utils.init_setting
-- feature_describe -&gt; hscredit.utils.feature_describe
-- round_float -&gt; hscredit.utils.round_float
-- feature_bins -&gt; hscredit.utils.feature_bins</p>
+<p>提供评分卡开发过程中常用的可视化功能，包括：</p>
+<ul class="simple">
+<li><p>特征分箱图 (bin_plot)</p></li>
+<li><p>特征相关性热力图 (corr_plot)</p></li>
+<li><p>KS/ROC曲线图 (ks_plot)</p></li>
+<li><p>特征分布图 (hist_plot)</p></li>
+<li><p>PSI稳定性分析图 (psi_plot)</p></li>
+<li><p>CSI特征稳定性图 (csi_plot)</p></li>
+<li><p>DataFrame表格图 (dataframe_plot)</p></li>
+<li><p>时间分布图 (distribution_plot)</p></li>
+<li><p>逻辑回归系数误差图 (plot_weights)</p></li>
+</ul>
+<p>金融风控专用图表 (risk_plots)：</p>
+<ul class="simple">
+<li><p>ROC曲线图 (roc_plot)</p></li>
+<li><p>PR曲线图 (pr_plot)</p></li>
+<li><p>Lift提升图 (lift_plot)</p></li>
+<li><p>Gain增益图 (gain_plot)</p></li>
+<li><p>混淆矩阵图 (confusion_matrix_plot)</p></li>
+<li><p>校准曲线图 (calibration_plot)</p></li>
+<li><p>评分分布对比图 (score_dist_plot)</p></li>
+<li><p>评分分箱效果图 (score_bin_plot)</p></li>
+<li><p>决策阈值分析图 (threshold_analysis_plot)</p></li>
+<li><p>策略效果对比图 (strategy_compare_plot)</p></li>
+<li><p>Vintage账龄曲线图 (vintage_plot)</p></li>
+<li><p>特征重要性图 (feature_importance_plot)</p></li>
+<li><p>审批通过率趋势图 (approval_rate_trend_plot)</p></li>
+<li><p>逾期率趋势图 (bad_rate_trend_plot)</p></li>
+</ul>
+<p>辅助函数已移至 utils 模块：</p>
+<ul class="simple">
+<li><p>init_setting -&gt; hscredit.utils.init_setting</p></li>
+<li><p>feature_describe -&gt; hscredit.utils.feature_describe</p></li>
+<li><p>round_float -&gt; hscredit.utils.round_float</p></li>
+<li><p>feature_bins -&gt; hscredit.utils.feature_bins</p></li>
+</ul>
 <p>参考 scorecardpipeline 实现优化而来。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.viz.bin_plot">

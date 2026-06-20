@@ -9,7 +9,7 @@
   <title>编码器 hscredit.core.encoders &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1abff590" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=348ebd38" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -559,15 +559,17 @@
 <p>9 种特征编码器（WOE / Target / Count / OneHot / Ordinal / Quantile / CatBoost /
 Cardinality / GBM），统一继承 <code class="docutils literal notranslate"><span class="pre">BaseEncoder</span></code>，兼容 sklearn Pipeline。</p>
 <p id="module-hscredit.core.encoders">特征编码器模块.</p>
-<p>提供各类特征编码功能，包括：
-- WOEEncoder: 证据权重编码
-- TargetEncoder: 目标编码
-- CountEncoder: 计数编码
-- OneHotEncoder: 独热编码
-- OrdinalEncoder: 序数编码
-- QuantileEncoder: 分位数编码
-- CatBoostEncoder: CatBoost编码
-- GBMEncoder: 梯度提升树编码器（支持XGBoost/LightGBM/CatBoost+LR）</p>
+<p>提供各类特征编码功能，包括：</p>
+<ul class="simple">
+<li><p>WOEEncoder: 证据权重编码</p></li>
+<li><p>TargetEncoder: 目标编码</p></li>
+<li><p>CountEncoder: 计数编码</p></li>
+<li><p>OneHotEncoder: 独热编码</p></li>
+<li><p>OrdinalEncoder: 序数编码</p></li>
+<li><p>QuantileEncoder: 分位数编码</p></li>
+<li><p>CatBoostEncoder: CatBoost编码</p></li>
+<li><p>GBMEncoder: 梯度提升树编码器（支持XGBoost/LightGBM/CatBoost+LR）</p></li>
+</ul>
 <p>所有编码器均遵循sklearn Transformer接口规范。</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.encoders.BaseEncoder">
