@@ -8,7 +8,7 @@
   <title>hscredit.core.selectors.stepwise_selector &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -895,30 +897,33 @@
             <span class="p">}</span>
 
         <span class="n">X_model</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">clone</span> <span class="k">as</span> <span class="n">sklearn_clone</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">sklearn_clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept</span><span class="p">:</span>
-            <span class="c1"># 对于 sklearn 评估器，使用 fit_intercept 参数</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="s1">&#39;fit_intercept&#39;</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">fit_intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;fit_intercept&#39;</span><span class="p">):</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">fit_intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">X_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X_model</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_model</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_model</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
             <span class="c1"># 计算预测值</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="s1">&#39;predict_proba&#39;</span><span class="p">):</span>
-                <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_model</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;predict_proba&#39;</span><span class="p">):</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_model</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_model</span><span class="p">)</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_model</span><span class="p">)</span>
 
             <span class="c1"># 计算准则值</span>
             <span class="n">criterion_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_criterion_from_predictions</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
 
             <span class="k">return</span> <span class="p">{</span>
                 <span class="s1">&#39;criterion&#39;</span><span class="p">:</span> <span class="n">criterion_value</span><span class="p">,</span>
-                <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span>
-                <span class="s1">&#39;p_values&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># sklearn 评估器通常不提供p值</span>
-                <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="s1">&#39;coef_&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
+                <span class="s1">&#39;p_values&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;coef_&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
             <span class="p">}</span>
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>

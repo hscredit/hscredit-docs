@@ -8,7 +8,7 @@
   <title>hscredit.core.selectors.psi_selector &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -682,12 +684,6 @@
 <span class="sd">        :param X: 输入特征DataFrame</span>
 <span class="sd">        :param y: 目标变量</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;需要传入y或X中包含</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="si">}</span><span class="s2">列&quot;</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_feature_names</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>

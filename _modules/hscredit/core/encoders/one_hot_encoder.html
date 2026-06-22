@@ -8,7 +8,7 @@
   <title>hscredit.core.encoders.one_hot_encoder &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -561,6 +563,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">csr_matrix</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotFittedError</span>
 
 
 <div class="viewcode-block" id="OneHotEncoder">
@@ -607,8 +610,8 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">drop</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">handle_unknown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span>
-        <span class="n">handle_missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+        <span class="n">handle_unknown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">,</span>
+        <span class="n">handle_missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
         <span class="n">use_cat_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">return_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -636,6 +639,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">categories_</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_other_cols_</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_category_cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取需要编码的列。</span>
@@ -655,38 +659,45 @@
 <span class="sd">        :param X: 输入数据</span>
 <span class="sd">        :param y: 目标变量（可选）</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># 保留未编码列，与 _transform 输出顺序保持一致（未编码列在前）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_other_cols_</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">]</span>
+
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">:</span>
             <span class="c1"># 获取唯一值（包括缺失值）</span>
             <span class="n">categories</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-            
+
             <span class="c1"># 分离缺失值和正常值</span>
             <span class="n">has_missing</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">)</span>
             <span class="n">normal_categories</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">categories</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">c</span><span class="p">)])</span>
-            
+
             <span class="c1"># 处理drop参数</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop</span> <span class="o">==</span> <span class="s1">&#39;first&#39;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_categories</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop</span> <span class="o">==</span> <span class="s2">&quot;first&quot;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_categories</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">categories_to_use</span> <span class="o">=</span> <span class="n">normal_categories</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop</span> <span class="o">==</span> <span class="s1">&#39;if_binary&#39;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_categories</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop</span> <span class="o">==</span> <span class="s2">&quot;if_binary&quot;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_categories</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="n">categories_to_use</span> <span class="o">=</span> <span class="n">normal_categories</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">categories_to_use</span> <span class="o">=</span> <span class="n">normal_categories</span><span class="p">[:]</span>
-            
+
             <span class="c1"># 如果有缺失值且handle_missing=&#39;value&#39;，添加missing</span>
-            <span class="k">if</span> <span class="n">has_missing</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span>
-                <span class="n">categories_to_use</span> <span class="o">=</span> <span class="n">categories_to_use</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;missing&#39;</span><span class="p">]</span>
-            
+            <span class="k">if</span> <span class="n">has_missing</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+                <span class="n">categories_to_use</span> <span class="o">=</span> <span class="n">categories_to_use</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;missing&quot;</span><span class="p">]</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">categories_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">categories_to_use</span>
-            
+
             <span class="c1"># 构建mapping_（与其他编码器保持一致）</span>
             <span class="n">col_mapping</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">categories_to_use</span><span class="p">:</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_cat_names</span><span class="p">:</span>
-                    <span class="n">safe_cat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">cat</span> <span class="o">==</span> <span class="s2">&quot;missing&quot;</span><span class="p">:</span>
+                    <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_missing&quot;</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_cat_names</span><span class="p">:</span>
+                    <span class="n">safe_cat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
                     <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">safe_cat</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">cat</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="n">col_mapping</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_name</span>
-            
+                <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col_name</span><span class="p">)</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_mapping</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
@@ -697,59 +708,122 @@
 <span class="sd">        :return: 编码后的数据</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result_dfs</span> <span class="o">=</span> <span class="p">[]</span>
-        
+
         <span class="c1"># 保留未编码的列</span>
         <span class="n">other_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">other_cols</span><span class="p">:</span>
             <span class="n">result_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">other_cols</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
-        
+
         <span class="c1"># 对每个需要编码的列进行one-hot编码</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">categories_</span><span class="p">:</span>
                 <span class="k">continue</span>
-            
+
             <span class="n">categories</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">categories_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-            
+
             <span class="c1"># 检查未知类别</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span>
                 <span class="n">unique_vals</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-                <span class="n">known_vals</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;missing&#39;</span><span class="p">}</span>
+                <span class="n">known_vals</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="s2">&quot;missing&quot;</span><span class="p">}</span>
                 <span class="n">unknown</span> <span class="o">=</span> <span class="n">unique_vals</span> <span class="o">-</span> <span class="n">known_vals</span>
                 <span class="k">if</span> <span class="n">unknown</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;列&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39;包含未知类别: </span><span class="si">{</span><span class="n">unknown</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            
+
             <span class="c1"># 处理缺失值</span>
             <span class="n">col_data</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span>
-                <span class="n">col_data</span> <span class="o">=</span> <span class="n">col_data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;missing&#39;</span><span class="p">)</span>
-            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
+                <span class="n">col_data</span> <span class="o">=</span> <span class="n">col_data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;missing&quot;</span><span class="p">)</span>
+
             <span class="c1"># 创建one-hot列</span>
             <span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">cat</span> <span class="o">==</span> <span class="s1">&#39;missing&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cat</span> <span class="o">==</span> <span class="s2">&quot;missing&quot;</span><span class="p">:</span>
                     <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_missing&quot;</span>
                     <span class="n">result_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">col_name</span><span class="p">:</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)}))</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_cat_names</span><span class="p">:</span>
-                        <span class="n">safe_cat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                        <span class="n">safe_cat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
                         <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">safe_cat</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">cat</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="n">result_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">col_name</span><span class="p">:</span> <span class="p">(</span><span class="n">col_data</span> <span class="o">==</span> <span class="n">cat</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)}))</span>
-        
+
         <span class="c1"># 合并所有列</span>
         <span class="k">if</span> <span class="n">result_dfs</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">result_dfs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+<div class="viewcode-block" id="OneHotEncoder.inverse_transform">
+<a class="viewcode-back" href="../../../../api/encoders.html#hscredit.core.encoders.OneHotEncoder.inverse_transform">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;逆编码，将独热编码列还原为原始类别列。</span>
+
+<span class="sd">        对每个原始列，取值为 1 的独热列对应类别即为原始类别；</span>
+<span class="sd">        若所有独热列均为 0（如 drop 删除的参考类别或未知类别），则还原为 NaN。</span>
+<span class="sd">        缺失列（``{col}_missing``）激活时还原为 NaN。</span>
+
+<span class="sd">        :param X: 编码后的数据</span>
+<span class="sd">        :return: 逆编码后的数据</span>
+<span class="sd">        :raises NotFittedError: 当编码器尚未拟合时抛出</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;mapping_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;OneHotEncoder 尚未拟合，请先调用 fit 方法&quot;</span><span class="p">)</span>
+
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_input</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">reconstructed</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">consumed</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="ow">or</span> <span class="p">[]:</span>
+            <span class="n">col_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">{})</span>  <span class="c1"># {category: col_name}</span>
+            <span class="n">name_to_cat</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">cat</span> <span class="k">for</span> <span class="n">cat</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">col_map</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="n">present</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">col_map</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">present</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">consumed</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">present</span><span class="p">)</span>
+
+            <span class="n">sub</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">present</span><span class="p">]</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">_pick</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">present</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">cat</span> <span class="o">=</span> <span class="n">name_to_cat</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">if</span> <span class="n">cat</span> <span class="o">==</span> <span class="s2">&quot;missing&quot;</span> <span class="k">else</span> <span class="n">cat</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+            <span class="n">reconstructed</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">_pick</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">consumed</span><span class="p">:</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">series</span> <span class="ow">in</span> <span class="n">reconstructed</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">series</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
 <div class="viewcode-block" id="OneHotEncoder.get_feature_names">
 <a class="viewcode-back" href="../../../../api/encoders.html#hscredit.core.encoders.OneHotEncoder.get_feature_names">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取编码后的特征名。</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取独热编码生成的特征名（不含未编码的透传列）。</span>
 
-<span class="sd">        :return: 编码后的特征名列表</span>
+<span class="sd">        :return: 独热编码后的特征名列表</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span></div>
+
+
+<div class="viewcode-block" id="OneHotEncoder.get_feature_names_out">
+<a class="viewcode-back" href="../../../../api/encoders.html#hscredit.core.encoders.OneHotEncoder.get_feature_names_out">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_feature_names_out</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_features</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取转换后的全部输出列名（sklearn 兼容接口）。</span>
+
+<span class="sd">        输出顺序与 transform 一致：未编码透传列在前，独热编码列在后。</span>
+
+<span class="sd">        :param input_features: 兼容 sklearn 接口的占位参数，未使用</span>
+<span class="sd">        :return: 输出列名数组</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">other_cols</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_other_cols_&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">other_cols</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

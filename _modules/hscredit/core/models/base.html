@@ -8,7 +8,7 @@
   <title>hscredit.core.models.base &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -553,11 +555,12 @@
 <span></span><span class="sd">&quot;&quot;&quot;风控模型基类.</span>
 
 <span class="sd">提供统一的风控模型接口，支持:</span>
-<span class="sd">- 统一fit/predict接口</span>
-<span class="sd">- 特征重要性获取</span>
-<span class="sd">- 模型评估报告</span>
+<span class="sd">- 统一fit/predict接口（sklearn + scorecardpipeline 双API）</span>
+<span class="sd">- 统一特征重要性获取</span>
+<span class="sd">- 统一模型导出/导入（pickle/joblib/json 多格式）</span>
+<span class="sd">- 模型评估报告（支持多数据集/overdue/dpds）</span>
 <span class="sd">- 自定义loss和评估目标</span>
-<span class="sd">- Optuna超参数调优</span>
+<span class="sd">- Optuna超参数调优集成</span>
 
 <span class="sd">设计原则:</span>
 <span class="sd">1. 所有风控模型继承BaseRiskModel</span>
@@ -568,6 +571,7 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -596,8 +600,44 @@
     
     <span class="k">if</span> <span class="n">overall_bad_rate</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mf">1.0</span>
-    
+
     <span class="k">return</span> <span class="n">top_bad_rate</span> <span class="o">/</span> <span class="n">overall_bad_rate</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">resolve_custom_objective</span><span class="p">(</span><span class="n">objective</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;将自定义损失对象解析为各 boosting 框架 sklearn 包装器可用的目标函数.</span>
+
+<span class="sd">    统一自定义 LOSS 入口：当用户直接传入 :class:`~hscredit.core.models.losses.BaseLoss`</span>
+<span class="sd">    实例作为 ``objective``（或 CatBoost 的 ``loss_function``）时，自动转换为</span>
+<span class="sd">    XGBoost/LightGBM sklearn 包装器所需的 ``(y_true, y_pred) -&gt; (grad, hess)``</span>
+<span class="sd">    可调用对象，并在内部完成 sigmoid 链接函数转换（``BaseLoss.gradient`` 的梯度</span>
+<span class="sd">    定义在概率 p 上，而 boosting 框架回调传入的是原始分数 raw margin）。</span>
+
+<span class="sd">    非 ``BaseLoss`` 对象（如内置字符串 &#39;binary&#39;、用户自行编写的可调用对象）原样返回。</span>
+
+<span class="sd">    :param objective: 目标函数，可为字符串、可调用对象或 BaseLoss 实例</span>
+<span class="sd">    :return: 解析后的目标函数（字符串/可调用对象）</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.losses.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLoss</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">objective</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">BaseLoss</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">objective</span>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">objective</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sklearn_obj</span><span class="p">(</span><span class="n">y_true</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="c1"># boosting 框架回调传入原始分数，先 sigmoid 转概率再求梯度</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)))</span>
+        <span class="n">grad</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span>
+        <span class="n">hess</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+        <span class="k">return</span> <span class="n">grad</span><span class="p">,</span> <span class="n">hess</span>
+
+    <span class="k">return</span> <span class="n">_sklearn_obj</span>
 
 
 <div class="viewcode-block" id="BaseRiskModel">
@@ -747,6 +787,19 @@
         <span class="n">scores</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span>
         <span class="k">return</span> <span class="n">scores</span></div>
 
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">best_iteration_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;最佳迭代次数（早停后），未启用早停时为 None.</span>
+
+<span class="sd">        统一暴露给所有子类（XGBoost/LightGBM/CatBoost/NGBoost/sklearn 集成）。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_best_iteration</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">best_score_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;最佳得分（早停验证集上），未启用早停时为 None.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_best_score</span>
 
 <div class="viewcode-block" id="BaseRiskModel.get_feature_importances">
 <a class="viewcode-back" href="../../../../api/models.html#hscredit.core.models.BaseRiskModel.get_feature_importances">[文档]</a>
@@ -904,6 +957,296 @@
             <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
             <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span>
         <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseRiskModel.report">
+<a class="viewcode-back" href="../../../../api/models.html#hscredit.core.models.BaseRiskModel.report">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">datasets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">X_train</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">y_train</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">feature_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">overdue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dpds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">excel_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">amount_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">date_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">group_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;QuickModelReport&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;生成风控建模报告（支持多数据集/overdue/dpds）.</span>
+
+<span class="sd">        委托给 hscredit.report.auto_model_report，生成包含多 Sheet 的 Excel / 控制台报告。</span>
+
+<span class="sd">        支持三种调用方式:</span>
+
+<span class="sd">        1. datasets API（推荐）::</span>
+
+<span class="sd">            model.report(datasets={&#39;训练集&#39;: train_df, &#39;测试集&#39;: test_df})</span>
+<span class="sd">            model.report(datasets=[train_df, test_df])</span>
+
+<span class="sd">        2. sklearn 风格::</span>
+
+<span class="sd">            model.report(X_train=X, y_train=y, X_test=X_val, y_test=y_val)</span>
+
+<span class="sd">        3. overdue/dpds 自动构建标签::</span>
+
+<span class="sd">            model.report(datasets={&#39;训练集&#39;: df}, overdue=&#39;dpds&#39;, dpds=[15, 7, 0])</span>
+
+<span class="sd">        :param datasets: 数据集字典/列表</span>
+<span class="sd">        :param X_train: 训练集特征（兼容旧API）</span>
+<span class="sd">        :param y_train: 训练集标签（兼容旧API）</span>
+<span class="sd">        :param X_test: 测试集特征（兼容旧API）</span>
+<span class="sd">        :param y_test: 测试集标签（兼容旧API）</span>
+<span class="sd">        :param feature_names: 特征名称列表</span>
+<span class="sd">        :param target: 目标列配置</span>
+<span class="sd">        :param overdue: 逾期列名</span>
+<span class="sd">        :param dpds: 逾期天数阈值</span>
+<span class="sd">        :param excel_path: Excel 报告输出路径</span>
+<span class="sd">        :param verbose: 是否打印控制台报告</span>
+<span class="sd">        :param n_bins: 分箱数</span>
+<span class="sd">        :param amount_col: 金额字段</span>
+<span class="sd">        :param date_col: 日期字段</span>
+<span class="sd">        :param group_col: 分组字段</span>
+<span class="sd">        :param kwargs: 传递给 auto_model_report 的其他参数</span>
+<span class="sd">        :return: QuickModelReport 实例</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">...report</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_model_report</span>
+
+        <span class="k">return</span> <span class="n">auto_model_report</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">datasets</span><span class="o">=</span><span class="n">datasets</span><span class="p">,</span>
+            <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+            <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+            <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
+            <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
+            <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+            <span class="n">overdue</span><span class="o">=</span><span class="n">overdue</span><span class="p">,</span>
+            <span class="n">dpds</span><span class="o">=</span><span class="n">dpds</span><span class="p">,</span>
+            <span class="n">excel_path</span><span class="o">=</span><span class="n">excel_path</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span>
+            <span class="n">amount_col</span><span class="o">=</span><span class="n">amount_col</span><span class="p">,</span>
+            <span class="n">date_col</span><span class="o">=</span><span class="n">date_col</span><span class="p">,</span>
+            <span class="n">group_col</span><span class="o">=</span><span class="n">group_col</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+
+    <span class="c1"># ==================== 模型导出/导入 ====================</span>
+
+<div class="viewcode-block" id="BaseRiskModel.save">
+<a class="viewcode-back" href="../../../../api/models.html#hscredit.core.models.BaseRiskModel.save">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;保存模型到文件.</span>
+
+<span class="sd">        支持多种格式:</span>
+<span class="sd">        - pickle/joblib: 保存完整模型对象（默认）</span>
+<span class="sd">        - json: 保存模型参数和元数据（仅限支持的框架）</span>
+
+<span class="sd">        :param path: 保存路径，支持 .pkl, .joblib, .pkl.gz, .json 等后缀</span>
+<span class="sd">        :param engine: 序列化引擎，可选 &#39;auto&#39;, &#39;joblib&#39;, &#39;pickle&#39;, &#39;dill&#39;, &#39;cloudpickle&#39;</span>
+<span class="sd">        :param kwargs: 传递给 save_pickle 的其他参数（如 compression, compression_level）</span>
+<span class="sd">        :return: 保存路径</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; model.save(&#39;model.pkl&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; model.save(&#39;model.joblib&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; model.save(&#39;model.pkl.gz&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; model.save(&#39;model.pkl&#39;, engine=&#39;dill&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_pickle</span>
+
+        <span class="n">path_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">path_str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.json&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_save_json</span><span class="p">(</span><span class="n">path_str</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">eng</span> <span class="o">=</span> <span class="n">engine</span>
+            <span class="k">if</span> <span class="n">eng</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+                <span class="n">path_lower</span> <span class="o">=</span> <span class="n">path_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dill&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dill.gz&#39;</span><span class="p">):</span>
+                    <span class="n">eng</span> <span class="o">=</span> <span class="s1">&#39;dill&#39;</span>
+                <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.cloudpickle&#39;</span><span class="p">):</span>
+                    <span class="n">eng</span> <span class="o">=</span> <span class="s1">&#39;cloudpickle&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">eng</span> <span class="o">=</span> <span class="s1">&#39;joblib&#39;</span>
+            <span class="n">save_pickle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_str</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">eng</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">path_str</span></div>
+
+
+<div class="viewcode-block" id="BaseRiskModel.load">
+<a class="viewcode-back" href="../../../../api/models.html#hscredit.core.models.BaseRiskModel.load">[文档]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseRiskModel&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;从文件加载模型.</span>
+
+<span class="sd">        :param path: 模型文件路径</span>
+<span class="sd">        :param engine: 序列化引擎，可选 &#39;auto&#39;, &#39;joblib&#39;, &#39;pickle&#39;, &#39;dill&#39;, &#39;cloudpickle&#39;</span>
+<span class="sd">        :param kwargs: 传递给 load_pickle 的其他参数</span>
+<span class="sd">        :return: 加载的模型实例</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; model = XGBoostRiskModel.load(&#39;model.pkl&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; model = LightGBMRiskModel.load(&#39;model.joblib&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; model = BaseRiskModel.load(&#39;model.pkl&#39;)  # 自动推断模型类型</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">...utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_pickle</span>
+
+        <span class="n">path_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">path_str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.json&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_load_json</span><span class="p">(</span><span class="n">path_str</span><span class="p">)</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="n">path_str</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">BaseRiskModel</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;加载的对象类型为 </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">，不是 BaseRiskModel 子类&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">model</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;保存模型参数和元数据为JSON.&quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+        <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;model_class&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;model_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;n_features_in_&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;n_features_in_&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="s1">&#39;classes_&#39;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;classes_&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]))</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="p">}</span>
+
+        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
+                <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
+                <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">):</span>
+                <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+                <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="c1"># 保存底层模型到同级目录</span>
+        <span class="n">native_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.native&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_model&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="s1">&#39;save_model&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">native_path</span><span class="p">)</span>
+                <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;native_model_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">native_path</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseRiskModel&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;从JSON加载模型参数（需配合native模型文件）.&quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">meta</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">module_path</span><span class="p">,</span> <span class="n">class_name</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;model_class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module_path</span><span class="p">)</span>
+        <span class="n">model_cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">model_cls</span><span class="p">(</span><span class="o">**</span><span class="n">meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+
+        <span class="k">if</span> <span class="s1">&#39;native_model_path&#39;</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">:</span>
+            <span class="n">native_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;native_model_path&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;load_model&#39;</span><span class="p">):</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">native_path</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">n_features_in_</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;n_features_in_&#39;</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">feature_names_in_</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;feature_names_in_&#39;</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;classes_&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">return</span> <span class="n">model</span>
+
+    <span class="c1"># ==================== 超参数调优集成 ====================</span>
+
+<div class="viewcode-block" id="BaseRiskModel.tune">
+<a class="viewcode-back" href="../../../../api/models.html#hscredit.core.models.BaseRiskModel.tune">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">search_space</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fixed_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">metric</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ks&#39;</span><span class="p">,</span>
+        <span class="n">direction</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s1">&#39;maximize&#39;</span><span class="p">,</span>
+        <span class="n">n_trials</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">cv</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseRiskModel&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;超参数调优并返回最佳模型.</span>
+
+<span class="sd">        集成 ModelTuner，一键完成超参数搜索、最佳模型训练。</span>
+
+<span class="sd">        :param X: 特征矩阵或包含target的DataFrame</span>
+<span class="sd">        :param y: 目标变量，可选</span>
+<span class="sd">        :param search_space: 参数搜索空间，默认使用自适应空间</span>
+<span class="sd">        :param fixed_params: 固定参数</span>
+<span class="sd">        :param metric: 优化指标</span>
+<span class="sd">        :param direction: 优化方向</span>
+<span class="sd">        :param n_trials: 搜索次数</span>
+<span class="sd">        :param cv: 交叉验证折数</span>
+<span class="sd">        :param timeout: 超时时间(秒)</span>
+<span class="sd">        :param verbose: 是否输出详细信息</span>
+<span class="sd">        :param kwargs: 其他传递给 ModelTuner 的参数</span>
+<span class="sd">        :return: 使用最佳参数训练好的模型实例</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; model = XGBoostRiskModel()</span>
+<span class="sd">        &gt;&gt;&gt; best_model = model.tune(X_train, y_train, n_trials=50)</span>
+<span class="sd">        &gt;&gt;&gt; proba = best_model.predict_proba(X_test)</span>
+
+<span class="sd">        &gt;&gt;&gt; # scorecardpipeline风格</span>
+<span class="sd">        &gt;&gt;&gt; model = LightGBMRiskModel(target=&#39;target&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; best_model = model.tune(df, n_trials=50)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.tuning</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelTuner</span>
+
+        <span class="k">if</span> <span class="n">verbose</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">verbose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
+
+        <span class="n">tuner</span> <span class="o">=</span> <span class="n">ModelTuner</span><span class="p">(</span>
+            <span class="n">model_class</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span>
+            <span class="n">search_space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span>
+            <span class="n">fixed_params</span><span class="o">=</span><span class="n">fixed_params</span><span class="p">,</span>
+            <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="n">direction</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="ow">or</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span>
+            <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+
+        <span class="n">best_params</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="n">n_trials</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="n">best_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">**</span><span class="n">best_params</span><span class="p">)</span>
+        <span class="c1"># 透传 target，确保 scorecardpipeline 风格（y=None，从 X 提取 target）下重训正常</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">best_model</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">best_model</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span>
+        <span class="n">best_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="n">best_model</span><span class="o">.</span><span class="n">_tuner</span> <span class="o">=</span> <span class="n">tuner</span>
+
+        <span class="k">return</span> <span class="n">best_model</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_prepare_data</span><span class="p">(</span>

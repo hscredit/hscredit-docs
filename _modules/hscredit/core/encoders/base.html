@@ -8,7 +8,7 @@
   <title>hscredit.core.encoders.base &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -609,8 +611,8 @@
         <span class="n">cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">drop_invariant</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">return_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">handle_unknown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
-        <span class="n">handle_missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+        <span class="n">handle_unknown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+        <span class="n">handle_missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
         <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化编码器基类。</span>
@@ -632,10 +634,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dropped_cols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 
 <div class="viewcode-block" id="BaseEncoder.fit">
 <a class="viewcode-back" href="../../../../api/encoders.html#hscredit.core.encoders.BaseEncoder.fit">[文档]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseEncoder&#39;</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;BaseEncoder&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;拟合编码器。</span>
 
 <span class="sd">        支持两种API风格:</span>
@@ -668,6 +671,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">return</span> <span class="bp">self</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop_invariant</span><span class="p">:</span>
@@ -676,6 +680,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
@@ -702,27 +707,32 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_input</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;cols_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;编码器尚未拟合，请先调用fit()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;cols_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;编码器尚未拟合，请先调用fit()&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 统一缺失值策略校验：handle_missing=&#39;error&#39; 时，任一编码列含缺失即报错</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;列&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39;包含缺失值，但 handle_missing=&#39;error&#39;&quot;</span><span class="p">)</span>
 
         <span class="n">X_transformed</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">X_transformed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
         <span class="c1"># scorecardpipeline 风格: 如果输入的 X 中包含 target 列，透传到输出</span>
-        <span class="n">target_col</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">target_col</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
             <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
             <span class="ow">and</span> <span class="n">target_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">X_transformed</span><span class="o">.</span><span class="n">columns</span>
             <span class="ow">and</span> <span class="n">target_col</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
         <span class="p">):</span>
-            <span class="n">X_transformed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
-                <span class="p">[</span><span class="n">X_transformed</span><span class="p">,</span> <span class="n">X</span><span class="p">[[</span><span class="n">target_col</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
-            <span class="p">)</span>
+            <span class="c1"># 按位置赋值，避免非默认索引下 concat 对齐错位</span>
+            <span class="n">X_transformed</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_df</span><span class="p">:</span>
             <span class="c1"># 处理稀疏矩阵的情况</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">,</span> <span class="s1">&#39;toarray&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">X_transformed</span><span class="p">,</span> <span class="s2">&quot;toarray&quot;</span><span class="p">):</span>
                 <span class="c1"># 已经是稀疏矩阵，直接返回</span>
                 <span class="k">return</span> <span class="n">X_transformed</span>
             <span class="k">return</span> <span class="n">X_transformed</span><span class="o">.</span><span class="n">values</span>
@@ -769,16 +779,14 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="c1"># 一维数组转换为单列DataFrame</span>
-                <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">])</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;输入必须是DataFrame、ndarray或Series，got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">X</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_target</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;提取目标变量，支持两种API风格。</span>
 
 <span class="sd">        优先级: fit时传入的y &gt; 从X中提取target列</span>
@@ -811,7 +819,7 @@
 <span class="sd">        :param X: 输入数据</span>
 <span class="sd">        :return: 类别型列名列表</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_find_invariant_cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;查找方差为0的列。</span>
@@ -827,23 +835,30 @@
 
 <div class="viewcode-block" id="BaseEncoder.get_mapping">
 <a class="viewcode-back" href="../../../../api/encoders.html#hscredit.core.encoders.BaseEncoder.get_mapping">[文档]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取编码映射。</span>
 
-<span class="sd">        :return: 编码映射字典，格式为 {col: {category: encoded_value}}</span>
+<span class="sd">        :param col: 列名。如果提供，返回该列的映射 {category: encoded_value}；</span>
+<span class="sd">            如果为None，返回所有列的映射 {col: {category: encoded_value}}</span>
+<span class="sd">        :return: 编码映射字典</span>
+<span class="sd">        :raises FeatureNotFoundError: 当指定的 col 不在编码器中时抛出</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span></div>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;mapping_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">FeatureNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;特征 &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; 未找到&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;检查特征是否在编码器中（支持 `feature in encoder` 语法）.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;mapping_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;mapping_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;通过 `encoder[&#39;feature&#39;]` 获取该特征的编码映射（toad/scorecardpipeline风格）.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;mapping_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;mapping_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;编码器尚未拟合，请先调用fit()&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">feature</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">:</span>
@@ -867,13 +882,13 @@
 <span class="sd">        ...     json.dump(mapping, f)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;encoder_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-            <span class="s1">&#39;cols&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span><span class="p">,</span>
-            <span class="s1">&#39;cols_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">,</span>
-            <span class="s1">&#39;mapping_&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serialize_mapping</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">),</span>
-            <span class="s1">&#39;drop_invariant&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop_invariant</span><span class="p">,</span>
-            <span class="s1">&#39;handle_unknown&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span><span class="p">,</span>
-            <span class="s1">&#39;handle_missing&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span><span class="p">,</span>
+            <span class="s2">&quot;encoder_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="s2">&quot;cols&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols</span><span class="p">,</span>
+            <span class="s2">&quot;cols_&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">,</span>
+            <span class="s2">&quot;mapping_&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serialize_mapping</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">),</span>
+            <span class="s2">&quot;drop_invariant&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop_invariant</span><span class="p">,</span>
+            <span class="s2">&quot;handle_unknown&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span><span class="p">,</span>
+            <span class="s2">&quot;handle_missing&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span><span class="p">,</span>
         <span class="p">}</span></div>
 
 
@@ -891,12 +906,12 @@
 <span class="sd">        ...     mapping = json.load(f)</span>
 <span class="sd">        &gt;&gt;&gt; encoder.import_mapping(mapping)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cols&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cols_&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deserialize_mapping</span><span class="p">(</span><span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mapping_&#39;</span><span class="p">,</span> <span class="p">{}))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">drop_invariant</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;drop_invariant&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;handle_unknown&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;handle_missing&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cols&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cols_&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deserialize_mapping</span><span class="p">(</span><span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mapping_&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drop_invariant</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;drop_invariant&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;handle_unknown&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">=</span> <span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;handle_missing&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_serialize_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>

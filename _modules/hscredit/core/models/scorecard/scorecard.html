@@ -8,7 +8,7 @@
   <title>hscredit.core.models.scorecard.scorecard &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -779,8 +781,10 @@
         <span class="c1"># 因为可以直接使用预训练模型进行predict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_skip_fit_check</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pipeline</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
         
-        <span class="c1"># 如果传入了预训练模型和binner，尝试生成规则</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># 如果传入了预训练模型，尝试生成规则</span>
+        <span class="c1"># 即使未提供 binner，也会基于 LR 系数生成回退规则，</span>
+        <span class="c1"># 确保 scorecard_points 能展示每个变量（而非仅基础分）</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_from_pretrained</span><span class="p">()</span>
         
         <span class="c1"># 如果传入了 pipeline，立即提取组件</span>
@@ -829,54 +833,76 @@
         <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_from_pretrained</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;从预训练模型初始化规则和特征名.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;从预训练模型初始化规则和特征名.</span>
+
+<span class="sd">        特征名解析优先级：</span>
+<span class="sd">        1. lr_model.feature_names_in_（最可靠，与系数顺序一致）</span>
+<span class="sd">        2. binner 的 bin_tables_ / splits_ / toad combiner（特征数匹配时）</span>
+<span class="sd">        3. feature_0, feature_1, ... 兜底</span>
+
+<span class="sd">        规则生成：优先从 binner 还原真实分箱（区间 + WOE + 分数）；</span>
+<span class="sd">        若无任何分箱信息，则基于 LR 系数生成回退规则，</span>
+<span class="sd">        保证 scorecard_points 至少能展示每个变量及其系数贡献。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;ensure_positive_woe_coefficients&#39;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">ensure_positive_woe_coefficients</span><span class="p">()</span>
 
-        <span class="c1"># 从lr_model获取特征数量</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;coef_&#39;</span><span class="p">):</span>
-            <span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="c1"># 尝试从binner获取特征名</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="p">,</span> <span class="s1">&#39;bin_tables_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">bin_tables_</span><span class="p">:</span>
-                <span class="c1"># 使用分箱器中的特征名（优先）— hscredit 风格</span>
-                <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">bin_tables_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-                <span class="c1"># 如果特征数量匹配，使用这些特征名</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">n_features</span><span class="p">:</span>
-                    <span class="c1"># 尝试匹配lr_model的特征名（如果存储了）</span>
-                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">):</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="c1"># 使用前n_features个特征名</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[:</span><span class="n">n_features</span><span class="p">]</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
-            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="p">,</span> <span class="s1">&#39;splits_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">splits_</span><span class="p">:</span>
-                <span class="c1"># load() 导入规则后，bin_tables_ 可能为空，但 splits_ 有数据</span>
-                <span class="c1"># 此时从 splits_ 获取特征名</span>
-                <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">splits_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">n_features</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">):</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[:</span><span class="n">n_features</span><span class="p">]</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_toad_like_combiner</span><span class="p">():</span>
-                <span class="c1"># toad/scp 风格：从 combiner.rules 获取特征名</span>
-                <span class="n">feature_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_external_binner_feature_names</span><span class="p">()</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">n_features</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">):</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[:</span><span class="n">n_features</span><span class="p">]</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
-            
-            <span class="c1"># 生成规则</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_generate_rules_from_binner</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;coef_&#39;</span><span class="p">):</span>
+            <span class="k">return</span>
+
+        <span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># 1. 解析特征名</span>
+        <span class="n">feature_names</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="p">,</span> <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">):</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_model</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="p">,</span> <span class="s1">&#39;bin_tables_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">bin_tables_</span><span class="p">:</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">bin_tables_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="p">,</span> <span class="s1">&#39;splits_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">splits_</span><span class="p">:</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binner</span><span class="o">.</span><span class="n">splits_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_toad_like_combiner</span><span class="p">():</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_external_binner_feature_names</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">feature_names</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n_features</span><span class="p">:</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[:</span><span class="n">n_features</span><span class="p">]</span>
+
+        <span class="c1"># 2. 生成规则：优先从 binner 还原真实分箱</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_generate_rules_from_binner</span><span class="p">()</span>
+
+        <span class="c1"># 3. 无分箱信息时回退到系数级规则，避免 scorecard_points 只剩基础分</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_generate_fallback_rules_from_lr</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_fallback_rules_from_lr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;无分箱信息时，基于 LR 系数为每个特征生成回退规则.</span>
+
+<span class="sd">        缺少分箱器/WOE 分布时，无法还原真实分箱区间，</span>
+<span class="sd">        因此每个特征给出一行「每单位 WOE 对应分数」（-B × coef），</span>
+<span class="sd">        让 scorecard_points 仍能展示全部变量及其方向与贡献。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="n">coef</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_feature_woe_sign</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;每单位WOE(系数=</span><span class="si">{</span><span class="n">coef</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;bins&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;bin_labels&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">label</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span>
+                <span class="s1">&#39;woe&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]),</span>
+                <span class="s1">&#39;scores&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_woe_to_point</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">coef</span><span class="p">)]),</span>
+                <span class="s1">&#39;coef&#39;</span><span class="p">:</span> <span class="n">coef</span><span class="p">,</span>
+                <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="p">}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_effect_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span>
+            <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_lr_model</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取当前生效的 LR 模型.&quot;&quot;&quot;</span>
@@ -1027,19 +1053,17 @@
             <span class="c1"># 使用系数绝对值</span>
             <span class="n">importances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">importance_type</span> <span class="o">==</span> <span class="s1">&#39;score_range&#39;</span><span class="p">:</span>
-            <span class="c1"># 使用评分卡中的分数范围</span>
+            <span class="c1"># 使用评分卡中的分数范围（每个特征各分箱分数的极差 max-min）</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;rules_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;评分卡规则未生成，无法使用score_range类型&quot;</span><span class="p">)</span>
             <span class="n">importances</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">feature_names</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">:</span>
-                    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;score&#39;</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span>
-                    <span class="k">if</span> <span class="n">scores</span><span class="p">:</span>
-                        <span class="n">importances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">importances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">rule</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span> <span class="k">if</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span> <span class="k">else</span> <span class="kc">None</span>
+                <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s1">&#39;scores&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span> <span class="k">if</span> <span class="n">rule</span> <span class="ow">and</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;scores&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="n">scores</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">importances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">scores</span><span class="p">)))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">importances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">importances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
             <span class="n">importances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">importances</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;不支持的重要性类型: </span><span class="si">{</span><span class="n">importance_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2042,12 +2066,20 @@
 <div class="viewcode-block" id="ScoreCard.scorecard_scale">
 <a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.ScoreCard.scorecard_scale">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">scorecard_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;输出评分卡基础配置.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;输出评分卡基础配置（刻度参数）.</span>
+
+<span class="sd">        :return: DataFrame，包含 base_odds/base_score/rate/pdo 及推导出的 A、B 刻度参数</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
+        <span class="n">base_odds_remark</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;好坏比（好:坏），内部换算实际 odds = 1/base_odds&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_odds</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;坏样本率 / 坏好比，直接作为实际 odds&quot;</span>
+        <span class="p">)</span>
+        <span class="c1"># 评分卡转换公式（与 score_formula() 中的「公式」一致）</span>
+        <span class="n">formula</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Score = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B_</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2"> × ln(odds)&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-            <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;base_odds&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_odds</span><span class="p">,</span>
-             <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="s2">&quot;基础比率 = (1-坏样本率)/坏样本率&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;base_odds&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_odds</span><span class="p">,</span> <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="n">base_odds_remark</span><span class="p">},</span>
             <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;base_score&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_score</span><span class="p">,</span>
              <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="s2">&quot;基础 odds 对应的分数&quot;</span><span class="p">},</span>
             <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;rate&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
@@ -2057,8 +2089,49 @@
             <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;B (pdo/ln(rate))&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B_</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
              <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;pdo / ln(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">},</span>
             <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;A (offset)&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-             <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="s2">&quot;base_score + B * ln(base_odds)&quot;</span><span class="p">},</span>
+             <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="s2">&quot;base_score + B * ln(实际odds)，实际odds 见 base_odds 备注&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;刻度项&quot;</span><span class="p">:</span> <span class="s2">&quot;formula&quot;</span><span class="p">,</span> <span class="s2">&quot;刻度值&quot;</span><span class="p">:</span> <span class="n">formula</span><span class="p">,</span>
+             <span class="s2">&quot;备注&quot;</span><span class="p">:</span> <span class="s2">&quot;评分卡转换公式，odds = P(坏) / P(好)（同 score_formula 的「公式」）&quot;</span><span class="p">},</span>
         <span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ScoreCard.score_formula">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.ScoreCard.score_formula">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">score_formula</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decimal</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;输出评分卡的评分转换公式（人类可读 + 可编程使用）.</span>
+
+<span class="sd">        返回标准评分卡公式 ``Score = A - B × ln(odds)`` 的各项参数与等价的</span>
+<span class="sd">        WOE 线性表达式，便于复核、文档化与离线部署。</span>
+
+<span class="sd">        :param decimal: 公式中数值保留的小数位数，默认 4</span>
+<span class="sd">        :return: 包含公式字符串与参数的字典，键包括</span>
+<span class="sd">            ``公式``/``A``/``B``/``截距分数``/``base_odds``/``base_score``/</span>
+<span class="sd">            ``pdo``/``rate``/``direction``/``WOE线性公式``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">A</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_</span><span class="p">),</span> <span class="n">decimal</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B_</span><span class="p">),</span> <span class="n">decimal</span><span class="p">)</span>
+        <span class="n">intercept_score</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">B_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span><span class="p">),</span> <span class="n">decimal</span><span class="p">)</span>
+
+        <span class="n">formula</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Score = </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2"> × ln(odds)，其中 odds = P(坏) / P(好)&quot;</span>
+        <span class="n">woe_formula</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Score = 截距分数(</span><span class="si">{</span><span class="n">intercept_score</span><span class="si">}</span><span class="s2">) &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;+ Σ(-B × coef_i × WOE_i)，B = </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;公式&quot;</span><span class="p">:</span> <span class="n">formula</span><span class="p">,</span>
+            <span class="s2">&quot;WOE线性公式&quot;</span><span class="p">:</span> <span class="n">woe_formula</span><span class="p">,</span>
+            <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">B</span><span class="p">,</span>
+            <span class="s2">&quot;截距分数&quot;</span><span class="p">:</span> <span class="n">intercept_score</span><span class="p">,</span>
+            <span class="s2">&quot;base_odds&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_odds</span><span class="p">,</span>
+            <span class="s2">&quot;base_score&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_score</span><span class="p">,</span>
+            <span class="s2">&quot;pdo&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pdo</span><span class="p">,</span>
+            <span class="s2">&quot;rate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
+            <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction_</span><span class="p">,</span>
+        <span class="p">}</span></div>
 
 
 <div class="viewcode-block" id="ScoreCard.scorecard_points">
@@ -2109,37 +2182,43 @@
                 
             <span class="n">rule</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
             <span class="n">scores</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;scores&#39;</span><span class="p">]</span>
-            <span class="n">woe_values</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;woe&#39;</span><span class="p">,</span> <span class="p">[])</span>
-            
+
             <span class="c1"># 优先使用 bin_labels（完整的分箱标签）</span>
             <span class="n">bin_labels</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bin_labels&#39;</span><span class="p">)</span>
             <span class="n">bins</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bins&#39;</span><span class="p">)</span>
-            <span class="n">woe_values</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;woe&#39;</span><span class="p">,</span> <span class="p">[])</span>
-            
+            <span class="c1"># WOE 值可能缺失（如离线规则加载后无 woe），单独处理，</span>
+            <span class="c1"># 不能放进 zip 否则空/短的 woe 会把整张分箱表截断为 0 行</span>
+            <span class="n">woe_values</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;woe&#39;</span><span class="p">)</span>
+            <span class="n">woe_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">woe_values</span><span class="p">)</span> <span class="k">if</span> <span class="n">woe_values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+
             <span class="c1"># 确定要使用的分箱标签</span>
             <span class="k">if</span> <span class="n">bin_labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">bin_labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">labels_to_use</span> <span class="o">=</span> <span class="n">bin_labels</span>
             <span class="k">elif</span> <span class="n">bins</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">labels_to_use</span> <span class="o">=</span> <span class="n">bins</span>
-            <span class="k">else</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">woe_list</span><span class="p">:</span>
                 <span class="c1"># 无分箱标签，使用 WOE 值格式化为标签</span>
-                <span class="n">labels_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;WOE: </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">woe_values</span><span class="p">]</span>
-            
+                <span class="n">labels_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;WOE: </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">woe_list</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># 无标签也无 WOE，用箱序号兜底</span>
+                <span class="n">labels_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;箱</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels_to_use</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
                 <span class="c1"># 如果标签和分数数量不匹配，重新生成标签</span>
                 <span class="n">labels_to_use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_bin_labels</span><span class="p">(</span><span class="n">bins</span> <span class="k">if</span> <span class="n">bins</span> <span class="k">else</span> <span class="n">labels_to_use</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-            
-            <span class="c1"># 处理每个分箱</span>
-            <span class="k">for</span> <span class="n">bin_label</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">woe</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels_to_use</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">woe_values</span><span class="p">):</span>
+
+            <span class="c1"># 处理每个分箱（以 标签/分数 数量为准，WOE 按位置取，缺失则为 None）</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">bin_label</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">labels_to_use</span><span class="p">,</span> <span class="n">scores</span><span class="p">)):</span>
                 <span class="c1"># 格式化特殊标签</span>
                 <span class="n">display_label</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_bin_display</span><span class="p">(</span><span class="n">bin_label</span><span class="p">)</span>
-                
+                <span class="n">woe</span> <span class="o">=</span> <span class="n">woe_list</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">woe_list</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
                 <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
                     <span class="s1">&#39;变量名称&#39;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
                     <span class="s1">&#39;变量含义&#39;</span><span class="p">:</span> <span class="n">feature_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
                     <span class="s1">&#39;变量分箱&#39;</span><span class="p">:</span> <span class="n">display_label</span><span class="p">,</span>
                     <span class="s1">&#39;对应分数&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">score</span><span class="p">),</span> <span class="n">decimal</span><span class="p">),</span>
-                    <span class="s1">&#39;WOE值&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">woe</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">woe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+                    <span class="s1">&#39;WOE值&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">woe</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">woe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">woe</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
                 <span class="p">})</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
@@ -2180,93 +2259,6 @@
 
                 <span class="k">return</span> <span class="s1">&#39;缺失值&#39;</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">bin_label</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">to_json</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">to_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">decimal</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="n">include_meta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;导出评分卡规则，兼容 toad/scorecardpipeline 格式.</span>
-
-<span class="sd">        :param to_json: 可选，JSON 文件保存路径。如果提供，将规则保存到该文件</span>
-<span class="sd">        :param to_frame: 是否返回 DataFrame 格式，默认为 False</span>
-<span class="sd">        :param decimal: 分数保留小数位数，默认为 2</span>
-<span class="sd">        :param include_meta: 是否包含元数据（用于 hscredit 的 load 方法）。</span>
-<span class="sd">            - True: 导出完整格式，包含 __meta__ 信息，可被 ScoreCard.load() 完整恢复</span>
-<span class="sd">            - False: 导出 toad/scorecardpipeline 兼容的简洁格式</span>
-<span class="sd">        :return: 评分卡规则字典或 DataFrame</span>
-<span class="sd">            - 字典格式(默认): {&#39;feature&#39;: {&#39;bin_label&#39;: score, ...}, ...}</span>
-<span class="sd">            - 完整格式(include_meta=True): {&#39;__meta__&#39;: {...}, &#39;feature&#39;: {...}, ...}</span>
-<span class="sd">            - DataFrame格式: columns=[&#39;name&#39;, &#39;value&#39;, &#39;score&#39;]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-
-        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-        <span class="c1"># 使用 scorecard_points 获取完整信息</span>
-        <span class="n">points_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorecard_points</span><span class="p">(</span><span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
-
-        <span class="c1"># 构建与 toad/scorecardpipeline 兼容的格式</span>
-        <span class="n">card</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">points_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-            <span class="n">feature</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;变量名称&#39;</span><span class="p">]</span>
-            <span class="n">bin_label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;变量分箱&#39;</span><span class="p">]</span>
-            <span class="n">score</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;对应分数&#39;</span><span class="p">]</span>
-
-            <span class="k">if</span> <span class="n">feature</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">card</span><span class="p">:</span>
-                <span class="n">card</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="n">card</span><span class="p">[</span><span class="n">feature</span><span class="p">][</span><span class="n">bin_label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">score</span><span class="p">),</span> <span class="n">decimal</span><span class="p">)</span>
-
-        <span class="c1"># 如果需要包含元数据（用于 hscredit load 方法）</span>
-        <span class="k">if</span> <span class="n">include_meta</span><span class="p">:</span>
-            <span class="c1"># 计算截距分数</span>
-            <span class="n">intercept_score</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">B_</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
-
-            <span class="n">card</span><span class="p">[</span><span class="s1">&#39;__meta__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;intercept_score&#39;</span><span class="p">:</span> <span class="n">intercept_score</span><span class="p">,</span>
-                <span class="s1">&#39;base_score&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_score</span><span class="p">),</span>
-                <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction_</span><span class="p">,</span>
-                <span class="s1">&#39;pdo&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pdo</span><span class="p">,</span>
-                <span class="s1">&#39;rate&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span>
-                <span class="s1">&#39;base_odds&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_odds</span><span class="p">,</span>
-                <span class="s1">&#39;lower&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span>
-                <span class="s1">&#39;upper&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span>
-                <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A_</span><span class="p">),</span>
-                <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B_</span><span class="p">),</span>
-                <span class="s1">&#39;feature_names&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span><span class="p">),</span>
-                <span class="s1">&#39;coef&#39;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="nb">float</span><span class="p">(</span><span class="n">coef</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_feature_woe_sign</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-                <span class="p">],</span>
-            <span class="p">}</span>
-
-        <span class="c1"># 保存到 JSON 文件</span>
-        <span class="k">if</span> <span class="n">to_json</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-            <span class="n">dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">to_json</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">dir_path</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_json</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-        <span class="c1"># 返回 DataFrame 格式</span>
-        <span class="k">if</span> <span class="n">to_frame</span><span class="p">:</span>
-            <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">card</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;__meta__&#39;</span><span class="p">:</span>
-                    <span class="k">continue</span>  <span class="c1"># 跳过元数据</span>
-                <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">card</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
-                        <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="n">score</span><span class="p">,</span>
-                    <span class="p">})</span>
-            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">card</span>
 
 <div class="viewcode-block" id="ScoreCard.score_to_bad_rate_table">
 <a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.ScoreCard.score_to_bad_rate_table">[文档]</a>
@@ -3605,6 +3597,9 @@
 
         <span class="c1"># 解析规则</span>
         <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">feature_rules</span> <span class="ow">in</span> <span class="n">card</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># 兼容历史导出文件：&#39;基础分&#39;（截距项）不是特征，跳过以免污染特征列表</span>
+            <span class="k">if</span> <span class="n">feature</span> <span class="o">==</span> <span class="s1">&#39;基础分&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">if</span> <span class="n">feature</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_feature_names</span><span class="p">:</span>
@@ -4080,27 +4075,32 @@
 
             <span class="n">rule</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
             <span class="n">rounded_scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_rounded_rule_scores</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="n">digits</span><span class="p">)</span>
-            <span class="n">woe_values</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;woe&#39;</span><span class="p">,</span> <span class="p">[])</span>
             <span class="n">bin_labels</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bin_labels&#39;</span><span class="p">)</span>
             <span class="n">bins</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;bins&#39;</span><span class="p">)</span>
+            <span class="c1"># WOE 可能缺失（离线规则加载），单独取值，避免 zip 截断分箱行</span>
+            <span class="n">woe_values</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;woe&#39;</span><span class="p">)</span>
+            <span class="n">woe_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">woe_values</span><span class="p">)</span> <span class="k">if</span> <span class="n">woe_values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
 
             <span class="k">if</span> <span class="n">bin_labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">bin_labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">labels_to_use</span> <span class="o">=</span> <span class="n">bin_labels</span>
             <span class="k">elif</span> <span class="n">bins</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">labels_to_use</span> <span class="o">=</span> <span class="n">bins</span>
+            <span class="k">elif</span> <span class="n">woe_list</span><span class="p">:</span>
+                <span class="n">labels_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;WOE: </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">woe_list</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">labels_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;WOE: </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">woe_values</span><span class="p">]</span>
+                <span class="n">labels_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;箱</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rounded_scores</span><span class="p">))]</span>
 
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels_to_use</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rounded_scores</span><span class="p">):</span>
                 <span class="n">labels_to_use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_bin_labels</span><span class="p">(</span><span class="n">bins</span> <span class="k">if</span> <span class="n">bins</span> <span class="k">else</span> <span class="n">labels_to_use</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rounded_scores</span><span class="p">))</span>
 
-            <span class="k">for</span> <span class="n">bin_label</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">woe</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels_to_use</span><span class="p">,</span> <span class="n">rounded_scores</span><span class="p">,</span> <span class="n">woe_values</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">bin_label</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">labels_to_use</span><span class="p">,</span> <span class="n">rounded_scores</span><span class="p">)):</span>
+                <span class="n">woe</span> <span class="o">=</span> <span class="n">woe_list</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">woe_list</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
                 <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
                     <span class="s1">&#39;变量名称&#39;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
                     <span class="s1">&#39;变量含义&#39;</span><span class="p">:</span> <span class="n">feature_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
                     <span class="s1">&#39;变量分箱&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_bin_display</span><span class="p">(</span><span class="n">bin_label</span><span class="p">),</span>
                     <span class="s1">&#39;对应分数&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_round_score_value</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">digits</span><span class="p">),</span>
-                    <span class="s1">&#39;WOE值&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">woe</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">woe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="s1">&#39;WOE值&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">woe</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">woe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">woe</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
                 <span class="p">})</span>
 
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
@@ -4312,6 +4312,10 @@
         <span class="n">card</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">points_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
             <span class="n">feature</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;变量名称&#39;</span><span class="p">]</span>
+            <span class="c1"># 基础分（截距项）已通过 __meta__ 的 intercept_score 留存，</span>
+            <span class="c1"># 不能作为特征写入规则，否则 load() 会将其误当成额外特征</span>
+            <span class="k">if</span> <span class="n">feature</span> <span class="o">==</span> <span class="s1">&#39;基础分&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
             <span class="n">bin_label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;变量分箱&#39;</span><span class="p">]</span>
             <span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_round_score_value</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;对应分数&#39;</span><span class="p">],</span> <span class="n">digits</span><span class="p">)</span>
             <span class="n">card</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="p">{})[</span><span class="n">bin_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">score</span>

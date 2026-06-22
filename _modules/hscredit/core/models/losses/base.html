@@ -8,7 +8,7 @@
   <title>hscredit.core.models.losses.base &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -635,8 +637,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">xgb_loss</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dtrain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
             <span class="n">labels</span> <span class="o">=</span> <span class="n">dtrain</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span>
-            <span class="n">grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
-            <span class="n">hess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
+            <span class="c1"># 原生 xgb.train 回调传入原始分数，先 sigmoid 转概率再求梯度</span>
+            <span class="n">probs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)))</span>
+            <span class="n">grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
+            <span class="n">hess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">hess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="c1"># 如果没有二阶导，使用近似值</span>
                 <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
@@ -653,8 +657,10 @@
 <span class="sd">        :return: LightGBM可用的损失函数</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">lgb_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-            <span class="n">grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-            <span class="n">hess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="c1"># LightGBM 回调传入原始分数，先 sigmoid 转概率再求梯度</span>
+            <span class="n">probs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)))</span>
+            <span class="n">grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
+            <span class="n">hess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">hess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
             <span class="k">return</span> <span class="n">grad</span><span class="p">,</span> <span class="n">hess</span>
@@ -664,11 +670,22 @@
 
 <div class="viewcode-block" id="BaseLoss.to_catboost">
 <a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.BaseLoss.to_catboost">[文档]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_catboost</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;转换为CatBoost格式的损失函数。</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_catboost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;转换为CatBoost格式的损失函数对象。</span>
 
-<span class="sd">        :return: CatBoost可用的损失函数</span>
+<span class="sd">        CatBoost 自定义损失需要一个实现 ``calc_ders_range`` 接口的对象（而非普通</span>
+<span class="sd">        函数），可直接传给 ``CatBoostClassifier(loss_function=...)``。本方法委托给</span>
+<span class="sd">        :class:`~hscredit.core.models.losses.adapters.CatBoostLossAdapter`，内部已</span>
+<span class="sd">        完成 sigmoid 链接函数转换与 CatBoost 的符号约定处理。</span>
+
+<span class="sd">        :return: CatBoost 可用的损失对象（含 calc_ders_range 方法）</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">CatBoostLossAdapter</span>
+        <span class="k">return</span> <span class="n">CatBoostLossAdapter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">objective</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_legacy_catboost_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;旧版 CatBoost 损失闭包（保留备查，不推荐使用）。&quot;&quot;&quot;</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">catboost_loss</span><span class="p">(</span><span class="n">approxes</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
             <span class="c1"># CatBoost使用不同的接口</span>
             <span class="n">approx</span> <span class="o">=</span> <span class="n">approxes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -678,8 +695,7 @@
                 <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
             <span class="k">return</span> <span class="n">grad</span><span class="p">,</span> <span class="n">hess</span>
 
-        <span class="k">return</span> <span class="n">catboost_loss</span></div>
-
+        <span class="k">return</span> <span class="n">catboost_loss</span>
 
 <div class="viewcode-block" id="BaseLoss.to_ngboost">
 <a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.BaseLoss.to_ngboost">[文档]</a>

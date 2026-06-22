@@ -9,7 +9,7 @@
   <title>超参数调优 hscredit.core.models.tuning &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -426,6 +426,7 @@
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -437,6 +438,7 @@
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -560,7 +562,7 @@
 <code class="docutils literal notranslate"><span class="pre">hscredit</span></code> 懒加载导入 <code class="docutils literal notranslate"><span class="pre">ModelTuner</span></code> / <code class="docutils literal notranslate"><span class="pre">AutoTuner</span></code> / <code class="docutils literal notranslate"><span class="pre">TuningObjective</span></code>。</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.ModelTuner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.models.tuning.tuning.</span></span><span class="sig-name descname"><span class="pre">ModelTuner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'maximize'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_ratios</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#ModelTuner"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.ModelTuner" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.models.tuning.tuning.</span></span><span class="sig-name descname"><span class="pre">ModelTuner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'maximize'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_ratios</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trial_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tpe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampler_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">study_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_if_exists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#ModelTuner"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.ModelTuner" title="Link to this definition"></a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>模型超参数调优器 - 支持单/多目标优化.</p>
 <p>基于Optuna实现贝叶斯优化超参数搜索。
@@ -588,6 +590,12 @@
 <li><p><strong>objective</strong> (<em>str</em><em> | </em><em>Callable</em><em> | </em><em>None</em>)</p></li>
 <li><p><strong>objective_kwargs</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>)</p></li>
 <li><p><strong>eval_ratios</strong> (<em>List</em><em>[</em><em>float</em><em>]</em>)</p></li>
+<li><p><strong>trial_points</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>List</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>sampler</strong> (<em>str</em><em> | </em><em>Any</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>sampler_kwargs</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>storage</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>study_name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>load_if_exists</strong> (<em>bool</em>)</p></li>
 <li><p><strong>target</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
@@ -600,16 +608,22 @@
 <p><strong>内部建模经验</strong></p>
 <ol class="arabic simple">
 <li><p>XGBoost参数经验:
-- max_depth: 风控场景通常2-5，防止过拟合
-- min_child_weight: 样本&gt;10000时10-2000，否则10-300
-- subsample/colsample_bytree: 0.6-0.9
-- reg_alpha/reg_lambda: 1e-8到100的对数尺度
-- learning_rate: 0.005-0.1，较小学习率更稳定</p></li>
-<li><p>LightGBM参数经验:
-- num_leaves: 与max_depth相关，通常20-64（2^5=32附近）
-- max_depth: 风控场景通常2-5，防止过拟合
-- learning_rate: 0.005-0.1，较小学习率更稳定
-- min_child_samples: 5-100</p></li>
+- max_depth: 风控场景通常2-4，防止过拟合
+- min_child_weight: 8-256（step 4），越大越保守
+- subsample: 0.35-0.85，colsample_bytree: 0.4-0.9
+- gamma: 0.0-32.0，reg_lambda: 32.0-128.0（强 L2 正则）
+- scale_pos_weight: 16.0-32.0（适配低坏率不平衡）
+- learning_rate: 0.0001-0.01，较小学习率更稳定
+- n_estimators: 32-256（step 16）</p></li>
+<li><p>LightGBM参数经验（与 XGBoost 对齐）:
+- num_leaves: 与max_depth相关，受 2**max_depth 上界约束
+- max_depth: 风控场景通常2-4，防止过拟合
+- learning_rate: 0.0001-0.01，较小学习率更稳定
+- min_child_samples: 8-256（step 4）</p></li>
+<li><p>LogisticRegression参数经验:
+- C: 0.01-32 离散网格，越小正则越强
+- penalty: 'l2'，class_weight: None/'balanced'/自定义权重字典
+- solver: liblinear/sag/lbfgs/newton-cg，max_iter: 16-256</p></li>
 <li><p>评估指标:
 - 主要用KS评估模型区分能力
 - 同时考虑训练/测试KS差异防止过拟合</p></li>
@@ -677,6 +691,66 @@
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.ModelTuner.evaluate_study_trials">
+<span class="sig-name descname"><span class="pre">evaluate_study_trials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trial_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#ModelTuner.evaluate_study_trials"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.ModelTuner.evaluate_study_trials" title="Link to this definition"></a></dt>
+<dd><p>评估已完成 study 中指定 trial 的模型效果.</p>
+<p>从 <code class="docutils literal notranslate"><span class="pre">self.``study_</span></code>.trials[i]`` 取出对应超参数重新评估，便于复核某次
+采样的稳定性、或在新数据集上对比若干历史 trial 的效果。</p>
+<p>与 <a class="reference internal" href="#hscredit.core.models.tuning.tuning.ModelTuner.evaluate_trials" title="hscredit.core.models.tuning.tuning.ModelTuner.evaluate_trials"><code class="xref py py-meth docutils literal notranslate"><span class="pre">evaluate_trials()</span></code></a> 的区别：本方法的超参数来自已学习完成的
+study（按 trial 索引取），而非外部传入的参数点；结果额外包含每个 trial
+的索引、状态及 study 记录的原始得分（<code class="docutils literal notranslate"><span class="pre">study记录值</span></code> 列），便于与重新
+评估的得分对照。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trial_indices</strong> (<em>int</em><em> | </em><em>Sequence</em><em>[</em><em>int</em><em>] </em><em>| </em><em>None</em>) -- 要评估的 trial 索引，可选:
+- None: 评估全部已完成（COMPLETE）的 trial
+- int: 评估单个 trial，如 <code class="docutils literal notranslate"><span class="pre">0</span></code> 或 <code class="docutils literal notranslate"><span class="pre">tuner.``study_</span></code>.best_trial.number``
+- 序列: 评估多个 trial，如 <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">5,</span> <span class="pre">10]</span></code></p></li>
+<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>) -- 特征矩阵，或包含目标列的DataFrame；默认复用 fit 时的训练数据</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，可选；默认复用 fit 时的标签</p></li>
+<li><p><strong>sample_weight</strong> (<em>ndarray</em><em> | </em><em>None</em>) -- 样本权重，可选；默认复用 fit 时的样本权重</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>包含评估结果的DataFrame，含 <code class="docutils literal notranslate"><span class="pre">trial索引</span></code>/<code class="docutils literal notranslate"><span class="pre">trial状态</span></code>/超参数/
+重新评估指标/<code class="docutils literal notranslate"><span class="pre">study记录值</span></code> 列</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+<p class="rubric">示例</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 评估最优 trial 与前两个 trial</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span><span class="o">.</span><span class="n">evaluate_study_trials</span><span class="p">([</span><span class="n">tuner</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">best_trial</span><span class="o">.</span><span class="n">number</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 在新数据集上复核全部 trial</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span><span class="o">.</span><span class="n">evaluate_study_trials</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_oot</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_oot</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.ModelTuner.enqueue_trials">
+<span class="sig-name descname"><span class="pre">enqueue_trials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trial_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#ModelTuner.enqueue_trials"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.ModelTuner.enqueue_trials" title="Link to this definition"></a></dt>
+<dd><p>追加预指定的超参数搜索点（dict 或 list[dict]）.</p>
+<p>若 study 已创建（已调用过 fit），则立即通过 <code class="docutils literal notranslate"><span class="pre">study.enqueue_trial</span></code> 入队，
+在后续 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 的采样中优先评估；否则缓存到 <code class="docutils literal notranslate"><span class="pre">self.trial_points</span></code>，
+在下次 <code class="docutils literal notranslate"><span class="pre">fit</span></code> 创建 study 后入队。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trial_points</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>List</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) -- 超参数点，<code class="docutils literal notranslate"><span class="pre">dict</span></code> 或 <code class="docutils literal notranslate"><span class="pre">list[dict]</span></code>，键为搜索空间参数名</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>self，便于链式调用</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.models.tuning.tuning.ModelTuner" title="hscredit.core.models.tuning.tuning.ModelTuner"><em>ModelTuner</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -892,11 +966,13 @@
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model_type</strong> (<em>str</em>) -- 模型类型，可选:
-- 'xgboost'
-- 'lightgbm'
-- 'catboost'
-- 'randomforest'
-- 'gradientboosting'</p></li>
+- 'xgboost' / 'xgb'
+- 'lightgbm' / 'lgb'
+- 'catboost' / 'cat'
+- 'ngboost' / 'ngb'
+- 'randomforest' / 'rf'
+- 'gradientboosting' / 'gbdt'
+- 'logisticregression' / 'lr'</p></li>
 <li><p><strong>metric</strong> (<em>str</em><em> | </em><em>Callable</em><em> | </em><em>List</em><em>[</em><em>str</em><em> | </em><em>Callable</em><em>]</em>) -- 优化指标，可以是字符串、函数或列表</p></li>
 <li><p><strong>direction</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>]</em>) -- 优化方向，单目标时str，多目标时list</p></li>
 <li><p><strong>metric_names</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 指标名称列表（多目标时用于显示）</p></li>

@@ -9,7 +9,7 @@
   <title>模型 hscredit.core.models &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -426,6 +426,7 @@
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -437,6 +438,7 @@
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -1023,6 +1025,150 @@ VIF &gt; threshold 被认为存在多重共线性</p>
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.evaluate"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.evaluate" title="Link to this definition"></a></dt>
+<dd><p>评估模型性能（与 BaseRiskModel.evaluate 接口一致）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵</p></li>
+<li><p><strong>y</strong> (<em>Series</em><em> | </em><em>ndarray</em>) -- 真实标签</p></li>
+<li><p><strong>sample_weight</strong> (<em>ndarray</em><em> | </em><em>None</em>) -- 样本权重</p></li>
+<li><p><strong>metrics</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 评估指标列表</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>评估结果字典</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.predict_score">
+<span class="sig-name descname"><span class="pre">predict_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.predict_score"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.predict_score" title="Link to this definition"></a></dt>
+<dd><p>预测风险评分（与 BaseRiskModel.predict_score 接口一致）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>风险评分 (0-1000)</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.report">
+<span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overdue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excel_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.report"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.report" title="Link to this definition"></a></dt>
+<dd><p>生成风控建模报告（与 BaseRiskModel.report 接口一致）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>QuickModelReport 实例</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.tune">
+<span class="sig-name descname"><span class="pre">tune</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'maximize'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.tune"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.tune" title="Link to this definition"></a></dt>
+<dd><p>超参数调优并返回最佳模型（与 BaseRiskModel.tune 接口一致）.</p>
+<p>集成 ModelTuner（基于 Optuna），默认使用逻辑回归的自适应搜索空间
+（C / penalty / class_weight / max_iter / solver）。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵或包含 target 的 DataFrame</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，可选</p></li>
+<li><p><strong>search_space</strong> (<em>dict</em><em> | </em><em>None</em>) -- 参数搜索空间，默认使用自适应空间</p></li>
+<li><p><strong>fixed_params</strong> (<em>dict</em><em> | </em><em>None</em>) -- 固定参数</p></li>
+<li><p><strong>metric</strong> -- 优化指标，默认 'ks'</p></li>
+<li><p><strong>direction</strong> -- 优化方向，默认 'maximize'</p></li>
+<li><p><strong>n_trials</strong> (<em>int</em>) -- 搜索次数，默认 100</p></li>
+<li><p><strong>cv</strong> (<em>int</em>) -- 交叉验证折数，默认 5</p></li>
+<li><p><strong>timeout</strong> (<em>int</em><em> | </em><em>None</em>) -- 超时时间(秒)</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) -- 是否输出详细信息</p></li>
+<li><p><strong>kwargs</strong> -- 其他传递给 ModelTuner 的参数（如 sampler/storage）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>使用最佳参数训练好的模型实例</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.models.LogisticRegression" title="hscredit.core.models.classical.logistic_regression.LogisticRegression"><em>LogisticRegression</em></a></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">proba</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.save"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.save" title="Link to this definition"></a></dt>
+<dd><p>保存模型到文件（与 BaseRiskModel.save 接口一致）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- 保存路径</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) -- 序列化引擎</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>保存路径</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.load">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.load"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.load" title="Link to this definition"></a></dt>
+<dd><p>从文件加载模型（与 BaseRiskModel.load 接口一致）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- 模型文件路径</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) -- 序列化引擎</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>加载的模型实例</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.models.LogisticRegression" title="hscredit.core.models.classical.logistic_regression.LogisticRegression"><em>LogisticRegression</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.get_model_info">
+<span class="sig-name descname"><span class="pre">get_model_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.get_model_info"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.get_model_info" title="Link to this definition"></a></dt>
+<dd><p>获取模型信息（与 BaseRiskModel.get_model_info 接口一致）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.get_native_model">
+<span class="sig-name descname"><span class="pre">get_native_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.get_native_model"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.get_native_model" title="Link to this definition"></a></dt>
+<dd><p>获取底层模型（返回自身，因为 LR 不包装底层模型）.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -1364,10 +1510,34 @@ Score = <code class="docutils literal notranslate"><span class="pre">A_</span></
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.scorecard_scale">
 <span class="sig-name descname"><span class="pre">scorecard_scale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.scorecard_scale"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.scorecard_scale" title="Link to this definition"></a></dt>
-<dd><p>输出评分卡基础配置.</p>
+<dd><p>输出评分卡基础配置（刻度参数）.</p>
 <dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame，包含 base_odds/base_score/rate/pdo 及推导出的 A、B 刻度参数</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.score_formula">
+<span class="sig-name descname"><span class="pre">score_formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.score_formula"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.score_formula" title="Link to this definition"></a></dt>
+<dd><p>输出评分卡的评分转换公式（人类可读 + 可编程使用）.</p>
+<p>返回标准评分卡公式 <code class="docutils literal notranslate"><span class="pre">Score</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">-</span> <span class="pre">B</span> <span class="pre">×</span> <span class="pre">ln(odds)</span></code> 的各项参数与等价的
+WOE 线性表达式，便于复核、文档化与离线部署。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>decimal</strong> (<em>int</em>) -- 公式中数值保留的小数位数，默认 4</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>包含公式字符串与参数的字典，键包括
+<code class="docutils literal notranslate"><span class="pre">公式</span></code>/<code class="docutils literal notranslate"><span class="pre">A</span></code>/<code class="docutils literal notranslate"><span class="pre">B</span></code>/<code class="docutils literal notranslate"><span class="pre">截距分数</span></code>/<code class="docutils literal notranslate"><span class="pre">base_odds</span></code>/<code class="docutils literal notranslate"><span class="pre">base_score</span></code>/
+<code class="docutils literal notranslate"><span class="pre">pdo</span></code>/<code class="docutils literal notranslate"><span class="pre">rate</span></code>/<code class="docutils literal notranslate"><span class="pre">direction</span></code>/<code class="docutils literal notranslate"><span class="pre">WOE线性公式</span></code></p>
+</dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>DataFrame</em></p>
+<dd class="field-odd"><p><em>Dict</em>[str, <em>Any</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1834,6 +2004,19 @@ Score = <code class="docutils literal notranslate"><span class="pre">A_</span></
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.best_iteration_">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">best_iteration_</span></span><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.best_iteration_" title="Link to this definition"></a></dt>
+<dd><p>最佳迭代次数（早停后），未启用早停时为 None.</p>
+<p>统一暴露给所有子类（XGBoost/LightGBM/CatBoost/NGBoost/sklearn 集成）。</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.best_score_">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">best_score_</span></span><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.best_score_" title="Link to this definition"></a></dt>
+<dd><p>最佳得分（早停验证集上），未启用早停时为 None.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.get_feature_importances">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_feature_importances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">importance_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gain'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/base.html#BaseRiskModel.get_feature_importances"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.get_feature_importances" title="Link to this definition"></a></dt>
@@ -1912,6 +2095,159 @@ Score = <code class="docutils literal notranslate"><span class="pre">A_</span></
 <dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.models.ModelReport" title="hscredit.core.models.ModelReport">ModelReport</a></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.report">
+<span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overdue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excel_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/base.html#BaseRiskModel.report"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.report" title="Link to this definition"></a></dt>
+<dd><p>生成风控建模报告（支持多数据集/overdue/dpds）.</p>
+<p>委托给 hscredit.report.auto_model_report，生成包含多 Sheet 的 Excel / 控制台报告。</p>
+<p>支持三种调用方式:</p>
+<ol class="arabic">
+<li><p>datasets API（推荐）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;训练集&#39;</span><span class="p">:</span> <span class="n">train_df</span><span class="p">,</span> <span class="s1">&#39;测试集&#39;</span><span class="p">:</span> <span class="n">test_df</span><span class="p">})</span>
+<span class="n">model</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">[</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>sklearn 风格:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">X_train</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y_train</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">y_val</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>overdue/dpds 自动构建标签:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;训练集&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">},</span> <span class="n">overdue</span><span class="o">=</span><span class="s1">&#39;dpds&#39;</span><span class="p">,</span> <span class="n">dpds</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasets</strong> (<em>List</em><em> | </em><em>Dict</em><em> | </em><em>None</em>) -- 数据集字典/列表</p></li>
+<li><p><strong>X_train</strong> -- 训练集特征（兼容旧API）</p></li>
+<li><p><strong>y_train</strong> -- 训练集标签（兼容旧API）</p></li>
+<li><p><strong>X_test</strong> -- 测试集特征（兼容旧API）</p></li>
+<li><p><strong>y_test</strong> -- 测试集标签（兼容旧API）</p></li>
+<li><p><strong>feature_names</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 特征名称列表</p></li>
+<li><p><strong>target</strong> (<em>str</em><em> | </em><em>Dict</em><em> | </em><em>None</em>) -- 目标列配置</p></li>
+<li><p><strong>overdue</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期列名</p></li>
+<li><p><strong>dpds</strong> (<em>int</em><em> | </em><em>float</em><em> | </em><em>List</em><em>[</em><em>int</em><em> | </em><em>float</em><em>] </em><em>| </em><em>None</em>) -- 逾期天数阈值</p></li>
+<li><p><strong>excel_path</strong> (<em>str</em><em> | </em><em>None</em>) -- Excel 报告输出路径</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) -- 是否打印控制台报告</p></li>
+<li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数</p></li>
+<li><p><strong>amount_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 金额字段</p></li>
+<li><p><strong>date_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 日期字段</p></li>
+<li><p><strong>group_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 分组字段</p></li>
+<li><p><strong>kwargs</strong> -- 传递给 auto_model_report 的其他参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>QuickModelReport 实例</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="report.html#hscredit.report.QuickModelReport" title="hscredit.report.QuickModelReport">QuickModelReport</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/base.html#BaseRiskModel.save"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.save" title="Link to this definition"></a></dt>
+<dd><p>保存模型到文件.</p>
+<p>支持多种格式:
+- pickle/joblib: 保存完整模型对象（默认）
+- json: 保存模型参数和元数据（仅限支持的框架）</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- 保存路径，支持 .pkl, .joblib, .pkl.gz, .json 等后缀</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) -- 序列化引擎，可选 'auto', 'joblib', 'pickle', 'dill', 'cloudpickle'</p></li>
+<li><p><strong>kwargs</strong> -- 传递给 save_pickle 的其他参数（如 compression, compression_level）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>保存路径</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.joblib&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.pkl.gz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dill&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.load">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/base.html#BaseRiskModel.load"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.load" title="Link to this definition"></a></dt>
+<dd><p>从文件加载模型.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- 模型文件路径</p></li>
+<li><p><strong>engine</strong> (<em>str</em>) -- 序列化引擎，可选 'auto', 'joblib', 'pickle', 'dill', 'cloudpickle'</p></li>
+<li><p><strong>kwargs</strong> -- 传递给 load_pickle 的其他参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>加载的模型实例</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.models.BaseRiskModel" title="hscredit.core.models.base.BaseRiskModel"><em>BaseRiskModel</em></a></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">XGBoostRiskModel</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">LightGBMRiskModel</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.joblib&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">BaseRiskModel</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>  <span class="c1"># 自动推断模型类型</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.BaseRiskModel.tune">
+<span class="sig-name descname"><span class="pre">tune</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ks'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'maximize'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/base.html#BaseRiskModel.tune"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseRiskModel.tune" title="Link to this definition"></a></dt>
+<dd><p>超参数调优并返回最佳模型.</p>
+<p>集成 ModelTuner，一键完成超参数搜索、最佳模型训练。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em>) -- 特征矩阵或包含target的DataFrame</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，可选</p></li>
+<li><p><strong>search_space</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>] </em><em>| </em><em>None</em>) -- 参数搜索空间，默认使用自适应空间</p></li>
+<li><p><strong>fixed_params</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) -- 固定参数</p></li>
+<li><p><strong>metric</strong> (<em>str</em><em> | </em><em>Callable</em><em> | </em><em>List</em>) -- 优化指标</p></li>
+<li><p><strong>direction</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>]</em>) -- 优化方向</p></li>
+<li><p><strong>n_trials</strong> (<em>int</em>) -- 搜索次数</p></li>
+<li><p><strong>cv</strong> (<em>int</em>) -- 交叉验证折数</p></li>
+<li><p><strong>timeout</strong> (<em>int</em><em> | </em><em>None</em>) -- 超时时间(秒)</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em> | </em><em>None</em>) -- 是否输出详细信息</p></li>
+<li><p><strong>kwargs</strong> -- 其他传递给 ModelTuner 的参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>使用最佳参数训练好的模型实例</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.models.BaseRiskModel" title="hscredit.core.models.base.BaseRiskModel"><em>BaseRiskModel</em></a></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">XGBoostRiskModel</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">proba</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># scorecardpipeline风格</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">LightGBMRiskModel</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2673,13 +3009,14 @@ CatBoost / TabNet。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.BaseLoss.to_catboost">
 <span class="sig-name descname"><span class="pre">to_catboost</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/base.html#BaseLoss.to_catboost"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseLoss.to_catboost" title="Link to this definition"></a></dt>
-<dd><p>转换为CatBoost格式的损失函数。</p>
+<dd><p>转换为CatBoost格式的损失函数对象。</p>
+<p>CatBoost 自定义损失需要一个实现 <code class="docutils literal notranslate"><span class="pre">calc_ders_range</span></code> 接口的对象（而非普通
+函数），可直接传给 <code class="docutils literal notranslate"><span class="pre">CatBoostClassifier(loss_function=...)</span></code>。本方法委托给
+<a class="reference internal" href="#hscredit.core.models.CatBoostLossAdapter" title="hscredit.core.models.losses.adapters.CatBoostLossAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CatBoostLossAdapter</span></code></a>，内部已
+完成 sigmoid 链接函数转换与 CatBoost 的符号约定处理。</p>
 <dl class="field-list simple">
 <dt class="field-odd">返回<span class="colon">:</span></dt>
-<dd class="field-odd"><p>CatBoost可用的损失函数</p>
-</dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Callable</em></p>
+<dd class="field-odd"><p>CatBoost 可用的损失对象（含 calc_ders_range 方法）</p>
 </dd>
 </dl>
 </dd></dl>

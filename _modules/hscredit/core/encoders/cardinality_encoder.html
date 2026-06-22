@@ -8,7 +8,7 @@
   <title>hscredit.core.encoders.cardinality_encoder &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -625,10 +627,10 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">max_categories</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="n">other_label</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="s1">&#39;other&#39;</span><span class="p">,</span>
+        <span class="n">other_label</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
         <span class="n">special_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">handle_unknown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;other&#39;</span><span class="p">,</span>
-        <span class="n">handle_missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+        <span class="n">handle_unknown</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
+        <span class="n">handle_missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
         <span class="n">drop_invariant</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">return_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -659,6 +661,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">top_categories_</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">category_counts_</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">special_counts_</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;拟合高基数降维编码器。</span>
@@ -678,6 +681,9 @@
 
             <span class="bp">self</span><span class="o">.</span><span class="n">category_counts_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span>
 
+            <span class="c1"># 记录实际出现的特殊值及其频次</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">special_counts_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">sv</span><span class="p">:</span> <span class="nb">int</span><span class="p">((</span><span class="n">series</span> <span class="o">==</span> <span class="n">sv</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="k">for</span> <span class="n">sv</span> <span class="ow">in</span> <span class="n">special_set</span> <span class="k">if</span> <span class="p">(</span><span class="n">series</span> <span class="o">==</span> <span class="n">sv</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()}</span>
+
             <span class="c1"># 保留前 max_categories - 1 个（给 other 留一个位置）</span>
             <span class="n">keep_n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_categories</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">top_cats</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">keep_n</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -693,10 +699,10 @@
                 <span class="n">mapping</span><span class="p">[</span><span class="n">sv</span><span class="p">]</span> <span class="o">=</span> <span class="n">sv</span>
 
             <span class="c1"># 未知类别处理</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;other&#39;</span><span class="p">:</span>
-                <span class="n">mapping</span><span class="p">[</span><span class="s1">&#39;__UNKNOWN__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_label</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;return_nan&#39;</span><span class="p">:</span>
-                <span class="n">mapping</span><span class="p">[</span><span class="s1">&#39;__UNKNOWN__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s2">&quot;other&quot;</span><span class="p">:</span>
+                <span class="n">mapping</span><span class="p">[</span><span class="s2">&quot;__UNKNOWN__&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_label</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s2">&quot;return_nan&quot;</span><span class="p">:</span>
+                <span class="n">mapping</span><span class="p">[</span><span class="s2">&quot;__UNKNOWN__&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span>
 
@@ -723,15 +729,15 @@
             <span class="c1"># 对未命中且非缺失的值，按 handle_unknown 策略处理</span>
             <span class="n">unmapped</span> <span class="o">=</span> <span class="n">mapped</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">is_na</span>
             <span class="k">if</span> <span class="n">unmapped</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;other&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s2">&quot;other&quot;</span><span class="p">:</span>
                     <span class="n">mapped</span><span class="p">[</span><span class="n">unmapped</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_label</span>
-                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span>
                     <span class="n">bad</span> <span class="o">=</span> <span class="n">original</span><span class="p">[</span><span class="n">unmapped</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;列 &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; 包含未知类别: </span><span class="si">{</span><span class="n">bad</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="c1"># &#39;return_nan&#39; 不需要额外处理，已经是 NaN</span>
 
             <span class="c1"># 缺失值保持</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span> <span class="ow">and</span> <span class="n">is_na</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_missing</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span> <span class="ow">and</span> <span class="n">is_na</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;列 &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; 包含缺失值&quot;</span><span class="p">)</span>
 
             <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped</span>
@@ -760,7 +766,7 @@
             <span class="c1"># 构建逆映射：只对保留类别和特殊值有效</span>
             <span class="n">inverse_mapping</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">for</span> <span class="n">orig</span><span class="p">,</span> <span class="n">encoded</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">orig</span> <span class="o">==</span> <span class="s1">&#39;__UNKNOWN__&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">orig</span> <span class="o">==</span> <span class="s2">&quot;__UNKNOWN__&quot;</span><span class="p">:</span>
                     <span class="k">continue</span>
                 <span class="c1"># 保留类别和特殊值映射回自身；other_label 保持不变</span>
                 <span class="k">if</span> <span class="n">encoded</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_label</span><span class="p">:</span>
@@ -808,16 +814,17 @@
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">:</span>
             <span class="n">counts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">category_counts_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
             <span class="n">top_cats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_categories_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">[])</span>
-            <span class="n">special_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">special_values</span><span class="p">)</span>
-            <span class="n">n_special</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">sv</span> <span class="ow">in</span> <span class="n">special_set</span> <span class="k">if</span> <span class="n">sv</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">|</span> <span class="n">special_set</span><span class="p">)</span>
-            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s1">&#39;列名&#39;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
-                <span class="s1">&#39;原始类别数&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">),</span>
-                <span class="s1">&#39;保留类别数&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_cats</span><span class="p">),</span>
-                <span class="s1">&#39;合并为other&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_cats</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
-                <span class="s1">&#39;特殊值数&#39;</span><span class="p">:</span> <span class="n">n_special</span><span class="p">,</span>
-                <span class="s1">&#39;other标签&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_label</span><span class="p">,</span>
-            <span class="p">})</span>
+            <span class="n">n_special</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">special_counts_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">{}))</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;列名&quot;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span>
+                    <span class="s2">&quot;原始类别数&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">),</span>
+                    <span class="s2">&quot;保留类别数&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_cats</span><span class="p">),</span>
+                    <span class="s2">&quot;合并为other&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_cats</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+                    <span class="s2">&quot;特殊值数&quot;</span><span class="p">:</span> <span class="n">n_special</span><span class="p">,</span>
+                    <span class="s2">&quot;other标签&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_label</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span></div>
 </div>
 

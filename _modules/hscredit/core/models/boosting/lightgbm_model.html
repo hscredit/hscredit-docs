@@ -8,7 +8,7 @@
   <title>hscredit.core.models.boosting.lightgbm_model &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -623,6 +625,69 @@
 
 <span class="n">LIGHTGBM_CALLBACKS_AVAILABLE</span><span class="p">,</span> <span class="n">LIGHTGBM_EARLY_STOPPING_AVAILABLE</span> <span class="o">=</span> <span class="n">_check_lightgbm_api_support</span><span class="p">()</span>
 
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ensure_lightgbm_sklearn_compat</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;适配 LightGBM 与 scikit-learn 跨版本的 ``force_all_finite`` 参数差异.</span>
+
+<span class="sd">    背景：旧版 LightGBM(&lt;4.0) 内部以 ``force_all_finite=...`` 调用 sklearn 的</span>
+<span class="sd">    ``check_X_y`` / ``check_array``，而 scikit-learn 1.6 起弃用该参数、1.8 起移除</span>
+<span class="sd">    （改名 ``ensure_all_finite``）。两者组合时 ``model.fit`` 会直接抛</span>
+<span class="sd">    ``TypeError: ... unexpected keyword argument &#39;force_all_finite&#39;``。</span>
+
+<span class="sd">    本函数按**版本**判断：仅当 LightGBM&lt;4.0 且其引用的 sklearn 校验函数已不接受</span>
+<span class="sd">    ``force_all_finite`` 时，包装这些函数把旧参数名转译为 ``ensure_all_finite``，</span>
+<span class="sd">    使 ``fit`` 的对外行为（参数名/位置/结果）在新旧 sklearn 下保持一致。</span>
+<span class="sd">    对参数名一致的版本组合为无害透传，且幂等（重复调用不重复包装）。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">LIGHTGBM_AVAILABLE</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">packaging</span><span class="w"> </span><span class="kn">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">_v</span>
+        <span class="c1"># LightGBM&gt;=4.0 内部已改用 ensure_all_finite，无需适配</span>
+        <span class="k">if</span> <span class="n">_v</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">lgb</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">_v</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;4.0.0&quot;</span><span class="p">):</span>
+            <span class="k">return</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="c1"># 无法判定版本时按需检测（下方签名检查仍可保证安全）</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_wrap</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s2">&quot;_hscredit_finite_compat&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">func</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">func</span>
+        <span class="c1"># 仅当新 sklearn 已移除 force_all_finite、改名 ensure_all_finite 时才包装</span>
+        <span class="k">if</span> <span class="s2">&quot;force_all_finite&quot;</span> <span class="ow">in</span> <span class="n">params</span> <span class="ow">or</span> <span class="s2">&quot;ensure_all_finite&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">func</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;force_all_finite&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;ensure_all_finite&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;force_all_finite&quot;</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">wrapper</span><span class="o">.</span><span class="n">_hscredit_finite_compat</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="c1"># 包装 LightGBM 实际引用校验函数的模块属性（直接改其绑定引用才生效）</span>
+    <span class="k">for</span> <span class="n">modname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;lightgbm.compat&quot;</span><span class="p">,</span> <span class="s2">&quot;lightgbm.basic&quot;</span><span class="p">,</span> <span class="s2">&quot;lightgbm.sklearn&quot;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">modname</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;check_X_y&quot;</span><span class="p">,</span> <span class="s2">&quot;check_array&quot;</span><span class="p">,</span> <span class="s2">&quot;_LGBMCheckXY&quot;</span><span class="p">,</span> <span class="s2">&quot;_LGBMCheckArray&quot;</span><span class="p">):</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+                <span class="n">wrapped</span> <span class="o">=</span> <span class="n">_wrap</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">wrapped</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">func</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">wrapped</span><span class="p">)</span>
+
+
+<span class="n">_ensure_lightgbm_sklearn_compat</span><span class="p">()</span>
+
 <span class="c1"># 导入回调（如果可用）</span>
 <span class="k">if</span> <span class="n">LIGHTGBM_CALLBACKS_AVAILABLE</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
@@ -634,7 +699,7 @@
     <span class="n">early_stopping</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">log_evaluation</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRiskModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRiskModel</span><span class="p">,</span> <span class="n">resolve_custom_objective</span>
 
 
 <div class="viewcode-block" id="LightGBMRiskModel">
@@ -856,6 +921,9 @@
         <span class="c1"># 最后更新原生params（优先级最高）</span>
         <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_native_params</span><span class="p">)</span>
 
+        <span class="c1"># 解析自定义损失（BaseLoss 实例 -&gt; sklearn 包装器可用的目标函数）</span>
+        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;objective&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resolve_custom_objective</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;objective&#39;</span><span class="p">))</span>
+
         <span class="c1"># 创建模型</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
 
@@ -888,8 +956,10 @@
                     <span class="ne">UserWarning</span>
                 <span class="p">)</span>
         
-        <span class="c1"># 传递verbose参数（如果没有使用早停或者旧版本）</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">early_stopping_enabled</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">use_callbacks</span><span class="p">:</span>
+        <span class="c1"># 传递verbose参数：仅旧版本 LightGBM(&lt;4.0) 的 fit() 接受 verbose。</span>
+        <span class="c1"># LightGBM 4.0+ 已弃用 fit(verbose=...)，日志级别由构造参数 verbose/verbosity</span>
+        <span class="c1"># 控制（见上方 params），并通过 log_evaluation 回调输出，故此处不再传入，避免弃用告警。</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">LIGHTGBM_CALLBACKS_AVAILABLE</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">early_stopping_enabled</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">use_callbacks</span><span class="p">):</span>
             <span class="n">fit_kwargs</span><span class="p">[</span><span class="s1">&#39;verbose&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
 
         <span class="c1"># 尝试训练，如果失败则自动回退</span>
@@ -1004,19 +1074,36 @@
 <div class="viewcode-block" id="LightGBMRiskModel.predict">
 <a class="viewcode-back" href="../../../../../api/boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel.predict">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;预测类别标签.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;预测类别标签.</span>
+
+<span class="sd">        基于 predict_proba 取阈值，确保自定义损失（原始分数输出）下也能返回正确类别。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_data</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
+        <span class="n">proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">proba</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">)[</span><span class="n">indices</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="LightGBMRiskModel.predict_proba">
 <a class="viewcode-back" href="../../../../../api/boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel.predict_proba">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;预测概率.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;预测概率.</span>
+
+<span class="sd">        当使用自定义损失函数（objective 为可调用对象）时，LightGBM 返回的是</span>
+<span class="sd">        未经过链接函数转换的原始分数（raw margin，一维数组），此处自动应用</span>
+<span class="sd">        sigmoid 转换为概率并补齐为二维 (n_samples, 2) 输出，与内置目标保持一致。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_data</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
+        <span class="n">proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">proba</span><span class="p">)</span>
+
+        <span class="c1"># 自定义损失返回一维原始分数，应用 sigmoid 并补齐为两列概率</span>
+        <span class="k">if</span> <span class="n">proba</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">p1</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">proba</span><span class="p">))</span>
+            <span class="n">proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p1</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">proba</span></div>
 
 
 <div class="viewcode-block" id="LightGBMRiskModel.get_feature_importances">
@@ -1140,9 +1227,9 @@
 <div class="viewcode-block" id="LightGBMRiskModel.save_model">
 <a class="viewcode-back" href="../../../../../api/boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel.save_model">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;保存模型.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;保存底层LightGBM模型（原生格式）.</span>
 
-<span class="sd">        :param path: 保存路径</span>
+<span class="sd">        :param path: 保存路径（.txt/.bin 格式）</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_fitted&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">booster_</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
@@ -1151,7 +1238,7 @@
 <div class="viewcode-block" id="LightGBMRiskModel.load_model">
 <a class="viewcode-back" href="../../../../../api/boosting.html#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel.load_model">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;LightGBMRiskModel&#39;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;加载模型.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;加载底层LightGBM模型（原生格式）.</span>
 
 <span class="sd">        :param path: 模型路径</span>
 <span class="sd">        :return: self</span>
@@ -1159,6 +1246,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">booster_</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">Booster</span><span class="p">(</span><span class="n">model_file</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;classes_&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;feature_names_in_&#39;</span><span class="p">):</span>
+            <span class="n">n_feat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">booster_</span><span class="o">.</span><span class="n">num_feature</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_in_</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_feat</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span> <span class="o">=</span> <span class="n">n_feat</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 </div>
 

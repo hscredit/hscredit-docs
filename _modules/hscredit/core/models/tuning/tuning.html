@@ -8,7 +8,7 @@
   <title>hscredit.core.models.tuning.tuning &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -646,6 +648,147 @@
     <span class="n">optuna</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">TPESampler</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">StudyDirection</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TuningSampler</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;采样器码表 - 统一管理 optuna 内置及 optunahub 提供的搜索器.</span>
+
+<span class="sd">    通过字符串名称即可在 ``ModelTuner(sampler=...)`` 中选用不同搜索器，</span>
+<span class="sd">    无需直接 import 对应的采样器类。</span>
+
+<span class="sd">    **optuna 内置采样器** (``BUILTIN_SAMPLERS``)：</span>
+
+<span class="sd">    - ``&#39;tpe&#39;``        : TPESampler，树结构 Parzen 估计（默认）</span>
+<span class="sd">    - ``&#39;random&#39;``     : RandomSampler，随机搜索</span>
+<span class="sd">    - ``&#39;cmaes&#39;``      : CmaEsSampler，CMA-ES 进化策略（依赖 cmaes）</span>
+<span class="sd">    - ``&#39;grid&#39;``       : GridSampler，网格搜索（需 sampler_kwargs 传入 search_space）</span>
+<span class="sd">    - ``&#39;nsgaii&#39;``     : NSGAIISampler，多目标遗传算法</span>
+<span class="sd">    - ``&#39;nsgaiii&#39;``    : NSGAIIISampler，多目标遗传算法（多目标场景）</span>
+<span class="sd">    - ``&#39;qmc&#39;``        : QMCSampler，准蒙特卡洛</span>
+<span class="sd">    - ``&#39;gp&#39;``         : GPSampler，高斯过程贝叶斯优化</span>
+<span class="sd">    - ``&#39;bruteforce&#39;`` : BruteForceSampler，穷举搜索</span>
+
+<span class="sd">    **optunahub 采样器** (``OPTUNAHUB_SAMPLERS``，依赖 optunahub，按需联网下载)：</span>
+
+<span class="sd">    - ``&#39;auto&#39;``       : AutoSampler，自动选择最优采样器</span>
+<span class="sd">    - ``&#39;hebo&#39;``       : HEBOSampler，异方差贝叶斯优化</span>
+<span class="sd">    - ``&#39;smac&#39;``       : SMACSampler，基于 SMAC3 的贝叶斯优化</span>
+<span class="sd">    - ``&#39;neldermead&#39;`` : NelderMeadSampler，单纯形法</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.models import TuningSampler</span>
+<span class="sd">    &gt;&gt;&gt; TuningSampler.list_samplers()</span>
+<span class="sd">    &gt;&gt;&gt; sampler = TuningSampler.create(&#39;cmaes&#39;, seed=42)</span>
+<span class="sd">    &gt;&gt;&gt; sampler = TuningSampler.create(&#39;auto&#39;)   # optunahub</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># optuna 内置采样器：name -&gt; optuna.samplers 中的类名</span>
+    <span class="n">BUILTIN_SAMPLERS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;tpe&#39;</span><span class="p">:</span> <span class="s1">&#39;TPESampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="s1">&#39;RandomSampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cmaes&#39;</span><span class="p">:</span> <span class="s1">&#39;CmaEsSampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;grid&#39;</span><span class="p">:</span> <span class="s1">&#39;GridSampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;nsgaii&#39;</span><span class="p">:</span> <span class="s1">&#39;NSGAIISampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;nsgaiii&#39;</span><span class="p">:</span> <span class="s1">&#39;NSGAIIISampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;qmc&#39;</span><span class="p">:</span> <span class="s1">&#39;QMCSampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gp&#39;</span><span class="p">:</span> <span class="s1">&#39;GPSampler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;bruteforce&#39;</span><span class="p">:</span> <span class="s1">&#39;BruteForceSampler&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># optunahub 采样器：name -&gt; (package 路径, 类名)</span>
+    <span class="n">OPTUNAHUB_SAMPLERS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;auto&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;samplers/auto_sampler&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoSampler&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;hebo&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;samplers/hebo&#39;</span><span class="p">,</span> <span class="s1">&#39;HEBOSampler&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;smac&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;samplers/smac_sampler&#39;</span><span class="p">,</span> <span class="s1">&#39;SMACSampler&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;neldermead&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;samplers/nelder_mead&#39;</span><span class="p">,</span> <span class="s1">&#39;NelderMeadSampler&#39;</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_samplers</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;列出所有支持的采样器名称.</span>
+
+<span class="sd">        :return: {&#39;内置&#39;: [...], &#39;optunahub&#39;: [...]}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;内置&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">BUILTIN_SAMPLERS</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+            <span class="s1">&#39;optunahub&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">OPTUNAHUB_SAMPLERS</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+        <span class="p">}</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_instantiate</span><span class="p">(</span><span class="n">sampler_cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;按构造函数签名过滤 kwargs 后实例化采样器（如 seed 不被支持则丢弃）.&quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">sampler_cls</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span>
+            <span class="n">accepted</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+            <span class="n">accepts_var_kw</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
+                <span class="n">p</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Parameter</span><span class="o">.</span><span class="n">VAR_KEYWORD</span>
+                <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">accepted</span><span class="p">,</span> <span class="n">accepts_var_kw</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">accepts_var_kw</span><span class="p">:</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">accepted</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">sampler_cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">sampler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tpe&#39;</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;按名称创建采样器实例.</span>
+
+<span class="sd">        :param sampler: 采样器名称（见 BUILTIN_SAMPLERS / OPTUNAHUB_SAMPLERS），</span>
+<span class="sd">            或已实例化的采样器对象（直接返回），或 None（默认 TPE）</span>
+<span class="sd">        :param seed: 随机种子，若采样器支持则注入</span>
+<span class="sd">        :param kwargs: 透传给采样器构造函数的额外参数</span>
+<span class="sd">        :return: optuna 采样器实例</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">OPTUNA_AVAILABLE</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Optuna未安装，请使用 pip install optuna 安装&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 已是采样器实例，直接返回</span>
+        <span class="k">if</span> <span class="n">sampler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sampler</span> <span class="o">=</span> <span class="s1">&#39;tpe&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sampler</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">sampler</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;seed&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;seed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seed</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">BUILTIN_SAMPLERS</span><span class="p">:</span>
+            <span class="n">sampler_cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">optuna</span><span class="o">.</span><span class="n">samplers</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">BUILTIN_SAMPLERS</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instantiate</span><span class="p">(</span><span class="n">sampler_cls</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">OPTUNAHUB_SAMPLERS</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">import</span><span class="w"> </span><span class="nn">optunahub</span>
+            <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;使用 &#39;</span><span class="si">{</span><span class="n">sampler</span><span class="si">}</span><span class="s2">&#39; 采样器需要 optunahub，请使用 &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;pip install optunahub 安装（或 pip install hscredit[tune]）&quot;</span>
+                <span class="p">)</span>
+            <span class="n">package</span><span class="p">,</span> <span class="n">class_name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">OPTUNAHUB_SAMPLERS</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">module</span> <span class="o">=</span> <span class="n">optunahub</span><span class="o">.</span><span class="n">load_module</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+            <span class="n">sampler_cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sampler_cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># 类名兜底：查找模块中以 Sampler 结尾的类</span>
+                <span class="n">sampler_cls</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+                    <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">module</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;Sampler&#39;</span><span class="p">)),</span>
+                    <span class="kc">None</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">sampler_cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;无法从 optunahub 包 &#39;</span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">&#39; 中找到采样器类&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instantiate</span><span class="p">(</span><span class="n">sampler_cls</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">all_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">BUILTIN_SAMPLERS</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">OPTUNAHUB_SAMPLERS</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;未知采样器 &#39;</span><span class="si">{</span><span class="n">sampler</span><span class="si">}</span><span class="s2">&#39;，可选: </span><span class="si">{</span><span class="n">all_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_calc_ks</span><span class="p">(</span><span class="n">y_true</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -1081,19 +1224,26 @@
 <span class="sd">    **内部建模经验**</span>
 
 <span class="sd">    1. XGBoost参数经验:</span>
-<span class="sd">       - max_depth: 风控场景通常2-5，防止过拟合</span>
-<span class="sd">       - min_child_weight: 样本&gt;10000时10-2000，否则10-300</span>
-<span class="sd">       - subsample/colsample_bytree: 0.6-0.9</span>
-<span class="sd">       - reg_alpha/reg_lambda: 1e-8到100的对数尺度</span>
-<span class="sd">       - learning_rate: 0.005-0.1，较小学习率更稳定</span>
+<span class="sd">       - max_depth: 风控场景通常2-4，防止过拟合</span>
+<span class="sd">       - min_child_weight: 8-256（step 4），越大越保守</span>
+<span class="sd">       - subsample: 0.35-0.85，colsample_bytree: 0.4-0.9</span>
+<span class="sd">       - gamma: 0.0-32.0，reg_lambda: 32.0-128.0（强 L2 正则）</span>
+<span class="sd">       - scale_pos_weight: 16.0-32.0（适配低坏率不平衡）</span>
+<span class="sd">       - learning_rate: 0.0001-0.01，较小学习率更稳定</span>
+<span class="sd">       - n_estimators: 32-256（step 16）</span>
 
-<span class="sd">    2. LightGBM参数经验:</span>
-<span class="sd">       - num_leaves: 与max_depth相关，通常20-64（2^5=32附近）</span>
-<span class="sd">       - max_depth: 风控场景通常2-5，防止过拟合</span>
-<span class="sd">       - learning_rate: 0.005-0.1，较小学习率更稳定</span>
-<span class="sd">       - min_child_samples: 5-100</span>
+<span class="sd">    2. LightGBM参数经验（与 XGBoost 对齐）:</span>
+<span class="sd">       - num_leaves: 与max_depth相关，受 2**max_depth 上界约束</span>
+<span class="sd">       - max_depth: 风控场景通常2-4，防止过拟合</span>
+<span class="sd">       - learning_rate: 0.0001-0.01，较小学习率更稳定</span>
+<span class="sd">       - min_child_samples: 8-256（step 4）</span>
 
-<span class="sd">    3. 评估指标:</span>
+<span class="sd">    3. LogisticRegression参数经验:</span>
+<span class="sd">       - C: 0.01-32 离散网格，越小正则越强</span>
+<span class="sd">       - penalty: &#39;l2&#39;，class_weight: None/&#39;balanced&#39;/自定义权重字典</span>
+<span class="sd">       - solver: liblinear/sag/lbfgs/newton-cg，max_iter: 16-256</span>
+
+<span class="sd">    4. 评估指标:</span>
 <span class="sd">       - 主要用KS评估模型区分能力</span>
 <span class="sd">       - 同时考虑训练/测试KS差异防止过拟合</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1109,6 +1259,12 @@
         <span class="n">objective</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">objective_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">eval_ratios</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">trial_points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">sampler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tpe&#39;</span><span class="p">,</span>
+        <span class="n">sampler_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">storage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">study_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">load_if_exists</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span>
         <span class="n">cv</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
         <span class="n">n_jobs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
@@ -1127,6 +1283,22 @@
 <span class="sd">            如 {&#39;ratio&#39;: 0.05, &#39;penalty&#39;: 0.3}</span>
 <span class="sd">        :param eval_ratios: 调参过程中额外追踪的 LIFT 覆盖率列表，</span>
 <span class="sd">            如 [0.01, 0.03, 0.05, 0.10]，结果记录在 optimization_history_ 中</span>
+<span class="sd">        :param trial_points: 预指定的超参数搜索点，``dict`` 或 ``list[dict]``。</span>
+<span class="sd">            在 fit 创建 study 后通过 ``study.enqueue_trial`` 优先评估这些点</span>
+<span class="sd">            （例如已知的经验最优配置或上一轮调优结果），随后再进行常规采样。</span>
+<span class="sd">            每个 dict 的键应为搜索空间中的参数名，可只指定部分参数（其余由采样器补全）。</span>
+<span class="sd">            也可在实例化后通过 :meth:`enqueue_trials` 追加。</span>
+<span class="sd">        :param sampler: 搜索器，支持:</span>
+<span class="sd">            - 字符串名称：见 :class:`TuningSampler`，如 &#39;tpe&#39;（默认）/&#39;cmaes&#39;/&#39;random&#39;/</span>
+<span class="sd">              &#39;gp&#39;/&#39;nsgaii&#39; 等内置采样器，或 &#39;auto&#39;/&#39;hebo&#39;/&#39;smac&#39; 等 optunahub 采样器</span>
+<span class="sd">            - 已实例化的 optuna 采样器对象（直接使用）</span>
+<span class="sd">            - None：等价于 &#39;tpe&#39;</span>
+<span class="sd">        :param sampler_kwargs: 透传给采样器构造函数的额外参数，如 {&#39;n_startup_trials&#39;: 10}</span>
+<span class="sd">        :param storage: optuna 存储 URL，如 ``&#39;sqlite:///hscredit_tuning.db&#39;``。</span>
+<span class="sd">            指定后可配合 ``optuna-dashboard sqlite:///hscredit_tuning.db`` 实时查看</span>
+<span class="sd">            调优进度；不指定则使用内存存储（进程结束即丢失）。</span>
+<span class="sd">        :param study_name: study 名称，配合 storage 持久化时用于标识/复用同一 study。</span>
+<span class="sd">        :param load_if_exists: storage 中已存在同名 study 时是否加载续跑，默认False。</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">OPTUNA_AVAILABLE</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
@@ -1139,6 +1311,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">objective</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">objective_kwargs</span> <span class="o">=</span> <span class="n">objective_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eval_ratios</span> <span class="o">=</span> <span class="n">eval_ratios</span> <span class="ow">or</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trial_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_trial_points</span><span class="p">(</span><span class="n">trial_points</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span> <span class="o">=</span> <span class="n">sampler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_kwargs</span> <span class="o">=</span> <span class="n">sampler_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="o">=</span> <span class="n">storage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">study_name</span> <span class="o">=</span> <span class="n">study_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_if_exists</span> <span class="o">=</span> <span class="n">load_if_exists</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="n">cv</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span> <span class="k">if</span> <span class="n">n_jobs</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span>
@@ -1289,35 +1467,48 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_adaptive_search_space</span><span class="p">()</span>
         
-        <span class="c1"># 创建Optuna study</span>
-        <span class="n">sampler</span> <span class="o">=</span> <span class="n">TPESampler</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
-        
+        <span class="c1"># 创建采样器（支持 optuna 内置及 optunahub 采样器，见 TuningSampler 码表）</span>
+        <span class="n">sampler</span> <span class="o">=</span> <span class="n">TuningSampler</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler_kwargs</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 公共 study 参数（storage 指定后可用 optuna-dashboard 实时查看进度）</span>
+        <span class="n">common_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">common_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">storage</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage</span><span class="p">,</span>
+                <span class="n">study_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">study_name</span><span class="p">,</span>
+                <span class="n">load_if_exists</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">load_if_exists</span><span class="p">,</span>
+            <span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="c1"># 多目标优化</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span>
                 <span class="n">directions</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directions</span><span class="p">,</span>
-                <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span>
+                <span class="o">**</span><span class="n">common_kwargs</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># 单目标优化</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">create_study</span><span class="p">(</span>
                 <span class="n">direction</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span>
+                <span class="o">**</span><span class="n">common_kwargs</span>
             <span class="p">)</span>
+
+        <span class="c1"># 入队预指定的超参数搜索点（优先评估）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_enqueue_trial_points</span><span class="p">()</span>
 
         <span class="c1"># 定义目标函数</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">objective</span><span class="p">(</span><span class="n">trial</span><span class="p">):</span>
             <span class="c1"># 从搜索空间采样参数</span>
             <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_params</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
             <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fixed_params</span><span class="p">)</span>
-            
-            <span class="c1"># 添加早停参数</span>
-            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;early_stopping_rounds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_stopping_rounds</span>
-            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;validation_fraction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.2</span>
-            
+
+            <span class="c1"># 添加早停参数（仅当模型构造函数支持时，逻辑回归等不支持）</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inject_fit_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
             <span class="c1"># 创建模型</span>
             <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_class</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
-            
+
             <span class="c1"># 评估模型</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
 
@@ -1472,9 +1663,8 @@
             <span class="c1"># 合并固定参数</span>
             <span class="n">full_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
             <span class="n">full_params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-            <span class="n">full_params</span><span class="p">[</span><span class="s1">&#39;early_stopping_rounds&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_stopping_rounds</span>
-            <span class="n">full_params</span><span class="p">[</span><span class="s1">&#39;validation_fraction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.2</span>
-            
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inject_fit_params</span><span class="p">(</span><span class="n">full_params</span><span class="p">)</span>
+
             <span class="c1"># 创建模型并评估</span>
             <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_class</span><span class="p">(</span><span class="o">**</span><span class="n">full_params</span><span class="p">)</span>
             <span class="n">metric_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
@@ -1493,10 +1683,120 @@
                 <span class="p">}</span>
             
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        
+
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
 
-    
+
+<div class="viewcode-block" id="ModelTuner.evaluate_study_trials">
+<a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner.evaluate_study_trials">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate_study_trials</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trial_indices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">X</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">sample_weight</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;评估已完成 study 中指定 trial 的模型效果.</span>
+
+<span class="sd">        从 ``self.study_.trials[i]`` 取出对应超参数重新评估，便于复核某次</span>
+<span class="sd">        采样的稳定性、或在新数据集上对比若干历史 trial 的效果。</span>
+
+<span class="sd">        与 :meth:`evaluate_trials` 的区别：本方法的超参数来自已学习完成的</span>
+<span class="sd">        study（按 trial 索引取），而非外部传入的参数点；结果额外包含每个 trial</span>
+<span class="sd">        的索引、状态及 study 记录的原始得分（``study记录值`` 列），便于与重新</span>
+<span class="sd">        评估的得分对照。</span>
+
+<span class="sd">        :param trial_indices: 要评估的 trial 索引，可选:</span>
+<span class="sd">            - None: 评估全部已完成（COMPLETE）的 trial</span>
+<span class="sd">            - int: 评估单个 trial，如 ``0`` 或 ``tuner.study_.best_trial.number``</span>
+<span class="sd">            - 序列: 评估多个 trial，如 ``[0, 5, 10]``</span>
+<span class="sd">        :param X: 特征矩阵，或包含目标列的DataFrame；默认复用 fit 时的训练数据</span>
+<span class="sd">        :param y: 目标变量，可选；默认复用 fit 时的标签</span>
+<span class="sd">        :param sample_weight: 样本权重，可选；默认复用 fit 时的样本权重</span>
+<span class="sd">        :return: 包含评估结果的DataFrame，含 ``trial索引``/``trial状态``/超参数/</span>
+<span class="sd">            重新评估指标/``study记录值`` 列</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; tuner.fit(X_train, y_train, n_trials=100)</span>
+<span class="sd">            &gt;&gt;&gt; # 评估最优 trial 与前两个 trial</span>
+<span class="sd">            &gt;&gt;&gt; tuner.evaluate_study_trials([tuner.study_.best_trial.number, 0, 1])</span>
+<span class="sd">            &gt;&gt;&gt; # 在新数据集上复核全部 trial</span>
+<span class="sd">            &gt;&gt;&gt; tuner.evaluate_study_trials(X=X_oot, y=y_oot)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优，再评估study中的trial&quot;</span><span class="p">)</span>
+
+        <span class="n">all_trials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">trials</span>
+        <span class="n">n_trials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_trials</span><span class="p">)</span>
+
+        <span class="c1"># 归一化 trial_indices</span>
+        <span class="k">if</span> <span class="n">trial_indices</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">t</span><span class="o">.</span><span class="n">number</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">all_trials</span>
+                <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">optuna</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">TrialState</span><span class="o">.</span><span class="n">COMPLETE</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">indices</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;study中没有已完成（COMPLETE）的trial可供评估&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">trial_indices</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">trial_indices</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">trial_indices</span><span class="p">)</span>
+
+        <span class="c1"># 校验索引合法性</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;trial索引必须为整数，收到: </span><span class="si">{</span><span class="n">idx</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="n">n_trials</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;trial索引 </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> 超出范围，study共有 </span><span class="si">{</span><span class="n">n_trials</span><span class="si">}</span><span class="s2"> 个trial（有效索引 0~</span><span class="si">{</span><span class="n">n_trials</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">）&quot;</span>
+                <span class="p">)</span>
+
+        <span class="c1"># 默认复用 fit 时的数据</span>
+        <span class="k">if</span> <span class="n">X</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_X&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;未提供X且fit时未缓存训练数据，请显式传入X/y&quot;</span><span class="p">)</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+            <span class="k">if</span> <span class="n">sample_weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sample_weight</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_sample_weight&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_input</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+            <span class="n">trial</span> <span class="o">=</span> <span class="n">all_trials</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">trial</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;评估 study trial #</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> (state=</span><span class="si">{</span><span class="n">trial</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># 合并固定参数并按模型签名注入早停参数</span>
+            <span class="n">full_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">full_params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inject_fit_params</span><span class="p">(</span><span class="n">full_params</span><span class="p">)</span>
+
+            <span class="c1"># 创建模型并评估</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_class</span><span class="p">(</span><span class="o">**</span><span class="n">full_params</span><span class="p">)</span>
+            <span class="n">metric_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
+
+            <span class="c1"># study 记录的原始得分（用于与重新评估结果对照）</span>
+            <span class="n">recorded</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">trial</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="k">if</span> <span class="n">trial</span><span class="o">.</span><span class="n">values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;trial索引&#39;</span><span class="p">:</span> <span class="n">idx</span><span class="p">,</span> <span class="s1">&#39;trial状态&#39;</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">}</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_names</span><span class="p">,</span> <span class="n">metric_values</span><span class="p">)})</span>
+                <span class="k">if</span> <span class="n">recorded</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;study记录值&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recorded</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">metric_values</span>
+                <span class="k">if</span> <span class="n">recorded</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;study记录值&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recorded</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
+
+
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_params_from_trial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;从trial中获取参数.&quot;&quot;&quot;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1518,76 +1818,108 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lightgbm_search_space</span><span class="p">()</span>
         <span class="k">elif</span> <span class="s1">&#39;catboost&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">model_name</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_catboost_search_space</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="s1">&#39;randomforest&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="s1">&#39;rf&#39;</span> <span class="ow">in</span> <span class="n">model_name</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="s1">&#39;randomforest&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="s1">&#39;extratrees&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="s1">&#39;rf&#39;</span> <span class="ow">in</span> <span class="n">model_name</span><span class="p">:</span>
+            <span class="c1"># ExtraTrees 与 RandomForest 参数一致，共用搜索空间</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_randomforest_search_space</span><span class="p">()</span>
         <span class="k">elif</span> <span class="s1">&#39;gradientboosting&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="s1">&#39;gbdt&#39;</span> <span class="ow">in</span> <span class="n">model_name</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_gradientboosting_search_space</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="s1">&#39;ngboost&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="s1">&#39;ngb&#39;</span> <span class="ow">in</span> <span class="n">model_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ngboost_search_space</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="s1">&#39;logistic&#39;</span> <span class="ow">in</span> <span class="n">model_name</span> <span class="ow">or</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;lr&#39;</span><span class="p">,):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_logisticregression_search_space</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># 默认使用XGBoost搜索空间</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_xgboost_search_space</span><span class="p">()</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_xgboost_search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;XGBoost搜索空间 - 基于内部建模经验.</span>
-<span class="sd">        </span>
-<span class="sd">        参考内部代码:</span>
-<span class="sd">        - max_depth: 风控场景通常2-5，防止过拟合</span>
-<span class="sd">        - min_child_weight: 样本&gt;10000时10-2000，否则10-300</span>
-<span class="sd">        - subsample/colsample_bytree: 0.6-0.9</span>
-<span class="sd">        - reg_alpha/reg_lambda: 1e-8到100</span>
-<span class="sd">        - learning_rate: 0.005-0.1，较小学习率更稳定</span>
-<span class="sd">        - n_estimators: 样本&gt;10000时50-300，否则20-100</span>
+
+<span class="sd">        参考内部代码（强正则、浅树、小学习率以抑制风控样本过拟合）:</span>
+<span class="sd">        - max_depth: 风控场景通常2-4，防止过拟合</span>
+<span class="sd">        - min_child_weight: 8-256（step 4），叶子最小样本权重，越大越保守</span>
+<span class="sd">        - subsample: 0.35-0.85，行采样</span>
+<span class="sd">        - colsample_bytree: 0.4-0.9，列采样</span>
+<span class="sd">        - gamma: 0.0-32.0，分裂最小损失下降，越大越保守</span>
+<span class="sd">        - scale_pos_weight: 16.0-32.0，正样本权重（适配低坏率不平衡场景）</span>
+<span class="sd">        - reg_alpha: 0.0-1.0（L1 正则）</span>
+<span class="sd">        - reg_lambda: 32.0-128.0（L2 正则，强约束）</span>
+<span class="sd">        - learning_rate: 0.0001-0.01，较小学习率更稳定</span>
+<span class="sd">        - n_estimators: 32-256（step 16）</span>
+
+<span class="sd">        固定项 ``objective=&#39;binary:logistic&#39;`` / ``eval_metric=&#39;auc&#39;`` /</span>
+<span class="sd">        ``booster=&#39;gbtree&#39;`` / ``importance_type=&#39;cover&#39;`` 已是模型默认值，</span>
+<span class="sd">        如需覆盖可通过 ``ModelTuner(fixed_params=...)`` 传入。</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">n_samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_samples</span> <span class="ow">or</span> <span class="mi">10000</span>
-        
-        <span class="c1"># 根据样本量调整min_child_weight</span>
-        <span class="k">if</span> <span class="n">n_samples</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span>
-            <span class="n">min_child_weight_high</span> <span class="o">=</span> <span class="mi">2000</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">min_child_weight_high</span> <span class="o">=</span> <span class="mi">300</span>
-        
-        <span class="c1"># 根据样本量调整n_estimators</span>
-        <span class="k">if</span> <span class="n">n_samples</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span>
-            <span class="n">n_estimators_high</span> <span class="o">=</span> <span class="mi">500</span>
-            <span class="n">n_estimators_low</span> <span class="o">=</span> <span class="mi">50</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">n_estimators_high</span> <span class="o">=</span> <span class="mi">300</span>
-            <span class="n">n_estimators_low</span> <span class="o">=</span> <span class="mi">30</span>
-        
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
-            <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="n">n_estimators_low</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="n">n_estimators_high</span><span class="p">},</span>
-            <span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="n">min_child_weight_high</span><span class="p">},</span>
-            <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
-            <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
-            <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-            <span class="s1">&#39;reg_alpha&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-            <span class="s1">&#39;reg_lambda&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+            <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">},</span>
+            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+            <span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+            <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">},</span>
+            <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
+            <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">},</span>
+            <span class="s1">&#39;scale_pos_weight&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">},</span>
+            <span class="s1">&#39;reg_alpha&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+            <span class="s1">&#39;reg_lambda&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">128.0</span><span class="p">},</span>
         <span class="p">}</span>
-    
+
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_lightgbm_search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;LightGBM搜索空间 - 基于内部建模经验.</span>
-<span class="sd">        </span>
-<span class="sd">        参考内部代码:</span>
-<span class="sd">        - num_leaves: 与max_depth相关，通常20-64（2^5=32附近）</span>
-<span class="sd">        - max_depth: 风控场景通常2-5，防止过拟合</span>
-<span class="sd">        - learning_rate: 0.005-0.1，较小学习率更稳定</span>
-<span class="sd">        - n_estimators: 50-500</span>
-<span class="sd">        - min_child_samples: 5-100</span>
-<span class="sd">        - subsample/colsample_bytree: 0.6-1.0</span>
-<span class="sd">        - reg_alpha/reg_lambda: 1e-8到10</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;LightGBM搜索空间 - 与XGBoost搜索空间对齐.</span>
+
+<span class="sd">        参考内部代码（参数范围与 XGBoost 保持一致的建模经验）:</span>
+<span class="sd">        - num_leaves: 与max_depth相关，受 ``2**max_depth`` 上界约束（见 _sample_params）</span>
+<span class="sd">        - max_depth: 风控场景通常2-4，防止过拟合</span>
+<span class="sd">        - min_child_samples: 8-256（step 4），叶子最小样本数，越大越保守</span>
+<span class="sd">        - subsample: 0.35-0.85，行采样</span>
+<span class="sd">        - colsample_bytree: 0.4-0.9，列采样</span>
+<span class="sd">        - min_split_gain: 0.0-32.0，分裂最小增益（对应 XGBoost 的 gamma）</span>
+<span class="sd">        - scale_pos_weight: 16.0-32.0，正样本权重</span>
+<span class="sd">        - reg_alpha: 0.0-1.0（L1 正则）</span>
+<span class="sd">        - reg_lambda: 32.0-128.0（L2 正则，强约束）</span>
+<span class="sd">        - learning_rate: 0.0001-0.01，较小学习率更稳定</span>
+<span class="sd">        - n_estimators: 32-256（step 16）</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;num_leaves&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">},</span>
-            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
-            <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">},</span>
-            <span class="s1">&#39;min_child_samples&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
-            <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
-            <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
-            <span class="s1">&#39;reg_alpha&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-            <span class="s1">&#39;reg_lambda&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-            <span class="s1">&#39;min_split_gain&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+            <span class="s1">&#39;num_leaves&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">},</span>
+            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+            <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">},</span>
+            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+            <span class="s1">&#39;min_child_samples&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+            <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">},</span>
+            <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
+            <span class="s1">&#39;min_split_gain&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">},</span>
+            <span class="s1">&#39;scale_pos_weight&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">},</span>
+            <span class="s1">&#39;reg_alpha&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+            <span class="s1">&#39;reg_lambda&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">128.0</span><span class="p">},</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_logisticregression_search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;逻辑回归搜索空间 - 基于内部建模经验.</span>
+
+<span class="sd">        参考内部代码:</span>
+<span class="sd">        - C: 正则强度倒数，对数区间 0.01-32（越小正则越强）</span>
+<span class="sd">        - penalty: 仅 &#39;l2&#39;（评分卡常用，兼容多数 solver）</span>
+<span class="sd">        - class_weight: None / &#39;balanced&#39; / 自定义正负样本权重字典（适配不平衡场景）</span>
+<span class="sd">        - max_iter: 16-256（对数区间），迭代上限</span>
+<span class="sd">        - solver: liblinear / sag / lbfgs / newton-cg</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            ``class_weight`` 的字典候选会触发 optuna 关于非基础类型 categorical 的</span>
+<span class="sd">            提示（内存存储下可正常工作）；若需持久化 study，可改用 None/&#39;balanced&#39;。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+            <span class="s1">&#39;penalty&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span> <span class="s1">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l2&#39;</span><span class="p">]},</span>
+            <span class="s1">&#39;class_weight&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;balanced&#39;</span><span class="p">]</span>
+                <span class="o">+</span> <span class="p">[{</span><span class="mi">1</span><span class="p">:</span> <span class="n">i</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;max_iter&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+            <span class="s1">&#39;solver&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="s1">&#39;sag&#39;</span><span class="p">,</span> <span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="s1">&#39;newton-cg&#39;</span><span class="p">],</span>
+            <span class="p">},</span>
         <span class="p">}</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_catboost_search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
@@ -1633,6 +1965,30 @@
             <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;categorical&#39;</span><span class="p">,</span> <span class="s1">&#39;choices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;log2&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]},</span>
         <span class="p">}</span>
     
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_ngboost_search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;NGBoost搜索空间 - 基于风控场景优化.</span>
+
+<span class="sd">        NGBoost 使用 CART 作为基学习器，参数名与其他 boosting 不同：</span>
+<span class="sd">        - n_estimators: 自然梯度提升轮数，较小学习率需更多轮</span>
+<span class="sd">        - learning_rate: 0.005-0.1，较小学习率更稳定</span>
+<span class="sd">        - base_max_depth: 基学习器（CART）最大深度，风控场景通常2-4</span>
+<span class="sd">        - minibatch_frac: 小批量采样比例（行采样）</span>
+<span class="sd">        - col_sample: 特征采样比例</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_samples</span> <span class="ow">or</span> <span class="mi">10000</span>
+        <span class="k">if</span> <span class="n">n_samples</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span>
+            <span class="n">n_estimators_low</span><span class="p">,</span> <span class="n">n_estimators_high</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">800</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_estimators_low</span><span class="p">,</span> <span class="n">n_estimators_high</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="n">n_estimators_low</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="n">n_estimators_high</span><span class="p">},</span>
+            <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+            <span class="s1">&#39;base_max_depth&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+            <span class="s1">&#39;minibatch_frac&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+            <span class="s1">&#39;col_sample&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+        <span class="p">}</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_gradientboosting_search_space</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;GradientBoosting搜索空间 - 基于风控场景优化.</span>
 <span class="sd">        </span>
@@ -1649,6 +2005,93 @@
             <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
         <span class="p">}</span>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_normalize_trial_points</span><span class="p">(</span>
+        <span class="n">trial_points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;将 trial_points 归一化为 list[dict].</span>
+
+<span class="sd">        :param trial_points: ``None`` / 单个 dict / list[dict]</span>
+<span class="sd">        :return: 参数点列表（可能为空）</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">trial_points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">trial_points</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">trial_points</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">trial_points</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">trial_points</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;trial_points 中每个元素必须为 dict，收到: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">trial_points</span><span class="p">]</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;trial_points 必须为 dict 或 list[dict]，收到: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">trial_points</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="ModelTuner.enqueue_trials">
+<a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner.enqueue_trials">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">enqueue_trials</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trial_points</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ModelTuner&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;追加预指定的超参数搜索点（dict 或 list[dict]）.</span>
+
+<span class="sd">        若 study 已创建（已调用过 fit），则立即通过 ``study.enqueue_trial`` 入队，</span>
+<span class="sd">        在后续 ``fit`` 的采样中优先评估；否则缓存到 ``self.trial_points``，</span>
+<span class="sd">        在下次 ``fit`` 创建 study 后入队。</span>
+
+<span class="sd">        :param trial_points: 超参数点，``dict`` 或 ``list[dict]``，键为搜索空间参数名</span>
+<span class="sd">        :return: self，便于链式调用</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_trial_points</span><span class="p">(</span><span class="n">trial_points</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">enqueue_trial</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">skip_if_exists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;已入队 trial point: </span><span class="si">{</span><span class="n">point</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trial_points</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_enqueue_trial_points</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;将 self.trial_points 入队到当前 study（fit 内部调用）.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">trial_points</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trial_points</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">enqueue_trial</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">skip_if_exists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;已入队预指定 trial point: </span><span class="si">{</span><span class="n">point</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_inject_fit_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;按模型构造函数签名注入早停/验证集参数（原地修改 params）.</span>
+
+<span class="sd">        Boosting 模型（XGBoost/LightGBM/CatBoost 等）将 ``early_stopping_rounds``</span>
+<span class="sd">        与 ``validation_fraction`` 声明为显式构造参数，注入可启用调参过程中的早停；</span>
+<span class="sd">        而逻辑回归、sklearn 集成模型（RandomForest/ExtraTrees）等不支持这些参数，</span>
+<span class="sd">        直接注入会触发 TypeError。</span>
+
+<span class="sd">        仅当参数是模型构造函数**显式声明**的命名参数时才注入：不依赖 ``**kwargs``，</span>
+<span class="sd">        因为 SklearnRiskModel 子类虽有 ``**kwargs`` 但会在内部硬编码</span>
+<span class="sd">        ``early_stopping_rounds=None`` 转发，经 ``**kwargs`` 再次传入会导致</span>
+<span class="sd">        &quot;multiple values for keyword argument&quot; 冲突。</span>
+
+<span class="sd">        :param params: 待注入的参数字典，将被原地更新</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">accepted</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_class</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">accepted</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">fit_params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;early_stopping_rounds&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">early_stopping_rounds</span><span class="p">,</span>
+            <span class="s1">&#39;validation_fraction&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">fit_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">accepted</span><span class="p">:</span>
+                <span class="n">params</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">_sample_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">:</span> <span class="s1">&#39;optuna.Trial&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;从搜索空间采样参数.</span>
 
@@ -1661,12 +2104,21 @@
             <span class="n">param_type</span> <span class="o">=</span> <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
 
             <span class="k">if</span> <span class="n">param_type</span> <span class="o">==</span> <span class="s1">&#39;int&#39;</span><span class="p">:</span>
-                <span class="n">params</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span>
-                    <span class="n">param_name</span><span class="p">,</span>
-                    <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">],</span>
-                    <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">],</span>
-                    <span class="n">step</span><span class="o">=</span><span class="n">param_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="p">)</span>
+                <span class="c1"># optuna 要求 log=True 时 step 必须为 1，二者不可同时指定</span>
+                <span class="k">if</span> <span class="n">param_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                    <span class="n">params</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span>
+                        <span class="n">param_name</span><span class="p">,</span>
+                        <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">],</span>
+                        <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">],</span>
+                        <span class="n">log</span><span class="o">=</span><span class="kc">True</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">params</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span>
+                        <span class="n">param_name</span><span class="p">,</span>
+                        <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">],</span>
+                        <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">],</span>
+                        <span class="n">step</span><span class="o">=</span><span class="n">param_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="p">)</span>
             <span class="k">elif</span> <span class="n">param_type</span> <span class="o">==</span> <span class="s1">&#39;float&#39;</span><span class="p">:</span>
                 <span class="n">params</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_float</span><span class="p">(</span>
                     <span class="n">param_name</span><span class="p">,</span>
@@ -1684,10 +2136,18 @@
             
             <span class="c1"># LightGBM特殊处理：num_leaves不超过2^max_depth</span>
             <span class="k">if</span> <span class="n">param_name</span> <span class="o">==</span> <span class="s1">&#39;max_depth&#39;</span> <span class="ow">and</span> <span class="s1">&#39;num_leaves&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">:</span>
-                <span class="n">max_leaves</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">][</span><span class="s1">&#39;high&#39;</span><span class="p">])</span>
+                <span class="n">leaves_low</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">][</span><span class="s1">&#39;low&#39;</span><span class="p">]</span>
+                <span class="n">leaves_high</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">][</span><span class="s1">&#39;high&#39;</span><span class="p">]</span>
+                <span class="c1"># max_depth&lt;=0 表示不限制深度，此时不收紧 num_leaves 上界</span>
+                <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">max_leaves</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">],</span> <span class="n">leaves_high</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">max_leaves</span> <span class="o">=</span> <span class="n">leaves_high</span>
+                <span class="c1"># 防止 2^max_depth 小于下界导致 low&gt;high，必要时下调下界</span>
+                <span class="n">leaves_low</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">leaves_low</span><span class="p">,</span> <span class="n">max_leaves</span><span class="p">)</span>
                 <span class="n">params</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span>
                     <span class="s1">&#39;num_leaves&#39;</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">][</span><span class="s1">&#39;low&#39;</span><span class="p">],</span>
+                    <span class="n">leaves_low</span><span class="p">,</span>
                     <span class="n">max_leaves</span><span class="p">,</span>
                     <span class="n">step</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
                 <span class="p">)</span>
@@ -1977,11 +2437,13 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;创建自动调优器.</span>
 
 <span class="sd">        :param model_type: 模型类型，可选:</span>
-<span class="sd">            - &#39;xgboost&#39;</span>
-<span class="sd">            - &#39;lightgbm&#39;</span>
-<span class="sd">            - &#39;catboost&#39;</span>
-<span class="sd">            - &#39;randomforest&#39;</span>
-<span class="sd">            - &#39;gradientboosting&#39;</span>
+<span class="sd">            - &#39;xgboost&#39; / &#39;xgb&#39;</span>
+<span class="sd">            - &#39;lightgbm&#39; / &#39;lgb&#39;</span>
+<span class="sd">            - &#39;catboost&#39; / &#39;cat&#39;</span>
+<span class="sd">            - &#39;ngboost&#39; / &#39;ngb&#39;</span>
+<span class="sd">            - &#39;randomforest&#39; / &#39;rf&#39;</span>
+<span class="sd">            - &#39;gradientboosting&#39; / &#39;gbdt&#39;</span>
+<span class="sd">            - &#39;logisticregression&#39; / &#39;lr&#39;</span>
 <span class="sd">        :param metric: 优化指标，可以是字符串、函数或列表</span>
 <span class="sd">        :param direction: 优化方向，单目标时str，多目标时list</span>
 <span class="sd">        :param metric_names: 指标名称列表（多目标时用于显示）</span>
@@ -1997,8 +2459,11 @@
             <span class="n">XGBoostRiskModel</span><span class="p">,</span>
             <span class="n">LightGBMRiskModel</span><span class="p">,</span>
             <span class="n">CatBoostRiskModel</span><span class="p">,</span>
+            <span class="n">NGBoostRiskModel</span><span class="p">,</span>
             <span class="n">RandomForestRiskModel</span><span class="p">,</span>
+            <span class="n">ExtraTreesRiskModel</span><span class="p">,</span>
             <span class="n">GradientBoostingRiskModel</span><span class="p">,</span>
+            <span class="n">LogisticRegression</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">model_map</span> <span class="o">=</span> <span class="p">{</span>
@@ -2008,10 +2473,16 @@
             <span class="s1">&#39;lgb&#39;</span><span class="p">:</span> <span class="n">LightGBMRiskModel</span><span class="p">,</span>
             <span class="s1">&#39;catboost&#39;</span><span class="p">:</span> <span class="n">CatBoostRiskModel</span><span class="p">,</span>
             <span class="s1">&#39;cat&#39;</span><span class="p">:</span> <span class="n">CatBoostRiskModel</span><span class="p">,</span>
+            <span class="s1">&#39;ngboost&#39;</span><span class="p">:</span> <span class="n">NGBoostRiskModel</span><span class="p">,</span>
+            <span class="s1">&#39;ngb&#39;</span><span class="p">:</span> <span class="n">NGBoostRiskModel</span><span class="p">,</span>
             <span class="s1">&#39;randomforest&#39;</span><span class="p">:</span> <span class="n">RandomForestRiskModel</span><span class="p">,</span>
             <span class="s1">&#39;rf&#39;</span><span class="p">:</span> <span class="n">RandomForestRiskModel</span><span class="p">,</span>
+            <span class="s1">&#39;extratrees&#39;</span><span class="p">:</span> <span class="n">ExtraTreesRiskModel</span><span class="p">,</span>
+            <span class="s1">&#39;et&#39;</span><span class="p">:</span> <span class="n">ExtraTreesRiskModel</span><span class="p">,</span>
             <span class="s1">&#39;gradientboosting&#39;</span><span class="p">:</span> <span class="n">GradientBoostingRiskModel</span><span class="p">,</span>
             <span class="s1">&#39;gbdt&#39;</span><span class="p">:</span> <span class="n">GradientBoostingRiskModel</span><span class="p">,</span>
+            <span class="s1">&#39;logisticregression&#39;</span><span class="p">:</span> <span class="n">LogisticRegression</span><span class="p">,</span>
+            <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="n">LogisticRegression</span><span class="p">,</span>
         <span class="p">}</span>
 
         <span class="n">model_type</span> <span class="o">=</span> <span class="n">model_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>

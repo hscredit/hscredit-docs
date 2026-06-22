@@ -9,7 +9,7 @@
   <title>指标 hscredit.core.metrics &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -426,6 +426,7 @@
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -437,6 +438,7 @@
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -560,14 +562,12 @@
 特征指标（IV / WOE / 分箱统计）与金融指标，建模、评估、策略与监控共用同一套口径。</p>
 <p id="module-hscredit.core.metrics">指标计算模块 - 统一的模型评估指标入口.</p>
 <p>提供分类、回归、特征评估、稳定性、金融风控等场景的评估指标。</p>
-<p>指标分类:</p>
-<ul class="simple">
-<li><p>分类指标: ks, auc, gini, accuracy, precision, recall, f1, ks_bucket</p></li>
-<li><p>特征评估: iv, iv_table, chi2_test, cramers_v, feature_importance, bin_stats</p></li>
-<li><p>稳定性: psi, psi_table, csi, csi_table, batch_psi</p></li>
-<li><p>金融风控: lift, lift_table, lift_curve, badrate, badrate_by_group</p></li>
-<li><p>回归指标: mse, mae, rmse, r2</p></li>
-</ul>
+<p>指标分类:
+- 分类指标: ks, auc, gini, accuracy, precision, recall, f1, ks_bucket
+- 特征评估: iv, iv_table, chi2_test, cramers_v, feature_importance, bin_stats
+- 稳定性: psi, psi_table, csi, csi_table, batch_psi
+- 金融风控: lift, lift_table, lift_curve, badrate, badrate_by_group
+- 回归指标: mse, mae, rmse, r2</p>
 <dl>
 <dt>使用示例:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">metrics</span><span class="o">.</span><span class="n">ks</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">)</span>

@@ -9,7 +9,7 @@
   <title>Excel hscredit.excel &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -426,6 +426,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -437,6 +438,7 @@
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -564,7 +566,8 @@
 - ExcelWriter: Excel写入器，支持DataFrame、图片、超链接等
 - dataframe2excel: 快速将DataFrame写入Excel的便捷函数
 - DataFrame.save(): pandas DataFrame的save方法扩展（在utils.pandas_extensions中统一注册）
-- Series.save(): pandas Series的save方法扩展（在utils.pandas_extensions中统一注册）</p>
+- Series.save(): pandas Series的save方法扩展（在utils.pandas_extensions中统一注册）
+- register_pivot_aggregation: 注册数据透视表聚合方式别名</p>
 <dl>
 <dt>使用示例:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.excel</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExcelWriter</span>
@@ -812,7 +815,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>worksheet</strong> (<em>Worksheet</em><em> | </em><em>str</em>) -- 工作表对象或名称</p></li>
 <li><p><strong>offset</strong> (<em>int</em>) -- 相对移动位置，默认为0</p></li>
-<li><p><strong>index</strong> (<em>int</em><em> | </em><em>None</em>) -- 移动到的位置索引，默认为None</p></li>
+<li><p><strong>index</strong> (<em>int</em><em> | </em><em>None</em>) -- 移动到的目标绝对位置索引（从0开始），默认为None；传入时忽略 <code class="docutils literal notranslate"><span class="pre">offset</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
@@ -910,6 +913,78 @@
 <dd class="field-odd"><p><em>Tuple</em>[int, int]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.excel.ExcelWriter.insert_chart2sheet">
+<span class="sig-name descname"><span class="pre">insert_chart2sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worksheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insert_space</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/excel/writer.html#ExcelWriter.insert_chart2sheet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.excel.ExcelWriter.insert_chart2sheet" title="Link to this definition"></a></dt>
+<dd><p>向Excel插入原生图表（openpyxl chart 对象）。</p>
+<p>与 <a class="reference internal" href="#hscredit.excel.ExcelWriter.insert_pic2sheet" title="hscredit.excel.ExcelWriter.insert_pic2sheet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">insert_pic2sheet()</span></code></a> 不同，此方法插入的是Excel原生图表（基于单元格数据动态生成），
+而非静态图片，可在Excel中交互、随数据更新。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worksheet</strong> (<em>Worksheet</em>) -- 工作表对象</p></li>
+<li><p><strong>insert_space</strong> (<em>str</em><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) -- 插入位置（图表左上角锚点），如'B2'或(2, 2)</p></li>
+<li><p><strong>chart</strong> (<em>Any</em>) -- openpyxl 图表对象（如 BarChart / LineChart）</p></li>
+<li><p><strong>width</strong> (<em>float</em>) -- 图表宽度（厘米），默认为15.0</p></li>
+<li><p><strong>height</strong> (<em>float</em>) -- 图表高度（厘米），默认为7.5</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(下一行行号, 下一列列号)</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.excel.ExcelWriter.insert_bin_chart2sheet">
+<span class="sig-name descname"><span class="pre">insert_bin_chart2sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worksheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_anchor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_anchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('好样本数',</span> <span class="pre">'坏样本数')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('坏样本率',)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_stacked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">18.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/excel/writer.html#ExcelWriter.insert_bin_chart2sheet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.excel.ExcelWriter.insert_bin_chart2sheet" title="Link to this definition"></a></dt>
+<dd><p>基于已写入Excel的分箱统计表生成分箱图（柱状图 + 坏样本率折线，双坐标轴）。</p>
+<p>本方法复现 <code class="docutils literal notranslate"><span class="pre">hscredit.core.viz.bin_plot</span></code> 的样式：左轴堆叠柱状图展示各分箱好/坏样本数，
+右轴折线展示坏样本率，配色与字体均采用 hscredit 主题风格。图表数据**直接引用**
+worksheet 中已写入的单元格区域，故图表会随表格数据联动。</p>
+<p>使用前需先将 <code class="docutils literal notranslate"><span class="pre">feature_bin_stats</span></code> 输出的分箱表通过 <a class="reference internal" href="#hscredit.excel.ExcelWriter.insert_df2sheet" title="hscredit.excel.ExcelWriter.insert_df2sheet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">insert_df2sheet()</span></code></a>
+（或 <a class="reference internal" href="#hscredit.excel.dataframe2excel" title="hscredit.excel.dataframe2excel"><code class="xref py py-func docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a>）写入到 <code class="docutils literal notranslate"><span class="pre">table_anchor</span></code> 位置（含表头）。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worksheet</strong> (<em>Worksheet</em>) -- 工作表对象</p></li>
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 分箱统计表（与写入Excel的DataFrame一致，用于定位列）</p></li>
+<li><p><strong>table_anchor</strong> (<em>str</em><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) -- 表格写入的左上角位置（含表头），如'B2'或(2, 2)</p></li>
+<li><p><strong>chart_anchor</strong> (<em>str</em><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>] </em><em>| </em><em>None</em>) -- 图表插入位置，默认为None（自动置于表格右侧一列）</p></li>
+<li><p><strong>bar_columns</strong> (<em>Tuple</em><em>[</em><em>str</em><em>, </em><em>...</em><em>]</em>) -- 柱状图列名（左轴），默认为(&quot;好样本数&quot;, &quot;坏样本数&quot;)</p></li>
+<li><p><strong>line_columns</strong> (<em>Tuple</em><em>[</em><em>str</em><em>, </em><em>...</em><em>]</em>) -- 折线图列名（右轴），默认为(&quot;坏样本率&quot;,)</p></li>
+<li><p><strong>category_column</strong> (<em>str</em><em> | </em><em>None</em>) -- 分类轴列名（横轴），默认为None（优先取&quot;分箱标签&quot;，其次&quot;分箱&quot;）</p></li>
+<li><p><strong>title</strong> (<em>str</em><em> | </em><em>None</em>) -- 图表标题，默认为None</p></li>
+<li><p><strong>header</strong> (<em>bool</em>) -- 表格写入时是否含表头，默认为True</p></li>
+<li><p><strong>index</strong> (<em>bool</em>) -- 表格写入时是否含索引，默认为False</p></li>
+<li><p><strong>bar_stacked</strong> (<em>bool</em>) -- 柱状图是否堆叠，默认为True</p></li>
+<li><p><strong>width</strong> (<em>float</em>) -- 图表宽度（厘米），默认为18.0</p></li>
+<li><p><strong>height</strong> (<em>float</em>) -- 图表高度（厘米），默认为9.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(下一行行号, 下一列列号)</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[int, int]</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">feature_bin_stats</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.excel</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExcelWriter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_table</span> <span class="o">=</span> <span class="n">feature_bin_stats</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;某特征&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span> <span class="o">=</span> <span class="n">ExcelWriter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ws</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="s1">&#39;分箱图&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">insert_df2sheet</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">bin_table</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">insert_bin_chart2sheet</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">bin_table</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;某特征分箱图&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;bin_chart.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1172,6 +1247,167 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="hscredit.excel.ExcelWriter.add_sparkline">
+<span class="sig-name descname"><span class="pre">add_sparkline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worksheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'line'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">series_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_x_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_empty_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/excel/writer.html#ExcelWriter.add_sparkline"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.excel.ExcelWriter.add_sparkline" title="Link to this definition"></a></dt>
+<dd><p>向单元格插入迷你图（Sparkline）。</p>
+<p>在单个单元格内绘制折线图、柱状图或盈亏图，效果类似 xlsxwriter 的 <code class="docutils literal notranslate"><span class="pre">add_sparkline</span></code>。
+由于 openpyxl 不支持写入迷你图，本方法仅记录配置，在 <a class="reference internal" href="#hscredit.excel.ExcelWriter.save" title="hscredit.excel.ExcelWriter.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a> 时将
+<code class="docutils literal notranslate"><span class="pre">x14:sparklineGroups</span></code> 注入到 worksheet XML 中。默认配色采用 hscredit 主题风格。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>迷你图通过直接修改 xlsx 内部 XML 实现，Excel 可正常显示。但 openpyxl 不识别该扩展，
+若用 openpyxl 重新打开并保存（含 <code class="docutils literal notranslate"><span class="pre">mode='append'</span></code> 追加模式），迷你图会丢失。
+建议迷你图在最终输出步骤添加。</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worksheet</strong> (<em>Worksheet</em><em> | </em><em>str</em>) -- 工作表对象或名称</p></li>
+<li><p><strong>location</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>]</em>) -- 迷你图所在单元格，如'H2'；可传列表与 <code class="docutils literal notranslate"><span class="pre">data_range</span></code> 一一对应批量生成同组迷你图</p></li>
+<li><p><strong>data_range</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>]</em>) -- 数据区域，如'B2:G2'或'Sheet1!B2:G2'（未含sheet名时默认当前sheet）；可传列表</p></li>
+<li><p><strong>type</strong> (<em>str</em>) -- 迷你图类型，可选'line'(折线)、'column'(柱状)、'win_loss'(盈亏)，默认'line'</p></li>
+<li><p><strong>series_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 主体颜色，默认为主题色</p></li>
+<li><p><strong>negative_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 负值颜色（盈亏图/柱状图负值），默认为 hscredit 坏样本红</p></li>
+<li><p><strong>markers</strong> (<em>bool</em>) -- 是否显示数据点标记（仅折线图），默认为False</p></li>
+<li><p><strong>marker_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 标记颜色，默认同 <code class="docutils literal notranslate"><span class="pre">series_color</span></code></p></li>
+<li><p><strong>high_point</strong> (<em>bool</em>) -- 是否高亮最高点，默认为False</p></li>
+<li><p><strong>low_point</strong> (<em>bool</em>) -- 是否高亮最低点，默认为False</p></li>
+<li><p><strong>first_point</strong> (<em>bool</em>) -- 是否高亮首点，默认为False</p></li>
+<li><p><strong>last_point</strong> (<em>bool</em>) -- 是否高亮尾点，默认为False</p></li>
+<li><p><strong>negative_points</strong> (<em>bool</em>) -- 是否高亮负值点，默认为False</p></li>
+<li><p><strong>high_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 最高点颜色，默认同 <code class="docutils literal notranslate"><span class="pre">series_color</span></code></p></li>
+<li><p><strong>low_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 最低点颜色，默认同 <code class="docutils literal notranslate"><span class="pre">negative_color</span></code></p></li>
+<li><p><strong>first_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 首点颜色，默认为提升橙</p></li>
+<li><p><strong>last_color</strong> (<em>str</em><em> | </em><em>None</em>) -- 尾点颜色，默认为提升橙</p></li>
+<li><p><strong>display_x_axis</strong> (<em>bool</em>) -- 是否显示横轴（数据含正负时分隔），默认为False</p></li>
+<li><p><strong>show_empty_as</strong> (<em>str</em>) -- 空单元格显示方式，可选'gap'(留空)、'zero'(零)、'span'(连线)，默认'gap'</p></li>
+<li><p><strong>line_weight</strong> (<em>float</em><em> | </em><em>None</em>) -- 折线粗细（磅），默认为None（使用Excel默认）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 在 H2 单元格按 B2:G2 数据绘制折线迷你图</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">add_sparkline</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="s2">&quot;H2&quot;</span><span class="p">,</span> <span class="s2">&quot;B2:G2&quot;</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">high_point</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">low_point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 柱状迷你图</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">add_sparkline</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="s2">&quot;H3&quot;</span><span class="p">,</span> <span class="s2">&quot;B3:G3&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;column&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 盈亏迷你图</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">add_sparkline</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="s2">&quot;H4&quot;</span><span class="p">,</span> <span class="s2">&quot;B4:G4&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;win_loss&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.excel.ExcelWriter.insert_pivot_table2sheet">
+<span class="sig-name descname"><span class="pre">insert_pivot_table2sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worksheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivot_anchor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_items</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_sheet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_anchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_row_totals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_col_totals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theme_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/excel/writer.html#ExcelWriter.insert_pivot_table2sheet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.excel.ExcelWriter.insert_pivot_table2sheet" title="Link to this definition"></a></dt>
+<dd><p>向工作表插入Excel原生数据透视表。</p>
+<p>由于 openpyxl 不支持创建数据透视表，本方法仅记录配置，在 <a class="reference internal" href="#hscredit.excel.ExcelWriter.save" title="hscredit.excel.ExcelWriter.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a> 时将
+<code class="docutils literal notranslate"><span class="pre">pivotCacheDefinition</span></code> / <code class="docutils literal notranslate"><span class="pre">pivotCacheRecords</span></code> / <code class="docutils literal notranslate"><span class="pre">pivotTable</span></code> 等部件注入到
+xlsx 中，生成 Excel 可交互、可刷新的原生数据透视表。透视缓存写入 <code class="docutils literal notranslate"><span class="pre">refreshOnLoad=&quot;1&quot;</span></code>，
+Excel 打开时会基于源数据自动刷新。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worksheet</strong> (<em>Worksheet</em><em> | </em><em>str</em>) -- 透视表放置的工作表对象或名称</p></li>
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 源数据 DataFrame（透视缓存基于此构建）</p></li>
+<li><p><strong>pivot_anchor</strong> (<em>str</em><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) -- 透视表左上角锚点，如'B2'或(2, 2)</p></li>
+<li><p><strong>rows</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 行字段（列名或列名列表），默认为None</p></li>
+<li><p><strong>columns</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 列字段（列名或列名列表），默认为None</p></li>
+<li><p><strong>values</strong> (<em>Any</em><em> | </em><em>None</em>) -- <p>值字段，支持多种形式：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'金额'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">['金额',</span> <span class="pre">'数量']</span></code>：默认聚合（数值列求和，非数值列计数）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[('金额',</span> <span class="pre">'sum'),</span> <span class="pre">('数量',</span> <span class="pre">'mean')]</span></code>：显式指定聚合</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[('金额',</span> <span class="pre">'sum',</span> <span class="pre">'全局占比')]</span></code>：聚合 + 占比显示（全局/行/列/组合占比）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{'金额':</span> <span class="pre">'sum'}</span></code> 或 <code class="docutils literal notranslate"><span class="pre">[{'field':</span> <span class="pre">'金额',</span> <span class="pre">'agg':</span> <span class="pre">'sum',</span> <span class="pre">'show_as':</span> <span class="pre">'全局占比',</span>
+<span class="pre">'name':</span> <span class="pre">'占比',</span> <span class="pre">'number_format':</span> <span class="pre">'0.00%'}]</span></code></p></li>
+</ul>
+<p>聚合：sum/count/average(mean)/max/min/product/count_nums/std/stdp/var/varp
+（可用 <code class="docutils literal notranslate"><span class="pre">hscredit.excel._pivot.register_aggregation</span></code> 扩展别名）</p>
+</p></li>
+<li><p><strong>filters</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) -- 页/筛选字段。列名/列名列表，或 <code class="docutils literal notranslate"><span class="pre">{字段:</span> <span class="pre">[允许值]}</span></code> 直接指定筛选项</p></li>
+<li><p><strong>filter_items</strong> (<em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) -- 筛选项 <code class="docutils literal notranslate"><span class="pre">{字段:</span> <span class="pre">[允许值]}</span></code>，可作用于行/列/筛选任一字段，仅保留所列取值</p></li>
+<li><p><strong>groups</strong> (<em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) -- 数值字段分组 <code class="docutils literal notranslate"><span class="pre">{字段:</span> <span class="pre">{'start':</span> <span class="pre">起始值,</span> <span class="pre">'interval':</span> <span class="pre">步长}}</span></code>
+（亦支持 <code class="docutils literal notranslate"><span class="pre">{字段:</span> <span class="pre">(起始,</span> <span class="pre">步长)}</span></code>），对横轴/纵轴数值特征按步长分桶统计</p></li>
+<li><p><strong>subtotals</strong> (<em>bool</em>) -- 是否对非最内层行/列字段显示分类汇总，默认为False</p></li>
+<li><p><strong>source_sheet</strong> (<em>Worksheet</em><em> | </em><em>str</em><em> | </em><em>None</em>) -- 源数据所在工作表对象或名称，默认为None（自动新建源数据表写入 <code class="docutils literal notranslate"><span class="pre">data</span></code>）</p></li>
+<li><p><strong>source_anchor</strong> (<em>str</em><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) -- 源数据写入/定位的左上角（含表头），默认为(1, 1)</p></li>
+<li><p><strong>write_source</strong> (<em>bool</em><em> | </em><em>None</em>) -- 是否写入源数据，默认为None（<code class="docutils literal notranslate"><span class="pre">source_sheet</span></code> 为None时自动写入）</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) -- 透视表名称，默认为None（自动命名「数据透视表N」）</p></li>
+<li><p><strong>show_row_totals</strong> (<em>bool</em>) -- 是否显示行总计，默认为True</p></li>
+<li><p><strong>show_col_totals</strong> (<em>bool</em>) -- 是否显示列总计，默认为True</p></li>
+<li><p><strong>theme_style</strong> (<em>bool</em>) -- 是否套用适配 <code class="docutils literal notranslate"><span class="pre">theme_color</span></code> 的 hscredit 主题样式，默认为True</p></li>
+<li><p><strong>style</strong> (<em>str</em><em> | </em><em>None</em>) -- 透视表样式名，默认为None（<code class="docutils literal notranslate"><span class="pre">theme_style</span></code> 为True时用主题样式，否则用内置 PivotStyleLight16）</p></li>
+<li><p><strong>fill</strong> (<em>bool</em>) -- 自动写入源数据时是否使用颜色填充，默认为True</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(透视表区域下一行行号, 下一列列号)</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[int, int]</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.excel</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExcelWriter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;商品类别&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;数码&#39;</span><span class="p">,</span> <span class="s1">&#39;服饰&#39;</span><span class="p">,</span> <span class="s1">&#39;数码&#39;</span><span class="p">,</span> <span class="s1">&#39;服饰&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;区域&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;华东&#39;</span><span class="p">,</span> <span class="s1">&#39;华东&#39;</span><span class="p">,</span> <span class="s1">&#39;华南&#39;</span><span class="p">,</span> <span class="s1">&#39;华南&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;放款金额&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ExcelWriter</span><span class="p">(</span><span class="n">theme_color</span><span class="o">=</span><span class="s1">&#39;2639E9&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_filename</span><span class="p">(</span><span class="s1">&#39;pivot.xlsx&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ws</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="s1">&#39;透视表&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">writer</span><span class="o">.</span><span class="n">insert_pivot_table2sheet</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">ws</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">rows</span><span class="o">=</span><span class="s1">&#39;商品类别&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;区域&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">values</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;放款金额&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;放款金额&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;全局占比&#39;</span><span class="p">)],</span>
+<span class="gp">... </span>        <span class="n">groups</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;放款金额&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;interval&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}},</span>
+<span class="gp">... </span>        <span class="n">subtotals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.excel.ExcelWriter.insert_pivot_chart2sheet">
+<span class="sig-name descname"><span class="pre">insert_pivot_chart2sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worksheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_anchor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pivot_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_stacked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/excel/writer.html#ExcelWriter.insert_pivot_chart2sheet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.excel.ExcelWriter.insert_pivot_chart2sheet" title="Link to this definition"></a></dt>
+<dd><p>基于已创建的数据透视表插入Excel原生数据透视图。</p>
+<p>本方法先用 openpyxl 在透视表输出区域上构建普通图表（柱状/折线/饼图），
+并在 <a class="reference internal" href="#hscredit.excel.ExcelWriter.save" title="hscredit.excel.ExcelWriter.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a> 时向该图表 XML 注入 <code class="docutils literal notranslate"><span class="pre">c:pivotSource</span></code>，使其成为绑定到透视表的
+原生数据透视图，可随透视表刷新联动。</p>
+<p>需先调用 <a class="reference internal" href="#hscredit.excel.ExcelWriter.insert_pivot_table2sheet" title="hscredit.excel.ExcelWriter.insert_pivot_table2sheet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">insert_pivot_table2sheet()</span></code></a> 创建透视表。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worksheet</strong> (<em>Worksheet</em><em> | </em><em>str</em>) -- 透视图放置的工作表对象或名称（通常与透视表同表）</p></li>
+<li><p><strong>chart_anchor</strong> (<em>str</em><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) -- 图表插入位置，如'H2'或(2, 8)</p></li>
+<li><p><strong>pivot_name</strong> (<em>str</em><em> | </em><em>None</em>) -- 关联的透视表名称，默认为None（取最近创建的透视表）</p></li>
+<li><p><strong>chart_type</strong> (<em>str</em>) -- 图表类型，可选'bar'(柱状)、'line'(折线)、'pie'(饼图)，默认'bar'</p></li>
+<li><p><strong>title</strong> (<em>str</em><em> | </em><em>None</em>) -- 图表标题，默认为None</p></li>
+<li><p><strong>width</strong> (<em>float</em>) -- 图表宽度（厘米），默认为15.0</p></li>
+<li><p><strong>height</strong> (<em>float</em>) -- 图表高度（厘米），默认为7.5</p></li>
+<li><p><strong>bar_stacked</strong> (<em>bool</em>) -- 柱状图是否堆叠，默认为False</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>(下一行行号, 下一列列号)</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[int, int]</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">insert_pivot_table2sheet</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="s1">&#39;商品类别&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;放款金额&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">insert_pivot_chart2sheet</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="s1">&#39;H2&#39;</span><span class="p">,</span> <span class="n">chart_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;各类别放款金额&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="hscredit.excel.ExcelWriter.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/excel/writer.html#ExcelWriter.save"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.excel.ExcelWriter.save" title="Link to this definition"></a></dt>
 <dd><p>保存Excel文件。</p>
@@ -1314,6 +1550,32 @@
 <span class="go">&#39;F76E6C&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">resolve_condition_color</span><span class="p">([</span><span class="s1">&#39;#3B82F6&#39;</span><span class="p">,</span> <span class="s1">&#39;#E879F9&#39;</span><span class="p">,</span> <span class="s1">&#39;#EF4444&#39;</span><span class="p">],</span> <span class="s1">&#39;iv&#39;</span><span class="p">,</span> <span class="s1">&#39;2639E9&#39;</span><span class="p">)</span>
 <span class="go">&#39;EF4444&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.excel.register_pivot_aggregation">
+<span class="sig-prename descclassname"><span class="pre">hscredit.excel.</span></span><span class="sig-name descname"><span class="pre">register_pivot_aggregation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtotal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hscredit.excel.register_pivot_aggregation" title="Link to this definition"></a></dt>
+<dd><p>注册/扩展聚合方式别名（聚合函数可扩展）。</p>
+<p>Excel 原生汇总仅 11 种（sum/count/average/max/min/product/countNums/stdDev/stdDevp/var/varp），
+本函数用于为其登记自定义别名，使 <code class="docutils literal notranslate"><span class="pre">values</span></code> 参数可用更贴合业务的名称。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) -- 别名（大小写不敏感），如 <code class="docutils literal notranslate"><span class="pre">'总和'</span></code>、<code class="docutils literal notranslate"><span class="pre">'均值'</span></code></p></li>
+<li><p><strong>subtotal</strong> (<em>str</em>) -- 对应的 OOXML 汇总取值，须为 11 种之一</p></li>
+<li><p><strong>prefix</strong> (<em>str</em><em> | </em><em>None</em>) -- 中文标题前缀，默认为None（复用 <code class="docutils literal notranslate"><span class="pre">subtotal</span></code> 已有前缀，没有则用 key）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.excel</span><span class="w"> </span><span class="kn">import</span> <span class="n">_pivot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_pivot</span><span class="o">.</span><span class="n">register_aggregation</span><span class="p">(</span><span class="s1">&#39;均值&#39;</span><span class="p">,</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="s1">&#39;平均值项&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_pivot</span><span class="o">.</span><span class="n">register_aggregation</span><span class="p">(</span><span class="s1">&#39;总和&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

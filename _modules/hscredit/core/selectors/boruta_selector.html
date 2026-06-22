@@ -8,7 +8,7 @@
   <title>hscredit.core.selectors.boruta_selector &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -657,67 +659,61 @@
 <span class="sd">        :param X: 输入特征DataFrame</span>
 <span class="sd">        :param y: 目标变量</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;需要传入y或X中包含</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="si">}</span><span class="s2">列&quot;</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_feature_names</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        
+
         <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-        
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+
         <span class="c1"># 准备数据</span>
         <span class="n">X_array</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">values</span>
         <span class="n">feature_names</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-        
-        <span class="c1"># 创建影子特征</span>
-        <span class="n">X_shadow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X_array</span><span class="p">)</span>
-        <span class="n">X_with_shadow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X_array</span><span class="p">,</span> <span class="n">X_shadow</span><span class="p">])</span>
-        
+
         <span class="c1"># 迭代</span>
         <span class="n">selected</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">))</span>
         <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
-        
+        <span class="n">real_importances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_features</span><span class="p">)</span>
+
         <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+            <span class="c1"># 每轮重新生成影子特征</span>
+            <span class="n">X_shadow</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">X_array</span><span class="p">)</span>
+            <span class="n">X_with_shadow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X_array</span><span class="p">,</span> <span class="n">X_shadow</span><span class="p">])</span>
+
             <span class="c1"># 训练模型</span>
             <span class="n">model</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">)</span>
             <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_with_shadow</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-            
+
             <span class="c1"># 获取特征重要性（兼容所有模型类型）</span>
             <span class="n">importances</span> <span class="o">=</span> <span class="n">get_feature_importances</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-            
+
             <span class="c1"># 分离真实和影子特征重要性</span>
             <span class="n">real_importances</span> <span class="o">=</span> <span class="n">importances</span><span class="p">[:</span><span class="n">n_features</span><span class="p">]</span>
             <span class="n">shadow_importances</span> <span class="o">=</span> <span class="n">importances</span><span class="p">[</span><span class="n">n_features</span><span class="p">:]</span>
-            
-            <span class="c1"># 计算阈值（影子特征最大值的均值）</span>
-            <span class="n">shadow_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">shadow_importances</span><span class="p">)</span>
-            
+
+            <span class="c1"># 阈值：影子特征的最大重要性</span>
+            <span class="n">shadow_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">shadow_importances</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shadow_importances</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+
             <span class="c1"># 记录历史</span>
             <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
                 <span class="s1">&#39;iteration&#39;</span><span class="p">:</span> <span class="n">iteration</span><span class="p">,</span>
                 <span class="s1">&#39;selected&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected</span><span class="p">),</span>
                 <span class="s1">&#39;shadow_max&#39;</span><span class="p">:</span> <span class="n">shadow_max</span>
             <span class="p">})</span>
-            
+
             <span class="c1"># 更新选中特征：简化版，只保留重要性高于影子特征最大值的特征</span>
-            <span class="c1"># （与标准Boruta不同，这里不追踪hits数，直接按阈值过滤）</span>
             <span class="n">new_selected</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">selected</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">real_importances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">shadow_max</span><span class="p">:</span>
                         <span class="n">new_selected</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                    <span class="c1"># else: 重要性未超过影子特征阈值，移除</span>
 
             <span class="n">selected</span> <span class="o">=</span> <span class="n">new_selected</span>
-            
+
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">break</span>
-        
+
         <span class="c1"># 选中特征</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">selected_features_</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">selected</span><span class="p">]</span>
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected_features_</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">selected</span><span class="p">)]</span>
+
         <span class="c1"># 计算得分</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scores_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">real_importances</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_drop_reason</span> <span class="o">=</span> <span class="s1">&#39;重要性低于影子特征&#39;</span></div>

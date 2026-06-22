@@ -8,7 +8,7 @@
   <title>hscredit.core.models.classical.logistic_regression &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -1350,6 +1352,255 @@
         <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="s2">&quot;const&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;VIF&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">summary</span><span class="p">[</span><span class="n">mask</span><span class="p">][[</span><span class="s2">&quot;Coef.&quot;</span><span class="p">,</span> <span class="s2">&quot;VIF&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;VIF&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+    <span class="c1"># ==================== 统一API（与 BaseRiskModel 对齐） ====================</span>
+
+<div class="viewcode-block" id="LogisticRegression.evaluate">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.evaluate">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">sample_weight</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;评估模型性能（与 BaseRiskModel.evaluate 接口一致）.</span>
+
+<span class="sd">        :param X: 特征矩阵</span>
+<span class="sd">        :param y: 真实标签</span>
+<span class="sd">        :param sample_weight: 样本权重</span>
+<span class="sd">        :param metrics: 评估指标列表</span>
+<span class="sd">        :return: 评估结果字典</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRiskModel</span><span class="p">,</span> <span class="n">_lift_score</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">...metrics.classification</span><span class="w"> </span><span class="kn">import</span> <span class="n">ks</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">gini</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">...metrics.finance</span><span class="w"> </span><span class="kn">import</span> <span class="n">lift_monotonicity_check</span>
+
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">y_proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">metrics</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="n">BaseRiskModel</span><span class="o">.</span><span class="n">DEFAULT_METRICS</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+            <span class="n">metric_lower</span> <span class="o">=</span> <span class="n">metric</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">metric_lower</span> <span class="o">==</span> <span class="s1">&#39;auc&#39;</span><span class="p">:</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;AUC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="o">==</span> <span class="s1">&#39;ks&#39;</span><span class="p">:</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;KS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ks</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="o">==</span> <span class="s1">&#39;gini&#39;</span><span class="p">:</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;Gini&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gini</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;lift@1%&#39;</span><span class="p">,</span> <span class="s1">&#39;lift_1&#39;</span><span class="p">):</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;LIFT@1%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_lift_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">,</span> <span class="n">top_ratio</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;lift@3%&#39;</span><span class="p">,</span> <span class="s1">&#39;lift_3&#39;</span><span class="p">):</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;LIFT@3%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_lift_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">,</span> <span class="n">top_ratio</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;lift@5%&#39;</span><span class="p">,</span> <span class="s1">&#39;lift_5&#39;</span><span class="p">):</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;LIFT@5%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_lift_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">,</span> <span class="n">top_ratio</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;lift@10%&#39;</span><span class="p">,</span> <span class="s1">&#39;lift_10&#39;</span><span class="p">,</span> <span class="s1">&#39;lift&#39;</span><span class="p">):</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;LIFT@10%&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_lift_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">,</span> <span class="n">top_ratio</span><span class="o">=</span><span class="mf">0.10</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">metric_lower</span> <span class="o">==</span> <span class="s1">&#39;logloss&#39;</span><span class="p">:</span>
+                    <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_loss</span>
+                    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;LogLoss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mono</span> <span class="o">=</span> <span class="n">lift_monotonicity_check</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_proba</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;头部LIFT单调&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mono</span><span class="p">[</span><span class="s1">&#39;head_monotonic&#39;</span><span class="p">]</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;头部违反单调比例&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mono</span><span class="p">[</span><span class="s1">&#39;head_violation_ratio&#39;</span><span class="p">]</span>
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;尾部LIFT单调&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mono</span><span class="p">[</span><span class="s1">&#39;tail_monotonic&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="n">results</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.predict_score">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.predict_score">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;预测风险评分（与 BaseRiskModel.predict_score 接口一致）.</span>
+
+<span class="sd">        :param X: 特征矩阵</span>
+<span class="sd">        :return: 风险评分 (0-1000)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.report">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.report">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">datasets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">X_train</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">y_train</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">overdue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">dpds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">excel_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;生成风控建模报告（与 BaseRiskModel.report 接口一致）.</span>
+
+<span class="sd">        :return: QuickModelReport 实例</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">....report</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_model_report</span>
+
+        <span class="k">return</span> <span class="n">auto_model_report</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">datasets</span><span class="o">=</span><span class="n">datasets</span><span class="p">,</span>
+            <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+            <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+            <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
+            <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
+            <span class="n">overdue</span><span class="o">=</span><span class="n">overdue</span><span class="p">,</span>
+            <span class="n">dpds</span><span class="o">=</span><span class="n">dpds</span><span class="p">,</span>
+            <span class="n">excel_path</span><span class="o">=</span><span class="n">excel_path</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.tune">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.tune">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">search_space</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fixed_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;ks&#39;</span><span class="p">,</span>
+        <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;maximize&#39;</span><span class="p">,</span>
+        <span class="n">n_trials</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">cv</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;LogisticRegression&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;超参数调优并返回最佳模型（与 BaseRiskModel.tune 接口一致）.</span>
+
+<span class="sd">        集成 ModelTuner（基于 Optuna），默认使用逻辑回归的自适应搜索空间</span>
+<span class="sd">        （C / penalty / class_weight / max_iter / solver）。</span>
+
+<span class="sd">        :param X: 特征矩阵或包含 target 的 DataFrame</span>
+<span class="sd">        :param y: 目标变量，可选</span>
+<span class="sd">        :param search_space: 参数搜索空间，默认使用自适应空间</span>
+<span class="sd">        :param fixed_params: 固定参数</span>
+<span class="sd">        :param metric: 优化指标，默认 &#39;ks&#39;</span>
+<span class="sd">        :param direction: 优化方向，默认 &#39;maximize&#39;</span>
+<span class="sd">        :param n_trials: 搜索次数，默认 100</span>
+<span class="sd">        :param cv: 交叉验证折数，默认 5</span>
+<span class="sd">        :param timeout: 超时时间(秒)</span>
+<span class="sd">        :param verbose: 是否输出详细信息</span>
+<span class="sd">        :param kwargs: 其他传递给 ModelTuner 的参数（如 sampler/storage）</span>
+<span class="sd">        :return: 使用最佳参数训练好的模型实例</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; model = LogisticRegression()</span>
+<span class="sd">        &gt;&gt;&gt; best_model = model.tune(X_train, y_train, n_trials=50)</span>
+<span class="sd">        &gt;&gt;&gt; proba = best_model.predict_proba(X_test)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..tuning</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelTuner</span>
+
+        <span class="n">tuner</span> <span class="o">=</span> <span class="n">ModelTuner</span><span class="p">(</span>
+            <span class="n">model_class</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span>
+            <span class="n">search_space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span>
+            <span class="n">fixed_params</span><span class="o">=</span><span class="n">fixed_params</span><span class="p">,</span>
+            <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+            <span class="n">direction</span><span class="o">=</span><span class="n">direction</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="ow">or</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span>
+            <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+
+        <span class="n">best_params</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="n">n_trials</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="n">best_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">**</span><span class="n">best_params</span><span class="p">)</span>
+        <span class="c1"># 透传 target，确保 scorecardpipeline 风格（y=None，从 X 提取 target）下重训正常</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">best_model</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">best_model</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span>
+        <span class="n">best_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">best_model</span><span class="o">.</span><span class="n">_tuner</span> <span class="o">=</span> <span class="n">tuner</span>
+
+        <span class="k">return</span> <span class="n">best_model</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.save">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.save">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;保存模型到文件（与 BaseRiskModel.save 接口一致）.</span>
+
+<span class="sd">        :param path: 保存路径</span>
+<span class="sd">        :param engine: 序列化引擎</span>
+<span class="sd">        :return: 保存路径</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">....utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_pickle</span>
+        <span class="n">path_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">eng</span> <span class="o">=</span> <span class="n">engine</span>
+        <span class="k">if</span> <span class="n">eng</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="n">path_lower</span> <span class="o">=</span> <span class="n">path_str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dill&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.dill.gz&#39;</span><span class="p">):</span>
+                <span class="n">eng</span> <span class="o">=</span> <span class="s1">&#39;dill&#39;</span>
+            <span class="k">elif</span> <span class="n">path_lower</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.cloudpickle&#39;</span><span class="p">):</span>
+                <span class="n">eng</span> <span class="o">=</span> <span class="s1">&#39;cloudpickle&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">eng</span> <span class="o">=</span> <span class="s1">&#39;joblib&#39;</span>
+        <span class="n">save_pickle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_str</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">eng</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">path_str</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.load">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.load">[文档]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;LogisticRegression&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;从文件加载模型（与 BaseRiskModel.load 接口一致）.</span>
+
+<span class="sd">        :param path: 模型文件路径</span>
+<span class="sd">        :param engine: 序列化引擎</span>
+<span class="sd">        :return: 加载的模型实例</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">....utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_pickle</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;加载的对象类型为 </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">，不是 LogisticRegression&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">model</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.get_model_info">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.get_model_info">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取模型信息（与 BaseRiskModel.get_model_info 接口一致）.&quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;model_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="s1">&#39;objective&#39;</span><span class="p">:</span> <span class="s1">&#39;binary:logistic&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;eval_metric&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;n_features&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;n_features_in_&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s1">&#39;n_classes&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">),</span>
+            <span class="s1">&#39;best_iteration&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;best_score&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">info</span></div>
+
+
+<div class="viewcode-block" id="LogisticRegression.get_native_model">
+<a class="viewcode-back" href="../../../../../api/models.html#hscredit.core.models.LogisticRegression.get_native_model">[文档]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_native_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取底层模型（返回自身，因为 LR 不包装底层模型）.&quot;&quot;&quot;</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

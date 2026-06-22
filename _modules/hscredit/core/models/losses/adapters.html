@@ -8,7 +8,7 @@
   <title>hscredit.core.models.losses.adapters &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=348ebd38" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -423,6 +423,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.ExcelWriter"><code class="docutils literal notranslate"><span class="pre">ExcelWriter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.dataframe2excel"><code class="docutils literal notranslate"><span class="pre">dataframe2excel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.resolve_condition_color"><code class="docutils literal notranslate"><span class="pre">resolve_condition_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/excel.html#hscredit.excel.register_pivot_aggregation"><code class="docutils literal notranslate"><span class="pre">register_pivot_aggregation()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/utils.html">工具 <code class="docutils literal notranslate"><span class="pre">hscredit.utils</span></code></a><ul>
@@ -434,6 +435,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.germancredit"><code class="docutils literal notranslate"><span class="pre">germancredit()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.round_float"><code class="docutils literal notranslate"><span class="pre">round_float()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.force_reload_module"><code class="docutils literal notranslate"><span class="pre">force_reload_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.trapz"><code class="docutils literal notranslate"><span class="pre">trapz()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_setting"><code class="docutils literal notranslate"><span class="pre">init_setting()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.init_logger"><code class="docutils literal notranslate"><span class="pre">init_logger()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/utils.html#hscredit.utils.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
@@ -775,29 +777,42 @@
             <span class="k">def</span><span class="w"> </span><span class="nf">calc_ders_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">approxes</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
 <span class="w">                </span><span class="sd">&quot;&quot;&quot;计算梯度和二阶导.</span>
 
-<span class="sd">                :param approxes: 预测值列表（每个元素对应一个类别）</span>
-<span class="sd">                :param targets: 真实标签列表</span>
-<span class="sd">                :param weights: 样本权重</span>
-<span class="sd">                :return: 每个元素为(梯度, 二阶导)的列表</span>
+<span class="sd">                CatBoost 对一批样本调用本方法，``approxes``/``targets``/``weights``</span>
+<span class="sd">                均为与样本一一对应的原始分数/标签/权重数组（二分类单目标）。</span>
+
+<span class="sd">                注意符号约定：CatBoost 执行梯度上升以最小化损失，要求返回</span>
+<span class="sd">                ``der1 = -dL/dapprox``、``der2 = -d²L/dapprox²``，因此对 ``BaseLoss``</span>
+<span class="sd">                给出的（定义在概率上的）梯度/二阶导取负。</span>
+
+<span class="sd">                :param approxes: 预测原始分数数组（每个样本一个值）</span>
+<span class="sd">                :param targets: 真实标签数组</span>
+<span class="sd">                :param weights: 样本权重数组，可为 None</span>
+<span class="sd">                :return: 每个元素为 (一阶导, 二阶导) 的列表</span>
 <span class="sd">                &quot;&quot;&quot;</span>
-                <span class="c1"># CatBoost的approxes是列表，对于二分类只有一个元素</span>
-                <span class="n">approx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">approxes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-                <span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+                <span class="n">approx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">approxes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
                 <span class="c1"># 将原始分数转换为概率</span>
                 <span class="n">probs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">approx</span><span class="p">))</span>
 
-                <span class="c1"># 计算梯度和二阶导</span>
-                <span class="n">grad</span> <span class="o">=</span> <span class="n">loss_obj</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
-                <span class="n">hess</span> <span class="o">=</span> <span class="n">loss_obj</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
-
+                <span class="c1"># 计算梯度和二阶导（定义在概率 p 上）</span>
+                <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">loss_obj</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">probs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+                <span class="n">hess</span> <span class="o">=</span> <span class="n">loss_obj</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">hess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+                <span class="n">hess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">hess</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
-                <span class="c1"># CatBoost返回元组列表</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">grad</span><span class="p">,</span> <span class="n">hess</span><span class="p">))</span>
+                <span class="c1"># CatBoost 约定：梯度上升最小化损失，取负</span>
+                <span class="n">der1</span> <span class="o">=</span> <span class="o">-</span><span class="n">grad</span>
+                <span class="n">der2</span> <span class="o">=</span> <span class="o">-</span><span class="n">hess</span>
 
-                <span class="k">return</span> <span class="n">result</span>
+                <span class="c1"># 应用样本权重</span>
+                <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+                    <span class="n">der1</span> <span class="o">=</span> <span class="n">der1</span> <span class="o">*</span> <span class="n">w</span>
+                    <span class="n">der2</span> <span class="o">=</span> <span class="n">der2</span> <span class="o">*</span> <span class="n">w</span>
+
+                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">der1</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">der2</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
 
         <span class="k">return</span> <span class="n">CatBoostLoss</span><span class="p">()</span></div>
 
