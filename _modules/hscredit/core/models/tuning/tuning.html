@@ -8,7 +8,7 @@
   <title>hscredit.core.models.tuning.tuning &mdash; hscredit 0.1.0 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -814,6 +814,15 @@
     <span class="k">return</span> <span class="n">ks_val</span><span class="p">,</span> <span class="n">ks_diff</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_safe_index</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;按行索引切分 pandas / numpy / list 数据.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;iloc&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">)[</span><span class="n">indices</span><span class="p">]</span>
+
+
 <div class="viewcode-block" id="TuningObjective">
 <a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.TuningObjective">[文档]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TuningObjective</span><span class="p">:</span>
@@ -1383,6 +1392,8 @@
         <span class="c1"># 创建Metric对象列表</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">metrics_list</span><span class="p">,</span> <span class="n">directions_list</span><span class="p">,</span> <span class="n">metric_names</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;maximize&quot;</span><span class="p">,</span> <span class="s2">&quot;minimize&quot;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;direction 只能是 &#39;maximize&#39; 或 &#39;minimize&#39;&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Metric</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
@@ -1555,10 +1566,14 @@
             <span class="n">fold_results</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">))}</span>
             
             <span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">val_idx</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-                <span class="n">X_train_fold</span><span class="p">,</span> <span class="n">X_val_fold</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">val_idx</span><span class="p">]</span>
-                <span class="n">y_train_fold</span><span class="p">,</span> <span class="n">y_val_fold</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">val_idx</span><span class="p">]</span>
+                <span class="n">X_train_fold</span><span class="p">,</span> <span class="n">X_val_fold</span> <span class="o">=</span> <span class="n">_safe_index</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">train_idx</span><span class="p">),</span> <span class="n">_safe_index</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">val_idx</span><span class="p">)</span>
+                <span class="n">y_train_fold</span><span class="p">,</span> <span class="n">y_val_fold</span> <span class="o">=</span> <span class="n">_safe_index</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">train_idx</span><span class="p">),</span> <span class="n">_safe_index</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">val_idx</span><span class="p">)</span>
+                <span class="n">sample_weight_fold</span> <span class="o">=</span> <span class="n">_safe_index</span><span class="p">(</span><span class="n">sample_weight</span><span class="p">,</span> <span class="n">train_idx</span><span class="p">)</span>
                 
-                <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_fold</span><span class="p">,</span> <span class="n">y_train_fold</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">sample_weight_fold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_fold</span><span class="p">,</span> <span class="n">y_train_fold</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_fold</span><span class="p">,</span> <span class="n">y_train_fold</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight_fold</span><span class="p">)</span>
                 
                 <span class="c1"># 获取预测概率</span>
                 <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_train_fold</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
@@ -1566,10 +1581,12 @@
                 
                 <span class="c1"># 计算每个指标</span>
                 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">metric</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">):</span>
+                    <span class="n">y_val_arr</span> <span class="o">=</span> <span class="n">y_val_fold</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y_val_fold</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_val_fold</span><span class="p">)</span>
+                    <span class="n">y_train_arr</span> <span class="o">=</span> <span class="n">y_train_fold</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y_train_fold</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_train_fold</span><span class="p">)</span>
                     <span class="n">value</span> <span class="o">=</span> <span class="n">metric</span><span class="p">(</span>
-                        <span class="n">y_val_fold</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y_val_fold</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">y_val_fold</span><span class="p">,</span>
+                        <span class="n">y_val_arr</span><span class="p">,</span>
                         <span class="n">y_val_pred</span><span class="p">,</span>
-                        <span class="n">y_train</span><span class="o">=</span><span class="n">y_train_fold</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y_train_fold</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">y_train_fold</span><span class="p">,</span>
+                        <span class="n">y_train</span><span class="o">=</span><span class="n">y_train_arr</span><span class="p">,</span>
                         <span class="n">y_train_pred</span><span class="o">=</span><span class="n">y_train_pred</span>
                     <span class="p">)</span>
                     <span class="n">fold_results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
