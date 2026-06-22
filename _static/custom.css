@@ -539,6 +539,12 @@ samp,
     font-weight: 800;
     box-shadow: 0 0 0 6px rgba(123, 47, 255, 0.18), 0 0 28px rgba(0, 245, 255, 0.28);
 }
+.hs-home-hero__seal img {
+    display: block;
+    width: 78%;
+    height: 78%;
+    object-fit: contain;
+}
 .hs-home-hero__motto {
     margin: 0 0 0.25rem !important;
     color: #cfc7f4 !important;
