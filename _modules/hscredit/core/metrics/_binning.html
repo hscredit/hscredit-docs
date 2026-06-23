@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.metrics._binning &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.metrics._binning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -630,14 +637,36 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算分箱曲线的二次项系数指标.</span>
 
-<span class="sd">    基于分箱后的 `LIFT值` 或 `坏样本率` 序列做二次拟合，</span>
-<span class="sd">    返回经趋势方向标准化后的二次项系数。返回值越大，表示曲线越符合指定趋势且弯曲度越明显。</span>
+<span class="sd">    基于分箱后的 ``LIFT值`` 或 ``坏样本率`` 序列做二次多项式拟合，</span>
+<span class="sd">    返回经趋势方向标准化后的二次项系数。返回值越大，表示曲线越符合指定趋势</span>
+<span class="sd">    且弯曲程度越明显，可作为“最优分箱”搜索的目标函数。</span>
 
-<span class="sd">    :param bins: 分箱索引数组</span>
-<span class="sd">    :param y: 目标变量 (0/1)</span>
-<span class="sd">    :param metric: 拟合曲线类型，`lift` 或 `bad_rate`，默认 `lift`</span>
-<span class="sd">    :param monotonic: 目标趋势，支持 `ascending`、`descending`、`valley`、`peak`</span>
-<span class="sd">    :return: 标准化后的二次项系数；若不满足目标趋势，会返回负值惩罚</span>
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param bins: 分箱索引数组（整数）</span>
+<span class="sd">    :param y: 目标变量 (0/1)，0=好样本，1=坏样本</span>
+<span class="sd">    :param metric: 拟合曲线类型，默认 ``&#39;lift&#39;``：</span>
+
+<span class="sd">        - ``&#39;lift&#39;``：使用各箱 LIFT 值序列</span>
+<span class="sd">        - ``&#39;bad_rate&#39;``：使用各箱坏样本率序列</span>
+
+<span class="sd">    :param monotonic: 目标趋势，默认 ``&#39;descending&#39;``：</span>
+
+<span class="sd">        - ``&#39;ascending&#39;``：期望曲线单调递增</span>
+<span class="sd">        - ``&#39;descending&#39;``：期望曲线单调递减</span>
+<span class="sd">        - ``&#39;valley&#39;``：期望曲线先降后升（U 形，二次项系数为正）</span>
+<span class="sd">        - ``&#39;peak&#39;``：期望曲线先升后降（倒 U 形，二次项系数为负）</span>
+
+<span class="sd">    :return: 标准化后的二次项系数；曲线违反目标趋势时返回负值作为惩罚，</span>
+<span class="sd">        有效箱数不足 3 或曲线为常数时返回 ``0.0``</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import quadratic_curve_coefficient</span>
+<span class="sd">    &gt;&gt;&gt; bins = np.array([0, 0, 1, 1, 2, 2, 3, 3])</span>
+<span class="sd">    &gt;&gt;&gt; y = np.array([1, 1, 1, 0, 0, 1, 0, 0])</span>
+<span class="sd">    &gt;&gt;&gt; quadratic_curve_coefficient(bins, y, metric=&#39;lift&#39;, monotonic=&#39;descending&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">metric</span> <span class="o">=</span> <span class="n">_normalize_curve_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
     <span class="n">monotonic</span> <span class="o">=</span> <span class="n">_normalize_curve_trend</span><span class="p">(</span><span class="n">monotonic</span><span class="p">)</span>
@@ -796,14 +825,29 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算复合分箱质量评分.</span>
 
-<span class="sd">    方案 A 将以下量显式纳入目标：</span>
-<span class="sd">    - quadratic_lift</span>
-<span class="sd">    - 头部累计收益</span>
-<span class="sd">    - 尾部压降收益</span>
-<span class="sd">    - 样本占比加权边际收益</span>
-<span class="sd">    - 边际收益递减惩罚</span>
-<span class="sd">    - 头尾样本占比下限偏好</span>
-<span class="sd">    - 尾部塌陷/相邻零坏样本率惩罚</span>
+<span class="sd">    在 :func:`quadratic_curve_coefficient` 之外，进一步将多项业务偏好加权汇总为</span>
+<span class="sd">    单一评分，用于驱动“最优分箱”搜索，使分箱在保持单调趋势的同时兼顾头尾区分度</span>
+<span class="sd">    与样本占比。显式纳入目标的分量包括：二次曲线得分、头部累计收益、尾部压降收益、</span>
+<span class="sd">    样本占比加权边际收益、边际收益递减惩罚、头尾样本占比下限偏好、</span>
+<span class="sd">    尾部塌陷/相邻零坏样本率惩罚等。</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param bins: 分箱索引数组（整数）</span>
+<span class="sd">    :param y: 目标变量 (0/1)，0=好样本，1=坏样本</span>
+<span class="sd">    :param metric: 拟合曲线类型，``&#39;lift&#39;`` 或 ``&#39;bad_rate&#39;``，默认 ``&#39;lift&#39;``</span>
+<span class="sd">        （含义同 :func:`quadratic_curve_coefficient`）</span>
+<span class="sd">    :param monotonic: 目标趋势，``&#39;ascending&#39;`` / ``&#39;descending&#39;`` / ``&#39;valley&#39;`` /</span>
+<span class="sd">        ``&#39;peak&#39;``，默认 ``&#39;descending&#39;``（含义同 :func:`quadratic_curve_coefficient`）</span>
+<span class="sd">    :return: 复合质量评分（float），越大表示分箱质量越好</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import composite_binning_quality</span>
+<span class="sd">    &gt;&gt;&gt; bins = np.array([0, 0, 1, 1, 2, 2, 3, 3])</span>
+<span class="sd">    &gt;&gt;&gt; y = np.array([1, 1, 1, 0, 0, 1, 0, 0])</span>
+<span class="sd">    &gt;&gt;&gt; composite_binning_quality(bins, y, metric=&#39;lift&#39;, monotonic=&#39;descending&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">comp</span> <span class="o">=</span> <span class="n">_composite_binning_quality_components</span><span class="p">(</span>
         <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">bins</span><span class="p">),</span>
@@ -845,43 +889,64 @@
     <span class="n">round_digits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">woe_clip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算分箱统计信息.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算分箱统计信息（hscredit 全库统一的分箱指标计算入口）.</span>
 
-<span class="sd">    一次性计算所有分箱指标，支持三种模式：</span>
-<span class="sd">    1. 二元目标（0/1）：标准的分类问题，计算WOE/IV/LIFT等</span>
-<span class="sd">    2. 连续目标：如逾期金额、余额等，计算金额统计</span>
-<span class="sd">    3. 金额加权：基于二元标签，但所有统计按金额加权</span>
+<span class="sd">    一次性计算某一特征分箱后的全部统计指标。所有分箱器、IV/PSI/LIFT 指标、</span>
+<span class="sd">    规则报告与可视化均复用本函数，以保证口径一致。支持三种目标类型。</span>
 
-<span class="sd">    :param bins: 分箱索引数组</span>
-<span class="sd">    :param y: 目标变量</span>
-<span class="sd">        - target_type=&#39;binary&#39;: 0/1数组</span>
-<span class="sd">        - target_type=&#39;continuous&#39;: 连续值数组（如逾期金额、余额）</span>
-<span class="sd">        - target_type=&#39;amount_weighted&#39;: 0/1数组，配合amount参数使用</span>
-<span class="sd">    :param target_type: 目标变量类型，&#39;binary&#39;/&#39;continuous&#39;/&#39;amount_weighted&#39;，默认&#39;binary&#39;</span>
-<span class="sd">    :param amount: 金额数组，仅在target_type=&#39;amount_weighted&#39;时需要</span>
-<span class="sd">    :param epsilon: 平滑参数</span>
-<span class="sd">    :param bin_labels: 可选的分箱标签列表</span>
-<span class="sd">    :param round_digits: 是否对浮点数进行四舍五入格式化，默认为True</span>
-<span class="sd">    :param woe_clip: WOE值截断阈值，默认None不截断</span>
-<span class="sd">        当某个分箱无坏样本或无好样本时，WOE可能变得极大，</span>
-<span class="sd">        设置此参数可将WOE限制在[-woe_clip, woe_clip]范围内，</span>
-<span class="sd">        避免评分卡中对应分箱的分数异常</span>
-<span class="sd">    :return: 分箱统计DataFrame，包含中文列名</span>
-<span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 二元目标（0/1）</span>
-<span class="sd">        &gt;&gt;&gt; bins = np.array([0, 0, 1, 1, 2, 2])</span>
-<span class="sd">        &gt;&gt;&gt; y_binary = np.array([0, 1, 0, 1, 0, 1])</span>
-<span class="sd">        &gt;&gt;&gt; stats_df = compute_bin_stats(bins, y_binary, target_type=&#39;binary&#39;)</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # 连续目标（逾期金额）</span>
-<span class="sd">        &gt;&gt;&gt; y_amount = np.array([0, 1000, 0, 2000, 0, 1500])</span>
-<span class="sd">        &gt;&gt;&gt; stats_df = compute_bin_stats(bins, y_amount, target_type=&#39;continuous&#39;)</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # 金额加权（基于逾期金额加权的坏账统计）</span>
-<span class="sd">        &gt;&gt;&gt; y_flag = np.array([0, 1, 0, 1, 0, 1])</span>
-<span class="sd">        &gt;&gt;&gt; amount = np.array([100, 1000, 200, 2000, 150, 1500])</span>
-<span class="sd">        &gt;&gt;&gt; stats_df = compute_bin_stats(bins, y_flag, target_type=&#39;amount_weighted&#39;, amount=amount)</span>
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param bins: 分箱索引数组（整数）。约定 ``-1`` 表示缺失值箱、``-2`` 表示特殊值箱，</span>
+<span class="sd">        两者在输出中被排到正常分箱之后</span>
+<span class="sd">    :param y: 目标变量，含义随 ``target_type`` 而变：</span>
+
+<span class="sd">        - ``target_type=&#39;binary&#39;``：0/1 数组（0=好样本，1=坏样本）</span>
+<span class="sd">        - ``target_type=&#39;continuous&#39;``：连续值数组（如逾期金额、余额）</span>
+<span class="sd">        - ``target_type=&#39;amount_weighted&#39;``：0/1 数组，并配合 ``amount`` 使用</span>
+
+<span class="sd">    :param target_type: 目标变量类型，默认 ``&#39;binary&#39;``：</span>
+
+<span class="sd">        - ``&#39;binary&#39;``：二分类，计算 样本/好坏数、坏样本率、WOE、IV、LIFT、KS 等</span>
+<span class="sd">        - ``&#39;continuous&#39;``：连续目标，计算各箱均值/求和等金额统计，不计算 WOE/IV</span>
+<span class="sd">        - ``&#39;amount_weighted&#39;``：基于二元标签但所有统计按 ``amount`` 加权（金额维度坏账）</span>
+
+<span class="sd">    :param amount: 金额数组，仅 ``target_type=&#39;amount_weighted&#39;`` 时必需，长度同 ``y``</span>
+<span class="sd">    :param epsilon: 平滑参数，避免 WOE/IV 计算中除零或取对数为 ``±inf``，默认 ``1e-10``</span>
+<span class="sd">    :param bin_labels: 可选的分箱区间标签列表，长度需与唯一分箱数一致；</span>
+<span class="sd">        缺省时输出箱序号</span>
+<span class="sd">    :param round_digits: 是否对浮点列做四舍五入格式化，默认 ``True``；</span>
+<span class="sd">        作为中间计算（如指标搜索）时应设为 ``False`` 以保留精度</span>
+<span class="sd">    :param woe_clip: WOE 值截断阈值，默认 ``None`` 不截断。</span>
+<span class="sd">        当某箱无坏样本或无好样本时 WOE 可能趋于 ``±inf``，</span>
+<span class="sd">        设置后将 WOE 限制在 ``[-woe_clip, woe_clip]``，避免评分卡分数异常</span>
+<span class="sd">    :return: 分箱统计 DataFrame（中文列名）。``binary`` 模式主要列包括：</span>
+<span class="sd">        ``分箱`` / ``分箱标签`` / ``样本总数`` / ``好样本数`` / ``坏样本数`` /</span>
+<span class="sd">        ``样本占比`` / ``坏样本率`` / ``WOE值`` / ``分档IV值`` / ``LIFT值`` /</span>
+<span class="sd">        ``累积坏样本数`` / ``累积好样本数`` / ``分档KS值`` / ``坏账改善`` 等</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import compute_bin_stats</span>
+<span class="sd">    &gt;&gt;&gt; bins = np.array([0, 0, 1, 1, 2, 2])</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # 二元目标（0/1）</span>
+<span class="sd">    &gt;&gt;&gt; y_binary = np.array([0, 1, 0, 1, 0, 1])</span>
+<span class="sd">    &gt;&gt;&gt; compute_bin_stats(bins, y_binary, target_type=&#39;binary&#39;)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # 连续目标（逾期金额）</span>
+<span class="sd">    &gt;&gt;&gt; y_amount = np.array([0, 1000, 0, 2000, 0, 1500])</span>
+<span class="sd">    &gt;&gt;&gt; compute_bin_stats(bins, y_amount, target_type=&#39;continuous&#39;)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # 金额加权（按逾期金额加权的坏账统计）</span>
+<span class="sd">    &gt;&gt;&gt; y_flag = np.array([0, 1, 0, 1, 0, 1])</span>
+<span class="sd">    &gt;&gt;&gt; amount = np.array([100, 1000, 200, 2000, 150, 1500])</span>
+<span class="sd">    &gt;&gt;&gt; compute_bin_stats(bins, y_flag, target_type=&#39;amount_weighted&#39;, amount=amount)</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    WOE / IV 的定义见 Siddiqi, N. (2006). *Credit Risk Scorecards.* Wiley；</span>
+<span class="sd">    本函数的 WOE 取 ``ln(坏样本占比 / 好样本占比)``，与 toad、scorecardpipeline 口径一致。</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -1363,12 +1428,23 @@
 <a class="viewcode-back" href="../../../../api/metrics.html#hscredit.core.metrics.add_margins">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">add_margins</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;为分箱表添加合计行.</span>
-<span class="sd">    </span>
-<span class="sd">    缺失值和特殊值放在正常分箱之后、合计之前。</span>
-<span class="sd">    列名已统一，同时支持样本口径和金额口径。</span>
-<span class="sd">    </span>
-<span class="sd">    :param table: 分箱统计表</span>
-<span class="sd">    :return: 添加合计行后的分箱表</span>
+
+<span class="sd">    在分箱统计表末尾追加一行“合计”，对计数类列求和、对率值类列按总体重算。</span>
+<span class="sd">    缺失值箱与特殊值箱被放在正常分箱之后、合计行之前。</span>
+<span class="sd">    兼容单层表头与多级表头（MultiIndex），同时支持样本口径与金额口径。</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    :param table: 分箱统计表，通常由 :func:`compute_bin_stats` 生成，</span>
+<span class="sd">        需包含 ``分箱标签`` 列；为空表时原样返回</span>
+<span class="sd">    :return: 在末尾添加 ``合计`` 行后的分箱表（不修改入参，返回新对象）</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.metrics import compute_bin_stats, add_margins</span>
+<span class="sd">    &gt;&gt;&gt; table = compute_bin_stats(np.array([0, 0, 1, 1]), np.array([0, 1, 0, 1]))</span>
+<span class="sd">    &gt;&gt;&gt; add_margins(table)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">table</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">table</span>

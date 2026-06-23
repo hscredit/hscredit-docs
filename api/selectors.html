@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>特征筛选 hscredit.core.selectors &mdash; hscredit 0.1.0 文档</title>
+  <title>特征筛选 hscredit.core.selectors &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -745,7 +752,7 @@
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 输入特征矩阵（DataFrame 或 numpy 数组），或包含目标列的完整数据框</p></li>
-<li><p><strong>y</strong> (<em>Series</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 目标变量，可选</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，可选</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1478,6 +1485,12 @@
 <span class="go">[&#39;a&#39;, &#39;c&#39;]</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>方差筛选为无监督方法，不使用标签 <code class="docutils literal notranslate"><span class="pre">y</span></code>；方差受量纲影响，不同尺度特征建议先标准化
+再比较，否则大量纲特征会因方差天然偏大而被保留。</p>
+<p><strong>引用</strong></p>
+<p>对齐 sklearn <code class="docutils literal notranslate"><span class="pre">VarianceThreshold</span></code>：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.VarianceThreshold.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.VarianceThreshold.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1545,6 +1558,10 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>相关系数计算基于 <a href="#id1"><span class="problematic" id="id2">``</span></a>pandas.DataFrame.corr``（Pearson/Spearman/Kendall）：
+<a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html</a> ；
+高相关特征对中保留 IV/KS 更高者的策略对齐 toad / scorecardpipeline 的相关性筛选。</p>
 </dd></dl>
 
 <dl class="py class">
@@ -1594,6 +1611,10 @@ VIF值越高，表示特征与其他特征的多重共线性越严重。
 <span class="go">[&#39;a&#39;, &#39;c&#39;]  # 或 [&#39;b&#39;, &#39;c&#39;]，保留其中一个高相关特征</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>方差膨胀因子 <code class="docutils literal notranslate"><span class="pre">VIF_i</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">R_i²)``（``R_i²</span></code> 为特征 i 对其余特征回归的判定系数），
+经验上 VIF&gt;5（严格 &gt;10）提示多重共线性。参见 Kutner, M. et al. (2004). <em>Applied
+Linear Statistical Models</em>；<a class="reference external" href="https://en.wikipedia.org/wiki/Variance_inflation_factor">https://en.wikipedia.org/wiki/Variance_inflation_factor</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1640,6 +1661,32 @@ IV是金融风控中衡量特征预测能力的核心指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">scores_</span><span class="p">)</span>  <span class="c1"># 查看IV值</span>
 </pre></div>
 </div>
+<p><strong>参数</strong></p>
+<p>除继承自 <a class="reference internal" href="#hscredit.core.selectors.BaseFeatureSelector" title="hscredit.core.selectors.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a> 的通用参数
+（<code class="docutils literal notranslate"><span class="pre">target</span></code> / <code class="docutils literal notranslate"><span class="pre">include</span></code> / <code class="docutils literal notranslate"><span class="pre">exclude</span></code> / <code class="docutils literal notranslate"><span class="pre">force_drop</span></code> / <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code>）外：</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>threshold</strong> (<em>float</em>) -- IV 保留阈值，<code class="docutils literal notranslate"><span class="pre">IV</span> <span class="pre">&gt;=</span> <span class="pre">threshold</span></code> 的特征被保留，默认为 <code class="docutils literal notranslate"><span class="pre">0.02</span></code></p></li>
+<li><p><strong>regularization</strong> (<em>float</em>) -- 计算 WOE/IV 时的加性平滑系数，避免某类别好/坏样本数为 0
+导致取对数发散，默认为 <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></li>
+<li><p><strong>target</strong> (<em>str</em>)</p></li>
+<li><p><strong>include</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>exclude</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>force_drop</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>本筛选器按特征的**唯一取值**直接计算 IV（类别型先 <code class="docutils literal notranslate"><span class="pre">factorize</span></code>），适合已分箱
+或基数较低的特征；连续特征建议先用 <a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning" title="hscredit.core.binning.OptimalBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a>
+分箱后再筛选，或传入 <code class="docutils literal notranslate"><span class="pre">binner</span></code> 参数。</p>
+</div>
+<p><strong>引用</strong></p>
+<p>Information Value 用于变量筛选见 Siddiqi, N. (2006). <em>Credit Risk Scorecards.</em>
+Wiley；阈值经验区间（0.02/0.1/0.3/0.5）为业界通行标准。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.selectors.IVSelector.get_iv_interpretation">
 <span class="sig-name descname"><span class="pre">get_iv_interpretation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/selectors/iv_selector.html#IVSelector.get_iv_interpretation"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.selectors.IVSelector.get_iv_interpretation" title="Link to this definition"></a></dt>
@@ -1693,7 +1740,7 @@ LIFT衡量特征在头部覆盖率下对目标群体的提升程度。</p>
 </tbody>
 </table>
 <p><strong>评分含义</strong></p>
-<p>score = <a href="#id1"><span class="problematic" id="id2">|LIFT - 1|</span></a>，即与基准LIFT=1的距离:</p>
+<p>score = <a href="#id11"><span class="problematic" id="id12">|LIFT - 1|</span></a>，即与基准LIFT=1的距离:</p>
 <ul class="simple">
 <li><p>score = 0: 无区分能力（LIFT = 1）</p></li>
 <li><p>score = 4.0: 强区分力（如 LIFT=5.0 找坏人，或 LIFT=0.0 找好人）</p></li>
@@ -1703,7 +1750,7 @@ LIFT衡量特征在头部覆盖率下对目标群体的提升程度。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>threshold</strong> (<em>float</em>) -- 得分阈值（<a href="#id3"><span class="problematic" id="id4">|LIFT-1|</span></a>），默认0.5
+<li><p><strong>threshold</strong> (<em>float</em>) -- 得分阈值（<a href="#id13"><span class="problematic" id="id14">|LIFT-1|</span></a>），默认0.5
 - 仅保留 score &gt;= threshold 的特征
 - threshold=0.5 等价于旧版 LIFT &gt;= 1.5（找坏人方向）
 - 内部经验: 风控场景常用 0.5~1.0</p></li>
@@ -1723,7 +1770,7 @@ LIFT衡量特征在头部覆盖率下对目标群体的提升程度。</p>
 </dl>
 <p><strong>属性</strong></p>
 <ul class="simple">
-<li><p>scores_: 各特征的区分力得分（<a href="#id5"><span class="problematic" id="id6">|LIFT-1|</span></a>），pd.Series</p></li>
+<li><p>scores_: 各特征的区分力得分（<a href="#id15"><span class="problematic" id="id16">|LIFT-1|</span></a>），pd.Series</p></li>
 <li><dl class="simple">
 <dt>lift_detail_: 各特征的LIFT详情表，pd.DataFrame</dt><dd><p>包含列: LIFT_bad, LIFT_good, best_direction, score</p>
 </dd>
@@ -1752,6 +1799,10 @@ LIFT衡量特征在头部覆盖率下对目标群体的提升程度。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>LIFT&#64;k%（头部覆盖率下的提升度）是响应/风险模型的标准评估口径，参见 lift chart
+<a class="reference external" href="https://en.wikipedia.org/wiki/">https://en.wikipedia.org/wiki/</a><a href="#id3"><span class="problematic" id="id4">``</span></a>Lift_``(data_mining) 及 Siddiqi, N. (2006).
+<em>Credit Risk Scorecards.</em> Wiley。</p>
 </dd></dl>
 
 <dl class="py class">
@@ -1793,6 +1844,10 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>PSI（群体稳定性指标）公式 <code class="docutils literal notranslate"><span class="pre">PSI</span> <span class="pre">=</span> <span class="pre">Σ</span> <span class="pre">(实际占比</span> <span class="pre">-</span> <span class="pre">预期占比)</span> <span class="pre">×</span> <span class="pre">ln(实际占比</span> <span class="pre">/</span> <span class="pre">预期占比)</span></code>，
+经验阈值 &lt;0.1 稳定、0.1~0.25 轻微漂移、&gt;0.25 显著漂移，广泛用于信用评分的稳定性
+监控，参见 Siddiqi, N. (2006). <em>Credit Risk Scorecards.</em> Wiley。</p>
 </dd></dl>
 
 <dl class="py class">
@@ -1836,6 +1891,14 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>重要性来源依模型而定（树模型为 <code class="docutils literal notranslate"><span class="pre">feature_importances_</span></code>，线性模型为 <code class="docutils literal notranslate"><span class="pre">|``coef_``|</span></code>），
+见 <code class="xref py py-func docutils literal notranslate"><span class="pre">get_feature_importances()</span></code>；不同来源不可直接横向
+比较。基于 impurity 的树重要性对高基数特征有偏，必要时配合
+<a class="reference internal" href="#hscredit.core.selectors.NullImportanceSelector" title="hscredit.core.selectors.NullImportanceSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullImportanceSelector</span></code></a> 校正。</p>
+<p><strong>引用</strong></p>
+<p>嵌入式重要性筛选对齐 sklearn <code class="docutils literal notranslate"><span class="pre">SelectFromModel</span></code>：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1879,6 +1942,14 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>本方法通过多次打乱**目标变量**得到&quot;零假设&quot;下的重要性分布（null importances），
+再以真实重要性与之的比值判断特征是否显著优于随机，能有效剔除高基数/噪声特征的
+虚高重要性。计算量为 <code class="docutils literal notranslate"><span class="pre">n_runs</span> <span class="pre">×</span> <span class="pre">cv</span></code> 次模型训练。</p>
+<p><strong>引用</strong></p>
+<p>Altmann, A. et al. (2010). <em>Permutation importance: a corrected feature
+importance measure.</em> Bioinformatics, 26(10).
+<a class="reference external" href="https://doi.org/10.1093/bioinformatics/btq134">https://doi.org/10.1093/bioinformatics/btq134</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1921,6 +1992,11 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>递归特征消除（RFE）出自 Guyon, I. et al. (2002). <em>Gene Selection for Cancer
+Classification using Support Vector Machines.</em> Machine Learning, 46.
+<a class="reference external" href="https://doi.org/10.1023/A:1012487302797">https://doi.org/10.1023/A:1012487302797</a> ；实现对齐 sklearn <code class="docutils literal notranslate"><span class="pre">RFE</span></code>
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1971,6 +2047,13 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>与 <a class="reference internal" href="#hscredit.core.selectors.RFESelector" title="hscredit.core.selectors.RFESelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">RFESelector</span></code></a> 不同，本类基于交叉验证评分而非模型权重逐个增删特征，更稳健但
+更耗时（约 <code class="docutils literal notranslate"><span class="pre">n_features</span> <span class="pre">×</span> <span class="pre">cv</span></code> 次拟合）；与 :class:<a href="#id5"><span class="problematic" id="id6">`</span></a>StepwiseSelector`（基于 AIC/BIC/KS 等
+统计准则、面向逻辑回归）适用场景亦不同。</p>
+<p><strong>引用</strong></p>
+<p>对齐 sklearn <code class="docutils literal notranslate"><span class="pre">SequentialFeatureSelector</span></code>：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SequentialFeatureSelector.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SequentialFeatureSelector.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -2067,6 +2150,10 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>逐步回归参见 Hocking, R. R. (1976). <em>The Analysis and Selection of Variables in
+Linear Regression.</em> Biometrics；准则出处：AIC = Akaike (1974)、BIC = Schwarz (1978)。
+实现风格对齐 toad / scorecardpipeline 的 <code class="docutils literal notranslate"><span class="pre">stepwise</span></code>。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.selectors.StepwiseSelector.get_history_df">
 <span class="sig-name descname"><span class="pre">get_history_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/selectors/stepwise_selector.html#StepwiseSelector.get_history_df"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.selectors.StepwiseSelector.get_history_df" title="Link to this definition"></a></dt>
@@ -2136,6 +2223,13 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>Boruta 是 all-relevant（保留所有相关特征）而非 minimal-optimal 的方法，倾向于多保留
+特征；计算量为 <code class="docutils literal notranslate"><span class="pre">max_iter</span> <span class="pre">×</span> <span class="pre">n_estimators</span></code>，特征数多时较慢。</p>
+<p><strong>引用</strong></p>
+<p>Kursa, M. B., &amp; Rudnicki, W. R. (2010). <em>Feature Selection with the Boruta
+Package.</em> Journal of Statistical Software, 36(11).
+<a class="reference external" href="https://doi.org/10.18637/jss.v036.i11">https://doi.org/10.18637/jss.v036.i11</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -2175,6 +2269,13 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>互信息可捕捉线性与非线性依赖，连续特征用 k 近邻法估计（<code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> 越大方差越小、
+偏差略增），故结果依赖 <code class="docutils literal notranslate"><span class="pre">random_state</span></code>。</p>
+<p><strong>引用</strong></p>
+<p>基于 sklearn <a href="#id7"><span class="problematic" id="id8">``</span></a>mutual_info_classif``（Kraskov 等的 kNN 估计）：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.mutual_info_classif.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.mutual_info_classif.html</a> ；
+Kraskov, A. et al. (2004). <em>Estimating mutual information.</em> Phys. Rev. E 69.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -2214,6 +2315,12 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>卡方检验要求特征非负（本类对负值通过 <code class="docutils literal notranslate"><span class="pre">missing</span></code>/填充策略处理）；<code class="docutils literal notranslate"><span class="pre">k</span></code> 与
+<code class="docutils literal notranslate"><span class="pre">threshold</span></code> 同时生效——先按得分阈值过滤，再取前 <code class="docutils literal notranslate"><span class="pre">k</span></code> 个。</p>
+<p><strong>引用</strong></p>
+<p>基于 sklearn <code class="docutils literal notranslate"><span class="pre">chi2</span></code> 评分：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.chi2.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.chi2.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -2252,6 +2359,12 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>F 检验只能捕捉特征与目标的**线性**相关，非线性关系可能漏检（此时改用
+<a class="reference internal" href="#hscredit.core.selectors.MutualInfoSelector" title="hscredit.core.selectors.MutualInfoSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">MutualInfoSelector</span></code></a>）。<code class="docutils literal notranslate"><span class="pre">k</span></code>/<code class="docutils literal notranslate"><span class="pre">percentile</span></code>/<code class="docutils literal notranslate"><span class="pre">threshold</span></code> 可组合限制选中数量。</p>
+<p><strong>引用</strong></p>
+<p>基于 sklearn <a href="#id9"><span class="problematic" id="id10">``</span></a>f_classif``（ANOVA F 值）：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html">https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -2307,6 +2420,14 @@ PSI衡量特征在不同样本间的分布稳定性。
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selector</span><span class="o">.</span><span class="n">selected_features_</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>本筛选器是&quot;稳定性感知&quot;的复合筛选（IV 区分力 + PSI 稳定性加权评分），并非 Meinshausen
+&amp; Bühlmann 的 stability selection（重采样频率法）。IV 与 PSI 的定义与阈值分别见
+<a class="reference internal" href="#hscredit.core.selectors.IVSelector" title="hscredit.core.selectors.IVSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">IVSelector</span></code></a> 与
+<a class="reference internal" href="#hscredit.core.selectors.PSISelector" title="hscredit.core.selectors.PSISelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSISelector</span></code></a>。</p>
+<p><strong>引用</strong></p>
+<p>IV / PSI 用于评分卡变量筛选与稳定性监控见 Siddiqi, N. (2006).
+<em>Credit Risk Scorecards.</em> Wiley。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.selectors.StabilityAwareSelector.get_detail">
 <span class="sig-name descname"><span class="pre">get_detail</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/selectors/stability_selector.html#StabilityAwareSelector.get_detail"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.selectors.StabilityAwareSelector.get_detail" title="Link to this definition"></a></dt>

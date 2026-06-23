@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.viz.style &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.viz.style &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -576,7 +583,6 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 
 
@@ -584,35 +590,50 @@
 <span class="c1"># 配色方案</span>
 <span class="c1"># ============================================================</span>
 
-<span class="c1"># 主色板（3色）</span>
+<span class="c1"># 主色板（主题色 + 2 个副主题色）</span>
 <span class="n">PRIMARY_COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;#F76E6C&quot;</span><span class="p">,</span> <span class="s2">&quot;#FE7715&quot;</span><span class="p">]</span>
 
-<span class="c1"># 扩展色板（6色）</span>
-<span class="n">EXTENDED_COLORS</span> <span class="o">=</span> <span class="n">PRIMARY_COLORS</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;#9C27B0&quot;</span><span class="p">,</span> <span class="s2">&quot;#00BCD4&quot;</span><span class="p">,</span> <span class="s2">&quot;#795548&quot;</span><span class="p">]</span>
+<span class="c1"># 扩展色板：保留主色板顺序，其余颜色全部由两大主题色派生——</span>
+<span class="c1">#   · 蓝系 = 主题色 #2639E9 叠不同透明度白（浅→深），非通用 blue；</span>
+<span class="c1">#   · 红系 = 副主题色 #F76E6C 融合粉色 #E0249A 或主题蓝（→玫紫/粉红/危险红），非通用 red。</span>
+<span class="c1"># 蓝、紫、粉、红渐变排布，同时相邻系列色差差距拉大，全程无黄/绿/棕分散色相。</span>
+<span class="n">EXTENDED_COLORS</span> <span class="o">=</span> <span class="n">PRIMARY_COLORS</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="s2">&quot;#8892F3&quot;</span><span class="p">,</span> <span class="s2">&quot;#9956A4&quot;</span><span class="p">,</span> <span class="s2">&quot;#EA4585&quot;</span><span class="p">,</span> <span class="s2">&quot;#5665EE&quot;</span><span class="p">,</span> <span class="s2">&quot;#F0587A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;#B729AB&quot;</span><span class="p">,</span> <span class="s2">&quot;#3C4DEB&quot;</span><span class="p">,</span> <span class="s2">&quot;#E73B72&quot;</span><span class="p">,</span> <span class="s2">&quot;#832EC2&quot;</span><span class="p">,</span> <span class="s2">&quot;#BC5F8F&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;#E0249A&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
-<span class="c1"># 语义色</span>
+<span class="c1"># 语义色：蓝系基于主题色 #2639E9，红系基于副主题色 #F76E6C 融合粉/蓝</span>
 <span class="n">SEMANTIC_COLORS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;bad_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;#E85D4A&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;overall_baseline&quot;</span><span class="p">:</span> <span class="s2">&quot;#4C8DFF&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;stable&quot;</span><span class="p">:</span> <span class="s2">&quot;#4CAF50&quot;</span><span class="p">,</span>       <span class="c1"># PSI &lt; 0.1</span>
-    <span class="s2">&quot;changing&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF9800&quot;</span><span class="p">,</span>     <span class="c1"># 0.1 &lt;= PSI &lt; 0.25</span>
-    <span class="s2">&quot;unstable&quot;</span><span class="p">:</span> <span class="s2">&quot;#F44336&quot;</span><span class="p">,</span>     <span class="c1"># PSI &gt;= 0.25</span>
-    <span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;#4CAF50&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;negative&quot;</span><span class="p">:</span> <span class="s2">&quot;#F44336&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;neutral&quot;</span><span class="p">:</span> <span class="s2">&quot;#9E9E9E&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bad_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;#F0556F&quot;</span><span class="p">,</span>     <span class="c1"># 副主题红融合粉，坏样本率折线</span>
+    <span class="s2">&quot;overall_baseline&quot;</span><span class="p">:</span> <span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stable&quot;</span><span class="p">:</span> <span class="s2">&quot;#7884F1&quot;</span><span class="p">,</span>       <span class="c1"># PSI &lt; 0.1，主题蓝叠白</span>
+    <span class="s2">&quot;changing&quot;</span><span class="p">:</span> <span class="s2">&quot;#9956A4&quot;</span><span class="p">,</span>     <span class="c1"># 0.1 &lt;= PSI &lt; 0.25，红融蓝→玫紫</span>
+    <span class="s2">&quot;unstable&quot;</span><span class="p">:</span> <span class="s2">&quot;#E73B72&quot;</span><span class="p">,</span>     <span class="c1"># PSI &gt;= 0.25，红融粉危险色</span>
+    <span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;negative&quot;</span><span class="p">:</span> <span class="s2">&quot;#E04566&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;neutral&quot;</span><span class="p">:</span> <span class="s2">&quot;#8A8FA3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;#8A8FA3&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="c1"># 渐变色板（适合热力图/连续值）</span>
+<span class="c1"># 渐变色板（适合热力图/连续值）：蓝系叠白、红系融粉/蓝，相邻锚点色差刻意拉开，无黄/绿</span>
 <span class="n">GRADIENT_PALETTES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;risk&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;#4CAF50&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFC107&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF9800&quot;</span><span class="p">,</span> <span class="s2">&quot;#F44336&quot;</span><span class="p">],</span>  <span class="c1"># 绿→黄→橙→红</span>
-    <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;#E3F2FD&quot;</span><span class="p">,</span> <span class="s2">&quot;#90CAF9&quot;</span><span class="p">,</span> <span class="s2">&quot;#42A5F5&quot;</span><span class="p">,</span> <span class="s2">&quot;#1565C0&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;diverging&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#F76E6C&quot;</span><span class="p">],</span>
-    <span class="c1"># 蓝→紫→粉→红 平滑连续色阶：色相单调 + 明度归一(浅→深，L* 72→45)，蓝端冷化避免偏紫，一眼连贯，</span>
-    <span class="c1"># 适合热力图/条件格式色阶；作为 Excel 条件格式 condition_color 锚点时自动取首/中/尾构成三色异色阶</span>
+    <span class="c1"># 低风险→高风险：浅蓝 → 玫紫 → 粉 → 深红，四档色相大跨度区分</span>
+    <span class="s2">&quot;risk&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;#8892F3&quot;</span><span class="p">,</span> <span class="s2">&quot;#9956A4&quot;</span><span class="p">,</span> <span class="s2">&quot;#EA4585&quot;</span><span class="p">,</span> <span class="s2">&quot;#E43550&quot;</span><span class="p">],</span>
+    <span class="c1"># 主题蓝叠白（浅→深），用于「数值越大越好/越强」的顺序着色</span>
+    <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;#E5E7FC&quot;</span><span class="p">,</span> <span class="s2">&quot;#ADB4F7&quot;</span><span class="p">,</span> <span class="s2">&quot;#707CF0&quot;</span><span class="p">,</span> <span class="s2">&quot;#2639E9&quot;</span><span class="p">],</span>
+    <span class="c1"># 发散：主题蓝 → 近白 → 副主题红（融粉），用于可正可负指标</span>
+    <span class="s2">&quot;diverging&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;#F6F7FE&quot;</span><span class="p">,</span> <span class="s2">&quot;#F0556F&quot;</span><span class="p">],</span>
+    <span class="c1"># 蓝→紫→粉→红 分段类别色（红系由 #F76E6C 融粉/融蓝派生）</span>
+    <span class="s2">&quot;pink_purple&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;#8892F3&quot;</span><span class="p">,</span> <span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;#832EC2&quot;</span><span class="p">,</span> <span class="s2">&quot;#B729AB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;#E0249A&quot;</span><span class="p">,</span> <span class="s2">&quot;#EC4983&quot;</span><span class="p">,</span> <span class="s2">&quot;#F0587A&quot;</span><span class="p">,</span> <span class="s2">&quot;#E43550&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="c1"># 蓝→紫→粉→红 平滑连续色阶：色相单调递进(234→351°)且相邻锚点色差拉大，蓝系叠白、红系融粉，</span>
+    <span class="c1"># 全程无黄/绿，适合热力图/条件格式色阶；作为 Excel 条件格式 condition_color 锚点时自动取首/中/尾构成三色异色阶</span>
     <span class="s2">&quot;blue_purple_red&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;#72B5FF&quot;</span><span class="p">,</span> <span class="s2">&quot;#82AAFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#969EFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#A293FF&quot;</span><span class="p">,</span> <span class="s2">&quot;#B085FF&quot;</span><span class="p">,</span> <span class="s2">&quot;#B77CF3&quot;</span><span class="p">,</span> <span class="s2">&quot;#BA6DFF&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;#CD5FDE&quot;</span><span class="p">,</span> <span class="s2">&quot;#D643ED&quot;</span><span class="p">,</span> <span class="s2">&quot;#D45499&quot;</span><span class="p">,</span> <span class="s2">&quot;#DF3B8E&quot;</span><span class="p">,</span> <span class="s2">&quot;#E42E52&quot;</span><span class="p">,</span> <span class="s2">&quot;#CA445D&quot;</span><span class="p">,</span> <span class="s2">&quot;#C34248&quot;</span><span class="p">,</span> <span class="s2">&quot;#CF212D&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;#A4ACF6&quot;</span><span class="p">,</span> <span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;#8C2DBE&quot;</span><span class="p">,</span> <span class="s2">&quot;#B729AB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;#E0249A&quot;</span><span class="p">,</span> <span class="s2">&quot;#EC4983&quot;</span><span class="p">,</span> <span class="s2">&quot;#E43550&quot;</span><span class="p">,</span>
     <span class="p">],</span>
 <span class="p">}</span>
 
@@ -620,6 +641,7 @@
     <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">PRIMARY_COLORS</span><span class="p">,</span>
     <span class="s2">&quot;primary&quot;</span><span class="p">:</span> <span class="n">PRIMARY_COLORS</span><span class="p">,</span>
     <span class="s2">&quot;extended&quot;</span><span class="p">:</span> <span class="n">EXTENDED_COLORS</span><span class="p">,</span>
+    <span class="s2">&quot;pink_purple&quot;</span><span class="p">:</span> <span class="n">GRADIENT_PALETTES</span><span class="p">[</span><span class="s2">&quot;pink_purple&quot;</span><span class="p">],</span>
     <span class="s2">&quot;semantic&quot;</span><span class="p">:</span> <span class="n">SEMANTIC_COLORS</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -629,7 +651,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">get_palette</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;获取配色方案.</span>
 
-<span class="sd">    :param name: 方案名称，可选 &#39;default&#39;/&#39;primary&#39;(3色), &#39;extended&#39;(6色), &#39;semantic&#39;(语义色字典)</span>
+<span class="sd">    :param name: 方案名称，可选 &#39;default&#39;/&#39;primary&#39;(3色), &#39;extended&#39;, &#39;pink_purple&#39;, &#39;semantic&#39;(语义色字典)</span>
 <span class="sd">    :return: 颜色列表或字典</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_PALETTES</span><span class="p">:</span>

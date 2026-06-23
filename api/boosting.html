@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boosting 模型 hscredit.core.models.boosting &mdash; hscredit 0.1.0 文档</title>
+  <title>Boosting 模型 hscredit.core.models.boosting &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="modeling.html">模型</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -713,6 +720,10 @@ mock 形式呈现，不影响接口说明。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>基于 XGBoost 梯度提升框架，见 Chen, T. &amp; Guestrin, C. (2016).
+<em>XGBoost: A Scalable Tree Boosting System.</em> KDD；
+文档 <a class="reference external" href="https://xgboost.readthedocs.io/">https://xgboost.readthedocs.io/</a> 。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.boosting.xgboost_model.XGBoostRiskModel.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/boosting/xgboost_model.html#XGBoostRiskModel.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.boosting.xgboost_model.XGBoostRiskModel.fit" title="Link to this definition"></a></dt>
@@ -1009,6 +1020,10 @@ LightGBM相比XGBoost训练更快，内存占用更少。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>基于 LightGBM 梯度提升框架（leaf-wise 生长 + 直方图算法），见
+Ke, G. et al. (2017). <em>LightGBM: A Highly Efficient Gradient Boosting
+Decision Tree.</em> NeurIPS；文档 <a class="reference external" href="https://lightgbm.readthedocs.io/">https://lightgbm.readthedocs.io/</a> 。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/boosting/lightgbm_model.html#LightGBMRiskModel.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.boosting.lightgbm_model.LightGBMRiskModel.fit" title="Link to this definition"></a></dt>
@@ -1277,6 +1292,10 @@ CatBoost对类别特征有原生支持，无需编码。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>基于 CatBoost 梯度提升框架（有序提升 + 类别特征原生处理），见
+Prokhorenkova, L. et al. (2018). <em>CatBoost: unbiased boosting with
+categorical features.</em> NeurIPS；文档 <a class="reference external" href="https://catboost.ai/docs/">https://catboost.ai/docs/</a> 。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.boosting.catboost_model.CatBoostRiskModel.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cat_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/boosting/catboost_model.html#CatBoostRiskModel.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.boosting.catboost_model.CatBoostRiskModel.fit" title="Link to this definition"></a></dt>
@@ -1531,6 +1550,10 @@ NGBoost通过自然梯度提升进行概率预测，能够输出预测不确定�
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>基于 NGBoost（自然梯度提升，输出概率分布以量化预测不确定性），见
+Duan, T. et al. (2020). <em>NGBoost: Natural Gradient Boosting for
+Probabilistic Prediction.</em> ICML；文档 <a class="reference external" href="https://stanfordmlgroup.github.io/projects/ngboost/">https://stanfordmlgroup.github.io/projects/ngboost/</a> 。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/boosting/ngboost_model.html#NGBoostRiskModel.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel.fit" title="Link to this definition"></a></dt>

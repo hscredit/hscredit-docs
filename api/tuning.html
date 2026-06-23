@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>超参数调优 hscredit.core.models.tuning &mdash; hscredit 0.1.0 文档</title>
+  <title>超参数调优 hscredit.core.models.tuning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="modeling.html">模型</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -628,6 +635,34 @@
 - 主要用KS评估模型区分能力
 - 同时考虑训练/测试KS差异防止过拟合</p></li>
 </ol>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">XGBoostRiskModel</span><span class="p">,</span> <span class="n">ModelTuner</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单目标：最大化 KS</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span> <span class="o">=</span> <span class="n">ModelTuner</span><span class="p">(</span><span class="n">XGBoostRiskModel</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;ks&#39;</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;maximize&#39;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>   <span class="c1"># 返回最佳参数 best_params_</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">best_model</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">get_best_model</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 多目标：同时优化 KS 与训练/测试 KS 差异（帕累托最优）</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span> <span class="o">=</span> <span class="n">ModelTuner</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">XGBoostRiskModel</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">metric</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ks&#39;</span><span class="p">,</span> <span class="s1">&#39;ks_diff&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">direction</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;maximize&#39;</span><span class="p">,</span> <span class="s1">&#39;minimize&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">sampler</span><span class="o">=</span><span class="s1">&#39;nsgaii&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">n_trials</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 自定义搜索空间</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">space</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+<span class="gp">... </span>         <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span> <span class="o">=</span> <span class="n">ModelTuner</span><span class="p">(</span><span class="n">XGBoostRiskModel</span><span class="p">,</span> <span class="n">search_space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;auc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>引用</strong></p>
+<p>基于 Optuna 超参数优化框架（默认 TPE 采样器），见
+Akiba, T. et al. (2019). <em>Optuna: A Next-generation Hyperparameter
+Optimization Framework.</em> KDD；TPE 见 Bergstra, J. et al. (2011),
+<em>Algorithms for Hyper-Parameter Optimization</em>, NeurIPS。
+文档：<a class="reference external" href="https://optuna.readthedocs.io/">https://optuna.readthedocs.io/</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.ModelTuner.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#ModelTuner.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.ModelTuner.fit" title="Link to this definition"></a></dt>

@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.report.rule_strategy &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.report.rule_strategy &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -555,10 +562,12 @@
 <span></span><span class="sd">&quot;&quot;&quot;拒绝规则策略文档表格转换工具.&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span>
 
 
 <span class="n">_DETAIL_GROUPS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;分箱详情&quot;</span><span class="p">,</span> <span class="s2">&quot;规则详情&quot;</span><span class="p">)</span>
@@ -708,9 +717,16 @@
 <span class="sd">    :param report: ``Rule.report`` 返回的 DataFrame</span>
 <span class="sd">    :param rule_name: 展示用规则名称，默认使用报告中的指标名称</span>
 <span class="sd">    :param target_names: 逾期指标名称映射，如 ``{&#39;MOB1 1+&#39;: &#39;fpd1&#39;}``</span>
-<span class="sd">    :param metrics: 每个逾期指标需要展示的字段</span>
-<span class="sd">    :param target_name: 单标签报告的逾期指标名称</span>
+<span class="sd">    :param metrics: 每个逾期指标需要展示的字段，默认使用内置 ``_DEFAULT_METRICS``</span>
+<span class="sd">    :param target_name: 单标签报告的逾期指标名称，默认 ``&quot;target&quot;``</span>
 <span class="sd">    :return: 两层列头的规则详情表</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.rules import Rule</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import rule_report_table</span>
+<span class="sd">    &gt;&gt;&gt; rep = Rule(&quot;score &lt; 600&quot;).report(data, target=&#39;FPD&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; rule_report_table(rep, rule_name=&#39;低分拒绝&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">normalized</span><span class="p">,</span> <span class="n">resolved_rule_name</span> <span class="o">=</span> <span class="n">_normalize_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">rule_name</span><span class="p">,</span> <span class="n">target_names</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span>
     <span class="n">metrics</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">metrics</span> <span class="ow">or</span> <span class="n">_DEFAULT_METRICS</span><span class="p">)</span>
@@ -750,8 +766,16 @@
 <span class="sd">    :param current_pass_rate: 规则执行前的当前通过率，取值范围为[0, 1]</span>
 <span class="sd">    :param rule_name: 展示用规则名称</span>
 <span class="sd">    :param target_names: 逾期指标名称映射</span>
-<span class="sd">    :param target_name: 单标签报告的逾期指标名称</span>
+<span class="sd">    :param target_name: 单标签报告的逾期指标名称，默认 ``&quot;target&quot;``</span>
 <span class="sd">    :return: 两层列头的目标分析表</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.rules import Rule</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import rule_target_analysis</span>
+<span class="sd">    &gt;&gt;&gt; rep = Rule(&quot;score &lt; 600&quot;).report(data, target=&#39;FPD&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 当前通过率 0.8 时，评估该拒绝规则带来的逾期改善与通过率变化</span>
+<span class="sd">    &gt;&gt;&gt; rule_target_analysis(rep, current_pass_rate=0.8, rule_name=&#39;低分拒绝&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">current_pass_rate</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">current_pass_rate</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;current_pass_rate 必须是[0, 1]范围内的数值&quot;</span><span class="p">)</span>
@@ -816,7 +840,25 @@
     <span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">target_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;生成规则、逾期指标和命中情况组成的纵向明细表.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;生成规则、逾期指标和命中情况组成的纵向明细表.</span>
+
+<span class="sd">    与 :func:`rule_report_table` 的横向展开不同，本函数按</span>
+<span class="sd">    ``规则 × 逾期指标 × 命中情况`` 逐行纵向罗列各项指标，便于直接落库或透视。</span>
+
+<span class="sd">    :param report: ``Rule.report`` 返回的 DataFrame</span>
+<span class="sd">    :param rule_name: 展示用规则名称，默认使用报告中的指标名称</span>
+<span class="sd">    :param target_names: 逾期指标名称映射，如 ``{&#39;MOB1 1+&#39;: &#39;fpd1&#39;}``</span>
+<span class="sd">    :param metrics: 需要展示的字段列表，默认使用内置 ``_DEFAULT_TARGET_METRICS``</span>
+<span class="sd">    :param target_name: 单标签报告的逾期指标名称，默认 ``&quot;target&quot;``</span>
+<span class="sd">    :return: 含 ``规则详情`` / ``逾期指标`` / ``命中情况`` 及各指标列的纵向明细表</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.rules import Rule</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import rule_target_table</span>
+<span class="sd">    &gt;&gt;&gt; rep = Rule(&quot;score &lt; 600&quot;).report(data, target=&#39;FPD&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; rule_target_table(rep, rule_name=&#39;低分拒绝&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">normalized</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_normalize_report</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">rule_name</span><span class="p">,</span> <span class="n">target_names</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span>
     <span class="n">metrics</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">metrics</span> <span class="ow">or</span> <span class="n">_DEFAULT_TARGET_METRICS</span><span class="p">)</span>
     <span class="n">_validate_metrics</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
@@ -839,8 +881,21 @@
 <span class="sd">    :param rule_name: 展示用规则名称</span>
 <span class="sd">    :param target_names: 逾期指标名称映射</span>
 <span class="sd">    :param metrics: 顶层展示名称到 ``Rule.report`` 字段名的映射</span>
-<span class="sd">    :param target_name: 单标签报告的逾期指标名称</span>
+<span class="sd">    :param target_name: 单标签报告的逾期指标名称，默认 ``&quot;target&quot;``</span>
 <span class="sd">    :return: 两层列头的分组命中对比表，不包含合计行</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.rules import Rule</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import rule_group_hit_table</span>
+<span class="sd">    &gt;&gt;&gt; r = Rule(&quot;score &lt; 600&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; # 对比训练集 / 测试集 / OOT 三个分组下同一规则的命中效果</span>
+<span class="sd">    &gt;&gt;&gt; reports = {</span>
+<span class="sd">    ...     &#39;训练集&#39;: r.report(train, target=&#39;FPD&#39;),</span>
+<span class="sd">    ...     &#39;测试集&#39;: r.report(test, target=&#39;FPD&#39;),</span>
+<span class="sd">    ...     &#39;OOT&#39;: r.report(oot, target=&#39;FPD&#39;),</span>
+<span class="sd">    ... }</span>
+<span class="sd">    &gt;&gt;&gt; rule_group_hit_table(reports, rule_name=&#39;低分拒绝&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group_reports</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">group_reports</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group_reports 必须是非空的分组名称到 DataFrame 的映射&quot;</span><span class="p">)</span>
@@ -873,13 +928,193 @@
 
 
 
+<span class="n">_FREQ_LABELS</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(((</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;日&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;周&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;月&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">,</span> <span class="s2">&quot;季度&quot;</span><span class="p">)))</span>
+<span class="n">_VALID_GROUP_ORDER</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;asc&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">,</span> <span class="s2">&quot;appearance&quot;</span><span class="p">)</span>
+
+<span class="c1"># group_order 接受：``None``/``&quot;asc&quot;``（升序，默认）、``&quot;desc&quot;``（降序）、</span>
+<span class="c1"># ``&quot;appearance&quot;``（数据出现顺序）、可调用排序键、或显式分组名称序列</span>
+<span class="n">GroupOrder</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_order_groups</span><span class="p">(</span><span class="n">present</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">group_order</span><span class="p">:</span> <span class="n">GroupOrder</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;按 ``group_order`` 规则对已出现的分组标签排序，缺省升序排列.&quot;&quot;&quot;</span>
+    <span class="n">present</span> <span class="o">=</span> <span class="n">_ordered_unique</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">present</span><span class="p">))</span>  <span class="c1"># 去重并保留出现顺序</span>
+
+    <span class="k">if</span> <span class="n">group_order</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">group_order</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">group_order</span> <span class="o">==</span> <span class="s2">&quot;asc&quot;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">present</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">present</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group_order</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">group_order</span> <span class="o">==</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">present</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">present</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">group_order</span> <span class="o">==</span> <span class="s2">&quot;appearance&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">present</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;group_order 字符串仅支持 </span><span class="si">{</span><span class="n">_VALID_GROUP_ORDER</span><span class="si">}</span><span class="s2"> 之一&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">group_order</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">present</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">group_order</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group_order</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">specified</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">group_order</span><span class="p">)</span>
+        <span class="n">specified_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">specified</span><span class="p">)</span>
+        <span class="n">ordered</span> <span class="o">=</span> <span class="p">[</span><span class="n">group</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">specified</span> <span class="k">if</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">present</span><span class="p">]</span>
+        <span class="n">remaining</span> <span class="o">=</span> <span class="p">[</span><span class="n">group</span> <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">present</span> <span class="k">if</span> <span class="n">group</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">specified_set</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">ordered</span> <span class="o">+</span> <span class="n">remaining</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group_order 必须是 &#39;asc&#39;/&#39;desc&#39;/&#39;appearance&#39;、可调用对象或分组名称序列&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_resolve_group_labels</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">date_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">freq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">group_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">dropna</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">group_order</span><span class="p">:</span> <span class="n">GroupOrder</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;根据日期+频率或分组字段，解析每条样本所属的分组标签与有序分组列表.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">date_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">group_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;date_col 与 group_col 必须且只能指定其中一个&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">group_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">group_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;数据集缺少分组字段列: </span><span class="si">{</span><span class="n">group_col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">group_col</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">date_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;数据集缺少日期列: </span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">freq</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_FREQ_LABELS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;freq必须是&#39;D&#39;/&#39;W&#39;/&#39;M&#39;/&#39;Q&#39;之一&quot;</span><span class="p">)</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">date_col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">notna</span><span class="p">(),</span> <span class="n">other</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dropna</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">valid</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">valid</span><span class="p">,</span> <span class="n">other</span><span class="o">=</span><span class="s2">&quot;缺失&quot;</span><span class="p">)</span>
+        <span class="n">valid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="n">unique_values</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">labels</span><span class="p">,</span> <span class="n">_order_groups</span><span class="p">(</span><span class="n">unique_values</span><span class="p">,</span> <span class="n">group_order</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="rule_group_compare">
+<a class="viewcode-back" href="../../../api/report.html#hscredit.report.rule_group_compare">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rule_group_compare</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Rule</span><span class="p">],</span>
+    <span class="n">date_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">freq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+    <span class="n">group_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+    <span class="n">overdue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">dpds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">rule_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">target_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">prior_rules</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Rule</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">amount</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">del_grey</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">dropna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">group_order</span><span class="p">:</span> <span class="n">GroupOrder</span> <span class="o">=</span> <span class="s2">&quot;asc&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;直接从原始数据生成分组下的规则命中效果对比表.</span>
+
+<span class="sd">    相比 :func:`rule_group_hit_table` 需要在函数外手工切分样本并逐组调用</span>
+<span class="sd">    ``Rule.report``，本函数接收原始明细数据，按 ``日期列 + 频率`` 或 ``分组字段``</span>
+<span class="sd">    自动切分样本，对每个分组调用同一规则的 ``Rule.report``（支持</span>
+<span class="sd">    ``target`` 单标签或 ``overdue + dpds`` 多标签口径），再汇总为分组对比表。</span>
+
+<span class="sd">    :param data: 原始明细数据 DataFrame，需包含规则所需字段、目标/逾期字段及分组依据列</span>
+<span class="sd">    :param rule: 规则表达式字符串或 :class:`~hscredit.core.rules.Rule` 实例</span>
+<span class="sd">    :param date_col: 日期列名，与 ``freq`` 配合按时间周期分组（与 ``group_col`` 二选一）</span>
+<span class="sd">    :param freq: 时间频率，``&#39;D&#39;`` 日 / ``&#39;W&#39;`` 周 / ``&#39;M&#39;`` 月 / ``&#39;Q&#39;`` 季度，默认 ``&#39;M&#39;``</span>
+<span class="sd">    :param group_col: 分组字段列名，按其取值分组（与 ``date_col`` 二选一）</span>
+<span class="sd">    :param target: 目标变量列名，默认 ``&quot;target&quot;``，0=好样本，1=坏样本</span>
+<span class="sd">    :param overdue: 逾期天数字段名（可选，传入时以逾期天数&gt;DPD定义坏样本，支持多标签）</span>
+<span class="sd">    :param dpds: 逾期定义方式，逾期天数 &gt; DPD 为坏样本，可传入列表支持多DPD联合分析</span>
+<span class="sd">    :param rule_name: 展示用规则名称，默认使用规则自身名称或报告中的指标名称</span>
+<span class="sd">    :param target_names: 逾期指标名称映射，如 ``{&#39;MOB1 1+&#39;: &#39;fpd1&#39;}``</span>
+<span class="sd">    :param metrics: 顶层展示名称到 ``Rule.report`` 字段名的映射，默认 ``_DEFAULT_GROUP_METRICS``</span>
+<span class="sd">    :param prior_rules: 先验规则（可选），每个分组内先排除命中先验规则的样本再评估</span>
+<span class="sd">    :param amount: 金额字段名（可选），传入时以金额口径而非样本数口径统计</span>
+<span class="sd">    :param del_grey: 是否删除逾期天数在(0, DPD]区间内的灰度样本，默认为False</span>
+<span class="sd">    :param dropna: 是否丢弃分组依据缺失的样本，默认为True；为False时缺失样本归入“缺失”分组</span>
+<span class="sd">    :param group_order: 分组排列方式，默认 ``&quot;asc&quot;`` 升序。支持：</span>
+
+<span class="sd">        * ``&quot;asc&quot;`` / ``&quot;desc&quot;`` — 按分组标签升序 / 降序</span>
+<span class="sd">        * ``&quot;appearance&quot;`` — 按分组在数据中首次出现的顺序</span>
+<span class="sd">        * 可调用对象 — 作为 ``sorted`` 的 ``key`` 排序键</span>
+<span class="sd">        * 分组名称序列 — 按给定顺序排列，未列出的分组按出现顺序追加在末尾</span>
+
+<span class="sd">    :param kwargs: 透传给 ``Rule.report`` 的其他参数（如 ``desc``、``filter_cols``、``margins`` 等）</span>
+<span class="sd">    :return: 两层列头的分组命中对比表，不包含合计行；列头第二层为各分组名称</span>
+<span class="sd">    :raises ValueError: ``date_col`` 与 ``group_col`` 未二选一，或所需列缺失时</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import rule_group_compare</span>
+<span class="sd">    &gt;&gt;&gt; # 按放款月份对比同一拒绝规则在各月样本上的命中效果（多标签口径）</span>
+<span class="sd">    &gt;&gt;&gt; rule_group_compare(</span>
+<span class="sd">    ...     data, &quot;score &lt; 600&quot;, date_col=&#39;放款时间&#39;, freq=&#39;M&#39;,</span>
+<span class="sd">    ...     overdue=[&#39;MOB1&#39;], dpds=[7, 0], rule_name=&#39;低分拒绝&#39;,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; # 按商品类别分组、金额口径，并自定义分组展示顺序</span>
+<span class="sd">    &gt;&gt;&gt; rule_group_compare(</span>
+<span class="sd">    ...     data, &quot;score &lt; 600&quot;, group_col=&#39;商品类别&#39;, target=&#39;FPD&#39;,</span>
+<span class="sd">    ...     amount=&#39;放款金额&#39;, group_order=[&#39;手机通讯&#39;, &#39;电脑数码&#39;, &#39;家用电器&#39;],</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;data 必须是非空的 DataFrame&quot;</span><span class="p">)</span>
+
+    <span class="n">rule</span> <span class="o">=</span> <span class="n">rule</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">Rule</span><span class="p">)</span> <span class="k">else</span> <span class="n">Rule</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">ordered_groups</span> <span class="o">=</span> <span class="n">_resolve_group_labels</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">date_col</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">group_col</span><span class="p">,</span> <span class="n">dropna</span><span class="p">,</span> <span class="n">group_order</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ordered_groups</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;根据 date_col/group_col 未能切分出任何有效分组&quot;</span><span class="p">)</span>
+
+    <span class="n">group_reports</span><span class="p">:</span> <span class="s2">&quot;OrderedDict[str, pd.DataFrame]&quot;</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">ordered_groups</span><span class="p">:</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="n">group</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">subset</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">group_reports</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">group</span><span class="p">)]</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">report</span><span class="p">(</span>
+            <span class="n">subset</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+            <span class="n">overdue</span><span class="o">=</span><span class="n">overdue</span><span class="p">,</span>
+            <span class="n">dpds</span><span class="o">=</span><span class="n">dpds</span><span class="p">,</span>
+            <span class="n">del_grey</span><span class="o">=</span><span class="n">del_grey</span><span class="p">,</span>
+            <span class="n">prior_rules</span><span class="o">=</span><span class="n">prior_rules</span><span class="p">,</span>
+            <span class="n">amount</span><span class="o">=</span><span class="n">amount</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rule_group_hit_table</span><span class="p">(</span>
+        <span class="n">group_reports</span><span class="p">,</span>
+        <span class="n">rule_name</span><span class="o">=</span><span class="n">rule_name</span> <span class="ow">or</span> <span class="n">rule</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span>
+        <span class="n">target_name</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
 <span class="k">def</span><span class="w"> </span><span class="nf">_validate_metrics</span><span class="p">(</span><span class="n">normalized</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">metrics</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">metric</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span> <span class="k">if</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">normalized</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rule.report 结果缺少以下指标列: </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rule_report_table&quot;</span><span class="p">,</span> <span class="s2">&quot;rule_target_analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;rule_target_table&quot;</span><span class="p">,</span> <span class="s2">&quot;rule_group_hit_table&quot;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;rule_report_table&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rule_target_analysis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rule_target_table&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rule_group_hit_table&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rule_group_compare&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 
            </div>

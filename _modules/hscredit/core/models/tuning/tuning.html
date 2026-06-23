@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.models.tuning.tuning &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.models.tuning.tuning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=709b0e5d" />
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -1255,6 +1262,36 @@
 <span class="sd">    4. 评估指标:</span>
 <span class="sd">       - 主要用KS评估模型区分能力</span>
 <span class="sd">       - 同时考虑训练/测试KS差异防止过拟合</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.models import XGBoostRiskModel, ModelTuner</span>
+<span class="sd">    &gt;&gt;&gt; # 单目标：最大化 KS</span>
+<span class="sd">    &gt;&gt;&gt; tuner = ModelTuner(XGBoostRiskModel, metric=&#39;ks&#39;, direction=&#39;maximize&#39;, cv=5)</span>
+<span class="sd">    &gt;&gt;&gt; tuner.fit(X_train, y_train, n_trials=50)   # 返回最佳参数 best_params_</span>
+<span class="sd">    &gt;&gt;&gt; best_model = tuner.get_best_model().fit(X_train, y_train)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # 多目标：同时优化 KS 与训练/测试 KS 差异（帕累托最优）</span>
+<span class="sd">    &gt;&gt;&gt; tuner = ModelTuner(</span>
+<span class="sd">    ...     XGBoostRiskModel,</span>
+<span class="sd">    ...     metric=[&#39;ks&#39;, &#39;ks_diff&#39;],</span>
+<span class="sd">    ...     direction=[&#39;maximize&#39;, &#39;minimize&#39;],</span>
+<span class="sd">    ...     sampler=&#39;nsgaii&#39;,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; tuner.fit(X_train, y_train, n_trials=100)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # 自定义搜索空间</span>
+<span class="sd">    &gt;&gt;&gt; space = {&#39;max_depth&#39;: {&#39;type&#39;: &#39;int&#39;, &#39;low&#39;: 2, &#39;high&#39;: 4},</span>
+<span class="sd">    ...          &#39;learning_rate&#39;: {&#39;type&#39;: &#39;float&#39;, &#39;low&#39;: 1e-3, &#39;high&#39;: 0.1, &#39;log&#39;: True}}</span>
+<span class="sd">    &gt;&gt;&gt; tuner = ModelTuner(XGBoostRiskModel, search_space=space, metric=&#39;auc&#39;)</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    基于 Optuna 超参数优化框架（默认 TPE 采样器），见</span>
+<span class="sd">    Akiba, T. et al. (2019). *Optuna: A Next-generation Hyperparameter</span>
+<span class="sd">    Optimization Framework.* KDD；TPE 见 Bergstra, J. et al. (2011),</span>
+<span class="sd">    *Algorithms for Hyper-Parameter Optimization*, NeurIPS。</span>
+<span class="sd">    文档：https://optuna.readthedocs.io/</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -1388,6 +1425,8 @@
         <span class="c1"># 处理metric_names</span>
         <span class="k">if</span> <span class="n">metric_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">metric_names</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics_list</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">metric_names</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics_list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;metric_names列表长度必须与metric列表长度相同&quot;</span><span class="p">)</span>
         
         <span class="c1"># 创建Metric对象列表</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1395,6 +1434,8 @@
             <span class="k">if</span> <span class="n">d</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;maximize&quot;</span><span class="p">,</span> <span class="s2">&quot;minimize&quot;</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;direction 只能是 &#39;maximize&#39; 或 &#39;minimize&#39;&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Metric</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">direction</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;maximize&quot;</span><span class="p">,</span> <span class="s2">&quot;minimize&quot;</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Metric.direction 只能是 &#39;maximize&#39; 或 &#39;minimize&#39;&quot;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Metric</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">d</span><span class="p">))</span>
@@ -1621,8 +1662,9 @@
             <span class="c1"># 多目标优化</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pareto_front_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">best_trials</span>
             
-            <span class="c1"># 默认选择帕累托前沿的第一个解</span>
-            <span class="n">best_trial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">best_trials</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># 在帕累托前沿中按指标顺序做确定性选择：优先第一个主指标，</span>
+            <span class="c1"># 主指标相同时再按后续指标方向排序。</span>
+            <span class="n">best_trial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_best_pareto_trial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">best_trials</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">best_params_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_params_from_trial</span><span class="p">(</span><span class="n">best_trial</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">best_scores_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_trial</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">best_score_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_scores_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 第一个指标作为主指标</span>
@@ -1633,6 +1675,26 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">best_scores_</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">best_score_</span><span class="p">]</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">best_params_</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fixed_params</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_select_best_pareto_trial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trials</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;从帕累托前沿按主指标优先规则选择一个默认最优 trial.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">trials</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;没有可用的帕累托最优解&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">sort_key</span><span class="p">(</span><span class="n">trial</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">values</span> <span class="ow">or</span> <span class="p">[]</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">direction</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">directions</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">adjusted</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;maximize&quot;</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">adjusted</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;maximize&quot;</span> <span class="k">else</span> <span class="o">-</span><span class="n">value</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adjusted</span><span class="p">)</span>
+            <span class="c1"># trial.number 取负值，让完全同分时选择更早完成的 trial。</span>
+            <span class="n">key</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">trial</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sort_key</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ModelTuner.evaluate_trials">
 <a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner.evaluate_trials">[文档]</a>
@@ -2118,6 +2180,10 @@
         <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">for</span> <span class="n">param_name</span><span class="p">,</span> <span class="n">param_config</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># LightGBM 的 num_leaves 需要在 max_depth 采样后动态收紧上界。</span>
+            <span class="k">if</span> <span class="n">param_name</span> <span class="o">==</span> <span class="s1">&#39;num_leaves&#39;</span> <span class="ow">and</span> <span class="s1">&#39;max_depth&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">:</span>
+                <span class="k">continue</span>
+
             <span class="n">param_type</span> <span class="o">=</span> <span class="n">param_config</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
 
             <span class="k">if</span> <span class="n">param_type</span> <span class="o">==</span> <span class="s1">&#39;int&#39;</span><span class="p">:</span>
@@ -2151,23 +2217,22 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;未知参数类型: </span><span class="si">{</span><span class="n">param_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             
-            <span class="c1"># LightGBM特殊处理：num_leaves不超过2^max_depth</span>
-            <span class="k">if</span> <span class="n">param_name</span> <span class="o">==</span> <span class="s1">&#39;max_depth&#39;</span> <span class="ow">and</span> <span class="s1">&#39;num_leaves&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">:</span>
-                <span class="n">leaves_low</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">][</span><span class="s1">&#39;low&#39;</span><span class="p">]</span>
-                <span class="n">leaves_high</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">][</span><span class="s1">&#39;high&#39;</span><span class="p">]</span>
-                <span class="c1"># max_depth&lt;=0 表示不限制深度，此时不收紧 num_leaves 上界</span>
-                <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">max_leaves</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">],</span> <span class="n">leaves_high</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">max_leaves</span> <span class="o">=</span> <span class="n">leaves_high</span>
-                <span class="c1"># 防止 2^max_depth 小于下界导致 low&gt;high，必要时下调下界</span>
-                <span class="n">leaves_low</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">leaves_low</span><span class="p">,</span> <span class="n">max_leaves</span><span class="p">)</span>
-                <span class="n">params</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span>
-                    <span class="s1">&#39;num_leaves&#39;</span><span class="p">,</span>
-                    <span class="n">leaves_low</span><span class="p">,</span>
-                    <span class="n">max_leaves</span><span class="p">,</span>
-                    <span class="n">step</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="p">)</span>
+        <span class="c1"># LightGBM特殊处理：num_leaves不超过2^max_depth，避免同一 trial 内重复</span>
+        <span class="c1"># suggest 同名参数导致 Optuna 分布不一致或约束失效。</span>
+        <span class="k">if</span> <span class="s1">&#39;num_leaves&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span> <span class="ow">and</span> <span class="s1">&#39;num_leaves&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">leaves_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">]</span>
+            <span class="n">leaves_low</span> <span class="o">=</span> <span class="n">leaves_config</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">]</span>
+            <span class="n">leaves_high</span> <span class="o">=</span> <span class="n">leaves_config</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">]</span>
+            <span class="n">max_depth</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;max_depth&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">max_depth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">max_depth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">leaves_high</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">max_depth</span><span class="p">,</span> <span class="n">leaves_high</span><span class="p">)</span>
+            <span class="n">leaves_low</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">leaves_low</span><span class="p">,</span> <span class="n">leaves_high</span><span class="p">)</span>
+            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;num_leaves&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span>
+                <span class="s1">&#39;num_leaves&#39;</span><span class="p">,</span>
+                <span class="n">leaves_low</span><span class="p">,</span>
+                <span class="n">leaves_high</span><span class="p">,</span>
+                <span class="n">step</span><span class="o">=</span><span class="n">leaves_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">params</span>
 
@@ -2213,6 +2278,20 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="o">.</span><span class="n">best_trials</span></div>
 
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">_resolve_multi_objective_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;多目标分析图/重要性默认使用第一个指标，并校验索引范围.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">target</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;target 必须是指标索引整数&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">target</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_names</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;target 超出范围，多目标指标索引有效范围为 0~</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_names</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
 <div class="viewcode-block" id="ModelTuner.get_param_importance">
 <a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner.get_param_importance">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_param_importance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]:</span>
@@ -2225,7 +2304,8 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优&quot;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
                 <span class="c1"># 多目标优化时，可以指定特定目标</span>
                 <span class="n">importance</span> <span class="o">=</span> <span class="n">optuna</span><span class="o">.</span><span class="n">importance</span><span class="o">.</span><span class="n">get_param_importances</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span>
@@ -2254,7 +2334,8 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优&quot;</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">optuna</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">plot_optimization_history</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span> 
                 <span class="n">target</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">target</span><span class="p">],</span>
@@ -2277,7 +2358,8 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优&quot;</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">optuna</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">plot_param_importances</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">target</span><span class="p">],</span>
@@ -2300,7 +2382,8 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优&quot;</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">optuna</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">plot_slice</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">target</span><span class="p">],</span>
@@ -2348,7 +2431,8 @@
         <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">search_space</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="mi">2</span><span class="p">]</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">optuna</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">plot_contour</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span>
                 <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
@@ -2372,7 +2456,8 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优&quot;</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">optuna</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">plot_parallel_coordinate</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">target</span><span class="p">],</span>
@@ -2395,7 +2480,8 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">study_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;请先调用fit()进行调优&quot;</span><span class="p">)</span>
         
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span> <span class="ow">and</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_multi_objective_target</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_multi_objective</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">optuna</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">plot_edf</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">study_</span><span class="p">,</span>
                 <span class="n">target</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">target</span><span class="p">],</span>

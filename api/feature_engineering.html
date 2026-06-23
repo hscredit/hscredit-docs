@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>特征衍生 hscredit.core.feature_engineering &mdash; hscredit 0.1.0 文档</title>
+  <title>特征衍生 hscredit.core.feature_engineering &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -589,14 +596,35 @@
 <dt class="sig sig-object py" id="hscredit.core.feature_engineering.NumExprDerive">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.feature_engineering.</span></span><span class="sig-name descname"><span class="pre">NumExprDerive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">derivings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/feature_engineering/expression.html#NumExprDerive"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.feature_engineering.NumExprDerive" title="Link to this definition"></a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TransformerMixin</span></code></p>
-<p>基于表达式的特征衍生。</p>
-<p>支持任意类型数据（数值、字符串、布尔等），使用 pandas eval + numexpr
-进行高效计算。</p>
+<p>基于表达式的特征衍生器（sklearn Transformer）。</p>
+<p>通过一组 <code class="docutils literal notranslate"><span class="pre">(新特征名,</span> <span class="pre">表达式)</span></code> 规则批量衍生新特征，兼容 sklearn Pipeline。
+根据输入类型自动选择计算后端：</p>
+<ul class="simple">
+<li><p>输入 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>：纯数值列走 numpy 向量化计算（最快），含字符串/布尔等
+混合类型列走 pandas Series 计算（类型安全），从而支持任意类型数据。</p></li>
+<li><p>输入 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>：走 numexpr 计算（需安装 <code class="docutils literal notranslate"><span class="pre">numexpr</span></code>），列以 <code class="docutils literal notranslate"><span class="pre">f0</span></code>、<code class="docutils literal notranslate"><span class="pre">f1</span></code> …
+命名引用。</p></li>
+</ul>
+<p>表达式语法基于 Python/numpy，额外支持 <code class="docutils literal notranslate"><span class="pre">where(cond,</span> <span class="pre">a,</span> <span class="pre">b)``（自动转换为</span>
+<span class="pre">:func:`numpy.where`）以及</span> <span class="pre">``sin</span></code>/<code class="docutils literal notranslate"><span class="pre">cos</span></code>/<code class="docutils literal notranslate"><span class="pre">tan</span></code>/<code class="docutils literal notranslate"><span class="pre">abs</span></code>/<code class="docutils literal notranslate"><span class="pre">exp</span></code>/<code class="docutils literal notranslate"><span class="pre">log</span></code>/
+<code class="docutils literal notranslate"><span class="pre">sqrt</span></code>/<code class="docutils literal notranslate"><span class="pre">power</span></code>/<code class="docutils literal notranslate"><span class="pre">floor</span></code>/<code class="docutils literal notranslate"><span class="pre">ceil</span></code> 等 numpy 函数。</p>
+<p><strong>参数</strong></p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>derivings</strong> -- 衍生规则列表，每个元素是 (name, expr) 元组</p>
+<dd class="field-odd"><p><strong>derivings</strong> -- <p>衍生规则列表，每个元素为 <code class="docutils literal notranslate"><span class="pre">(name,</span> <span class="pre">expr)</span></code> 二元组：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> (str)：新特征列名</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expr</span></code> (str)：基于已有列名的表达式字符串，如 <code class="docutils literal notranslate"><span class="pre">&quot;f1</span> <span class="pre">+</span> <span class="pre">f2&quot;</span></code>、
+<code class="docutils literal notranslate"><span class="pre">&quot;where(score</span> <span class="pre">&gt;=</span> <span class="pre">600,</span> <span class="pre">'高',</span> <span class="pre">'低')&quot;</span></code></p></li>
+</ul>
+<p>为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 或空列表时在初始化/fit 阶段抛出 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</p>
 </dd>
 </dl>
+<p><strong>属性</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">features_names_</span></code>: 拟合/转换时记录的原始输入列名列表（DataFrame 输入时）</p></li>
+</ul>
 <p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.feature_engineering</span><span class="w"> </span><span class="kn">import</span> <span class="n">NumExprDerive</span>
@@ -629,16 +657,51 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>数值/ndarray 路径使用 numexpr 实现表达式的高性能向量化求值，详见
+<a class="reference external" href="https://numexpr.readthedocs.io/">https://numexpr.readthedocs.io/</a> ；DataFrame 路径基于 pandas 计算引擎
+(<code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.eval()</span></code>)。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.feature_engineering.NumExprDerive.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/feature_engineering/expression.html#NumExprDerive.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.feature_engineering.NumExprDerive.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合特征衍生器。</p>
+<dd><p>拟合特征衍生器（校验规则与输入维度，不学习任何参数）。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> -- 输入数据，<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 或 2 维 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code></p></li>
+<li><p><strong>y</strong> -- 目标变量，未使用，仅为兼容 sklearn 接口而保留</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>self，支持链式调用</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> -- derivings 非法，或 X 不是 2 维时</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.feature_engineering.NumExprDerive.transform">
 <span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/feature_engineering/expression.html#NumExprDerive.transform"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.feature_engineering.NumExprDerive.transform" title="Link to this definition"></a></dt>
-<dd><p>转换数据。</p>
+<dd><p>按 derivings 规则衍生新特征并追加到原始特征之后。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> -- <p>输入数据：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>：表达式按列名引用，返回 <code class="docutils literal notranslate"><span class="pre">原始列</span> <span class="pre">+</span> <span class="pre">衍生列</span></code> 的新 DataFrame</p></li>
+<li><p>2 维 <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>：列以 <code class="docutils literal notranslate"><span class="pre">f0</span></code>/<code class="docutils literal notranslate"><span class="pre">f1</span></code>/… 引用，返回水平拼接的新数组
+（需安装 <code class="docutils literal notranslate"><span class="pre">numexpr</span></code>）</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>含衍生特征的 <a href="#id1"><span class="problematic" id="id2">``</span></a>DataFrame``（DataFrame 输入）或 <a href="#id3"><span class="problematic" id="id4">``</span></a>ndarray``（数组输入）</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ImportError</strong> -- 输入为 ndarray 且未安装 numexpr 时</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

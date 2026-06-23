@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>工具 hscredit.utils &mdash; hscredit 0.1.0 文档</title>
+  <title>工具 hscredit.utils &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -672,27 +679,38 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.feature_describe">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">feature_describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cardinality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/describe.html#feature_describe"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.feature_describe" title="Link to this definition"></a></dt>
-<dd><p>特征描述统计。</p>
+<dd><p>特征描述统计（数值型与类别型自动区分）。</p>
+<p>对数值型特征输出 样本数/非空数/查得率/最小值/平均值/各分位数/最大值；
+对类别型特征（或唯一值数 ≤ <code class="docutils literal notranslate"><span class="pre">cardinality</span></code>）输出 样本数/非空数/查得率
+及各取值占比。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>DataFrame</em>) -- 数据DataFrame或Series</p></li>
-<li><p><strong>feature</strong> (<em>str</em><em> | </em><em>None</em>) -- 特征名称，如果data是DataFrame则需要指定</p></li>
-<li><p><strong>percentiles</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) -- 分位数列表，默认使用常用分位数</p></li>
-<li><p><strong>missing</strong> -- 缺失值标记，会将其替换为np.nan</p></li>
-<li><p><strong>cardinality</strong> (<em>int</em><em> | </em><em>None</em>) -- 基数阈值，小于等于此值按类别型处理</p></li>
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 输入数据，<code class="docutils literal notranslate"><span class="pre">DataFrame``（需配合</span> <span class="pre">``feature</span></code> 指定列）或单列 <code class="docutils literal notranslate"><span class="pre">Series</span></code></p></li>
+<li><p><strong>feature</strong> (<em>str</em><em> | </em><em>None</em>) -- 特征列名，仅当 <code class="docutils literal notranslate"><span class="pre">data</span></code> 为 DataFrame 时需要；
+为 None 时把 <code class="docutils literal notranslate"><span class="pre">data</span></code> 整体当作 Series 处理</p></li>
+<li><p><strong>percentiles</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) -- 分位数列表（0~1 之间），默认
+<code class="docutils literal notranslate"><span class="pre">[0.01,</span> <span class="pre">0.02,</span> <span class="pre">0.03,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.2,</span> <span class="pre">...,</span> <span class="pre">0.95,</span> <span class="pre">0.97,</span> <span class="pre">0.98,</span> <span class="pre">0.99]</span></code></p></li>
+<li><p><strong>missing</strong> -- 缺失值标记（标量或列表），统计前会被替换为 <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>；默认 None 不替换</p></li>
+<li><p><strong>cardinality</strong> (<em>int</em><em> | </em><em>None</em>) -- 基数阈值（正整数），唯一值数 ≤ 该值时强制按类别型统计；
+默认 None 表示仅按 dtype 判断</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>描述统计结果Series</p>
+<dd class="field-even"><p>描述统计结果 <code class="docutils literal notranslate"><span class="pre">Series``（``name</span></code> 为特征名）</p>
 </dd>
-<dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Series</em></p>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> -- <code class="docutils literal notranslate"><span class="pre">feature</span></code> 不在 <code class="docutils literal notranslate"><span class="pre">data</span></code> 列中，或 <code class="docutils literal notranslate"><span class="pre">cardinality</span></code> &lt; 1 时</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Series</em></p>
 </dd>
 </dl>
 <p><strong>参考样例</strong></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>          <span class="c1"># 指定列</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>                  <span class="c1"># 直接传 Series</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="n">cardinality</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>   <span class="c1"># 强制按类别统计</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_describe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">missing</span><span class="o">=-</span><span class="mi">999</span><span class="p">)</span>   <span class="c1"># -999 视为缺失</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -820,17 +838,30 @@
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>font_path</strong> -- 画图时图像使用的字体，支持系统字体名称、本地字体文件路径</p></li>
-<li><p><strong>seed</strong> -- 随机种子，默认为 None</p></li>
-<li><p><strong>freeze_torch</strong> -- 是否固定 pytorch 环境</p></li>
-<li><p><strong>logger</strong> -- 是否需要初始化日志器，默认为 False</p></li>
-<li><p><strong>kwargs</strong> -- 日志初始化传入的相关参数</p></li>
+<li><p><strong>font_path</strong> -- 画图时图像使用的字体，支持系统已注册字体名称或本地 <code class="docutils literal notranslate"><span class="pre">.ttf</span></code>
+字体文件路径；为 None 时使用包内置中文字体 <code class="docutils literal notranslate"><span class="pre">resources/fonts/font.ttf</span></code></p></li>
+<li><p><strong>seed</strong> -- 随机种子，默认为 None（不固定）。非 None 时调用
+<a class="reference internal" href="#hscredit.utils.seed_everything" title="hscredit.utils.seed_everything"><code class="xref py py-func docutils literal notranslate"><span class="pre">seed_everything()</span></code></a></p></li>
+<li><p><strong>freeze_torch</strong> -- 是否同时固定 PyTorch 随机种子，默认 False（仅 seed 非 None 时生效）</p></li>
+<li><p><strong>logger</strong> -- 是否返回一个日志器，默认为 False</p></li>
+<li><p><strong>kwargs</strong> -- 当 logger 为 True 时传给 <code class="docutils literal notranslate"><span class="pre">logging.getLogger</span></code> 的参数</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>当 logger 为 True 时返回 logging.Logger</p>
+<dd class="field-even"><p>当 logger 为 True 时返回 <code class="docutils literal notranslate"><span class="pre">logging.Logger</span></code>，否则返回 None</p>
 </dd>
 </dl>
+<p><strong>注意</strong></p>
+<p>本函数在 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">hscredit</span></code> 时被自动调用，会全局执行
+<code class="docutils literal notranslate"><span class="pre">warnings.filterwarnings(&quot;ignore&quot;)</span></code> 屏蔽所有警告，并修改 pandas/matplotlib 全局配置。</p>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">init_setting</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">init_setting</span><span class="p">()</span>                       <span class="c1"># 默认配置（内置中文字体）</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">init_setting</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>                <span class="c1"># 同时固定随机种子</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">init_setting</span><span class="p">(</span><span class="n">font_path</span><span class="o">=</span><span class="s1">&#39;SimHei&#39;</span><span class="p">)</span>     <span class="c1"># 指定系统字体</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">init_setting</span><span class="p">(</span><span class="n">logger</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># 返回日志器</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -854,23 +885,38 @@
 <dd class="field-odd"><p><em>Logger</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">init_logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">init_logger</span><span class="p">()</span>                       <span class="c1"># 控制台 INFO 日志</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">init_logger</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>               <span class="c1"># DEBUG 级别</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">init_logger</span><span class="p">(</span><span class="n">log_file</span><span class="o">=</span><span class="s1">&#39;logs/run.log&#39;</span><span class="p">)</span>  <span class="c1"># 同时写入文件</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;模型训练开始&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.get_logger">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hscredit'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/logger.html#get_logger"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.get_logger" title="Link to this definition"></a></dt>
-<dd><p>获取已存在的 logger。</p>
+<dd><p>获取已存在的 logger（<code class="docutils literal notranslate"><span class="pre">logging.getLogger</span></code> 的轻封装）。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- logger 名称</p>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- logger 名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;hscredit&quot;</span></code>。应与 <a class="reference internal" href="#hscredit.utils.init_logger" title="hscredit.utils.init_logger"><code class="xref py py-func docutils literal notranslate"><span class="pre">init_logger()</span></code></a>
+创建时使用的名称一致，以复用其 handler 配置</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>logger 对象</p>
+<dd class="field-even"><p>对应名称的 <code class="docutils literal notranslate"><span class="pre">logging.Logger</span></code> 对象</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>Logger</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">init_logger</span><span class="p">,</span> <span class="n">get_logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">init_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;hscredit&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="s1">&#39;hscredit&#39;</span><span class="p">)</span>   <span class="c1"># 在其他模块复用同一 logger</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1062,12 +1108,14 @@
 - df.show(): 美化展示分箱表
 - df.save(): 保存到Excel
 - s.save(): Series保存到Excel</p>
-<p class="rubric">示例</p>
+<p>幂等：重复调用不会重复注册（已存在同名属性时跳过）。导入 hscredit 时已自动执行，
+通常无需手动调用。</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">hscredit</span>  <span class="c1"># 自动注册扩展</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">hscredit</span>  <span class="c1"># 导入即自动注册扩展</span>
 <span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="o">...</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;report.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1076,40 +1124,46 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.check_xy_inputs">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">check_xy_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accept_numpy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#check_xy_inputs"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.check_xy_inputs" title="Link to this definition"></a></dt>
-<dd><p>统一检查并处理X和y输入.</p>
-<p>支持两种API风格:
-1. sklearn风格: fit(X, y)
-2. scorecardpipeline风格: fit(df) - target列在df中</p>
-<p>优先级: fit传入的y &gt; 从X中提取target列</p>
+<dd><p>统一检查并处理 X 和 y 输入（适配双 API 调用风格）。</p>
+<p>支持两种 API 风格，并按 <code class="docutils literal notranslate"><span class="pre">传入的</span> <span class="pre">y</span> <span class="pre">&gt;</span> <span class="pre">从</span> <span class="pre">X</span> <span class="pre">提取</span> <span class="pre">target</span> <span class="pre">列</span></code> 的优先级确定目标变量：</p>
+<ul class="simple">
+<li><p>sklearn 风格：<code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code>，X、y 分别传入</p></li>
+<li><p>scorecardpipeline 风格：<code class="docutils literal notranslate"><span class="pre">fit(df)</span></code>，目标列包含在 df 中、由 <code class="docutils literal notranslate"><span class="pre">target</span></code> 指定</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数据 (DataFrame或numpy数组)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>List</em><em> | </em><em>None</em>) -- 目标变量 (可选，优先使用)</p></li>
-<li><p><strong>target</strong> (<em>str</em>) -- 目标列名，当y为None时从X中提取</p></li>
-<li><p><strong>accept_numpy</strong> (<em>bool</em>) -- 是否接受numpy数组输入</p></li>
+<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数据，<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 或 numpy 数组（自动转为 DataFrame）</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>List</em><em> | </em><em>None</em>) -- 目标变量（可选），提供时优先于从 X 提取 target 列</p></li>
+<li><p><strong>target</strong> (<em>str</em>) -- 目标列名，当 <code class="docutils literal notranslate"><span class="pre">y</span></code> 为 None 时从 X 中提取，默认 <code class="docutils literal notranslate"><span class="pre">'target'</span></code></p></li>
+<li><p><strong>accept_numpy</strong> (<em>bool</em>) -- 是否接受 numpy 数组输入，默认 True</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>处理后的DataFrame
-y_series: 目标变量的Series
-feature_names: 特征名称列表</p>
+<dd class="field-even"><p><p>三元组 <code class="docutils literal notranslate"><span class="pre">(X_df,</span> <span class="pre">y_series,</span> <span class="pre">feature_names)</span></code>：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X_df</span></code> (DataFrame)：处理后的特征数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_series</span></code> (Series)：目标变量</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">feature_names</span></code> (list)：特征名称列表</p></li>
+</ul>
+</p>
 </dd>
-<dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p>X_df</p>
-</dd>
-<dt class="field-even">抛出<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> -- 当输入格式不正确时</p></li>
-<li><p><strong>TypeError</strong> -- 当输入类型不支持时</p></li>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputValidationError" title="hscredit.exceptions.InputValidationError"><strong>InputValidationError</strong></a> -- X 与 y 长度不匹配，或数据为空时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.FeatureNotFoundError" title="hscredit.exceptions.FeatureNotFoundError"><strong>FeatureNotFoundError</strong></a> -- y 为 None 且 X 中无 <code class="docutils literal notranslate"><span class="pre">target</span></code> 列时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputTypeError" title="hscredit.exceptions.InputTypeError"><strong>InputTypeError</strong></a> -- 输入类型不受支持时</p></li>
 </ul>
 </dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Tuple</em>[<em>DataFrame</em>, <em>Series</em>, <em>List</em>[str]]</p>
+</dd>
 </dl>
-<p class="rubric">示例</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># sklearn风格</span>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># sklearn 风格</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_df</span><span class="p">,</span> <span class="n">y_series</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">check_xy_inputs</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># scorecardpipeline风格</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># scorecardpipeline 风格</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_df</span><span class="p">,</span> <span class="n">y_series</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">check_xy_inputs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1118,29 +1172,31 @@ feature_names: 特征名称列表</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.convert_to_dataframe">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">convert_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#convert_to_dataframe"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.convert_to_dataframe" title="Link to this definition"></a></dt>
-<dd><p>将输入转换为DataFrame.</p>
-<p>支持DataFrame, numpy数组, list等输入.</p>
+<dd><p>将输入转换为 DataFrame。</p>
+<p>支持 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> / numpy 数组（1 维或 2 维）/ <code class="docutils literal notranslate"><span class="pre">Series</span></code> / <code class="docutils literal notranslate"><span class="pre">list</span></code> / <code class="docutils literal notranslate"><span class="pre">tuple</span></code>。
+1 维输入转为单列 DataFrame；DataFrame 与 Series 会复制后返回。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数据</p></li>
-<li><p><strong>columns</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 列名列表，当X不是DataFrame时使用</p></li>
+<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数据，不能为 None</p></li>
+<li><p><strong>columns</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 列名列表，仅当 X 不是 DataFrame 时使用；为 None 时自动生成
+<code class="docutils literal notranslate"><span class="pre">feature_0</span></code>、<code class="docutils literal notranslate"><span class="pre">feature_1</span></code> …</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>转换后的DataFrame</p>
+<dd class="field-even"><p>转换后的 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 <dt class="field-odd">抛出<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>TypeError</strong> -- 当输入类型不支持时</p></li>
-<li><p><strong>ValueError</strong> -- 当列名数量不匹配时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputValidationError" title="hscredit.exceptions.InputValidationError"><strong>InputValidationError</strong></a> -- X 为 None、维度 &gt;2，或列名数量与列数不匹配时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputTypeError" title="hscredit.exceptions.InputTypeError"><strong>InputTypeError</strong></a> -- 输入类型不受支持时</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">convert_to_dataframe</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">convert_to_dataframe</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 </pre></div>
@@ -1150,30 +1206,29 @@ feature_names: 特征名称列表</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.extract_target_from_df">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">extract_target_from_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#extract_target_from_df"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.extract_target_from_df" title="Link to this definition"></a></dt>
-<dd><p>从DataFrame中提取目标变量.</p>
+<dd><p>从 DataFrame 中提取目标变量。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入DataFrame</p></li>
-<li><p><strong>target</strong> (<em>str</em>) -- 目标列名</p></li>
-<li><p><strong>drop</strong> (<em>bool</em>) -- 是否从df中删除target列</p></li>
+<li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+<li><p><strong>target</strong> (<em>str</em>) -- 目标列名，默认 <code class="docutils literal notranslate"><span class="pre">'target'</span></code></p></li>
+<li><p><strong>drop</strong> (<em>bool</em>) -- 是否从返回的特征表中删除 <code class="docutils literal notranslate"><span class="pre">target</span></code> 列，默认 True</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>特征DataFrame
-y: 目标Series</p>
+<dd class="field-even"><p>二元组 <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">y)</span></code>，<code class="docutils literal notranslate"><span class="pre">X</span></code> 为特征 DataFrame，<code class="docutils literal notranslate"><span class="pre">y</span></code> 为目标 Series</p>
 </dd>
-<dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p>X</p>
-</dd>
-<dt class="field-even">抛出<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> -- 当target列不存在时</p></li>
-<li><p><strong>TypeError</strong> -- 当输入不是DataFrame时</p></li>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputTypeError" title="hscredit.exceptions.InputTypeError"><strong>InputTypeError</strong></a> -- 输入不是 DataFrame 时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.FeatureNotFoundError" title="hscredit.exceptions.FeatureNotFoundError"><strong>FeatureNotFoundError</strong></a> -- <code class="docutils literal notranslate"><span class="pre">target</span></code> 列不存在时</p></li>
 </ul>
 </dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Tuple</em>[<em>DataFrame</em>, <em>Series</em>]</p>
+</dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extract_target_from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extract_target_from_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1183,45 +1238,56 @@ y: 目标Series</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.check_array_1d">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">check_array_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'array'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#check_array_1d"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.check_array_1d" title="Link to this definition"></a></dt>
-<dd><p>检查并转换为一维数组.</p>
+<dd><p>检查并转换为一维 <code class="docutils literal notranslate"><span class="pre">Series</span></code>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>arr</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数组</p></li>
-<li><p><strong>name</strong> (<em>str</em>) -- 数组名称，用于错误信息</p></li>
+<li><p><strong>arr</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>Series</em><em> | </em><em>List</em>) -- 输入数组，<code class="docutils literal notranslate"><span class="pre">ndarray</span></code> / <code class="docutils literal notranslate"><span class="pre">Series</span></code> / <code class="docutils literal notranslate"><span class="pre">list</span></code> / <code class="docutils literal notranslate"><span class="pre">tuple</span></code>；
+二维数组会被展平为一维</p></li>
+<li><p><strong>name</strong> (<em>str</em>) -- 数组名称，用于生成错误信息与 Series 名称，默认 <code class="docutils literal notranslate"><span class="pre">'array'</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>一维Series</p>
+<dd class="field-even"><p>一维 <code class="docutils literal notranslate"><span class="pre">Series</span></code></p>
 </dd>
 <dt class="field-odd">抛出<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ValueError</strong> -- 当数组为空或多维时</p></li>
-<li><p><strong>TypeError</strong> -- 当类型不支持时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputValidationError" title="hscredit.exceptions.InputValidationError"><strong>InputValidationError</strong></a> -- 数组为空时</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputTypeError" title="hscredit.exceptions.InputTypeError"><strong>InputTypeError</strong></a> -- 类型不受支持时</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Series</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">check_array_1d</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.get_feature_dtypes">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">get_feature_dtypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#get_feature_dtypes"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.get_feature_dtypes" title="Link to this definition"></a></dt>
-<dd><p>获取特征的数据类型分类.</p>
+<dd><p>获取特征的数据类型分类（数值型 / 类别型）。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em>) -- 特征DataFrame</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em>) -- 特征 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>包含数值型和类别型特征名称的字典</p>
+<dd class="field-even"><p><p>字典，含三个键：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'numeric'</span></code>：数值型特征名列表（int/uint/float 各精度）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'categorical'</span></code>：非数值型特征名列表（object、category、bool 等）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'all'</span></code>：全部特征名列表</p></li>
+</ul>
+</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dtypes</span> <span class="o">=</span> <span class="n">get_feature_dtypes</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">numeric_features</span> <span class="o">=</span> <span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;numeric&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">categorical_features</span> <span class="o">=</span> <span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;categorical&#39;</span><span class="p">]</span>
@@ -1232,25 +1298,33 @@ y: 目标Series</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.utils.check_missing_values">
 <span class="sig-prename descclassname"><span class="pre">hscredit.utils.</span></span><span class="sig-name descname"><span class="pre">check_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/utils/input_utils.html#check_missing_values"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.utils.check_missing_values" title="Link to this definition"></a></dt>
-<dd><p>检查缺失值情况.</p>
+<dd><p>检查缺失值情况。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em>) -- 特征DataFrame</p></li>
-<li><p><strong>y</strong> (<em>Series</em><em> | </em><em>None</em>) -- 目标Series（可选）</p></li>
-<li><p><strong>raise_error</strong> (<em>bool</em>) -- 当存在缺失值时是否抛出异常</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em>) -- 特征 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+<li><p><strong>y</strong> (<em>Series</em><em> | </em><em>None</em>) -- 目标 <a href="#id1"><span class="problematic" id="id2">``</span></a>Series``（可选），提供时一并统计其缺失情况</p></li>
+<li><p><strong>raise_error</strong> (<em>bool</em>) -- 存在缺失值时是否抛出异常，默认 False（仅统计不报错）</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>缺失值统计字典</p>
+<dd class="field-even"><p>缺失值统计字典，含键 <code class="docutils literal notranslate"><span class="pre">X_missing``（总缺失数）、</span>
+<span class="pre">``X_missing_by_col``（各列缺失数）、``X_missing_ratio``（整体缺失率）；</span>
+<span class="pre">当</span> <span class="pre">``y</span></code> 非 None 时另含 <code class="docutils literal notranslate"><span class="pre">y_missing</span></code>、<code class="docutils literal notranslate"><span class="pre">y_missing_ratio</span></code></p>
 </dd>
 <dt class="field-odd">抛出<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> -- 当raise_error=True且存在缺失值时</p>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.InputValidationError" title="hscredit.exceptions.InputValidationError"><strong>InputValidationError</strong></a> -- <code class="docutils literal notranslate"><span class="pre">raise_error=True</span></code> 且 X 或 y 存在缺失值时</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">check_missing_values</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;X_missing_ratio&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">check_missing_values</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">raise_error</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># 有缺失则报错</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

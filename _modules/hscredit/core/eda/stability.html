@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.eda.stability &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.eda.stability &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -556,6 +563,11 @@
 
 <span class="sd">提供PSI、CSI、时间稳定性等分析功能.</span>
 <span class="sd">主要复用 hscredit.core.metrics 的PSI/CSI功能.</span>
+
+<span class="sd">**引用**</span>
+
+<span class="sd">PSI（群体稳定性指标）/ CSI（特征稳定性指标）的定义与分级阈值（&lt;0.1 稳定、</span>
+<span class="sd">0.1~0.25 关注、&gt;0.25 显著漂移）见 Siddiqi, N. (2006). *Credit Risk Scorecards.* Wiley。</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -581,9 +593,10 @@
 <span class="sd">    :param n_bins: 分箱数</span>
 <span class="sd">    :return: PSI分析结果字典</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = psi_analysis(train_df, test_df, &#39;age&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;PSI: {result[&#39;PSI值&#39;]}, 稳定性: {result[&#39;稳定性&#39;]}&quot;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = psi_analysis(train_df, test_df, &#39;age&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;PSI: {result[&#39;PSI值&#39;]}, 稳定性: {result[&#39;稳定性&#39;]}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">psi_table</span>
     
@@ -620,10 +633,11 @@
 <span class="sd">    :param n_bins: 分箱数</span>
 <span class="sd">    :return: 批量PSI结果DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; psi_result = batch_psi_analysis(df, [&#39;age&#39;, &#39;income&#39;], &#39;apply_month&#39;, </span>
-<span class="sd">        ...                                 &#39;2023-01&#39;, [&#39;2023-02&#39;, &#39;2023-03&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; print(psi_result[[&#39;特征名&#39;, &#39;对比期&#39;, &#39;PSI值&#39;, &#39;稳定性&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; psi_result = batch_psi_analysis(df, [&#39;age&#39;, &#39;income&#39;], &#39;apply_month&#39;, </span>
+<span class="sd">    ...                                 &#39;2023-01&#39;, [&#39;2023-02&#39;, &#39;2023-03&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; print(psi_result[[&#39;特征名&#39;, &#39;对比期&#39;, &#39;PSI值&#39;, &#39;稳定性&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
     
@@ -688,9 +702,10 @@
 <span class="sd">    :param compare_period: 对比期</span>
 <span class="sd">    :return: CSI分析结果</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = csi_analysis(df, &#39;score&#39;, &#39;fpd15&#39;, &#39;apply_month&#39;, &#39;2023-01&#39;, &#39;2023-02&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;CSI: {result[&#39;CSI值&#39;]}&quot;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = csi_analysis(df, &#39;score&#39;, &#39;fpd15&#39;, &#39;apply_month&#39;, &#39;2023-01&#39;, &#39;2023-02&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;CSI: {result[&#39;CSI值&#39;]}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">csi</span>
     
@@ -700,10 +715,10 @@
     
     <span class="n">base_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">==</span> <span class="n">base_period</span><span class="p">]</span>
     <span class="n">compare_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">==</span> <span class="n">compare_period</span><span class="p">]</span>
-    
-    <span class="c1"># 计算CSI</span>
-    <span class="n">csi_value</span> <span class="o">=</span> <span class="n">csi</span><span class="p">(</span><span class="n">base_df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">compare_df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> 
-                   <span class="n">base_df</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">compare_df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+
+    <span class="c1"># 计算CSI（CSI 衡量特征在两个时间段的分布漂移，不依赖目标变量；</span>
+    <span class="c1"># target 参数保留用于接口一致性与下游报告标注）</span>
+    <span class="n">csi_value</span> <span class="o">=</span> <span class="n">csi</span><span class="p">(</span><span class="n">base_df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">compare_df</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span>
     
     <span class="k">return</span> <span class="p">{</span>
         <span class="s1">&#39;特征名&#39;</span><span class="p">:</span> <span class="n">feature</span><span class="p">,</span>
@@ -728,13 +743,14 @@
 <span class="sd">    :param df: 输入数据</span>
 <span class="sd">    :param features: 特征列表</span>
 <span class="sd">    :param date_col: 日期列名</span>
-<span class="sd">    :param freq: 时间频率</span>
+<span class="sd">    :param freq: 时间聚合频率，``&#39;D&#39;`` 日 / ``&#39;W&#39;`` 周 / ``&#39;M&#39;`` 月 / ``&#39;Q&#39;`` 季度，默认 ``&#39;M&#39;``</span>
 <span class="sd">    :param n_bins: 分箱数</span>
 <span class="sd">    :return: PSI时序追踪DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; tracking = time_psi_tracking(df, [&#39;age&#39;, &#39;income&#39;], &#39;apply_date&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(tracking.pivot(index=&#39;时间周期&#39;, columns=&#39;特征名&#39;, values=&#39;PSI值&#39;))</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; tracking = time_psi_tracking(df, [&#39;age&#39;, &#39;income&#39;], &#39;apply_date&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(tracking.pivot(index=&#39;时间周期&#39;, columns=&#39;特征名&#39;, values=&#39;PSI值&#39;))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
     
@@ -803,9 +819,10 @@
 <span class="sd">    :param psi_threshold: PSI阈值</span>
 <span class="sd">    :return: 综合稳定性报告DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; report = stability_report(df, feature_list, &#39;apply_date&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(report[[&#39;特征名&#39;, &#39;平均PSI&#39;, &#39;最大PSI&#39;, &#39;不稳定期数&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; report = stability_report(df, feature_list, &#39;apply_date&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(report[[&#39;特征名&#39;, &#39;平均PSI&#39;, &#39;最大PSI&#39;, &#39;不稳定期数&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
     
@@ -872,18 +889,19 @@
 <span class="sd">        - return_matrix=True: 返回 {特征名: PSI矩阵DataFrame} 字典</span>
 <span class="sd">        - return_matrix=False: 返回长格式DataFrame [特征名, 组1, 组2, PSI值, 稳定性]</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 自动按月份分组</span>
-<span class="sd">        &gt;&gt;&gt; result = psi_cross_analysis(df, [&#39;age&#39;, &#39;income&#39;], </span>
-<span class="sd">        ...                             date_col=&#39;apply_date&#39;, freq=&#39;M&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(result[&#39;age&#39;])  # 查看age特征的PSI矩阵</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # 手工分组</span>
-<span class="sd">        &gt;&gt;&gt; result = psi_cross_analysis(df, [&#39;score&#39;], group_col=&#39;channel&#39;)</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # 返回长格式</span>
-<span class="sd">        &gt;&gt;&gt; result = psi_cross_analysis(df, [&#39;age&#39;], date_col=&#39;apply_date&#39;, </span>
-<span class="sd">        ...                             freq=&#39;M&#39;, return_matrix=False)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; # 自动按月份分组</span>
+<span class="sd">    &gt;&gt;&gt; result = psi_cross_analysis(df, [&#39;age&#39;, &#39;income&#39;], </span>
+<span class="sd">    ...                             date_col=&#39;apply_date&#39;, freq=&#39;M&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(result[&#39;age&#39;])  # 查看age特征的PSI矩阵</span>
+
+<span class="sd">    &gt;&gt;&gt; # 手工分组</span>
+<span class="sd">    &gt;&gt;&gt; result = psi_cross_analysis(df, [&#39;score&#39;], group_col=&#39;channel&#39;)</span>
+
+<span class="sd">    &gt;&gt;&gt; # 返回长格式</span>
+<span class="sd">    &gt;&gt;&gt; result = psi_cross_analysis(df, [&#39;age&#39;], date_col=&#39;apply_date&#39;, </span>
+<span class="sd">    ...                             freq=&#39;M&#39;, return_matrix=False)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">psi_table</span>
     
@@ -1019,10 +1037,11 @@
 <span class="sd">    :param psi_bins: PSI 计算分箱数，默认 10</span>
 <span class="sd">    :return: 特征偏移报告 DataFrame，含 特征名/PSI/均值变化/缺失率变化/偏移等级</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; report = feature_drift_report(train_df, prod_df)</span>
-<span class="sd">        &gt;&gt;&gt; drifted = report[report[&#39;偏移等级&#39;] == &#39;显著偏移&#39;]</span>
-<span class="sd">        &gt;&gt;&gt; print(drifted[[&#39;特征名&#39;, &#39;PSI&#39;, &#39;偏移等级&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; report = feature_drift_report(train_df, prod_df)</span>
+<span class="sd">    &gt;&gt;&gt; drifted = report[report[&#39;偏移等级&#39;] == &#39;显著偏移&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; print(drifted[[&#39;特征名&#39;, &#39;PSI&#39;, &#39;偏移等级&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df_base</span><span class="p">)</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df_target</span><span class="p">)</span>
@@ -1106,11 +1125,20 @@
 <span class="sd">    :param n_bins: PSI 分箱数，默认 10</span>
 <span class="sd">    :return: 偏移报告字典，含 PSI / 分布统计 / 模型性能变化</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; report = score_drift_report(train_score, prod_score, y_base=train_y, y_target=prod_y)</span>
-<span class="sd">        &gt;&gt;&gt; print(report[&#39;PSI&#39;], report[&#39;偏移等级&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; print(report[&#39;分布统计&#39;])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; report = score_drift_report(train_score, prod_score, y_base=train_y, y_target=prod_y)</span>
+<span class="sd">    &gt;&gt;&gt; print(report[&#39;PSI&#39;], report[&#39;偏移等级&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; print(report[&#39;分布统计&#39;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 统一转换为 Series（按位置对齐），兼容传入 np.ndarray / list / Series</span>
+    <span class="n">score_base</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">score_base</span><span class="p">))</span>
+    <span class="n">score_target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">score_target</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">y_base</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y_base</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_base</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">y_target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y_target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_target</span><span class="p">))</span>
+
     <span class="n">s_base</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">score_base</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
     <span class="n">s_tgt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">score_target</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 

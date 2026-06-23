@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.models.evaluation.report &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.models.evaluation.report &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -598,16 +605,35 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">ModelReport</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;风控模型评估报告.</span>
 
-<span class="sd">    生成全面的模型评估报告，包括性能指标、特征分析、稳定性检验等。</span>
+<span class="sd">    对一个已训练模型一站式生成评估报告：性能指标（KS/AUC 等）对比、特征重要性、</span>
+<span class="sd">    评分分布、PSI 稳定性、混淆矩阵、ROC 与 Lift 曲线。初始化时即完成训练集</span>
+<span class="sd">    （及可选测试集）的预测，后续各 ``get_*`` 方法直接返回对应结果表。</span>
 
 <span class="sd">    **参数**</span>
 
-<span class="sd">    :param model: 训练好的模型</span>
-<span class="sd">    :param X_train: 训练集特征</span>
-<span class="sd">    :param y_train: 训练集标签</span>
-<span class="sd">    :param X_test: 测试集特征，可选</span>
-<span class="sd">    :param y_test: 测试集标签，可选</span>
-<span class="sd">    :param feature_names: 特征名称列表，可选</span>
+<span class="sd">    :param model: 已训练好的模型，需实现 ``predict`` / ``predict_proba`` /</span>
+<span class="sd">        ``evaluate`` / ``get_feature_importances``（如 :class:`BaseRiskModel` 子类）</span>
+<span class="sd">    :param X_train: 训练集特征（``DataFrame`` 或 ndarray）</span>
+<span class="sd">    :param y_train: 训练集标签（0/1）</span>
+<span class="sd">    :param X_test: 测试集特征，可选；提供后才能计算 PSI 及测试集相关指标</span>
+<span class="sd">    :param y_test: 测试集标签，可选，需与 ``X_test`` 同时提供</span>
+<span class="sd">    :param feature_names: 特征名称列表，可选；缺省时依次尝试从 ``X_train.columns``、</span>
+<span class="sd">        ``model.feature_names_in_`` 推断，否则生成 ``feature_0`` …</span>
+
+<span class="sd">    **属性**</span>
+
+<span class="sd">    - feature_names: 最终使用的特征名称列表</span>
+<span class="sd">    - y_train_proba / y_test_proba: 训练/测试集预测的正类概率</span>
+<span class="sd">    - y_train_pred / y_test_pred: 训练/测试集预测类别</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.models.evaluation import ModelReport</span>
+<span class="sd">    &gt;&gt;&gt; report = ModelReport(model, X_train, y_train, X_test, y_test)</span>
+<span class="sd">    &gt;&gt;&gt; report.get_metrics()              # 训练/测试集指标对比</span>
+<span class="sd">    &gt;&gt;&gt; report.get_feature_importance(top_n=10)</span>
+<span class="sd">    &gt;&gt;&gt; report.get_psi()                  # 评分 PSI（需测试集）</span>
+<span class="sd">    &gt;&gt;&gt; report.print_report()             # 打印完整文本报告</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -719,7 +745,8 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取评分分布.</span>
 
 <span class="sd">        :param n_bins: 分箱数，默认10</span>
-<span class="sd">        :param dataset: 数据集，&#39;train&#39;或&#39;test&#39;</span>
+<span class="sd">        :param dataset: 数据集，``&#39;train&#39;``（训练集，默认）或 ``&#39;test&#39;``（测试集，</span>
+<span class="sd">            需在初始化时提供 X_test/y_test）</span>
 <span class="sd">        :return: 评分分布DataFrame</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">:</span>
@@ -787,7 +814,8 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取混淆矩阵.</span>
 
 <span class="sd">        :param threshold: 分类阈值，默认0.5</span>
-<span class="sd">        :param dataset: 数据集，&#39;train&#39;或&#39;test&#39;</span>
+<span class="sd">        :param dataset: 数据集，``&#39;train&#39;``（训练集，默认）或 ``&#39;test&#39;``（测试集，</span>
+<span class="sd">            需在初始化时提供 X_test/y_test）</span>
 <span class="sd">        :return: 混淆矩阵DataFrame</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">:</span>
@@ -814,7 +842,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_roc_curve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;train&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取ROC曲线数据.</span>
 
-<span class="sd">        :param dataset: 数据集，&#39;train&#39;或&#39;test&#39;</span>
+<span class="sd">        :param dataset: 数据集，``&#39;train&#39;``（训练集，默认）或 ``&#39;test&#39;``（测试集，</span>
+<span class="sd">            需在初始化时提供 X_test/y_test）</span>
 <span class="sd">        :return: 包含fpr, tpr, thresholds的字典</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">:</span>
@@ -841,7 +870,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_lift_curve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;获取Lift曲线数据.</span>
 
-<span class="sd">        :param dataset: 数据集，&#39;train&#39;或&#39;test&#39;</span>
+<span class="sd">        :param dataset: 数据集，``&#39;train&#39;``（训练集，默认）或 ``&#39;test&#39;``（测试集，</span>
+<span class="sd">            需在初始化时提供 X_test/y_test）</span>
 <span class="sd">        :param n_bins: 分箱数，默认10</span>
 <span class="sd">        :return: Lift曲线DataFrame</span>
 <span class="sd">        &quot;&quot;&quot;</span>

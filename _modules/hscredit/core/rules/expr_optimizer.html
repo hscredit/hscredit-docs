@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.rules.expr_optimizer &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.rules.expr_optimizer &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -554,12 +561,38 @@
   <h1>hscredit.core.rules.expr_optimizer 源代码</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;规则表达式优化器。</span>
 
-<span class="sd">提供布尔表达式简化、优化和美化功能。</span>
+<span class="sd">将规则表达式解析为表达式树（AST），应用布尔代数定律做等价化简，并以</span>
+<span class="sd">``&amp;``/``|``/``~`` 符号形式重新输出规范、易读的表达式。供 :class:`~hscredit.core.rules.Rule`</span>
+<span class="sd">在 ``&amp;``/``|``/``~``/``^`` 组合时自动调用。</span>
+
+<span class="sd">**对外函数**</span>
+
+<span class="sd">- :func:`optimize_expr`：化简表达式（幂等律、吸收律、双重否定等）</span>
+<span class="sd">- :func:`beautify_expr`：美化表达式（统一运算符符号、去除冗余括号）</span>
+<span class="sd">- :func:`get_expr_variables`：提取表达式引用的变量名</span>
+
+<span class="sd">模块内的 ``ExprNode`` / ``ExprParser`` / ``ExprOptimizer`` 等为内部实现细节，</span>
+<span class="sd">不属于稳定对外接口。</span>
+
+<span class="sd">**引用**</span>
+
+<span class="sd">- 布尔代数化简定律（幂等律 Idempotent、吸收律 Absorption、双重否定 Double negation）：</span>
+<span class="sd">  https://en.wikipedia.org/wiki/Boolean_algebra#Laws</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_canonical</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="s2">&quot;ExprNode&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;返回节点的规范化字符串（统一空白），用于等价比较。</span>
+
+<span class="sd">    复用节点的 :meth:`ExprNode.to_string` 输出（已将 ``and``/``or`` 统一为</span>
+<span class="sd">    ``&amp;``/``|`` 符号），仅压缩多余空白，做大小写敏感的精确比较，避免误判不同列名/</span>
+<span class="sd">    字面量为等价。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">ExprNode</span><span class="p">:</span>
@@ -648,56 +681,53 @@
         <span class="c1"># 不同运算符默认需要括号以避免优先级问题</span>
         <span class="k">return</span> <span class="kc">True</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">normalize_expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;规范化表达式字符串以便比较。&quot;&quot;&quot;</span>
-        <span class="c1"># 移除多余空格，统一小写，将 and/or 转换为 &amp;/|</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span>
-
     <span class="k">def</span><span class="w"> </span><span class="nf">simplify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;简化二元运算表达式。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;简化二元运算表达式。</span>
+
+<span class="sd">        仅做 **保证等价** 的化简，确保化简前后表达式逻辑完全一致：</span>
+
+<span class="sd">        - 幂等律：``A &amp; A = A``、``A | A = A``</span>
+<span class="sd">        - 吸收律：``A &amp; (A | B) = A``、``A | (A &amp; B) = A``（含交换形式）</span>
+
+<span class="sd">        这些定律只对 ``&amp;``/``|`` 成立，对 ``^``（异或）不成立（``A ^ A = False``），</span>
+<span class="sd">        故仅在 ``&amp;``/``|`` 上启用；吸收律仅在内层运算符与外层 *相反* 时成立。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># 递归简化子节点</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">simplify</span><span class="p">()</span>
 
-        <span class="c1"># 规范化表达式以便比较</span>
-        <span class="n">left_expr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize_expr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-        <span class="n">right_expr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize_expr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+        <span class="c1"># 幂等律 / 吸收律仅对与、或运算成立，异或不能套用</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">):</span>
+            <span class="n">left_expr</span> <span class="o">=</span> <span class="n">_canonical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+            <span class="n">right_expr</span> <span class="o">=</span> <span class="n">_canonical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 
-        <span class="c1"># 幂等律: A &amp; A = A, A | A = A</span>
-        <span class="k">if</span> <span class="n">left_expr</span> <span class="o">==</span> <span class="n">right_expr</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span>
-
-        <span class="c1"># 吸收率: A | (A &amp; B) = A</span>
-        <span class="c1"># 检查 left 是否包含 right（即 left 中是否有 right 这个子表达式）</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contains_expr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">right_expr</span><span class="p">):</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span>
-
-        <span class="c1"># 吸收率: A &amp; (A | B) = A</span>
-        <span class="c1"># 检查 right 是否包含 left</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contains_expr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">left_expr</span><span class="p">):</span>
+            <span class="c1"># 幂等律: A &amp; A = A, A | A = A</span>
+            <span class="k">if</span> <span class="n">left_expr</span> <span class="o">==</span> <span class="n">right_expr</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span>
 
-        <span class="c1"># 分配率展开 (可选): (A | B) &amp; (A | C) = A | (B &amp; C)</span>
-        <span class="c1"># 这个比较复杂，暂时不实现</span>
+            <span class="c1"># 吸收律: A &amp; (A | B) = A, A | (A &amp; B) = A（及交换形式）。</span>
+            <span class="c1"># 仅当内层运算符与外层相反时成立；若内外层运算符相同（如 A &amp; (A &amp; B)），</span>
+            <span class="c1"># 不可吸收——否则会错误丢弃操作数导致语义改变。</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">BinaryOpNode</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">op</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">left_expr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flatten_same_op</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">op</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">BinaryOpNode</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">op</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">right_expr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flatten_same_op</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">op</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span>
 
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_contains_expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">ExprNode</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;检查节点树中是否包含目标表达式。&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">VariableNode</span><span class="p">):</span>
-            <span class="n">node_expr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize_expr</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-            <span class="k">return</span> <span class="n">node_expr</span> <span class="o">==</span> <span class="n">target</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">BinaryOpNode</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_contains_expr</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="ow">or</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_contains_expr</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">UnaryOpNode</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contains_expr</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">operand</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_flatten_same_op</span><span class="p">(</span><span class="n">node</span><span class="p">:</span> <span class="n">ExprNode</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;沿同一运算符 ``op`` 展开 node，返回各操作数的规范化字符串列表。</span>
+
+<span class="sd">        例如 ``A | B | C`` 沿 ``|`` 展开为 ``[A, B, C]``，用于吸收律中判断某子表达式</span>
+<span class="sd">        是否为内层运算的操作数之一。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">BinaryOpNode</span><span class="p">)</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">op</span> <span class="o">==</span> <span class="n">op</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">BinaryOpNode</span><span class="o">.</span><span class="n">_flatten_same_op</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">BinaryOpNode</span><span class="o">.</span><span class="n">_flatten_same_op</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">op</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_canonical</span><span class="p">(</span><span class="n">node</span><span class="p">)]</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">UnaryOpNode</span><span class="p">(</span><span class="n">ExprNode</span><span class="p">):</span>
@@ -817,58 +847,61 @@
             <span class="k">return</span> <span class="n">VariableNode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;预处理表达式。&quot;&quot;&quot;</span>
-        <span class="c1"># 将 ~ 转换为 not</span>
-        <span class="n">expr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;not &#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;预处理表达式：将 pandas 逻辑运算符统一替换为 Python 布尔运算符。</span>
 
-        <span class="c1"># 智能替换 &amp; 和 | 为 and 和 or</span>
-        <span class="c1"># 需要跟踪括号深度来正确处理</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="sd">        pandas eval 中 ``&amp;``/``|``/``~`` 作为逐元素逻辑运算符使用，其相对比较运算符的</span>
+<span class="sd">        优先级与 Python 位运算符相反——pandas 中比较运算符优先级更高，``&amp;``/``|`` 的行为</span>
+<span class="sd">        类似 ``and``/``or``。为借助 :mod:`ast` 解析出与 pandas 一致的结合关系，必须在</span>
+<span class="sd">        **所有括号层级** 将其替换为 ``and``/``or``/``not``。若仅在顶层替换，嵌套括号内的</span>
+<span class="sd">        ``&amp;``/``|`` 会被 ast 当作高优先级位运算符，与比较运算符结合成链式比较而错误折叠，</span>
+<span class="sd">        丢失括号导致优化前后语义不一致。</span>
 
+<span class="sd">        字符串字面量（单/双引号）与反引号列名内部的符号原样保留，避免误转换。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">paren_depth</span> <span class="o">=</span> <span class="mi">0</span>
-
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+        <span class="n">quote</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># 当前所处的字符串/反引号字面量定界符，None 表示在字面量之外</span>
+
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
             <span class="n">char</span> <span class="o">=</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-            <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;(&#39;</span><span class="p">:</span>
-                <span class="n">paren_depth</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># 字面量内部：原样保留，直到遇到配对的定界符</span>
+            <span class="k">if</span> <span class="n">quote</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;)&#39;</span><span class="p">:</span>
-                <span class="n">paren_depth</span> <span class="o">-=</span> <span class="mi">1</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">paren_depth</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
-                <span class="c1"># 只在顶层括号外替换</span>
-                <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;&amp;&#39;</span> <span class="ow">and</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">:</span>
-                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># skip next &amp;</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span> <span class="ow">and</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span><span class="p">:</span>
-                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;or&#39;</span><span class="p">)</span>
-                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># skip next |</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">:</span>
-                    <span class="c1"># 检查是否是运算符 (前后有空格或括号或比较运算符)</span>
-                    <span class="n">prev_ok</span> <span class="o">=</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39; (&#39;</span>
-                    <span class="n">next_ok</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span> <span class="ow">or</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39; )&#39;</span>
-                    <span class="k">if</span> <span class="n">prev_ok</span> <span class="ow">or</span> <span class="n">next_ok</span><span class="p">:</span>
-                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span><span class="p">:</span>
-                    <span class="n">prev_ok</span> <span class="o">=</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39; (&#39;</span>
-                    <span class="n">next_ok</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span> <span class="ow">or</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39; )&#39;</span>
-                    <span class="k">if</span> <span class="n">prev_ok</span> <span class="ow">or</span> <span class="n">next_ok</span><span class="p">:</span>
-                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;or&#39;</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="n">quote</span><span class="p">:</span>
+                    <span class="n">quote</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
 
+            <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;`&#39;</span><span class="p">):</span>
+                <span class="n">quote</span> <span class="o">=</span> <span class="n">char</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;~&#39;</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; not &#39;</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; and &#39;</span><span class="p">)</span>
+                <span class="c1"># 同时兼容 &amp;&amp; 写法</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; or &#39;</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">expr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
-        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="c1"># 去除首尾空白：ast.parse(mode=&#39;eval&#39;) 不允许表达式以空白开头（会被当作缩进），</span>
+        <span class="c1"># 而前导的 ``~`` 被替换为 `` not `` 后会在行首引入空格</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">AST</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ExprNode</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;访问 AST 节点。&quot;&quot;&quot;</span>
@@ -974,19 +1007,32 @@
 <div class="viewcode-block" id="optimize_expr">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">optimize_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;简化表达式字符串。</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;简化规则表达式字符串。</span>
 
-<span class="sd">    应用布尔代数定律简化表达式，移除冗余括号，消除双重否定等。</span>
+<span class="sd">    解析表达式为表达式树后，应用以下布尔代数定律做等价化简，并去除冗余括号、</span>
+<span class="sd">    将 ``and``/``or`` 统一为 ``&amp;``/``|``：</span>
 
-<span class="sd">    :param expr: 原始表达式字符串</span>
-<span class="sd">    :return: 简化后的表达式字符串</span>
+<span class="sd">    - **幂等律（Idempotent）**：``A &amp; A → A``，``A | A → A``</span>
+<span class="sd">    - **吸收律（Absorption）**：``A | (A &amp; B) → A``，``A &amp; (A | B) → A``</span>
+<span class="sd">    - **双重否定（Double negation）**：``~~A → A``</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        化简基于子表达式字符串的规范化比较，仅识别字面等价的原子条件，不做跨变量的</span>
+<span class="sd">        逻辑推理（如 ``age &gt; 18`` 与 ``age &gt;= 19`` 不会被判定为等价）。</span>
+
+<span class="sd">    :param expr: 原始规则表达式字符串，支持 ``&amp;``/``|``/``~``/``and``/``or``/``not``</span>
+<span class="sd">    :return: 化简后的等价表达式字符串</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; optimize_expr(&quot;(age &gt; 18) &amp; (age &gt; 18)&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; optimize_expr(&quot;(age &gt; 18) &amp; (age &gt; 18)&quot;)    # 幂等律</span>
 <span class="sd">    &#39;age &gt; 18&#39;</span>
-<span class="sd">    &gt;&gt;&gt; optimize_expr(&quot;~~(age &gt; 18)&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; optimize_expr(&quot;~~(age &gt; 18)&quot;)               # 双重否定</span>
 <span class="sd">    &#39;age &gt; 18&#39;</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    布尔代数化简定律：https://en.wikipedia.org/wiki/Boolean_algebra#Laws</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span></div>
 
@@ -995,16 +1041,20 @@
 <div class="viewcode-block" id="beautify_expr">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">beautify_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;美化表达式字符串。</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;美化规则表达式字符串。</span>
 
-<span class="sd">    生成格式规范、易读性好的表达式。</span>
+<span class="sd">    在不改变逻辑的前提下规范化表达式的书写：将 ``and``/``or``/``not`` 统一为</span>
+<span class="sd">    ``&amp;``/``|``/``~`` 符号形式，按运算符结合律去除同级冗余括号，得到格式一致、</span>
+<span class="sd">    便于展示与比较的表达式。与 :func:`optimize_expr` 的区别在于不做幂等/吸收等化简。</span>
 
-<span class="sd">    :param expr: 原始表达式字符串</span>
-<span class="sd">    :return: 美化后的表达式字符串</span>
+<span class="sd">    :param expr: 原始规则表达式字符串</span>
+<span class="sd">    :return: 美化后的等价表达式字符串</span>
 
 <span class="sd">    **参考样例**</span>
 
 <span class="sd">    &gt;&gt;&gt; beautify_expr(&quot;(age &gt; 18) &amp; (income &gt; 5000)&quot;)</span>
+<span class="sd">    &#39;age &gt; 18 &amp; income &gt; 5000&#39;</span>
+<span class="sd">    &gt;&gt;&gt; beautify_expr(&quot;age &gt; 18 and income &gt; 5000&quot;)</span>
 <span class="sd">    &#39;age &gt; 18 &amp; income &gt; 5000&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_optimizer</span><span class="o">.</span><span class="n">beautify</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span></div>
@@ -1014,14 +1064,22 @@
 <div class="viewcode-block" id="get_expr_variables">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.get_expr_variables">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_expr_variables</span><span class="p">(</span><span class="n">expr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;获取表达式中使用的变量名列表。</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;提取规则表达式中引用的变量（列）名。</span>
 
-<span class="sd">    :param expr: 表达式字符串</span>
-<span class="sd">    :return: 变量名列表</span>
+<span class="sd">    用正则匹配表达式中的标识符，剔除 ``and``/``or``/``not``/``True``/``False``/</span>
+<span class="sd">    ``None``/``inf``/``nan`` 等保留字，返回去重后的变量名列表。</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        返回顺序 **不保证稳定**（基于集合去重）。如需有序且能正确处理含空格/中文/</span>
+<span class="sd">        反引号的列名，请使用 :func:`hscredit.core.rules.get_columns_from_query`</span>
+<span class="sd">        （返回去重并按字母排序的列表）。</span>
+
+<span class="sd">    :param expr: 规则表达式字符串</span>
+<span class="sd">    :return: 表达式引用的变量名列表（去重，顺序不保证）</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; get_expr_variables(&quot;(age &gt; 18) &amp; (income &gt; 5000)&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; sorted(get_expr_variables(&quot;(age &gt; 18) &amp; (income &gt; 5000)&quot;))</span>
 <span class="sd">    [&#39;age&#39;, &#39;income&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 直接使用正则表达式提取变量名</span>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>规则引擎 hscredit.core.rules &mdash; hscredit 0.1.0 文档</title>
+  <title>规则引擎 hscredit.core.rules &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -800,6 +807,143 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="hscredit.core.rules.RuleFlow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">RuleFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'serial'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule_flow.html#RuleFlow"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleFlow" title="Link to this definition"></a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>生产规则流转校验器。</p>
+<p>按给定规则顺序计算每笔样本的规则命中结果，支持串行和并行两种执行模式。</p>
+<p><strong>参数</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rules</strong> (<a class="reference internal" href="#hscredit.core.rules.Rule" title="hscredit.core.rules.rule.Rule"><em>Rule</em></a><em> | </em><em>Sequence</em><em>[</em><a class="reference internal" href="#hscredit.core.rules.Rule" title="hscredit.core.rules.rule.Rule"><em>Rule</em></a><em>]</em>) -- 单条 <a class="reference internal" href="#hscredit.core.rules.Rule" title="hscredit.core.rules.Rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rule</span></code></a> 或规则列表，规则顺序即生产执行顺序</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) -- 执行模式，<code class="docutils literal notranslate"><span class="pre">&quot;serial&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;串行&quot;</span></code> 表示命中第一条规则后停止，
+<code class="docutils literal notranslate"><span class="pre">&quot;parallel&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;并行&quot;</span></code> 表示所有规则都参与判断</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) -- 规则流名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;RuleFlow&quot;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>属性</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">变量<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rules</strong> -- 规则列表</p></li>
+<li><p><strong>mode</strong> -- 标准化后的执行模式，取值为 <code class="docutils literal notranslate"><span class="pre">&quot;serial&quot;</span></code> 或 <code class="docutils literal notranslate"><span class="pre">&quot;parallel&quot;</span></code></p></li>
+<li><p><strong>feature_names_in_</strong> -- 全部规则表达式引用的字段列表</p></li>
+</ul>
+</dd>
+<dt class="field-even">参数<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>rules</strong> (<a class="reference internal" href="#hscredit.core.rules.Rule" title="hscredit.core.rules.rule.Rule"><em>Rule</em></a><em> | </em><em>Sequence</em><em>[</em><a class="reference internal" href="#hscredit.core.rules.Rule" title="hscredit.core.rules.rule.Rule"><em>Rule</em></a><em>]</em>)</p></li>
+<li><p><strong>mode</strong> (<em>str</em>)</p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span><span class="p">,</span> <span class="n">RuleFlow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flow</span> <span class="o">=</span> <span class="n">RuleFlow</span><span class="p">([</span><span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;score &lt; 500&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;低分&quot;</span><span class="p">),</span> <span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;cnt &gt; 5&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;多头&quot;</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s2">&quot;放款时间&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="n">group_cols</span><span class="o">=</span><span class="s2">&quot;商品类别&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">group_cols</span><span class="o">=</span><span class="s2">&quot;商品类别&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.rules.RuleFlow.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">production_hits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hit_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule_flow.html#RuleFlow.compare"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleFlow.compare" title="Link to this definition"></a></dt>
+<dd><p>对比线上生产命中结果与线下规则执行结果。</p>
+<p><code class="docutils literal notranslate"><span class="pre">production_hits</span></code> 支持三种格式：</p>
+<ul class="simple">
+<li><p>单列命中规则：每行是 <code class="docutils literal notranslate"><span class="pre">rule.name</span></code>、<code class="docutils literal notranslate"><span class="pre">[rule.name]</span></code>、空值或多个规则名列表</p></li>
+<li><p>指定 <code class="docutils literal notranslate"><span class="pre">hit_col</span></code>：从 DataFrame 的该列读取命中规则</p></li>
+<li><p>规则命中矩阵：列名为规则名称/表达式/展示名，值为 <code class="docutils literal notranslate"><span class="pre">0/1</span></code> 或 <code class="docutils literal notranslate"><span class="pre">True/False</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 生产订单原始字段数据 DataFrame</p></li>
+<li><p><strong>production_hits</strong> (<em>DataFrame</em><em> | </em><em>Series</em>) -- 每笔订单线上生产命中规则</p></li>
+<li><p><strong>hit_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 命中规则列名；不传时优先识别 <code class="docutils literal notranslate"><span class="pre">&quot;命中规则&quot;</span></code>，再识别规则命中矩阵</p></li>
+<li><p><strong>order_id_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 订单 ID 字段；传入时按订单 ID 对齐，否则按行顺序/索引对齐</p></li>
+<li><p><strong>include_data</strong> (<em>bool</em>) -- 差异明细是否拼接原始订单字段，默认为 True</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">(report,</span> <span class="pre">diff_detail)</span></code>。report 为规则一致性报告，diff_detail 为差异订单明细</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Tuple</em>[<em>DataFrame</em>, <em>DataFrame</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.rules.RuleFlow.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule_flow.html#RuleFlow.predict"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleFlow.predict" title="Link to this definition"></a></dt>
+<dd><p>计算每笔样本在每条规则上的命中结果。</p>
+<p>串行模式下，前序规则已命中的样本不会继续流转到后续规则，后续规则列填充
+<code class="docutils literal notranslate"><span class="pre">&lt;NA&gt;</span></code>；并行模式下，每条规则都会对全量样本计算命中结果。返回结果保留
+输入数据索引。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>DataFrame</em>) -- 生产拼表后的变量取值明细</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>每条规则命中明细以及规则集汇总列</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.rules.RuleFlow.report">
+<span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'M'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule_flow.html#RuleFlow.report"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleFlow.report" title="Link to this definition"></a></dt>
+<dd><p>输出每条规则的流转命中报表。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 生产拼表后的变量取值明细</p></li>
+<li><p><strong>date_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 日期列名，传入后按 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 生成 <code class="docutils literal notranslate"><span class="pre">统计周期</span></code> 分组</p></li>
+<li><p><strong>freq</strong> (<em>str</em>) -- pandas Period 频率，默认 <code class="docutils literal notranslate"><span class="pre">&quot;M&quot;</span></code> 月</p></li>
+<li><p><strong>group_cols</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 类别分组字段，支持单列或多列；可与 <code class="docutils literal notranslate"><span class="pre">date_col</span></code> 同时使用</p></li>
+<li><p><strong>dropna</strong> (<em>bool</em>) -- 是否丢弃分组字段缺失样本，默认为 True；False 时归入 <code class="docutils literal notranslate"><span class="pre">&quot;缺失&quot;</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>规则级流转命中报表</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.rules.RuleFlow.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'M'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule_flow.html#RuleFlow.summary"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleFlow.summary" title="Link to this definition"></a></dt>
+<dd><p>输出规则集整体通过与命中汇总。</p>
+<p>分组参数与 <a class="reference internal" href="#hscredit.core.rules.RuleFlow.report" title="hscredit.core.rules.RuleFlow.report"><code class="xref py py-meth docutils literal notranslate"><span class="pre">report()</span></code></a> 一致；未传入分组时返回一行整体汇总。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DataFrame</em>)</p></li>
+<li><p><strong>date_col</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>freq</strong> (<em>str</em>)</p></li>
+<li><p><strong>group_cols</strong> (<em>str</em><em> | </em><em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>dropna</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.rules.get_columns_from_query">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">get_columns_from_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule.html#get_columns_from_query"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.get_columns_from_query" title="Link to this definition"></a></dt>
@@ -823,6 +967,8 @@
 <span class="go">[&#39;age&#39;, &#39;income&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_columns_from_query</span><span class="p">(</span><span class="s2">&quot;salary &gt;= 3000 &amp; age.between(20, 60)&quot;</span><span class="p">)</span>
 <span class="go">[&#39;age&#39;, &#39;salary&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_columns_from_query</span><span class="p">(</span><span class="s2">&quot;`衡枢鉴真分老客版` &lt; 600 &amp; `逾期(天)` &gt; 7&quot;</span><span class="p">)</span>
+<span class="go">[&#39;衡枢鉴真分老客版&#39;, &#39;逾期(天)&#39;]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -830,39 +976,54 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.rules.optimize_expr">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">optimize_expr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/expr_optimizer.html#optimize_expr"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.optimize_expr" title="Link to this definition"></a></dt>
-<dd><p>简化表达式字符串。</p>
-<p>应用布尔代数定律简化表达式，移除冗余括号，消除双重否定等。</p>
+<dd><p>简化规则表达式字符串。</p>
+<p>解析表达式为表达式树后，应用以下布尔代数定律做等价化简，并去除冗余括号、
+将 <code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code> 统一为 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>/<code class="docutils literal notranslate"><span class="pre">|</span></code>：</p>
+<ul class="simple">
+<li><p><strong>幂等律（Idempotent）</strong>：<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">A</span> <span class="pre">→</span> <span class="pre">A</span></code>，<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">|</span> <span class="pre">A</span> <span class="pre">→</span> <span class="pre">A</span></code></p></li>
+<li><p><strong>吸收律（Absorption）</strong>：<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">|</span> <span class="pre">(A</span> <span class="pre">&amp;</span> <span class="pre">B)</span> <span class="pre">→</span> <span class="pre">A</span></code>，<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&amp;</span> <span class="pre">(A</span> <span class="pre">|</span> <span class="pre">B)</span> <span class="pre">→</span> <span class="pre">A</span></code></p></li>
+<li><p><strong>双重否定（Double negation）</strong>：<code class="docutils literal notranslate"><span class="pre">~~A</span> <span class="pre">→</span> <span class="pre">A</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>化简基于子表达式字符串的规范化比较，仅识别字面等价的原子条件，不做跨变量的
+逻辑推理（如 <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;</span> <span class="pre">18</span></code> 与 <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;=</span> <span class="pre">19</span></code> 不会被判定为等价）。</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>expr</strong> (<em>str</em>) -- 原始表达式字符串</p>
+<dd class="field-odd"><p><strong>expr</strong> (<em>str</em>) -- 原始规则表达式字符串，支持 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>/<code class="docutils literal notranslate"><span class="pre">|</span></code>/<code class="docutils literal notranslate"><span class="pre">~</span></code>/<code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">not</span></code></p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>简化后的表达式字符串</p>
+<dd class="field-even"><p>化简后的等价表达式字符串</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 <p><strong>参考样例</strong></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">optimize_expr</span><span class="p">(</span><span class="s2">&quot;(age &gt; 18) &amp; (age &gt; 18)&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">optimize_expr</span><span class="p">(</span><span class="s2">&quot;(age &gt; 18) &amp; (age &gt; 18)&quot;</span><span class="p">)</span>    <span class="c1"># 幂等律</span>
 <span class="go">&#39;age &gt; 18&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">optimize_expr</span><span class="p">(</span><span class="s2">&quot;~~(age &gt; 18)&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">optimize_expr</span><span class="p">(</span><span class="s2">&quot;~~(age &gt; 18)&quot;</span><span class="p">)</span>               <span class="c1"># 双重否定</span>
 <span class="go">&#39;age &gt; 18&#39;</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>布尔代数化简定律：<a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_algebra#Laws">https://en.wikipedia.org/wiki/Boolean_algebra#Laws</a></p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.rules.beautify_expr">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">beautify_expr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/expr_optimizer.html#beautify_expr"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.beautify_expr" title="Link to this definition"></a></dt>
-<dd><p>美化表达式字符串。</p>
-<p>生成格式规范、易读性好的表达式。</p>
+<dd><p>美化规则表达式字符串。</p>
+<p>在不改变逻辑的前提下规范化表达式的书写：将 <code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">not</span></code> 统一为
+<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>/<code class="docutils literal notranslate"><span class="pre">|</span></code>/<code class="docutils literal notranslate"><span class="pre">~</span></code> 符号形式，按运算符结合律去除同级冗余括号，得到格式一致、
+便于展示与比较的表达式。与 <a class="reference internal" href="#hscredit.core.rules.optimize_expr" title="hscredit.core.rules.optimize_expr"><code class="xref py py-func docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a> 的区别在于不做幂等/吸收等化简。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>expr</strong> (<em>str</em>) -- 原始表达式字符串</p>
+<dd class="field-odd"><p><strong>expr</strong> (<em>str</em>) -- 原始规则表达式字符串</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>美化后的表达式字符串</p>
+<dd class="field-even"><p>美化后的等价表达式字符串</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
@@ -871,6 +1032,8 @@
 <p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">beautify_expr</span><span class="p">(</span><span class="s2">&quot;(age &gt; 18) &amp; (income &gt; 5000)&quot;</span><span class="p">)</span>
 <span class="go">&#39;age &gt; 18 &amp; income &gt; 5000&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beautify_expr</span><span class="p">(</span><span class="s2">&quot;age &gt; 18 and income &gt; 5000&quot;</span><span class="p">)</span>
+<span class="go">&#39;age &gt; 18 &amp; income &gt; 5000&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -878,20 +1041,28 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.rules.get_expr_variables">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">get_expr_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/expr_optimizer.html#get_expr_variables"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.get_expr_variables" title="Link to this definition"></a></dt>
-<dd><p>获取表达式中使用的变量名列表。</p>
+<dd><p>提取规则表达式中引用的变量（列）名。</p>
+<p>用正则匹配表达式中的标识符，剔除 <code class="docutils literal notranslate"><span class="pre">and</span></code>/<code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">not</span></code>/<code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>/
+<code class="docutils literal notranslate"><span class="pre">None</span></code>/<code class="docutils literal notranslate"><span class="pre">inf</span></code>/<code class="docutils literal notranslate"><span class="pre">nan</span></code> 等保留字，返回去重后的变量名列表。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>返回顺序 <a href="#id3"><span class="problematic" id="id4">**</span></a>不保证稳定**（基于集合去重）。如需有序且能正确处理含空格/中文/
+反引号的列名，请使用 <a class="reference internal" href="#hscredit.core.rules.get_columns_from_query" title="hscredit.core.rules.get_columns_from_query"><code class="xref py py-func docutils literal notranslate"><span class="pre">hscredit.core.rules.get_columns_from_query()</span></code></a>
+（返回去重并按字母排序的列表）。</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>expr</strong> (<em>str</em>) -- 表达式字符串</p>
+<dd class="field-odd"><p><strong>expr</strong> (<em>str</em>) -- 规则表达式字符串</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>变量名列表</p>
+<dd class="field-even"><p>表达式引用的变量名列表（去重，顺序不保证）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>List</em>[str]</p>
 </dd>
 </dl>
 <p><strong>参考样例</strong></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_expr_variables</span><span class="p">(</span><span class="s2">&quot;(age &gt; 18) &amp; (income &gt; 5000)&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">get_expr_variables</span><span class="p">(</span><span class="s2">&quot;(age &gt; 18) &amp; (income &gt; 5000)&quot;</span><span class="p">))</span>
 <span class="go">[&#39;age&#39;, &#39;income&#39;]</span>
 </pre></div>
 </div>
@@ -901,7 +1072,16 @@
 <dt class="sig sig-object py" id="hscredit.core.rules.RuleState">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">RuleState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/rules/rule.html#RuleState"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleState" title="Link to this definition"></a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<p>规则状态枚举.</p>
+<p>规则生命周期状态枚举。</p>
+<p>继承 <code class="docutils literal notranslate"><span class="pre">str</span></code>，可直接与字符串比较。<a class="reference internal" href="#hscredit.core.rules.Rule" title="hscredit.core.rules.Rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rule</span></code></a> 用它标记是否已执行过 predict，
+从而约束 <a class="reference internal" href="#hscredit.core.rules.Rule.result" title="hscredit.core.rules.Rule.result"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Rule.result()</span></code></a> 等依赖结果的方法。</p>
+<p><strong>枚举值</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INITIALIZED</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;initialized&quot;</span></code>)：规则已创建但尚未调用 <a class="reference internal" href="#hscredit.core.rules.Rule.predict" title="hscredit.core.rules.Rule.predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Rule.predict()</span></code></a>，
+此时无可用结果</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">APPLIED</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;applied&quot;</span></code>)：规则已对某数据集执行过 <a class="reference internal" href="#hscredit.core.rules.Rule.predict" title="hscredit.core.rules.Rule.predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Rule.predict()</span></code></a>，
+<code class="docutils literal notranslate"><span class="pre">result_</span></code> 中存有最近一次命中结果</p></li>
+</ul>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="hscredit.core.rules.RuleState.INITIALIZED">
 <span class="sig-name descname"><span class="pre">INITIALIZED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'initialized'</span></em><a class="headerlink" href="#hscredit.core.rules.RuleState.INITIALIZED" title="Link to this definition"></a></dt>
@@ -918,14 +1098,18 @@
 <dt class="sig sig-object py" id="hscredit.core.rules.RuleStateError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">RuleStateError</span></span><a class="reference internal" href="../_modules/hscredit/core/rules/rule.html#RuleStateError"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleStateError" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="exceptions.html#hscredit.exceptions.StateError" title="hscredit.exceptions.StateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">StateError</span></code></a></p>
-<p>规则状态错误.</p>
+<p>规则状态异常基类。</p>
+<p>当在规则不允许的状态下调用方法时抛出，继承自
+<a class="reference internal" href="exceptions.html#hscredit.exceptions.StateError" title="hscredit.exceptions.StateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">StateError</span></code></a>。</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="hscredit.core.rules.RuleUnAppliedError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.rules.</span></span><span class="sig-name descname"><span class="pre">RuleUnAppliedError</span></span><a class="reference internal" href="../_modules/hscredit/core/rules/rule.html#RuleUnAppliedError"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.rules.RuleUnAppliedError" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.rules.RuleStateError" title="hscredit.core.rules.rule.RuleStateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuleStateError</span></code></a></p>
-<p>规则未应用错误.</p>
+<p>规则尚未应用异常。</p>
+<p>在未先调用 <a class="reference internal" href="#hscredit.core.rules.Rule.predict" title="hscredit.core.rules.Rule.predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Rule.predict()</span></code></a> 的情况下访问 <a class="reference internal" href="#hscredit.core.rules.Rule.result" title="hscredit.core.rules.Rule.result"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Rule.result()</span></code></a> 等依赖预测
+结果的方法时抛出。</p>
 </dd></dl>
 
 </section>

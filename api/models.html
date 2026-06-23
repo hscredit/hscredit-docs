@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>模型 hscredit.core.models &mdash; hscredit 0.1.0 文档</title>
+  <title>模型 hscredit.core.models &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="modeling.html">模型</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -771,7 +778,7 @@ Boosting 模型与调参器为懒加载，分别见 <a class="reference internal
 这样线性预测值保持不变，但模型摘要和评分卡解释更符合 WOE 场景。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>)</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#hscredit.core.models.LogisticRegression" title="hscredit.core.models.classical.logistic_regression.LogisticRegression"><em>LogisticRegression</em></a></p>
@@ -782,13 +789,18 @@ Boosting 模型与调参器为懒加载，分别见 <a class="reference internal
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.predict_proba">
 <span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.predict_proba"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.predict_proba" title="Link to this definition"></a></dt>
-<dd><p>预测概率，必要时自动应用 WOE 列方向调整.</p>
+<dd><p>预测各类别概率（评分卡建模常用，输入通常为 WOE 数据）。</p>
+<p>当启用 <code class="docutils literal notranslate"><span class="pre">positive_woe_coef</span></code> 时，会按训练阶段确定的 WOE 列方向自动调整输入，
+保证概率与评分卡分数方向一致。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵（一般为 WOE 编码后数据），DataFrame 或 ndarray</p>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ndarray</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>概率数组，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">2)</span></code>，第 1 列为正类（坏样本）概率</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -796,13 +808,16 @@ Boosting 模型与调参器为懒加载，分别见 <a class="reference internal
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.predict_log_proba">
 <span class="sig-name descname"><span class="pre">predict_log_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.predict_log_proba"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.predict_log_proba" title="Link to this definition"></a></dt>
-<dd><p>预测对数概率，必要时自动应用 WOE 列方向调整.</p>
+<dd><p>预测各类别的对数概率（<code class="docutils literal notranslate"><span class="pre">ln(predict_proba)</span></code>，数值已做下限裁剪）。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵，DataFrame 或 ndarray</p>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ndarray</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>对数概率数组，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">2)</span></code></p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -810,13 +825,16 @@ Boosting 模型与调参器为懒加载，分别见 <a class="reference internal
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.decision_function">
 <span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.decision_function"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.decision_function" title="Link to this definition"></a></dt>
-<dd><p>计算决策函数，必要时自动应用 WOE 列方向调整.</p>
+<dd><p>计算线性决策值（log-odds），必要时自动应用 WOE 列方向调整。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵，DataFrame 或 ndarray</p>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ndarray</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>决策函数值数组（<code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">0</span></code> 判为正类）</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -824,13 +842,16 @@ Boosting 模型与调参器为懒加载，分别见 <a class="reference internal
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.predict"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.predict" title="Link to this definition"></a></dt>
-<dd><p>预测类别，必要时自动应用 WOE 列方向调整.</p>
+<dd><p>预测类别标签（阈值为决策值 0），必要时自动应用 WOE 列方向调整。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 特征矩阵，DataFrame 或 ndarray</p>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>ndarray</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>预测类别数组</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1067,10 +1088,29 @@ VIF &gt; threshold 被认为存在多重共线性</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.report">
 <span class="sig-name descname"><span class="pre">report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overdue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excel_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.report"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.report" title="Link to this definition"></a></dt>
-<dd><p>生成风控建模报告（与 BaseRiskModel.report 接口一致）.</p>
+<dd><p>生成风控建模报告（与 <a class="reference internal" href="#hscredit.core.models.BaseRiskModel.report" title="hscredit.core.models.BaseRiskModel.report"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseRiskModel.report()</span></code></a> 接口一致）。</p>
+<p>在训练/测试集上汇总模型表现（KS、AUC、分数分布、逾期率等），可选导出 Excel。</p>
 <dl class="field-list simple">
-<dt class="field-odd">返回<span class="colon">:</span></dt>
-<dd class="field-odd"><p>QuickModelReport 实例</p>
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasets</strong> -- 数据集字典（如 <code class="docutils literal notranslate"><span class="pre">{'train':</span> <span class="pre">(X,</span> <span class="pre">y),</span> <span class="pre">'test':</span> <span class="pre">(X,</span> <span class="pre">y)}</span></code>），与
+<code class="docutils literal notranslate"><span class="pre">X_train</span></code>/<code class="docutils literal notranslate"><span class="pre">y_train</span></code>/<code class="docutils literal notranslate"><span class="pre">X_test</span></code>/<code class="docutils literal notranslate"><span class="pre">y_test</span></code> 二选一</p></li>
+<li><p><strong>X_train</strong> -- 训练特征，与 <code class="docutils literal notranslate"><span class="pre">datasets</span></code> 二选一</p></li>
+<li><p><strong>y_train</strong> -- 训练标签</p></li>
+<li><p><strong>X_test</strong> -- 测试特征，可选</p></li>
+<li><p><strong>y_test</strong> -- 测试标签，可选</p></li>
+<li><p><strong>overdue</strong> -- 逾期天数字段名（多标签分析时使用），可选</p></li>
+<li><p><strong>dpds</strong> -- 逾期定义 DPD（如 <code class="docutils literal notranslate"><span class="pre">[7,</span> <span class="pre">3]</span></code>），可选</p></li>
+<li><p><strong>excel_path</strong> -- 报告导出的 Excel 路径，提供则落盘，可选</p></li>
+<li><p><strong>verbose</strong> -- 是否打印进度，默认 <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>kwargs</strong> -- 透传给报告生成器的其他参数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code> 实例</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 模型尚未训练时</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1155,8 +1195,15 @@ VIF &gt; threshold 被认为存在多重共线性</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.get_model_info">
 <span class="sig-name descname"><span class="pre">get_model_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.get_model_info"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.get_model_info" title="Link to this definition"></a></dt>
-<dd><p>获取模型信息（与 BaseRiskModel.get_model_info 接口一致）.</p>
+<dd><p>获取模型摘要信息（与 <a class="reference internal" href="#hscredit.core.models.BaseRiskModel.get_model_info" title="hscredit.core.models.BaseRiskModel.get_model_info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseRiskModel.get_model_info()</span></code></a> 接口一致）。</p>
 <dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>含 <code class="docutils literal notranslate"><span class="pre">model_type</span></code> / <code class="docutils literal notranslate"><span class="pre">objective</span></code> / <code class="docutils literal notranslate"><span class="pre">n_features</span></code> / <code class="docutils literal notranslate"><span class="pre">n_classes</span></code> /
+<code class="docutils literal notranslate"><span class="pre">params</span></code> 等键的字典（LR 无 boosting 迭代，故 <code class="docutils literal notranslate"><span class="pre">best_iteration</span></code>/<code class="docutils literal notranslate"><span class="pre">best_score</span></code> 为 None）</p>
+</dd>
+<dt class="field-even">抛出<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 模型尚未训练时</p>
+</dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
@@ -1166,7 +1213,17 @@ VIF &gt; threshold 被认为存在多重共线性</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.LogisticRegression.get_native_model">
 <span class="sig-name descname"><span class="pre">get_native_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/classical/logistic_regression.html#LogisticRegression.get_native_model"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogisticRegression.get_native_model" title="Link to this definition"></a></dt>
-<dd><p>获取底层模型（返回自身，因为 LR 不包装底层模型）.</p>
+<dd><p>获取底层原生模型（与 <a class="reference internal" href="#hscredit.core.models.BaseRiskModel.get_native_model" title="hscredit.core.models.BaseRiskModel.get_native_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseRiskModel.get_native_model()</span></code></a> 接口一致）。</p>
+<p>本类直接继承 sklearn <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> 并未包装额外底层模型，故返回自身，
+便于与 boosting 模型（返回各自原生 booster）的统一调用。</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+<dt class="field-even">抛出<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 模型尚未训练时</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1302,14 +1359,11 @@ actual_odds = base_odds   (当 base_odds &lt; 1，坏样本率)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scores</span> <span class="o">=</span> <span class="n">scorecard</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">input_type</span><span class="o">=</span><span class="s1">&#39;woe&#39;</span><span class="p">)</span>  <span class="c1"># 传入WOE数据</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>参考:</dt><dd><ul class="simple">
-<li><p>toad.ScoreCard</p></li>
-<li><p>scorecardpipeline.ScoreCard</p></li>
-<li><p>optbinning.Scorecard</p></li>
-</ul>
-</dd>
-</dl>
+<p><strong>引用</strong></p>
+<p>标准评分卡刻度公式 <a href="#id2"><span class="problematic" id="id3">``</span></a>Score = A - B·ln(odds)``（A=offset、B=factor=pdo/ln(rate)）出自
+Siddiqi, N. (2006). <em>Credit Risk Scorecards: Developing and Implementing Intelligent
+Credit Scoring.</em> Wiley。API 设计对标 toad.ScoreCard、scorecardpipeline.ScoreCard 与
+optbinning.Scorecard（<a class="reference external" href="https://gnpalencia.org/optbinning/scorecard.html">https://gnpalencia.org/optbinning/scorecard.html</a>）。</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.coef_">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coef_</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#hscredit.core.models.ScoreCard.coef_" title="Link to this definition"></a></dt>
@@ -1419,7 +1473,7 @@ actual_odds = base_odds   (当 base_odds &lt; 1，坏样本率)</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>) -- 特征矩阵（WOE数据），用于预测概率</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 特征矩阵（WOE数据），用于预测概率</p></li>
 <li><p><strong>proba</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 直接传入预测概率（正类概率）</p></li>
 </ul>
 </dd>
@@ -1496,15 +1550,27 @@ Score = <code class="docutils literal notranslate"><span class="pre">A_</span></
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.predict_proba">
 <span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.predict_proba"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.predict_proba" title="Link to this definition"></a></dt>
-<dd><p>预测概率（使用底层 LR 模型）.</p>
+<dd><p>预测样本属于各类别的概率（使用底层 LR 模型）。</p>
+<p>会自动检测输入是否为 WOE 数据：若为原始数据则先经 binner/encoder 转为 WOE，
+再交由逻辑回归模型输出概率。与 :meth:<a href="#id4"><span class="problematic" id="id5">`</span></a>predict`（输出分数）相对，本方法输出概率。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 输入数据，原始特征或 WOE 数据（自动识别），DataFrame 或 ndarray</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>形状 <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">2)</span></code> 的概率数组，第 1 列为坏样本（正类）概率</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 评分卡尚未拟合且未传入预训练 LR 模型时</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>ndarray</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">proba_bad</span> <span class="o">=</span> <span class="n">scorecard</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>   <span class="c1"># 坏样本概率</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1569,20 +1635,36 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.score_to_bad_rate_table">
 <span class="sig-name descname"><span class="pre">score_to_bad_rate_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'quantile'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.score_to_bad_rate_table"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.score_to_bad_rate_table" title="Link to this definition"></a></dt>
-<dd><p>输出评分区间对应坏率和 odds 的对照表.</p>
+<dd><p>生成评分分箱对应坏样本率、Odds、KS 的对照表（评分卡校验/划档常用）。</p>
+<p>将分数切成 <code class="docutils literal notranslate"><span class="pre">n_bins</span></code> 档，逐档统计样本数、坏样本率、Odds，并累计计算 KS，
+用于检查&quot;分数越高坏率越低&quot;的单调性与整体区分度。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>scores</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>n_bins</strong> (<em>int</em>)</p></li>
-<li><p><strong>method</strong> (<em>str</em>)</p></li>
+<li><p><strong>scores</strong> (<em>ndarray</em>) -- 模型输出的分数数组（如 <a class="reference internal" href="#hscredit.core.models.ScoreCard.predict" title="hscredit.core.models.ScoreCard.predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">predict()</span></code></a> 的结果）</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em>) -- 对应的真实标签数组（0=好/1=坏），与 <code class="docutils literal notranslate"><span class="pre">scores</span></code> 等长</p></li>
+<li><p><strong>n_bins</strong> (<em>int</em>) -- 分数分档数量，默认为 <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- <p>分档方式，默认为 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code>。可取以下枚举值：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'quantile'</span></code>：等频分档（每档样本量大致相等），用 <code class="docutils literal notranslate"><span class="pre">pd.qcut</span></code></p></li>
+<li><p>其他值（如 <code class="docutils literal notranslate"><span class="pre">'uniform'</span></code>）：等距分档（按分数范围等宽），用 <code class="docutils literal notranslate"><span class="pre">pd.cut</span></code></p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame，列含 <code class="docutils literal notranslate"><span class="pre">评分区间</span></code> / <code class="docutils literal notranslate"><span class="pre">样本数</span></code> / <code class="docutils literal notranslate"><span class="pre">坏样本数</span></code> / <code class="docutils literal notranslate"><span class="pre">坏样本率</span></code> /
+<code class="docutils literal notranslate"><span class="pre">好样本数</span></code> / <code class="docutils literal notranslate"><span class="pre">Odds</span></code> / <code class="docutils literal notranslate"><span class="pre">累计好样本占比</span></code> / <code class="docutils literal notranslate"><span class="pre">累计坏样本占比</span></code> / <code class="docutils literal notranslate"><span class="pre">KS</span></code></p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">scorecard</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scorecard</span><span class="o">.</span><span class="n">score_to_bad_rate_table</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1632,13 +1714,13 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.export_pmml">
-<span class="sig-name descname"><span class="pre">export_pmml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pmml_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scorecard.pmml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.export_pmml"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.export_pmml" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">export_pmml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pmml_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scorecard.pmml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.export_pmml"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.export_pmml" title="Link to this definition"></a></dt>
 <dd><p>导出 PMML 文件.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pmml_file</strong> (<em>str</em>) -- PMML 文件保存路径，默认 'scorecard.pmml'</p></li>
-<li><p><strong>decimal</strong> (<em>int</em>) -- 特征子分保留小数位数，默认 2</p></li>
+<li><p><strong>decimal</strong> (<em>int</em>) -- 特征子分保留小数位数，默认 12，确保 PMML 与 predict 精度一致</p></li>
 <li><p><strong>debug</strong> (<em>bool</em>) -- 是否返回中间对象进行调试，默认 False</p></li>
 </ul>
 </dd>
@@ -1650,7 +1732,7 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.export_deployment_code">
-<span class="sig-name descname"><span class="pre">export_deployment_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'python'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'calculate_score'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.export_deployment_code"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.export_deployment_code" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">export_deployment_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'python'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'calculate_score'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.export_deployment_code"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.export_deployment_code" title="Link to this definition"></a></dt>
 <dd><p>导出评分卡部署代码.</p>
 <p>支持生成 SQL、Python、Java 格式的评分卡计算代码，可直接用于生产部署。</p>
 <dl class="field-list simple">
@@ -1683,68 +1765,123 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.get_feature_importance">
 <span class="sig-name descname"><span class="pre">get_feature_importance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.get_feature_importance"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.get_feature_importance" title="Link to this definition"></a></dt>
-<dd><p>获取特征重要性.</p>
+<dd><p>获取评分卡的特征重要性表（基于 LR 系数）。</p>
+<p>以逻辑回归系数绝对值衡量重要性。与 <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_feature_importances`（返回</span> <span class="pre">Series，</span>
+<span class="pre">支持</span> <span class="pre">``coef`()</span></code> / <code class="docutils literal notranslate"><span class="pre">score_range</span></code> 两种口径）不同，本方法返回明细 DataFrame。</p>
 <dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame，含 <code class="docutils literal notranslate"><span class="pre">feature</span></code> / <code class="docutils literal notranslate"><span class="pre">coef</span></code> / <code class="docutils literal notranslate"><span class="pre">importance</span></code> 三列，按
+<code class="docutils literal notranslate"><span class="pre">importance</span></code> 降序</p>
+</dd>
+<dt class="field-even">抛出<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 评分卡尚未拟合时</p>
+</dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scorecard</span><span class="o">.</span><span class="n">get_feature_importance</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.get_reason">
 <span class="sig-name descname"><span class="pre">get_reason</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.get_reason"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.get_reason" title="Link to this definition"></a></dt>
-<dd><p>获取评分的主要原因.</p>
+<dd><p>输出每个样本评分的主要驱动原因（reason codes / 拒绝原因）。</p>
+<p>对每个样本，按&quot;该特征得分相对其基准效应的偏离&quot;排序，取偏离最负（最拉低分数）的
+前 <code class="docutils literal notranslate"><span class="pre">keep</span></code> 个特征作为不利原因，可用于授信拒绝理由说明（adverse action）与可解释性。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p></li>
-<li><p><strong>keep</strong> (<em>int</em>)</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 输入数据，原始或 WOE 数据（自动识别），DataFrame 或 ndarray</p></li>
+<li><p><strong>keep</strong> (<em>int</em>) -- 每个样本保留的主要原因（特征）个数，默认为 <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
 </ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame，每行对应一个样本，列为排序后的 Top-<code class="docutils literal notranslate"><span class="pre">keep</span></code> 不利特征及其影响</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 评分卡尚未拟合时</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scorecard</span><span class="o">.</span><span class="n">get_reason</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.score_to_probability_table">
 <span class="sig-name descname"><span class="pre">score_to_probability_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'quantile'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.score_to_probability_table"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.score_to_probability_table" title="Link to this definition"></a></dt>
-<dd><p>生成评分与逾期率对应表.</p>
+<dd><p>生成评分区间与理论逾期率（坏样本概率）对照表。</p>
+<p>将分数分档后，依据评分卡刻度公式由各档分数中位数反推理论 odds 与坏样本概率
+（<code class="docutils literal notranslate"><span class="pre">prob</span> <span class="pre">=</span> <span class="pre">odds/(1+odds)</span></code>，<code class="docutils literal notranslate"><span class="pre">odds</span> <span class="pre">=</span> <span class="pre">exp((A</span> <span class="pre">-</span> <span class="pre">score)/B)</span></code>），可叠加真实标签 <code class="docutils literal notranslate"><span class="pre">y</span></code>
+对比理论与实际逾期率，用于评分卡校准核验与划档定价。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>scores</strong> (<em>ndarray</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>n_bins</strong> (<em>int</em>)</p></li>
-<li><p><strong>method</strong> (<em>str</em>)</p></li>
-<li><p><strong>score_bins</strong> (<em>list</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>scores</strong> (<em>ndarray</em><em> | </em><em>None</em>) -- 分数数组；若为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 则用 <code class="docutils literal notranslate"><span class="pre">X</span></code> 经 <a class="reference internal" href="#hscredit.core.models.ScoreCard.predict" title="hscredit.core.models.ScoreCard.predict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">predict()</span></code></a> 计算</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 输入数据，当 <code class="docutils literal notranslate"><span class="pre">scores</span></code> 未提供时用于预测分数</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>None</em>) -- 可选真实标签，提供后表中追加各档实际坏样本率以对比理论值</p></li>
+<li><p><strong>n_bins</strong> (<em>int</em>) -- 分数分档数量，默认为 <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- <p>分档方式，默认为 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code>。可取以下枚举值：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'quantile'</span></code>：等频分档（<code class="docutils literal notranslate"><span class="pre">pd.qcut</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'uniform'</span></code>：等距分档（<code class="docutils literal notranslate"><span class="pre">pd.cut</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'custom'</span></code>：使用 <code class="docutils literal notranslate"><span class="pre">score_bins</span></code> 指定的自定义分档边界</p></li>
 </ul>
+</p></li>
+<li><p><strong>score_bins</strong> (<em>list</em><em> | </em><em>None</em>) -- 自定义分档边界列表，仅当 <code class="docutils literal notranslate"><span class="pre">method='custom'</span></code> 时生效</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame，含评分区间及对应理论 odds / 理论坏样本概率（提供 <code class="docutils literal notranslate"><span class="pre">y</span></code> 时含实际值）</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> -- <code class="docutils literal notranslate"><span class="pre">scores</span></code> 与 <code class="docutils literal notranslate"><span class="pre">X</span></code> 均未提供时</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scorecard</span><span class="o">.</span><span class="n">score_to_probability_table</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ScoreCard.get_detailed_score">
 <span class="sig-name descname"><span class="pre">get_detailed_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_reason</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/scorecard/scorecard.html#ScoreCard.get_detailed_score"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ScoreCard.get_detailed_score" title="Link to this definition"></a></dt>
-<dd><p>获取每个样本的详细评分信息.</p>
+<dd><p>输出样本级评分明细：基础分 + 各特征贡献分 + 总分（可附主要原因）。</p>
+<p>将总分拆解为截距基础分与每个特征的贡献分，便于逐样本审视分数构成、做可解释性展示。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p></li>
-<li><p><strong>sample_idx</strong> (<em>int</em><em> | </em><em>list</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>include_reason</strong> (<em>bool</em>)</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 输入数据，原始或 WOE 数据（自动识别），DataFrame 或 ndarray</p></li>
+<li><p><strong>sample_idx</strong> (<em>int</em><em> | </em><em>list</em><em> | </em><em>None</em>) -- 仅输出指定样本的明细，可为单个下标或下标列表；<code class="docutils literal notranslate"><span class="pre">None</span></code> 表示全部</p></li>
+<li><p><strong>include_reason</strong> (<em>bool</em>) -- 是否附带主要驱动原因列（同 <a class="reference internal" href="#hscredit.core.models.ScoreCard.get_reason" title="hscredit.core.models.ScoreCard.get_reason"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_reason()</span></code></a>），默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 </ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame，每行一个样本，列含各特征贡献分、基础分与总分</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 评分卡尚未拟合时</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scorecard</span><span class="o">.</span><span class="n">get_detailed_score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">sample_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2083,8 +2220,8 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X_train</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em>) -- 训练集特征</p></li>
 <li><p><strong>y_train</strong> (<em>ndarray</em><em> | </em><em>Series</em>) -- 训练集标签</p></li>
-<li><p><strong>X_test</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>) -- 测试集特征，可选</p></li>
-<li><p><strong>y_test</strong> (<em>Series</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 测试集标签，可选</p></li>
+<li><p><strong>X_test</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 测试集特征，可选</p></li>
+<li><p><strong>y_test</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 测试集标签，可选</p></li>
 <li><p><strong>feature_names</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 特征名称列表，可选</p></li>
 </ul>
 </dd>
@@ -2283,8 +2420,8 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>) -- 特征矩阵，SHAP方法必需</p></li>
-<li><p><strong>y</strong> (<em>Series</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 目标变量，可选</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 特征矩阵，SHAP方法必需</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，可选</p></li>
 <li><p><strong>top_n</strong> (<em>int</em>) -- 显示前N个特征，默认20</p></li>
 <li><p><strong>importance_type</strong> (<em>str</em>) -- 重要性类型（传统方法），默认'gain'</p></li>
 <li><p><strong>method</strong> (<em>str</em>) -- 计算方法，默认'traditional'
@@ -2448,8 +2585,8 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 </dd></dl>
 
 </section>
-<section id="id2">
-<h2>规则模型<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id6">
+<h2>规则模型<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.models.RuleSet">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.models.</span></span><span class="sig-name descname"><span class="pre">RuleSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RuleSet'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">LogicOperator.AND</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/rules/rule_classifier.html#RuleSet"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.RuleSet" title="Link to this definition"></a></dt>
@@ -2834,7 +2971,12 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 <dt class="sig sig-object py" id="hscredit.core.models.LogicOperator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.models.</span></span><span class="sig-name descname"><span class="pre">LogicOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/rules/rule_classifier.html#LogicOperator"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.LogicOperator" title="Link to this definition"></a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<p>逻辑操作符枚举.</p>
+<p>规则组合逻辑操作符枚举（继承 <code class="docutils literal notranslate"><span class="pre">str</span></code>，可直接与字符串比较）。</p>
+<p>成员：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AND</span></code> = <code class="docutils literal notranslate"><span class="pre">&quot;and&quot;</span></code>：与逻辑，所有子规则同时命中才算命中（取交集）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OR</span></code> = <code class="docutils literal notranslate"><span class="pre">&quot;or&quot;</span></code>：或逻辑，任一子规则命中即算命中（取并集）</p></li>
+</ul>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="hscredit.core.models.LogicOperator.AND">
 <span class="sig-name descname"><span class="pre">AND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'and'</span></em><a class="headerlink" href="#hscredit.core.models.LogicOperator.AND" title="Link to this definition"></a></dt>
@@ -2919,8 +3061,8 @@ WOE 线性表达式，便于复核、文档化与离线部署。</p>
 </dd></dl>
 
 </section>
-<section id="id3">
-<h2>损失函数与指标<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id7">
+<h2>损失函数与指标<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>自定义风控损失函数（继承 <code class="docutils literal notranslate"><span class="pre">BaseLoss</span></code>）通过各框架适配器接入 XGBoost / LightGBM /
 CatBoost / TabNet。</p>
 <dl class="py class">
@@ -2929,14 +3071,32 @@ CatBoost / TabNet。</p>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>损失函数基类。</p>
 <p>所有自定义损失函数都应该继承此类，并实现以下方法:
-- __call__: 计算损失值
-- gradient: 计算梯度（一阶导数）
-- hessian: 计算二阶导数（可选，用于XGBoost等需要二阶导的框架）</p>
+- <code class="docutils literal notranslate"><span class="pre">__call__</span></code>: 计算损失值
+- <code class="docutils literal notranslate"><span class="pre">gradient</span></code>: 计算梯度（一阶导数 dL/dp，相对**概率** p）
+- <code class="docutils literal notranslate"><span class="pre">hessian</span></code>: 计算二阶导数（可选，用于 XGBoost 等需要二阶导的框架）</p>
+<p><strong>适配器模式（框架转换）</strong></p>
+<p>子类只需以&quot;概率 p&quot;为视角实现 <code class="docutils literal notranslate"><span class="pre">gradient</span></code>/<code class="docutils literal notranslate"><span class="pre">hessian</span></code>，再用以下便捷方法转换为各
+boosting 框架所需格式——内部统一处理 sigmoid 链接函数（原始分数→概率）与各框架的
+符号/接口约定：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#hscredit.core.models.BaseLoss.to_xgboost" title="hscredit.core.models.BaseLoss.to_xgboost"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_xgboost()</span></code></a>：返回 <code class="docutils literal notranslate"><span class="pre">obj(preds,</span> <span class="pre">dtrain)</span> <span class="pre">-&gt;</span> <span class="pre">(grad,</span> <span class="pre">hess)</span></code> 闭包</p></li>
+<li><p><a class="reference internal" href="#hscredit.core.models.BaseLoss.to_lightgbm" title="hscredit.core.models.BaseLoss.to_lightgbm"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_lightgbm()</span></code></a>：返回 <code class="docutils literal notranslate"><span class="pre">obj(y_true,</span> <span class="pre">y_pred)</span> <span class="pre">-&gt;</span> <span class="pre">(grad,</span> <span class="pre">hess)</span></code> 闭包</p></li>
+<li><p><a class="reference internal" href="#hscredit.core.models.BaseLoss.to_catboost" title="hscredit.core.models.BaseLoss.to_catboost"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_catboost()</span></code></a>：返回实现 <code class="docutils literal notranslate"><span class="pre">calc_ders_range</span></code> 的损失对象</p></li>
+<li><p><a class="reference internal" href="#hscredit.core.models.BaseLoss.to_ngboost" title="hscredit.core.models.BaseLoss.to_ngboost"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_ngboost()</span></code></a>：返回 NGBoost <code class="docutils literal notranslate"><span class="pre">Score</span></code> 子类（仅 Bernoulli 二分类）</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- 损失函数名称，默认为&quot;custom_loss&quot;</p>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- 损失函数名称，默认为 <code class="docutils literal notranslate"><span class="pre">&quot;custom_loss&quot;</span></code></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">xgboost</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xgb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.models.losses</span><span class="w"> </span><span class="kn">import</span> <span class="n">FocalLoss</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span> <span class="o">=</span> <span class="n">FocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">booster</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">train</span><span class="p">({</span><span class="s1">&#39;disable_default_eval_metric&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">dtrain</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">obj</span><span class="o">=</span><span class="n">loss</span><span class="o">.</span><span class="n">to_xgboost</span><span class="p">())</span>     <span class="c1"># 自定义目标</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.BaseLoss.gradient">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/base.html#BaseLoss.gradient"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseLoss.gradient" title="Link to this definition"></a></dt>
@@ -3026,8 +3186,8 @@ CatBoost / TabNet。</p>
 <span class="sig-name descname"><span class="pre">to_ngboost</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/base.html#BaseLoss.to_ngboost"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BaseLoss.to_ngboost" title="Link to this definition"></a></dt>
 <dd><p>转换为NGBoost格式的Score类（仅支持 Bernoulli 二分类）。</p>
 <p>NGBoost 使用自然梯度 + 概率分布框架，自定义 loss 需要实现 Score 子类。
-本方法通过链式法则将 <a href="#id4"><span class="problematic" id="id5">``</span></a>dL/dp``（BaseLoss.gradient 的输出）转换为
-<a href="#id6"><span class="problematic" id="id7">``</span></a>dL/d(logit)``（NGBoost 需要的分布参数梯度）:</p>
+本方法通过链式法则将 <a href="#id8"><span class="problematic" id="id9">``</span></a>dL/dp``（BaseLoss.gradient 的输出）转换为
+<a href="#id10"><span class="problematic" id="id11">``</span></a>dL/d(logit)``（NGBoost 需要的分布参数梯度）:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>dL/d(logit) = dL/dp × dp/d(logit) = dL/dp × p × (1 - p)
 </pre></div>
 </div>
@@ -3051,7 +3211,7 @@ CatBoost / TabNet。</p>
 </div>
 <p><strong>注意</strong></p>
 <ul class="simple">
-<li><p>仅支持 <a href="#id8"><span class="problematic" id="id9">``</span></a>Dist=Bernoulli``（NGBoost 默认二分类分布）</p></li>
+<li><p>仅支持 <a href="#id12"><span class="problematic" id="id13">``</span></a>Dist=Bernoulli``（NGBoost 默认二分类分布）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">score()</span></code> 使用标准 BCE 作为监控指标</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">d_score()</span></code> 使用自定义 loss 的梯度驱动参数更新</p></li>
 </ul>
@@ -3101,8 +3261,9 @@ CatBoost / TabNet。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bst</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">dtrain</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="n">loss</span><span class="o">.</span><span class="n">to_xgboost</span><span class="p">(),</span> <span class="n">num_boost_round</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>参考</strong></p>
-<p>Lin, T. Y., et al. &quot;Focal loss for dense object detection.&quot; ICCV 2017.</p>
+<p><strong>引用</strong></p>
+<p>Lin, T.-Y., Goyal, P., Girshick, R., He, K., &amp; Dollár, P. (2017). <em>Focal Loss for
+Dense Object Detection.</em> ICCV 2017. <a class="reference external" href="https://arxiv.org/abs/1708.02002">https://arxiv.org/abs/1708.02002</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.FocalLoss.gradient">
 <span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/focal_loss.html#FocalLoss.gradient"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.FocalLoss.gradient" title="Link to this definition"></a></dt>
@@ -3171,7 +3332,7 @@ CatBoost / TabNet。</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.models.losses</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsymmetricFocalLoss</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span> <span class="o">=</span> <span class="n">AsymmetricFocalLoss</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">gamma_pos</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">gamma_neg</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
@@ -3181,6 +3342,10 @@ CatBoost / TabNet。</p>
 <span class="go">True</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>在 Focal Loss（Lin et al., 2017, <a class="reference external" href="https://arxiv.org/abs/1708.02002">https://arxiv.org/abs/1708.02002</a>）基础上对正负样本
+采用不同聚焦参数，思想与非对称损失 Ben-Baruch, E. et al. (2021). <em>Asymmetric Loss for
+Multi-Label Classification</em> 相通（<a class="reference external" href="https://arxiv.org/abs/2009.14119">https://arxiv.org/abs/2009.14119</a>）。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.AsymmetricFocalLoss.gradient">
 <span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/asymmetric_focal_loss.html#AsymmetricFocalLoss.gradient"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.AsymmetricFocalLoss.gradient" title="Link to this definition"></a></dt>
@@ -3262,6 +3427,10 @@ CatBoost / TabNet。</p>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>类别加权（class weighting）是处理不平衡数据的经典成本敏感方法，参见 King, G., &amp; Zeng,
+L. (2001). <em>Logistic Regression in Rare Events Data.</em> Political Analysis 9(2)，
+以及 Elkan, C. (2001). <em>The Foundations of Cost-Sensitive Learning.</em> IJCAI 2001。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.WeightedBCELoss.gradient">
 <span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/weighted_loss.html#WeightedBCELoss.gradient"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.WeightedBCELoss.gradient" title="Link to this definition"></a></dt>
@@ -3418,6 +3587,9 @@ CatBoost / TabNet。</p>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>在目标通过率约束下最小化坏账率，属信贷审批的业务驱动目标；成本敏感学习背景见
+Elkan, C. (2001). <em>The Foundations of Cost-Sensitive Learning.</em> IJCAI 2001。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.BadDebtLoss.gradient">
 <span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/risk_loss.html#BadDebtLoss.gradient"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.BadDebtLoss.gradient" title="Link to this definition"></a></dt>
@@ -3593,7 +3765,7 @@ CatBoost / TabNet。</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.models.losses</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrdinalRankLoss</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span> <span class="o">=</span> <span class="n">OrdinalRankLoss</span><span class="p">(</span><span class="n">rank_weight</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">bce_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
@@ -3603,6 +3775,11 @@ CatBoost / TabNet。</p>
 <span class="go">True</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>成对排序（pairwise ranking）优化与 AUC 的等价性见 Burges, C. et al. (2005). <em>Learning
+to Rank using Gradient Descent (RankNet).</em> ICML 2005，
+<a class="reference external" href="https://www.microsoft.com/en-us/research/publication/learning-to-rank-using-gradient-descent/">https://www.microsoft.com/en-us/research/publication/learning-to-rank-using-gradient-descent/</a> ；
+AUC 与 Wilcoxon–Mann–Whitney 统计量的关系见 Hanley &amp; McNeil (1982)。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.OrdinalRankLoss.gradient">
 <span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/losses/ranking_loss.html#OrdinalRankLoss.gradient"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.OrdinalRankLoss.gradient" title="Link to this definition"></a></dt>
@@ -3781,7 +3958,7 @@ CatBoost / TabNet。</p>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.models.BaseMetric" title="hscredit.core.models.losses.base.BaseMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseMetric</span></code></a></p>
 <p>KS (Kolmogorov-Smirnov) 指标.</p>
 <p>衡量模型区分好坏客户的能力，KS值越大表示模型区分能力越强。</p>
-<p>KS = max(<a href="#id11"><span class="problematic" id="id12">|累积好客户比例 - 累积坏客户比例|</span></a>)</p>
+<p>KS = max(<a href="#id49"><span class="problematic" id="id50">|累积好客户比例 - 累积坏客户比例|</span></a>)</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- 指标名称，默认为&quot;ks&quot;</p>
@@ -3809,6 +3986,9 @@ CatBoost / TabNet。</p>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>KS（Kolmogorov–Smirnov）统计量：<a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov">https://en.wikipedia.org/wiki/Kolmogorov</a>–Smirnov_test ；
+其在信用评分中的应用见 Siddiqi, N. (2006). <em>Credit Risk Scorecards.</em> Wiley。</p>
 </dd></dl>
 
 <dl class="py class">
@@ -3950,10 +4130,11 @@ CatBoost / TabNet。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span> <span class="o">=</span> <span class="n">LightGBMLossAdapter</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">train_data</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">y_train</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># objective() 采用 (y_true, y_pred) -&gt; (grad, hess) 约定，</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 通过 params[&#39;objective&#39;] 传入（LightGBM 4.0 起已移除 fobj 参数）</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bst</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;objective&#39;</span><span class="p">:</span> <span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="s1">&#39;auc&#39;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;objective&#39;</span><span class="p">:</span> <span class="n">adapter</span><span class="o">.</span><span class="n">objective</span><span class="p">(),</span> <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="s1">&#39;auc&#39;</span><span class="p">},</span>
 <span class="gp">... </span>    <span class="n">train_set</span><span class="o">=</span><span class="n">train_data</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">fobj</span><span class="o">=</span><span class="n">adapter</span><span class="o">.</span><span class="n">objective</span><span class="p">(),</span>
 <span class="gp">... </span>    <span class="n">num_boost_round</span><span class="o">=</span><span class="mi">100</span>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
@@ -4086,27 +4267,46 @@ CatBoost / TabNet。</p>
 </dd></dl>
 
 </section>
-<section id="id10">
-<h2>模型报告<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<section id="id14">
+<h2>模型报告<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.models.ModelReport">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.models.</span></span><span class="sig-name descname"><span class="pre">ModelReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/evaluation/report.html#ModelReport"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ModelReport" title="Link to this definition"></a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>风控模型评估报告.</p>
-<p>生成全面的模型评估报告，包括性能指标、特征分析、稳定性检验等。</p>
+<p>对一个已训练模型一站式生成评估报告：性能指标（KS/AUC 等）对比、特征重要性、
+评分分布、PSI 稳定性、混淆矩阵、ROC 与 Lift 曲线。初始化时即完成训练集
+（及可选测试集）的预测，后续各 <code class="docutils literal notranslate"><span class="pre">get_*</span></code> 方法直接返回对应结果表。</p>
 <p><strong>参数</strong></p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference internal" href="#hscredit.core.models.BaseRiskModel" title="hscredit.core.models.BaseRiskModel"><em>BaseRiskModel</em></a>) -- 训练好的模型</p></li>
-<li><p><strong>X_train</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em>) -- 训练集特征</p></li>
-<li><p><strong>y_train</strong> (<em>ndarray</em><em> | </em><em>Series</em>) -- 训练集标签</p></li>
-<li><p><strong>X_test</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em><em> | </em><em>None</em>) -- 测试集特征，可选</p></li>
-<li><p><strong>y_test</strong> (<em>Series</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 测试集标签，可选</p></li>
-<li><p><strong>feature_names</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 特征名称列表，可选</p></li>
+<li><p><strong>model</strong> (<a class="reference internal" href="#hscredit.core.models.BaseRiskModel" title="hscredit.core.models.BaseRiskModel"><em>BaseRiskModel</em></a>) -- 已训练好的模型，需实现 <code class="docutils literal notranslate"><span class="pre">predict</span></code> / <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> /
+<code class="docutils literal notranslate"><span class="pre">evaluate</span></code> / <a href="#id15"><span class="problematic" id="id16">``</span></a>get_feature_importances``（如 <a class="reference internal" href="#hscredit.core.models.BaseRiskModel" title="hscredit.core.models.BaseRiskModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRiskModel</span></code></a> 子类）</p></li>
+<li><p><strong>X_train</strong> (<em>ndarray</em><em> | </em><em>DataFrame</em>) -- 训练集特征（<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 或 ndarray）</p></li>
+<li><p><strong>y_train</strong> (<em>ndarray</em><em> | </em><em>Series</em>) -- 训练集标签（0/1）</p></li>
+<li><p><strong>X_test</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em><em> | </em><em>None</em>) -- 测试集特征，可选；提供后才能计算 PSI 及测试集相关指标</p></li>
+<li><p><strong>y_test</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 测试集标签，可选，需与 <code class="docutils literal notranslate"><span class="pre">X_test</span></code> 同时提供</p></li>
+<li><p><strong>feature_names</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 特征名称列表，可选；缺省时依次尝试从 <code class="docutils literal notranslate"><span class="pre">X_train.columns</span></code>、
+<code class="docutils literal notranslate"><span class="pre">model.feature_names_in_</span></code> 推断，否则生成 <code class="docutils literal notranslate"><span class="pre">feature_0</span></code> …</p></li>
 </ul>
 </dd>
 </dl>
+<p><strong>属性</strong></p>
+<ul class="simple">
+<li><p>feature_names: 最终使用的特征名称列表</p></li>
+<li><p>y_train_proba / y_test_proba: 训练/测试集预测的正类概率</p></li>
+<li><p>y_train_pred / y_test_pred: 训练/测试集预测类别</p></li>
+</ul>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.models.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelReport</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">ModelReport</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>              <span class="c1"># 训练/测试集指标对比</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">get_feature_importance</span><span class="p">(</span><span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">get_psi</span><span class="p">()</span>                  <span class="c1"># 评分 PSI（需测试集）</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">print_report</span><span class="p">()</span>             <span class="c1"># 打印完整文本报告</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.ModelReport.get_metrics">
 <span class="sig-name descname"><span class="pre">get_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/evaluation/report.html#ModelReport.get_metrics"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.ModelReport.get_metrics" title="Link to this definition"></a></dt>
@@ -4146,7 +4346,8 @@ CatBoost / TabNet。</p>
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数，默认10</p></li>
-<li><p><strong>dataset</strong> (<em>str</em>) -- 数据集，'train'或'test'</p></li>
+<li><p><strong>dataset</strong> (<em>str</em>) -- 数据集，<a href="#id17"><span class="problematic" id="id18">``</span></a>'train'<a href="#id19"><span class="problematic" id="id20">``</span></a>（训练集，默认）或 <a href="#id21"><span class="problematic" id="id22">``</span></a>'test'<a href="#id23"><span class="problematic" id="id24">``</span></a>（测试集，
+需在初始化时提供 X_test/y_test）</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -4183,7 +4384,8 @@ CatBoost / TabNet。</p>
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>threshold</strong> (<em>float</em>) -- 分类阈值，默认0.5</p></li>
-<li><p><strong>dataset</strong> (<em>str</em>) -- 数据集，'train'或'test'</p></li>
+<li><p><strong>dataset</strong> (<em>str</em>) -- 数据集，<a href="#id25"><span class="problematic" id="id26">``</span></a>'train'<a href="#id27"><span class="problematic" id="id28">``</span></a>（训练集，默认）或 <a href="#id29"><span class="problematic" id="id30">``</span></a>'test'<a href="#id31"><span class="problematic" id="id32">``</span></a>（测试集，
+需在初始化时提供 X_test/y_test）</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -4201,7 +4403,8 @@ CatBoost / TabNet。</p>
 <dd><p>获取ROC曲线数据.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dataset</strong> (<em>str</em>) -- 数据集，'train'或'test'</p>
+<dd class="field-odd"><p><strong>dataset</strong> (<em>str</em>) -- 数据集，<a href="#id33"><span class="problematic" id="id34">``</span></a>'train'<a href="#id35"><span class="problematic" id="id36">``</span></a>（训练集，默认）或 <a href="#id37"><span class="problematic" id="id38">``</span></a>'test'<a href="#id39"><span class="problematic" id="id40">``</span></a>（测试集，
+需在初始化时提供 X_test/y_test）</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p>包含fpr, tpr, thresholds的字典</p>
@@ -4219,7 +4422,8 @@ CatBoost / TabNet。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<em>str</em>) -- 数据集，'train'或'test'</p></li>
+<li><p><strong>dataset</strong> (<em>str</em>) -- 数据集，<a href="#id41"><span class="problematic" id="id42">``</span></a>'train'<a href="#id43"><span class="problematic" id="id44">``</span></a>（训练集，默认）或 <a href="#id45"><span class="problematic" id="id46">``</span></a>'test'<a href="#id47"><span class="problematic" id="id48">``</span></a>（测试集，
+需在初始化时提供 X_test/y_test）</p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数，默认10</p></li>
 </ul>
 </dd>

@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>数据探索 hscredit.core.eda &mdash; hscredit 0.1.0 文档</title>
+  <title>数据探索 hscredit.core.eda &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -604,7 +611,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">info</span> <span class="o">=</span> <span class="n">data_info</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
 <span class="go">            信息项         值</span>
@@ -638,7 +645,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">missing</span> <span class="o">=</span> <span class="n">missing_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span>
 <span class="go">      特征名  缺失数   缺失率(%)  非空数  查得率(%)</span>
@@ -707,7 +714,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 基础统计（无目标变量）</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">feature_summary</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -758,7 +765,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num_stats</span> <span class="o">=</span> <span class="n">numeric_summary</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">num_stats</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;均值&#39;</span><span class="p">,</span> <span class="s1">&#39;标准差&#39;</span><span class="p">,</span> <span class="s1">&#39;偏度&#39;</span><span class="p">,</span> <span class="s1">&#39;峰度&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -784,7 +791,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cat_stats</span> <span class="o">=</span> <span class="n">category_summary</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cat_stats</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;类别数&#39;</span><span class="p">,</span> <span class="s1">&#39;最常见类别&#39;</span><span class="p">,</span> <span class="s1">&#39;最常见占比(%)&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -811,7 +818,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">quality</span> <span class="o">=</span> <span class="n">data_quality_report</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">quality</span><span class="p">)</span>
 <span class="go">      特征名      问题类型  严重程度         建议处理</span>
@@ -861,7 +868,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单维度客群分组分析</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">feature_group_analysis</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">df</span><span class="p">,</span>
@@ -970,7 +977,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 1. 基础用法：监控生产客群相对训练集的变化</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">population_stability_monitor</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">expected</span><span class="o">=</span><span class="n">train_df</span><span class="p">,</span>              <span class="c1"># 训练集作为基准</span>
@@ -1040,7 +1047,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">target_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
 <span class="go">   类别   样本数   占比(%)  累计占比(%)</span>
@@ -1074,7 +1081,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em> | <em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单标签分析</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">bad_rate_overall</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
@@ -1117,7 +1124,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em> | <em>Dict</em>[str, <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单标签</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">bad_rate_by_dimension</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1155,7 +1162,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em> | <em>Dict</em>[str, <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单标签</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trend</span> <span class="o">=</span> <span class="n">bad_rate_trend</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1192,7 +1199,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em> | <em>Dict</em>[str, <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单标签</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bins</span> <span class="o">=</span> <span class="n">bad_rate_by_bins</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1213,7 +1220,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入数据</p></li>
 <li><p><strong>date_col</strong> (<em>str</em>) -- 日期列名</p></li>
-<li><p><strong>freq</strong> (<em>str</em>) -- 时间频率</p></li>
+<li><p><strong>freq</strong> (<em>str</em>) -- 时间聚合频率，<code class="docutils literal notranslate"><span class="pre">'D'</span></code> 日 / <code class="docutils literal notranslate"><span class="pre">'W'</span></code> 周 / <code class="docutils literal notranslate"><span class="pre">'M'</span></code> 月 / <code class="docutils literal notranslate"><span class="pre">'Q'</span></code> 季度，默认 <code class="docutils literal notranslate"><span class="pre">'M'</span></code></p></li>
 <li><p><strong>target_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 目标变量列名（如有）</p></li>
 <li><p><strong>target</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
@@ -1225,7 +1232,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">sample_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="p">[[</span><span class="s1">&#39;时间周期&#39;</span><span class="p">,</span> <span class="s1">&#39;样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;坏样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;逾期率(%)&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1259,7 +1266,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">feature_type_inference</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">types</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;特征类型&#39;</span><span class="p">,</span> <span class="s1">&#39;唯一值数&#39;</span><span class="p">,</span> <span class="s1">&#39;建议处理方式&#39;</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># 将特定数值列视为分类</span>
@@ -1287,7 +1294,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">numeric_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="p">[[</span><span class="s1">&#39;分箱区间&#39;</span><span class="p">,</span> <span class="s1">&#39;频数&#39;</span><span class="p">,</span> <span class="s1">&#39;频率(%)&#39;</span><span class="p">,</span> <span class="s1">&#39;累计频率(%)&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1313,7 +1320,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">categorical_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="p">[[</span><span class="s1">&#39;类别值&#39;</span><span class="p">,</span> <span class="s1">&#39;频数&#39;</span><span class="p">,</span> <span class="s1">&#39;频率(%)&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1340,7 +1347,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">outliers</span> <span class="o">=</span> <span class="n">outlier_detection</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;iqr&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">outliers</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;异常值数&#39;</span><span class="p">,</span> <span class="s1">&#39;异常值率(%)&#39;</span><span class="p">,</span> <span class="s1">&#39;正常范围&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1366,7 +1373,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rare</span> <span class="o">=</span> <span class="n">rare_category_detection</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">rare</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;稀有类别&#39;</span><span class="p">,</span> <span class="s1">&#39;频数&#39;</span><span class="p">,</span> <span class="s1">&#39;频率(%)&#39;</span><span class="p">,</span> <span class="s1">&#39;建议&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1391,7 +1398,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">concentration</span> <span class="o">=</span> <span class="n">concentration_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">concentration</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;Gini系数&#39;</span><span class="p">,</span> <span class="s1">&#39;集中度评级&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1408,7 +1415,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入数据</p></li>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) -- 指定分析的特征列表</p></li>
 <li><p><strong>date_col</strong> (<em>str</em>) -- 日期列名</p></li>
-<li><p><strong>freq</strong> (<em>str</em>) -- 时间频率</p></li>
+<li><p><strong>freq</strong> (<em>str</em>) -- 时间聚合频率，<code class="docutils literal notranslate"><span class="pre">'D'</span></code> 日 / <code class="docutils literal notranslate"><span class="pre">'W'</span></code> 周 / <code class="docutils literal notranslate"><span class="pre">'M'</span></code> 月 / <code class="docutils literal notranslate"><span class="pre">'Q'</span></code> 季度，默认 <code class="docutils literal notranslate"><span class="pre">'M'</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1418,7 +1425,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stability</span> <span class="o">=</span> <span class="n">feature_stability_over_time</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stability</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;均值标准差&#39;</span><span class="p">,</span> <span class="s1">&#39;变异系数&#39;</span><span class="p">,</span> <span class="s1">&#39;稳定性评级&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1437,7 +1444,9 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>feature</strong> (<em>str</em>) -- 特征名</p></li>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量名</p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数</p></li>
-<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法</p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法，取值同 <a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning" title="hscredit.core.binning.OptimalBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a>
+（如 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code> 等频、<code class="docutils literal notranslate"><span class="pre">'tree'</span></code> 决策树、<code class="docutils literal notranslate"><span class="pre">'chi'</span></code> 卡方、<code class="docutils literal notranslate"><span class="pre">'mdlp'</span></code> 信息论、
+<code class="docutils literal notranslate"><span class="pre">'best_iv'</span></code> 最优IV 等），默认 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1447,7 +1456,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, str | float | <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">iv_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IV值: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;IV值&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, 预测能力: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;预测能力&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;分箱明细&#39;</span><span class="p">])</span>
@@ -1467,7 +1476,9 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) -- 特征列表</p></li>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量名</p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数</p></li>
-<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法</p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法，取值同 <a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning" title="hscredit.core.binning.OptimalBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a>
+（如 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code> 等频、<code class="docutils literal notranslate"><span class="pre">'tree'</span></code> 决策树、<code class="docutils literal notranslate"><span class="pre">'chi'</span></code> 卡方、<code class="docutils literal notranslate"><span class="pre">'mdlp'</span></code> 信息论、
+<code class="docutils literal notranslate"><span class="pre">'best_iv'</span></code> 最优IV 等），默认 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code></p></li>
 <li><p><strong>return_details</strong> (<em>bool</em>) -- 是否返回详细分箱结果</p></li>
 </ul>
 </dd>
@@ -1478,7 +1489,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iv_result</span> <span class="o">=</span> <span class="n">batch_iv_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iv_result</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;IV值&#39;</span><span class="p">,</span> <span class="s1">&#39;预测能力&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;IV值&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
@@ -1497,7 +1508,9 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>feature</strong> (<em>str</em>) -- 特征名</p></li>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量名</p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数</p></li>
-<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法</p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法，取值同 <a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning" title="hscredit.core.binning.OptimalBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a>
+（如 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code> 等频、<code class="docutils literal notranslate"><span class="pre">'tree'</span></code> 决策树、<code class="docutils literal notranslate"><span class="pre">'chi'</span></code> 卡方、<code class="docutils literal notranslate"><span class="pre">'mdlp'</span></code> 信息论、
+<code class="docutils literal notranslate"><span class="pre">'best_iv'</span></code> 最优IV 等），默认 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1507,7 +1520,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">woe_df</span> <span class="o">=</span> <span class="n">woe_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">woe_df</span><span class="p">[[</span><span class="s1">&#39;分箱&#39;</span><span class="p">,</span> <span class="s1">&#39;分箱标签&#39;</span><span class="p">,</span> <span class="s1">&#39;WOE值&#39;</span><span class="p">,</span> <span class="s1">&#39;IV值&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1526,7 +1539,9 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>feature</strong> (<em>str</em>) -- 特征名</p></li>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量名</p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数</p></li>
-<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法</p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- 分箱方法，取值同 <a class="reference internal" href="binning.html#hscredit.core.binning.OptimalBinning" title="hscredit.core.binning.OptimalBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">OptimalBinning</span></code></a>
+（如 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code> 等频、<code class="docutils literal notranslate"><span class="pre">'tree'</span></code> 决策树、<code class="docutils literal notranslate"><span class="pre">'chi'</span></code> 卡方、<code class="docutils literal notranslate"><span class="pre">'mdlp'</span></code> 信息论、
+<code class="docutils literal notranslate"><span class="pre">'best_iv'</span></code> 最优IV 等），默认 <code class="docutils literal notranslate"><span class="pre">'quantile'</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1536,7 +1551,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bin_df</span> <span class="o">=</span> <span class="n">binning_bad_rate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">bin_df</span><span class="p">[[</span><span class="s1">&#39;分箱&#39;</span><span class="p">,</span> <span class="s1">&#39;样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;逾期率&#39;</span><span class="p">,</span> <span class="s1">&#39;LIFT值&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1564,7 +1579,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, str | float]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">monotonicity_check</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;单调性: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;单调性&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, 相关系数: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;Spearman相关系数&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1590,7 +1605,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, str | float]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">univariate_auc</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AUC: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;AUC值&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, 区分能力: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;区分能力&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1618,7 +1633,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ranking</span> <span class="o">=</span> <span class="n">feature_importance_ranking</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature_list</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ranking</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;IV值&#39;</span><span class="p">,</span> <span class="s1">&#39;AUC值&#39;</span><span class="p">,</span> <span class="s1">&#39;综合得分&#39;</span><span class="p">,</span> <span class="s1">&#39;排名&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1634,7 +1649,13 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入数据</p></li>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 指定分析的特征，None则分析全部数值型</p></li>
-<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'pearson'</em><em>, </em><em>'spearman'</em><em>, </em><em>'kendall'</em><em>]</em>) -- 相关计算方法</p></li>
+<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'pearson'</em><em>, </em><em>'spearman'</em><em>, </em><em>'kendall'</em><em>]</em>) -- <p>相关计算方法，默认 <code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>：皮尔逊线性相关系数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'spearman'</span></code>：斯皮尔曼秩相关（单调关系，抗非线性/异常值）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kendall'</span></code>：肯德尔 τ 秩相关（小样本/有序类别更稳健）</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1644,7 +1665,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">corr</span> <span class="o">=</span> <span class="n">correlation_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
 </pre></div>
@@ -1661,7 +1682,13 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入数据</p></li>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 指定分析的特征</p></li>
 <li><p><strong>threshold</strong> (<em>float</em>) -- 高相关阈值</p></li>
-<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'pearson'</em><em>, </em><em>'spearman'</em><em>, </em><em>'kendall'</em><em>]</em>) -- 相关计算方法</p></li>
+<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'pearson'</em><em>, </em><em>'spearman'</em><em>, </em><em>'kendall'</em><em>]</em>) -- <p>相关计算方法，默认 <code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>：皮尔逊线性相关系数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'spearman'</span></code>：斯皮尔曼秩相关（单调关系，抗非线性/异常值）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kendall'</span></code>：肯德尔 τ 秩相关（小样本/有序类别更稳健）</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1672,7 +1699,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span> <span class="o">=</span> <span class="n">high_correlation_pairs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="s1">&#39;特征1&#39;</span> <span class="ow">in</span> <span class="n">pairs</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">pairs</span><span class="p">[[</span><span class="s1">&#39;特征1&#39;</span><span class="p">,</span> <span class="s1">&#39;特征2&#39;</span><span class="p">,</span> <span class="s1">&#39;相关系数&#39;</span><span class="p">,</span> <span class="s1">&#39;相关评级&#39;</span><span class="p">]])</span>
@@ -1694,7 +1721,13 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) -- 特征列表</p></li>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量</p></li>
 <li><p><strong>threshold</strong> (<em>float</em>) -- 高相关阈值</p></li>
-<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'pearson'</em><em>, </em><em>'spearman'</em><em>, </em><em>'kendall'</em><em>]</em>) -- 相关计算方法</p></li>
+<li><p><strong>method</strong> (<em>Literal</em><em>[</em><em>'pearson'</em><em>, </em><em>'spearman'</em><em>, </em><em>'kendall'</em><em>]</em>) -- <p>相关计算方法，默认 <code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>：皮尔逊线性相关系数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'spearman'</span></code>：斯皮尔曼秩相关（单调关系，抗非线性/异常值）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kendall'</span></code>：肯德尔 τ 秩相关（小样本/有序类别更稳健）</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1704,7 +1737,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>List</em>[str]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">selected</span> <span class="o">=</span> <span class="n">correlation_filter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature_list</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;从</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_list</span><span class="p">)</span><span class="si">}</span><span class="s2">个特征中筛选出</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span><span class="si">}</span><span class="s2">个&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1730,7 +1763,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vif_df</span> <span class="o">=</span> <span class="n">vif_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vif_df</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;VIF值&#39;</span><span class="p">,</span> <span class="s1">&#39;共线性评级&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1758,7 +1791,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, str | float | <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">psi_analysis</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PSI: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;PSI值&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, 稳定性: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;稳定性&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1787,7 +1820,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">psi_result</span> <span class="o">=</span> <span class="n">batch_psi_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="s1">&#39;apply_month&#39;</span><span class="p">,</span>
 <span class="gp">... </span>                                <span class="s1">&#39;2023-01&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;2023-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-03&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">psi_result</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;对比期&#39;</span><span class="p">,</span> <span class="s1">&#39;PSI值&#39;</span><span class="p">,</span> <span class="s1">&#39;稳定性&#39;</span><span class="p">]])</span>
@@ -1818,7 +1851,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, str | float]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">csi_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="s1">&#39;apply_month&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-02&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CSI: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;CSI值&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1836,7 +1869,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入数据</p></li>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) -- 特征列表</p></li>
 <li><p><strong>date_col</strong> (<em>str</em>) -- 日期列名</p></li>
-<li><p><strong>freq</strong> (<em>str</em>) -- 时间频率</p></li>
+<li><p><strong>freq</strong> (<em>str</em>) -- 时间聚合频率，<code class="docutils literal notranslate"><span class="pre">'D'</span></code> 日 / <code class="docutils literal notranslate"><span class="pre">'W'</span></code> 周 / <code class="docutils literal notranslate"><span class="pre">'M'</span></code> 月 / <code class="docutils literal notranslate"><span class="pre">'Q'</span></code> 季度，默认 <code class="docutils literal notranslate"><span class="pre">'M'</span></code></p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) -- 分箱数</p></li>
 </ul>
 </dd>
@@ -1847,7 +1880,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tracking</span> <span class="o">=</span> <span class="n">time_psi_tracking</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tracking</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;时间周期&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;PSI值&#39;</span><span class="p">))</span>
 </pre></div>
@@ -1876,7 +1909,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">stability_report</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature_list</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;平均PSI&#39;</span><span class="p">,</span> <span class="s1">&#39;最大PSI&#39;</span><span class="p">,</span> <span class="s1">&#39;不稳定期数&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -1914,7 +1947,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em> | <em>Dict</em>[str, <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 自动按月份分组</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">psi_cross_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span>
 <span class="gp">... </span>                            <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
@@ -1956,7 +1989,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">feature_drift_report</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">prod_df</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">drifted</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;偏移等级&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;显著偏移&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">drifted</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;PSI&#39;</span><span class="p">,</span> <span class="s1">&#39;偏移等级&#39;</span><span class="p">]])</span>
@@ -1987,7 +2020,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">score_drift_report</span><span class="p">(</span><span class="n">train_score</span><span class="p">,</span> <span class="n">prod_score</span><span class="p">,</span> <span class="n">y_base</span><span class="o">=</span><span class="n">train_y</span><span class="p">,</span> <span class="n">y_target</span><span class="o">=</span><span class="n">prod_y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;PSI&#39;</span><span class="p">],</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;偏移等级&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;分布统计&#39;</span><span class="p">])</span>
@@ -2020,7 +2053,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">profile</span> <span class="o">=</span> <span class="n">population_profile</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">profile_by_seg</span> <span class="o">=</span> <span class="n">population_profile</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">segment_col</span><span class="o">=</span><span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 </pre></div>
@@ -2052,7 +2085,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">population_shift_analysis</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">prod_df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;PSI&#39;</span><span class="p">,</span> <span class="s1">&#39;偏移等级&#39;</span><span class="p">,</span> <span class="s1">&#39;建议&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -2087,7 +2120,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">population_monitoring_report</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">df_base</span><span class="o">=</span><span class="n">train_df</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">df_compare_list</span><span class="o">=</span><span class="p">[</span><span class="n">prod_2024q1</span><span class="p">,</span> <span class="n">prod_2024q2</span><span class="p">],</span>
@@ -2126,7 +2159,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">segment_drift_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;apply_month&#39;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">segment_col</span><span class="o">=</span><span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="n">base_period</span><span class="o">=</span><span class="s1">&#39;2024-01&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;客群&#39;</span><span class="p">,</span> <span class="s1">&#39;时间&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;PSI&#39;</span><span class="p">))</span>
@@ -2160,7 +2193,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">feature_cross_segment_effectiveness</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">segment_col</span><span class="o">=</span><span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;iv&#39;</span><span class="p">)</span>
@@ -2195,7 +2228,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tradeoff</span> <span class="o">=</span> <span class="n">approval_badrate_tradeoff</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fpd15&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># 找坏率≤3% 时通过率最高的阈值</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tradeoff</span><span class="p">[</span><span class="n">tradeoff</span><span class="p">[</span><span class="s1">&#39;通过人群坏率(%)&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -2228,7 +2261,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">score_strategy_simulation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">score_col</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">560</span><span class="p">],</span> <span class="n">amount_col</span><span class="o">=</span><span class="s1">&#39;loan_amount&#39;</span><span class="p">)</span>
 </pre></div>
@@ -2260,7 +2293,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">vintage_performance_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">vintage_col</span><span class="o">=</span><span class="s1">&#39;loan_month&#39;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">mob_col</span><span class="o">=</span><span class="s1">&#39;mob&#39;</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">mob_points</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span>
 </pre></div>
@@ -2311,7 +2344,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">roll_rate_matrix</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">df</span><span class="p">,</span> <span class="n">dpd_t0</span><span class="o">=</span><span class="s1">&#39;dpd_mob12&#39;</span><span class="p">,</span> <span class="n">dpd_t1</span><span class="o">=</span><span class="s1">&#39;dpd_mob18&#39;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">mob_t0</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mob_t1</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">amount_col</span><span class="o">=</span><span class="s1">&#39;loan_amount&#39;</span>
@@ -2349,7 +2382,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">label_leakage_check</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">suspected</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;疑似泄露&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">suspected</span><span class="p">[[</span><span class="s1">&#39;特征名&#39;</span><span class="p">,</span> <span class="s1">&#39;IV&#39;</span><span class="p">,</span> <span class="s1">&#39;AUC&#39;</span><span class="p">,</span> <span class="s1">&#39;泄露原因&#39;</span><span class="p">]])</span>
@@ -2380,7 +2413,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">corr_df</span> <span class="o">=</span> <span class="n">multi_label_correlation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fpd7&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd30&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">corr_df</span><span class="p">)</span>
 </pre></div>
@@ -2409,7 +2442,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vintage</span> <span class="o">=</span> <span class="n">vintage_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;issue_month&#39;</span><span class="p">,</span> <span class="s1">&#39;mob&#39;</span><span class="p">,</span> <span class="s1">&#39;ever_dpd30&#39;</span><span class="p">,</span> <span class="n">max_mob</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vintage</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;MOB&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Vintage批次&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;累积坏账率(%)&#39;</span><span class="p">))</span>
 </pre></div>
@@ -2437,7 +2470,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">vintage_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;issue_month&#39;</span><span class="p">,</span> <span class="s1">&#39;mob&#39;</span><span class="p">,</span> <span class="s1">&#39;ever_dpd30&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">[[</span><span class="s1">&#39;Vintage批次&#39;</span><span class="p">,</span> <span class="s1">&#39;总开户数&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;MOB</span><span class="si">{</span><span class="n">max_mob</span><span class="si">}</span><span class="s1">坏账率&#39;</span><span class="p">]])</span>
 </pre></div>
@@ -2464,7 +2497,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">roll</span> <span class="o">=</span> <span class="n">roll_rate_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;mob1&#39;</span><span class="p">,</span> <span class="s1">&#39;mob2&#39;</span><span class="p">,</span> <span class="s1">&#39;mob3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;M0&#39;</span><span class="p">,</span> <span class="s1">&#39;M1&#39;</span><span class="p">,</span> <span class="s1">&#39;M2+&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span>
 </pre></div>
@@ -2494,14 +2527,12 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p>EDA摘要字典</p>
 </dd>
 </dl>
-<dl>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">eda_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;apply_date&#39;</span><span class="p">)</span>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">eda_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;apply_date&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">summary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </div></blockquote>
 <dl class="simple">
 <dt>=== {key} ===&quot;)</dt><dd><p>...     print(value)</p>
@@ -2543,7 +2574,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-odd"><p><em>Dict</em>[str, <em>DataFrame</em>]</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">generate_report</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd15&#39;</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;apply_date&#39;</span><span class="p">,</span>
 <span class="gp">... </span>                         <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;iv_threshold&#39;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">export_report_to_excel</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="s1">&#39;eda_report.xlsx&#39;</span><span class="p">)</span>
@@ -2570,7 +2601,7 @@ Vintage、Roll Rate、策略仿真、稳定性（PSI/CSI）等。</p>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">export_report_to_excel</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="s1">&#39;eda_report.xlsx&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">export_report_to_excel</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="s1">&#39;eda_report.xlsx&#39;</span><span class="p">,</span> <span class="n">theme_color</span><span class="o">=</span><span class="s1">&#39;00A651&#39;</span><span class="p">)</span>
 </pre></div>

@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.financial.basic &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.financial.basic &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -554,7 +561,35 @@
   <h1>hscredit.core.financial.basic 源代码</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;基础金融计算函数.</span>
 
-<span class="sd">提供现值、未来值、付款额等基础计算。</span>
+<span class="sd">提供货币时间价值（Time Value of Money）相关的基础计算，包括未来值、现值、</span>
+<span class="sd">每期付款额、期数、利息/本金拆分以及利率反解。函数命名与参数约定对齐 Excel</span>
+<span class="sd">财务函数与 ``numpy_financial``，所有函数均支持标量与数组（向量化）输入。</span>
+
+<span class="sd">**符号约定（现金流方向）**</span>
+
+<span class="sd">遵循&quot;现金流入为正、现金流出为负&quot;的通用约定：贷款本金对借款人是流入（正），</span>
+<span class="sd">每期还款是流出（负）；因此 ``pmt`` 等结果常为负值。</span>
+
+<span class="sd">**向量化约定**</span>
+
+<span class="sd">标量输入返回标量；如需对多组参数批量计算，须将 *所有* 数值参数（含 ``when``）</span>
+<span class="sd">统一传为等长 numpy 数组，函数对其逐元素并行求解。</span>
+
+<span class="sd">**子函数**</span>
+
+<span class="sd">- fv: 未来值 Future Value</span>
+<span class="sd">- pv: 现值 Present Value</span>
+<span class="sd">- pmt: 每期付款额 Payment</span>
+<span class="sd">- nper: 期数 Number of Periods</span>
+<span class="sd">- ipmt: 某期利息部分 Interest Payment</span>
+<span class="sd">- ppmt: 某期本金部分 Principal Payment</span>
+<span class="sd">- rate: 每期利率 Rate（牛顿迭代反解）</span>
+
+<span class="sd">**引用**</span>
+
+<span class="sd">- numpy-financial 文档：https://numpy.org/numpy-financial/latest/</span>
+<span class="sd">- Excel 财务函数 FV/PV/PMT/NPER/IPMT/PPMT/RATE：</span>
+<span class="sd">  https://support.microsoft.com/zh-cn/office/fv-函数-2eef9f44-a084-4c61-bdd8-4fe4bb1b71b3</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -584,19 +619,50 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">fv</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pmt</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算未来值 (Future Value).</span>
 
-<span class="sd">    基于固定利率和等额付款条件，计算投资的未来值。</span>
+<span class="sd">    在固定每期利率与等额分期付款条件下，计算一系列现金流在最后一期期末的累计价值。</span>
+<span class="sd">    常用于储蓄/投资终值、定投账户余额测算等场景。</span>
 
-<span class="sd">    :param rate: 每期利率（如月利率为年利率/12）</span>
-<span class="sd">    :param nper: 总付款期数</span>
-<span class="sd">    :param pmt: 每期固定付款额（通常为负值表示支出）</span>
-<span class="sd">    :param pv: 现值（初始投资，通常为负值）</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :return: 未来值（正值表示收入）</span>
+<span class="sd">    满足等式 ``fv + pv*(1+rate)**nper + pmt*(1+rate*when)/rate*((1+rate)**nper-1) = 0``</span>
+<span class="sd">    （当 ``rate == 0`` 时退化为 ``fv = -(pv + pmt*nper)``）。</span>
+
+<span class="sd">    :param rate: 每期利率，小数表示（如年利率 5% 按月计息则传 ``0.05/12``）</span>
+<span class="sd">    :param nper: 总付款（计息）期数</span>
+<span class="sd">    :param pmt: 每期固定付款额，按现金流方向约定（流出为负，如每月储蓄 -100）</span>
+<span class="sd">    :param pv: 现值，即期初一次性金额（流出为负，如初始投入 -100）</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金 ordinary</span>
+<span class="sd">          annuity），每期现金流在期末发生——最常见</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款</span>
+<span class="sd">          （预付年金 annuity-due），每期现金流在期初发生，比期末多计一期利息</span>
+<span class="sd">        - 也可传入 numpy 数组对每个元素分别指定时点（向量化）</span>
+
+<span class="sd">    :return: 未来值（与输入现金流方向相反，通常为正表示终值收入）；标量入参返回标量，</span>
+<span class="sd">        数组入参返回 numpy 数组</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; fv(0.05/12, 10*12, -100, -100)  # 月利率0.05/12，10年(120期)，月供-100，初始-100</span>
-<span class="sd">    15692.92889433575</span>
+<span class="sd">    标量计算（月利率 0.05/12，10 年共 120 期，每月储蓄 -100，初始 -100）::</span>
+
+<span class="sd">        &gt;&gt;&gt; fv(0.05/12, 10*12, -100, -100)</span>
+<span class="sd">        15692.92889433575</span>
+
+<span class="sd">    期初付款（预付年金，终值更高）::</span>
+
+<span class="sd">        &gt;&gt;&gt; fv(0.05/12, 10*12, -100, -100, when=&#39;begin&#39;)</span>
+<span class="sd">        15757.629844104778</span>
+
+<span class="sd">    向量化计算（同时评估多个利率；注意所有数值参数需为等长数组，含 ``when``）::</span>
+
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; fv(np.array([0.05/12, 0.06/12]), np.array([120, 120]),</span>
+<span class="sd">        ...    np.array([-100, -100]), np.array([-100, -100]), np.array([0, 0]))</span>
+<span class="sd">        array([15692.92889434, 16569.87435405])</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``FV`` 函数与 ``numpy_financial.fv``：</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/fv.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">when</span> <span class="o">=</span> <span class="n">_convert_when</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
@@ -629,24 +695,48 @@
 
 
 
+<span class="c1"># 函数别名：供 ipmt 等内部调用，避免被 ``fv`` 形参遮蔽</span>
+<span class="n">_fv</span> <span class="o">=</span> <span class="n">fv</span>
+
+
 <div class="viewcode-block" id="pv">
 <a class="viewcode-back" href="../../../../api/financial.html#hscredit.core.financial.pv">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">pv</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pmt</span><span class="p">,</span> <span class="n">fv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算现值 (Present Value).</span>
 
-<span class="sd">    基于固定利率和等额付款条件，计算未来现金流在当前的等价价值。</span>
+<span class="sd">    在固定每期利率与等额分期付款条件下，将未来各期现金流与终值折算到期初的等价价值。</span>
+<span class="sd">    常用于贷款可借本金测算、未来收益的当前估值等场景。</span>
 
-<span class="sd">    :param rate: 每期利率（如月利率为年利率/12）</span>
-<span class="sd">    :param nper: 总付款期数</span>
-<span class="sd">    :param pmt: 每期固定付款额（通常为负值表示支出）</span>
-<span class="sd">    :param fv: 未来值（最后一笔付款后的余额），默认为0</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :return: 现值（负值表示初始支出）</span>
+<span class="sd">    :param rate: 每期利率，小数表示（如年利率 5% 按月计息则传 ``0.05/12``）</span>
+<span class="sd">    :param nper: 总付款（计息）期数</span>
+<span class="sd">    :param pmt: 每期固定付款额，按现金流方向约定（流出为负）</span>
+<span class="sd">    :param fv: 未来值，即最后一期期末的目标余额，默认为 ``0``</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金）</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款（预付年金）</span>
+<span class="sd">        - 也可传入 numpy 数组对每个元素分别指定时点（向量化）</span>
+
+<span class="sd">    :return: 现值（与未来现金流方向相反，通常为负表示期初支出）</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; pv(0.05/12, 10*12, -100)</span>
-<span class="sd">    9428.135032823439</span>
+<span class="sd">    每月收款 100、共 120 期、月利率 0.05/12 时，期初一次性等价价值::</span>
+
+<span class="sd">        &gt;&gt;&gt; pv(0.05/12, 10*12, -100)</span>
+<span class="sd">        9428.135032823473</span>
+
+<span class="sd">    向量化计算（所有数值参数需为等长数组）::</span>
+
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; pv(np.array([0.05/12, 0.06/12]), np.array([120, 120]),</span>
+<span class="sd">        ...    np.array([-100, -100]), np.array([0, 0]), np.array([0, 0]))</span>
+<span class="sd">        array([9428.13503282, 9007.34533272])</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``PV`` 函数与 ``numpy_financial.pv``：</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/pv.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">when</span> <span class="o">=</span> <span class="n">_convert_when</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
@@ -682,19 +772,32 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">pmt</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算每期付款额 (Payment).</span>
 
-<span class="sd">    在给定现值、利率和期数条件下，计算每期等额偿付额。</span>
+<span class="sd">    在给定现值、每期利率与期数条件下，计算等额本息分期的每期偿付额。</span>
+<span class="sd">    是评分卡/信贷场景中测算月供的核心函数。</span>
 
-<span class="sd">    :param rate: 每期利率（如月利率为年利率/12）</span>
-<span class="sd">    :param nper: 总付款期数</span>
-<span class="sd">    :param pv: 现值（贷款本金或投资额）</span>
-<span class="sd">    :param fv: 未来值（最后一笔付款后的余额），默认为0</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :return: 每期付款额（负值表示支出）</span>
+<span class="sd">    :param rate: 每期利率，小数表示（如年利率 5% 按月计息则传 ``0.05/12``）</span>
+<span class="sd">    :param nper: 总付款（计息）期数</span>
+<span class="sd">    :param pv: 现值，即贷款本金或投资额（借款人视角下本金为正流入）</span>
+<span class="sd">    :param fv: 未来值，即最后一期期末的目标余额，默认为 ``0``</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金）</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款（预付年金）</span>
+<span class="sd">        - 也可传入 numpy 数组对每个元素分别指定时点（向量化）</span>
+
+<span class="sd">    :return: 每期付款额（与本金方向相反，通常为负表示每期支出）</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; pmt(0.05/12, 10*12, 10000)</span>
-<span class="sd">    -106.06557415332299</span>
+<span class="sd">    本金 10000、月利率 0.05/12、分 120 期等额本息的月供::</span>
+
+<span class="sd">        &gt;&gt;&gt; pmt(0.05/12, 10*12, 10000)</span>
+<span class="sd">        -106.06551523907554</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``PMT`` 函数与 ``numpy_financial.pmt``：</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/pmt.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">when</span> <span class="o">=</span> <span class="n">_convert_when</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
@@ -730,19 +833,32 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">nper</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">pmt</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算期数 (Number of Periods).</span>
 
-<span class="sd">    在给定利率、每期付款额和现值条件下，计算达到目标未来值所需的期数。</span>
+<span class="sd">    在给定每期利率、每期付款额与现值条件下，计算达到目标未来值所需的付款期数。</span>
+<span class="sd">    返回值一般为非整数，表示理论上的精确期数。</span>
 
-<span class="sd">    :param rate: 每期利率（如月利率为年利率/12）</span>
-<span class="sd">    :param pmt: 每期固定付款额（通常为负值表示支出）</span>
-<span class="sd">    :param pv: 现值（初始投资或贷款本金）</span>
-<span class="sd">    :param fv: 未来值（目标余额），默认为0</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :return: 所需期数</span>
+<span class="sd">    :param rate: 每期利率，小数表示（如年利率 5% 按月计息则传 ``0.05/12``）</span>
+<span class="sd">    :param pmt: 每期固定付款额，按现金流方向约定（流出为负）</span>
+<span class="sd">    :param pv: 现值，即初始投资或贷款本金</span>
+<span class="sd">    :param fv: 未来值，即目标余额，默认为 ``0``</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金）</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款（预付年金）</span>
+<span class="sd">        - 也可传入 numpy 数组对每个元素分别指定时点（向量化）</span>
+
+<span class="sd">    :return: 达到目标未来值所需的期数（通常为非整数）</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; nper(0.05/12, -100, 10000)</span>
-<span class="sd">    129.62843690651015</span>
+<span class="sd">    本金 10000、每期还 -100、月利率 0.05/12 时所需期数::</span>
+
+<span class="sd">        &gt;&gt;&gt; nper(0.05/12, -100, 10000)</span>
+<span class="sd">        129.62847166352213</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``NPER`` 函数与 ``numpy_financial.nper``：</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/nper.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">when</span> <span class="o">=</span> <span class="n">_convert_when</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
     <span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
@@ -779,38 +895,52 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">ipmt</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">per</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算给定期间的利息部分 (Interest Payment).</span>
 
-<span class="sd">    使用摊销公式计算在指定期间内支付的利息金额。</span>
+<span class="sd">    将等额本息分期中第 ``per`` 期的还款额拆分出&quot;利息&quot;部分。基于摊销公式：</span>
+<span class="sd">    第 ``per`` 期利息 = 期初剩余本金 × ``rate``。满足 ``ipmt + ppmt == pmt``。</span>
 
-<span class="sd">    :param rate: 每期利率（如月利率为年利率/12）</span>
-<span class="sd">    :param per: 指定期间（第1期到第nper期）</span>
-<span class="sd">    :param nper: 总付款期数</span>
-<span class="sd">    :param pv: 现值（贷款本金或投资额）</span>
-<span class="sd">    :param fv: 未来值（最后一笔付款后的余额），默认为0</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :return: 指定期间的利息支付额（负值）</span>
+<span class="sd">    :param rate: 每期利率，小数表示（如年利率 5% 按月计息则传 ``0.05/12``）</span>
+<span class="sd">    :param per: 指定期次，取值范围 1 ~ ``nper``（第 1 期至第 ``nper`` 期）</span>
+<span class="sd">    :param nper: 总付款（计息）期数</span>
+<span class="sd">    :param pv: 现值，即贷款本金或投资额</span>
+<span class="sd">    :param fv: 未来值，即最后一期期末的目标余额，默认为 ``0``</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金）</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款</span>
+<span class="sd">          （预付年金；此时首期无利息，返回 0，其余期相应折现一期）</span>
+
+<span class="sd">    :return: 第 ``per`` 期的利息支付额（与付款额同向，通常为负）</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; ipmt(0.05/12, 1, 12*10, 10000)</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    本金 10000、月利率 0.05/12、共 120 期，第 1 期的利息（≈本金×月利率）::</span>
+
+<span class="sd">        &gt;&gt;&gt; ipmt(0.05/12, 1, 12*10, 10000)</span>
+<span class="sd">        -41.666666666666664</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``IPMT`` 函数与 ``numpy_financial.ipmt``：</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/ipmt.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">when</span> <span class="o">=</span> <span class="n">_convert_when</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
+    <span class="n">rate_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">per_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">per</span><span class="p">)</span>
+    <span class="n">when_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
+
+    <span class="c1"># 每期等额付款额</span>
     <span class="n">total_pmt</span> <span class="o">=</span> <span class="n">pmt</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">when</span><span class="p">)</span>
+    <span class="c1"># 第 per 期期初的剩余本金 = 现值经过 (per-1) 期后的未来值</span>
+    <span class="n">remaining_balance</span> <span class="o">=</span> <span class="n">_fv</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">per_a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">total_pmt</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">when</span><span class="p">)</span>
+    <span class="c1"># 利息 = 剩余本金 × 利率（与 pmt 同号，表示支出为负）</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">remaining_balance</span> <span class="o">*</span> <span class="n">rate_a</span>
+    <span class="c1"># 期初付款（when=&#39;begin&#39;）修正：首期无利息，其余期需折现一期</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">when_a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">result</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate_a</span><span class="p">),</span> <span class="n">result</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">when_a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">per_a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 
-    <span class="c1"># 使用摊销公式计算利息</span>
-    <span class="k">if</span> <span class="n">rate</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-
-    <span class="c1"># 计算截至 per-1 期的余额</span>
-    <span class="n">balance</span> <span class="o">=</span> <span class="n">fv</span> <span class="k">if</span> <span class="n">when</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">per</span><span class="p">)):</span>
-        <span class="n">interest</span> <span class="o">=</span> <span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">balance</span> <span class="k">if</span> <span class="n">when</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="n">balance</span> <span class="o">+</span> <span class="n">pv</span><span class="p">))</span>
-        <span class="n">principal</span> <span class="o">=</span> <span class="n">total_pmt</span> <span class="o">-</span> <span class="n">interest</span>
-        <span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span> <span class="o">+</span> <span class="n">principal</span>
-
-    <span class="k">if</span> <span class="n">when</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">rate</span> <span class="o">*</span> <span class="n">balance</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">balance</span> <span class="o">+</span> <span class="n">pv</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
 
 
 
@@ -819,20 +949,33 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">ppmt</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">per</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;计算给定期间的本金部分 (Principal Payment).</span>
 
-<span class="sd">    使用摊销公式计算在指定期间内支付的本金金额。</span>
+<span class="sd">    将等额本息分期中第 ``per`` 期的还款额拆分出&quot;本金&quot;部分，等于该期总付款额减去利息</span>
+<span class="sd">    （``ppmt = pmt - ipmt``）。随着期次推进，本金占比逐期增大、利息占比逐期减小。</span>
 
-<span class="sd">    :param rate: 每期利率（如月利率为年利率/12）</span>
-<span class="sd">    :param per: 指定期间（第1期到第nper期）</span>
-<span class="sd">    :param nper: 总付款期数</span>
-<span class="sd">    :param pv: 现值（贷款本金或投资额）</span>
-<span class="sd">    :param fv: 未来值（最后一笔付款后的余额），默认为0</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :return: 指定期间的本金支付额（负值）</span>
+<span class="sd">    :param rate: 每期利率，小数表示（如年利率 5% 按月计息则传 ``0.05/12``）</span>
+<span class="sd">    :param per: 指定期次，取值范围 1 ~ ``nper``（第 1 期至第 ``nper`` 期）</span>
+<span class="sd">    :param nper: 总付款（计息）期数</span>
+<span class="sd">    :param pv: 现值，即贷款本金或投资额</span>
+<span class="sd">    :param fv: 未来值，即最后一期期末的目标余额，默认为 ``0``</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金）</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款（预付年金）</span>
+
+<span class="sd">    :return: 第 ``per`` 期的本金支付额（与付款额同向，通常为负）</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; ppmt(0.05/12, 1, 12*10, 10000)</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    本金 10000、月利率 0.05/12、共 120 期，第 1 期偿还的本金::</span>
+
+<span class="sd">        &gt;&gt;&gt; ppmt(0.05/12, 1, 12*10, 10000)</span>
+<span class="sd">        -64.39884857240887</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``PPMT`` 函数与 ``numpy_financial.ppmt``：</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/ppmt.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">total</span> <span class="o">=</span> <span class="n">pmt</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">when</span><span class="p">)</span>
     <span class="n">interest</span> <span class="o">=</span> <span class="n">ipmt</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">per</span><span class="p">,</span> <span class="n">nper</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">when</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">total</span> <span class="o">-</span> <span class="n">interest</span></div>
@@ -842,25 +985,38 @@
 <div class="viewcode-block" id="rate">
 <a class="viewcode-back" href="../../../../api/financial.html#hscredit.core.financial.rate">[文档]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">rate</span><span class="p">(</span><span class="n">nper</span><span class="p">,</span> <span class="n">pmt</span><span class="p">,</span> <span class="n">pv</span><span class="p">,</span> <span class="n">fv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">when</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算利率 (Rate).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;计算每期利率 (Rate).</span>
 
-<span class="sd">    使用牛顿迭代法求解给定条件下使净现值为零的利率。</span>
+<span class="sd">    在给定期数、每期付款额、现值与未来值条件下，使用牛顿迭代法（Newton-Raphson）</span>
+<span class="sd">    反解使现金流等式成立（净现值为零）的 *每期* 利率。如需年化，自行乘以每年期数。</span>
 
-<span class="sd">    :param nper: 总付款期数</span>
-<span class="sd">    :param pmt: 每期固定付款额（通常为负值表示支出）</span>
-<span class="sd">    :param pv: 现值（通常为负值表示初始支出）</span>
-<span class="sd">    :param fv: 未来值（最后一笔付款后的余额），默认为0</span>
-<span class="sd">    :param when: 付款时机，&#39;end&#39;为期初，&#39;begin&#39;为期末，默认为&#39;end&#39;</span>
-<span class="sd">    :param guess: 迭代初始猜测值，默认为0.1（10%）</span>
-<span class="sd">    :param tol: 收敛容差，默认为1e-6</span>
-<span class="sd">    :param max_iter: 最大迭代次数，默认为100</span>
-<span class="sd">    :return: 每期利率</span>
-<span class="sd">    :raises ValueError: 牛顿迭代法无法收敛时</span>
+<span class="sd">    :param nper: 总付款（计息）期数</span>
+<span class="sd">    :param pmt: 每期固定付款额，按现金流方向约定（流出为负）</span>
+<span class="sd">    :param pv: 现值，即初始投资或贷款本金</span>
+<span class="sd">    :param fv: 未来值，即最后一期期末的目标余额，默认为 ``0``</span>
+<span class="sd">    :param when: 每期付款发生的时点，默认 ``&#39;end&#39;``。可取以下枚举值：</span>
+
+<span class="sd">        - ``&#39;end&#39;`` / ``&#39;e&#39;`` / ``&#39;finish&#39;`` / ``0``：期末付款（普通年金）</span>
+<span class="sd">        - ``&#39;begin&#39;`` / ``&#39;b&#39;`` / ``&#39;beginning&#39;`` / ``&#39;start&#39;`` / ``1``：期初付款（预付年金）</span>
+
+<span class="sd">    :param guess: 牛顿迭代的初始猜测利率，默认为 ``0.1``（即 10%）。当方程存在多解或</span>
+<span class="sd">        迭代不收敛时，可调整该初值</span>
+<span class="sd">    :param tol: 收敛容差，残差或步长小于该值即视为收敛，默认为 ``1e-6``</span>
+<span class="sd">    :param max_iter: 最大迭代次数，默认为 ``100``</span>
+<span class="sd">    :return: 每期利率（小数表示）</span>
+<span class="sd">    :raises ValueError: 导数过小或在 ``max_iter`` 次迭代内无法收敛时抛出</span>
 
 <span class="sd">    **参考样例**</span>
 
-<span class="sd">    &gt;&gt;&gt; rate(10*12, -100, 10000)</span>
-<span class="sd">    0.004291074821880434</span>
+<span class="sd">    本金 10000、每期还 -100、共 120 期时反解出的月利率::</span>
+
+<span class="sd">        &gt;&gt;&gt; rate(10*12, -100, 10000)</span>
+<span class="sd">        0.0031141819460226306</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    对应 Excel ``RATE`` 函数与 ``numpy_financial.rate``；牛顿迭代法参见</span>
+<span class="sd">    https://numpy.org/numpy-financial/latest/functions/rate.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">when</span> <span class="o">=</span> <span class="n">_convert_when</span><span class="p">(</span><span class="n">when</span><span class="p">)</span>
 

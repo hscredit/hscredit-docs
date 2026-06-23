@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.viz.risk_plots &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.viz.risk_plots &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -576,18 +583,23 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">precision_recall_curve</span><span class="p">,</span> 
+    <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">precision_recall_curve</span><span class="p">,</span>
     <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">brier_score_loss</span>
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">PercentFormatter</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">DEFAULT_COLORS</span><span class="p">,</span> <span class="n">setup_axis_style</span><span class="p">,</span> <span class="n">save_figure</span><span class="p">,</span>
-    <span class="n">get_or_create_ax</span>
+    <span class="n">get_or_create_ax</span><span class="p">,</span> <span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">NEUTRAL_COLOR</span><span class="p">,</span>
+    <span class="n">get_series_colors</span><span class="p">,</span> <span class="n">make_colormap</span><span class="p">,</span> <span class="n">make_risk_cmap</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..._lazy</span><span class="w"> </span><span class="kn">import</span> <span class="n">LazyModule</span>
+
+<span class="c1"># 延迟加载 seaborn：仅在首次实际绘图（访问 sns 属性）时才导入，</span>
+<span class="c1"># 避免 import hscredit 时即触发 seaborn（及其 ipywidgets/IPython 依赖）的加载。</span>
+<span class="n">sns</span> <span class="o">=</span> <span class="n">LazyModule</span><span class="p">(</span><span class="s2">&quot;seaborn&quot;</span><span class="p">)</span>
 
 
 <span class="c1"># ==================== 模型评估图表 ====================</span>
@@ -622,13 +634,14 @@
 <span class="sd">    :param kwargs: 其他参数传递给plt.plot</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = roc_plot(y_test, model.predict_proba(X_test)[:, 1])</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 多模型对比</span>
-<span class="sd">        &gt;&gt;&gt; fig, ax = plt.subplots(figsize=(8, 8))</span>
-<span class="sd">        &gt;&gt;&gt; roc_plot(y_test, model1.predict_proba(X_test)[:, 1], ax=ax, label=&#39;Model A&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; roc_plot(y_test, model2.predict_proba(X_test)[:, 1], ax=ax, label=&#39;Model B&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = roc_plot(y_test, model.predict_proba(X_test)[:, 1])</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 多模型对比</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(figsize=(8, 8))</span>
+<span class="sd">    &gt;&gt;&gt; roc_plot(y_test, model1.predict_proba(X_test)[:, 1], ax=ax, label=&#39;Model A&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; roc_plot(y_test, model2.predict_proba(X_test)[:, 1], ax=ax, label=&#39;Model B&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -641,7 +654,8 @@
     
     <span class="c1"># 绘制对角线</span>
     <span class="k">if</span> <span class="n">show_diagonal</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Random (AUC = 0.50)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Random (AUC = 0.50)&#39;</span><span class="p">)</span>
     
     <span class="c1"># 绘制ROC曲线</span>
     <span class="n">label_str</span> <span class="o">=</span> <span class="n">label</span> <span class="k">if</span> <span class="n">label</span> <span class="k">else</span> <span class="s1">&#39;Model&#39;</span>
@@ -698,8 +712,9 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = pr_plot(y_test, model.predict_proba(X_test)[:, 1])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = pr_plot(y_test, model.predict_proba(X_test)[:, 1])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -712,7 +727,7 @@
     <span class="c1"># 计算基线（正样本比例）</span>
     <span class="k">if</span> <span class="n">show_baseline</span><span class="p">:</span>
         <span class="n">baseline</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">baseline</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> 
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">baseline</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Baseline (</span><span class="si">{</span><span class="n">baseline</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
     
     <span class="c1"># 绘制PR曲线</span>
@@ -772,8 +787,9 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = lift_plot(y_test, model.predict_proba(X_test)[:, 1], n_bins=10)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = lift_plot(y_test, model.predict_proba(X_test)[:, 1], n_bins=10)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -804,7 +820,8 @@
     
     <span class="c1"># 绘制基线</span>
     <span class="k">if</span> <span class="n">show_baseline</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Baseline (Lift=1)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                   <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Baseline (Lift=1)&#39;</span><span class="p">)</span>
     
     <span class="c1"># 绘制Lift曲线</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">depths</span><span class="p">,</span> <span class="n">lifts</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -858,8 +875,9 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = gain_plot(y_test, model.predict_proba(X_test)[:, 1], n_bins=10)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = gain_plot(y_test, model.predict_proba(X_test)[:, 1], n_bins=10)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -888,7 +906,8 @@
     
     <span class="c1"># 绘制基线（随机模型）</span>
     <span class="k">if</span> <span class="n">show_baseline</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Baseline (Random)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Baseline (Random)&#39;</span><span class="p">)</span>
     
     <span class="c1"># 绘制Gain曲线</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">depths</span><span class="p">,</span> <span class="n">cumulative_gains</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
@@ -921,7 +940,7 @@
     <span class="n">ax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Confusion Matrix&quot;</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">normalize</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">show_values</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">show_metrics</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -943,11 +962,14 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = confusion_matrix_plot(y_test, y_pred)</span>
-<span class="sd">        &gt;&gt;&gt; fig = confusion_matrix_plot(y_test, y_pred, normalize=&#39;true&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = confusion_matrix_plot(y_test, y_pred)</span>
+<span class="sd">    &gt;&gt;&gt; fig = confusion_matrix_plot(y_test, y_pred, normalize=&#39;true&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">make_colormap</span><span class="p">(</span><span class="s2">&quot;hscredit_confusion&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;#F7F8FF&quot;</span><span class="p">,</span> <span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
     
     <span class="c1"># 计算混淆矩阵</span>
     <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
@@ -1019,8 +1041,9 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = calibration_plot(y_test, model.predict_proba(X_test)[:, 1])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = calibration_plot(y_test, model.predict_proba(X_test)[:, 1])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
@@ -1054,7 +1077,8 @@
             <span class="n">bin_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">in_bin</span><span class="p">))</span>
     
     <span class="c1"># 绘制完美校准线</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Perfectly calibrated&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Perfectly calibrated&#39;</span><span class="p">)</span>
     
     <span class="c1"># 绘制校准曲线</span>
     <span class="n">brier</span> <span class="o">=</span> <span class="n">brier_score_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">)</span>
@@ -1119,86 +1143,95 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = score_dist_plot(df, &#39;score&#39;, &#39;target&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = score_dist_plot(df, &#39;score&#39;, &#39;target&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
-
-    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">score_col</span><span class="si">}</span><span class="s1"> Distribution&#39;</span>
+    <span class="n">fontsize</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+    <span class="n">anchor</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;anchor&#39;</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;labels&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;好样本&quot;</span><span class="p">,</span> <span class="s2">&quot;坏样本&quot;</span><span class="p">])</span>
 
     <span class="c1"># 支持两种调用方式：</span>
     <span class="c1"># 1. score_dist_plot(df, &#39;score&#39;, &#39;target&#39;)        # 原始：df + 列名</span>
     <span class="c1"># 2. score_dist_plot(scores_series, targets_series)  # 简化：直接传 Series</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
-        <span class="n">score_series</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="n">score_series</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="k">if</span> <span class="n">score_col</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">df</span>
         <span class="n">target_series</span> <span class="o">=</span> <span class="n">score_col</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">score_col</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-        <span class="n">score_col</span> <span class="o">=</span> <span class="n">score_series</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s1">&#39;score&#39;</span>
+        <span class="n">score_col</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s2">&quot;评分&quot;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">score_series</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">target_series</span> <span class="o">=</span> <span class="kc">None</span>
-    
-    <span class="k">if</span> <span class="n">score_series</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># 路径B：直接传 Series（不区分好坏 or 用 target_series）</span>
-        <span class="k">if</span> <span class="n">target_series</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">good_scores</span> <span class="o">=</span> <span class="n">score_series</span><span class="p">[</span><span class="n">target_series</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-            <span class="n">bad_scores</span> <span class="o">=</span> <span class="n">score_series</span><span class="p">[</span><span class="n">target_series</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-            <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">good_scores</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                         <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Good (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">good_scores</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-            <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bad_scores</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                         <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Bad (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bad_scores</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">show_stats</span><span class="p">:</span>
-                <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ks_2samps</span> <span class="k">as</span> <span class="n">ks_metric</span>
-                <span class="n">ks_val</span> <span class="o">=</span> <span class="n">ks_metric</span><span class="p">(</span><span class="n">good_scores</span><span class="p">,</span> <span class="n">bad_scores</span><span class="p">)</span>
-                <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;KS: </span><span class="si">{</span><span class="n">ks_val</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                       <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                       <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">score_series</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                         <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-        <span class="n">_path_b_done</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">_path_b_done</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">_path_b_done</span> <span class="ow">and</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># 路径A：原始方式 — df + 列名</span>
-        <span class="n">good_scores</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="n">score_col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-        <span class="n">bad_scores</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="n">score_col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-
-        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">good_scores</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Good (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">good_scores</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bad_scores</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Bad (n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bad_scores</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">show_stats</span><span class="p">:</span>
-            <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ks_2samps</span> <span class="k">as</span> <span class="n">ks_metric</span>
-            <span class="n">ks_val</span> <span class="o">=</span> <span class="n">ks_metric</span><span class="p">(</span><span class="n">good_scores</span><span class="p">,</span> <span class="n">bad_scores</span><span class="p">)</span>
-            <span class="n">stats_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;KS: </span><span class="si">{</span><span class="n">ks_val</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="n">stats_text</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
-                   <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                   <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
-    <span class="k">elif</span> <span class="ow">not</span> <span class="n">_path_b_done</span><span class="p">:</span>
-        <span class="c1"># 不区分好坏（df 方式）</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    
-    <span class="c1"># legend / xlabel / title：路径A/B 共用（路径B已在内部处理过 legend）</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">_path_b_done</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">score_col</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
-    <span class="n">setup_axis_style</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">hide_top_right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
+            <span class="n">score_series</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span>
+            <span class="n">target_series</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">score_series</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span>
+            <span class="n">target_series</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">score_col</span> <span class="o">=</span> <span class="n">score_col</span> <span class="ow">or</span> <span class="s2">&quot;评分&quot;</span>
+
+    <span class="c1"># 对齐好/坏样本：复用 hist_plot 的 step + probability 风格</span>
+    <span class="n">has_target</span> <span class="o">=</span> <span class="n">target_series</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">has_target</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">score_series</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">target_series</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+        <span class="n">score_series</span> <span class="o">=</span> <span class="n">score_series</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">target_series</span> <span class="o">=</span> <span class="n">target_series</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">target_unique</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target_series</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">hue</span> <span class="o">=</span> <span class="n">target_series</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+            <span class="n">hue_order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hue</span> <span class="o">=</span> <span class="n">target_series</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="n">i</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">labels</span><span class="p">)})</span>
+            <span class="n">hue_order</span> <span class="o">=</span> <span class="n">labels</span>
+        <span class="n">hue_order_final</span> <span class="o">=</span> <span class="n">hue_order</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">palette</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="n">target_unique</span><span class="p">)</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">score_series</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">hue</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span>
+            <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">common_bins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+            <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="n">hue_order_final</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">score_series</span> <span class="o">=</span> <span class="n">score_series</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">colors</span> <span class="k">else</span> <span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">score_series</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span>
+            <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># 坐标轴样式（与 hist_plot 一致）</span>
+    <span class="n">setup_axis_style</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">score_col</span><span class="si">}</span><span class="s2">区间&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;样本占比&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># 标题</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">score_col</span><span class="si">}</span><span class="s2">分布情况&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+
+    <span class="c1"># KS 统计信息</span>
+    <span class="k">if</span> <span class="n">has_target</span> <span class="ow">and</span> <span class="n">show_stats</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ks_2samps</span> <span class="k">as</span> <span class="n">ks_metric</span>
+        <span class="n">good_scores</span> <span class="o">=</span> <span class="n">score_series</span><span class="p">[</span><span class="n">target_series</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">bad_scores</span> <span class="o">=</span> <span class="n">score_series</span><span class="p">[</span><span class="n">target_series</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">ks_val</span> <span class="o">=</span> <span class="n">ks_metric</span><span class="p">(</span><span class="n">good_scores</span><span class="p">,</span> <span class="n">bad_scores</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;KS: </span><span class="si">{</span><span class="n">ks_val</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
+
+    <span class="c1"># 图例（顶部居中，与 hist_plot 一致）</span>
+    <span class="k">if</span> <span class="n">has_target</span><span class="p">:</span>
+        <span class="n">handles</span><span class="p">,</span> <span class="n">legend_labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">handles</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">hue_order_final</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">handles</span><span class="p">)],</span>
+                      <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">handles</span><span class="p">),</span>
+                      <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">anchor</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">hue_order</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="n">target_unique</span><span class="p">,</span>
+                      <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">anchor</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
         <span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">save</span><span class="p">)</span>
-    
+
     <span class="k">return</span> <span class="n">fig</span></div>
 
 
@@ -1237,8 +1270,9 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = score_bin_plot(df, &#39;score&#39;, &#39;target&#39;, n_bins=10)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = score_bin_plot(df, &#39;score&#39;, &#39;target&#39;, n_bins=10)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 导入需要的函数</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">.binning_plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">bin_plot</span><span class="p">,</span> <span class="n">dataframe_plot</span>
@@ -1351,8 +1385,9 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = threshold_analysis_plot(y_test, y_score)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = threshold_analysis_plot(y_test, y_score)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -1447,21 +1482,21 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; strategies = [</span>
-<span class="sd">        ...     {&#39;name&#39;: &#39;Current&#39;, &#39;approval_rate&#39;: 0.75, &#39;bad_rate&#39;: 0.08, &#39;ks&#39;: 0.40},</span>
-<span class="sd">        ...     {&#39;name&#39;: &#39;New&#39;, &#39;approval_rate&#39;: 0.80, &#39;bad_rate&#39;: 0.06, &#39;ks&#39;: 0.50}</span>
-<span class="sd">        ... ]</span>
-<span class="sd">        &gt;&gt;&gt; fig = strategy_compare_plot(strategies)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; strategies = [</span>
+<span class="sd">    ...     {&#39;name&#39;: &#39;Current&#39;, &#39;approval_rate&#39;: 0.75, &#39;bad_rate&#39;: 0.08, &#39;ks&#39;: 0.40},</span>
+<span class="sd">    ...     {&#39;name&#39;: &#39;New&#39;, &#39;approval_rate&#39;: 0.80, &#39;bad_rate&#39;: 0.06, &#39;ks&#39;: 0.50}</span>
+<span class="sd">    ... ]</span>
+<span class="sd">    &gt;&gt;&gt; fig = strategy_compare_plot(strategies)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
-    
+
     <span class="n">strategy_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">strategies</span><span class="p">]</span>
     <span class="n">n_strategies</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strategy_names</span><span class="p">)</span>
     <span class="n">n_metrics</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="n">n_strategies</span><span class="p">)</span>
     
     <span class="c1"># 设置柱状图位置</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_metrics</span><span class="p">)</span>
@@ -1543,12 +1578,10 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = vintage_plot(df, &#39;mob&#39;, &#39;ever_dpd30&#39;, &#39;issue_month&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = vintage_plot(df, &#39;mob&#39;, &#39;ever_dpd30&#39;, &#39;issue_month&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
-    
     <span class="c1"># 创建透视表</span>
     <span class="k">if</span> <span class="n">vintage_col</span><span class="p">:</span>
         <span class="n">vintage_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">vintage_col</span><span class="p">,</span> <span class="n">mob_col</span><span class="p">])[</span><span class="n">target_col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -1558,6 +1591,8 @@
         <span class="n">vintage_overall</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">mob_col</span><span class="p">)[</span><span class="n">target_col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
         <span class="n">vintage_pivot</span> <span class="o">=</span> <span class="n">vintage_overall</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
         <span class="n">vintage_pivot</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Overall&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vintage_pivot</span><span class="p">))</span>
     
     <span class="c1"># 限制最大MOB</span>
     <span class="k">if</span> <span class="n">max_mob</span><span class="p">:</span>
@@ -1599,7 +1634,8 @@
     
     <span class="c1"># 绘制热力图</span>
     <span class="k">if</span> <span class="n">show_heatmap</span><span class="p">:</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">vintage_pivot</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">vintage_pivot</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">,</span>
+                   <span class="n">cmap</span><span class="o">=</span><span class="n">make_risk_cmap</span><span class="p">(</span><span class="s2">&quot;hscredit_vintage&quot;</span><span class="p">),</span>
                    <span class="n">ax</span><span class="o">=</span><span class="n">ax_heat</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Bad Rate (%)&#39;</span><span class="p">})</span>
         <span class="n">ax_heat</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Vintage Heatmap&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
         <span class="n">ax_heat</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;MOB&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -1642,10 +1678,11 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; features = [&#39;age&#39;, &#39;income&#39;, &#39;score&#39;, ...]</span>
-<span class="sd">        &gt;&gt;&gt; importance = model.feature_importances_</span>
-<span class="sd">        &gt;&gt;&gt; fig = feature_importance_plot(features, importance, top_n=15)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; features = [&#39;age&#39;, &#39;income&#39;, &#39;score&#39;, ...]</span>
+<span class="sd">    &gt;&gt;&gt; importance = model.feature_importances_</span>
+<span class="sd">    &gt;&gt;&gt; fig = feature_importance_plot(features, importance, top_n=15)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -1733,9 +1770,10 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = approval_rate_trend_plot(df, &#39;apply_date&#39;, decision_col=&#39;is_approved&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; fig = approval_rate_trend_plot(df, &#39;apply_date&#39;, score_col=&#39;score&#39;, threshold=500)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = approval_rate_trend_plot(df, &#39;apply_date&#39;, decision_col=&#39;is_approved&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; fig = approval_rate_trend_plot(df, &#39;apply_date&#39;, score_col=&#39;score&#39;, threshold=500)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
@@ -1756,12 +1794,16 @@
     <span class="c1"># 按时间聚合</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;_period&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
     
-    <span class="n">trend_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;_period&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
-        <span class="s1">&#39;_approved&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
-        <span class="n">target_col</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span> <span class="k">if</span> <span class="n">target_col</span> <span class="k">else</span> <span class="s1">&#39;sum&#39;</span>
-    <span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    
-    <span class="n">trend_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="s1">&#39;approved_count&#39;</span><span class="p">,</span> <span class="s1">&#39;approval_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;bad_rate&#39;</span><span class="p">]</span>
+    <span class="c1"># 仅当提供 target_col 时才聚合逾期率，避免对 None 列聚合导致 KeyError</span>
+    <span class="n">agg_spec</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_approved&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]}</span>
+    <span class="k">if</span> <span class="n">target_col</span><span class="p">:</span>
+        <span class="n">agg_spec</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mean&#39;</span>
+    <span class="n">trend_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;_period&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_spec</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">target_col</span><span class="p">:</span>
+        <span class="n">trend_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="s1">&#39;approved_count&#39;</span><span class="p">,</span> <span class="s1">&#39;approval_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;bad_rate&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trend_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="s1">&#39;approved_count&#39;</span><span class="p">,</span> <span class="s1">&#39;approval_rate&#39;</span><span class="p">]</span>
     <span class="n">trend_data</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trend_data</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">()</span>
     
     <span class="c1"># 绘制审批率</span>
@@ -1779,9 +1821,9 @@
     <span class="k">if</span> <span class="n">show_bad_rate</span> <span class="ow">and</span> <span class="n">target_col</span><span class="p">:</span>
         <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
         <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trend_data</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">],</span> <span class="n">trend_data</span><span class="p">[</span><span class="s1">&#39;bad_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
-                <span class="s1">&#39;s-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bad Rate&#39;</span><span class="p">)</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Bad Rate (%)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="s1">&#39;s-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bad Rate&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Bad Rate (%)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">BAD_RATE_COLOR</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">BAD_RATE_COLOR</span><span class="p">)</span>
         <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">())</span>
     
     <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1841,9 +1883,10 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure对象</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = bad_rate_trend_plot(df, &#39;apply_date&#39;, &#39;target&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; fig = bad_rate_trend_plot(df, &#39;apply_date&#39;, &#39;target&#39;, dimension_col=&#39;customer_grade&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = bad_rate_trend_plot(df, &#39;apply_date&#39;, &#39;target&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; fig = bad_rate_trend_plot(df, &#39;apply_date&#39;, &#39;target&#39;, dimension_col=&#39;customer_grade&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 传入ax时复用该ax绘制主曲线，样本数柱状图作为附加面板挂载在同一figure上，</span>
     <span class="c1"># 而不是整体重新plt.subplots()丢弃调用方传入的ax</span>
@@ -1862,9 +1905,6 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax_line</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
-    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
-    
     <span class="c1"># 确保日期格式正确</span>
     <span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;_period&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
@@ -1879,12 +1919,16 @@
         
         <span class="c1"># 绘制各维度曲线</span>
         <span class="n">dimensions</span> <span class="o">=</span> <span class="n">trend_data</span><span class="p">[</span><span class="s1">&#39;dimension&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dimensions</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dimensions</span><span class="p">):</span>
             <span class="n">dim_data</span> <span class="o">=</span> <span class="n">trend_data</span><span class="p">[</span><span class="n">trend_data</span><span class="p">[</span><span class="s1">&#39;dimension&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">dim</span><span class="p">]</span>
             <span class="n">ax_line</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dim_data</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">],</span> <span class="n">dim_data</span><span class="p">[</span><span class="s1">&#39;bad_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
                         <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)],</span>
                         <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
         <span class="n">trend_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;_period&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
             <span class="n">target_col</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span>
         <span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -1900,7 +1944,7 @@
     <span class="n">ax_line</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">())</span>
     
     <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Bad Rate Trend&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39; by </span><span class="si">{</span><span class="n">dimension_col</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">dimension_col</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Bad Rate Trend&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39; by </span><span class="si">{</span><span class="n">dimension_col</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">dimension_col</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">ax_line</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
     
     <span class="n">ax_line</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

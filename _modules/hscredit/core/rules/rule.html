@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.rules.rule &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.rules.rule &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -554,21 +561,30 @@
   <h1>hscredit.core.rules.rule 源代码</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;规则引擎.</span>
 
-<span class="sd">提供规则定义、评估和规则挖掘功能。</span>
+<span class="sd">提供基于 pandas eval/query 语法的规则定义、评估、组合与效果评估能力。核心类</span>
+<span class="sd">:class:`Rule` 支持用 ``&amp;``/``|``/``~``/``^`` 组合多条规则，并通过 :meth:`Rule.report`</span>
+<span class="sd">输出风控口径的命中率、坏账率、LIFT、风险拒绝比等指标；辅助函数</span>
+<span class="sd">:func:`get_columns_from_query` / :func:`get_rule_columns` 从表达式解析所引用的列名。</span>
 
 <span class="sd">**参考样例**</span>
 
 <span class="sd">&gt;&gt;&gt; from hscredit.core.rules import Rule, get_columns_from_query, get_rule_columns</span>
 <span class="sd">&gt;&gt;&gt; rule1 = Rule(&quot;age &gt; 18&quot;, name=&quot;成年规则&quot;)</span>
 <span class="sd">&gt;&gt;&gt; rule2 = Rule(&quot;income &gt; 5000&quot;, name=&quot;高收入规则&quot;)</span>
-<span class="sd">&gt;&gt;&gt; cols = get_columns_from_query(&quot;age &gt; 18 and income &lt; 5000&quot;)</span>
-<span class="sd">&gt;&gt;&gt; print(cols)</span>
+<span class="sd">&gt;&gt;&gt; combined = rule1 &amp; rule2          # 复合规则</span>
+<span class="sd">&gt;&gt;&gt; get_columns_from_query(&quot;age &gt; 18 and income &lt; 5000&quot;)</span>
+<span class="sd">[&#39;age&#39;, &#39;income&#39;]</span>
+
+<span class="sd">**引用**</span>
+
+<span class="sd">- pandas eval/query 表达式语法：</span>
+<span class="sd">  https://pandas.pydata.org/docs/user_guide/enhancingperf.html#expression-evaluation-via-eval</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
@@ -579,7 +595,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureNotFoundError</span><span class="p">,</span> <span class="n">InputTypeError</span><span class="p">,</span> <span class="n">StateError</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_replace_backtick_columns</span><span class="p">(</span><span class="n">query_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_replace_backtick_columns</span><span class="p">(</span><span class="n">query_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;将 pandas 反引号列名替换为 Python AST 可解析的占位符。&quot;&quot;&quot;</span>
     <span class="n">replacements</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -610,11 +626,21 @@
 <span class="sd">    [&#39;age&#39;, &#39;income&#39;]</span>
 <span class="sd">    &gt;&gt;&gt; get_columns_from_query(&quot;salary &gt;= 3000 &amp; age.between(20, 60)&quot;)</span>
 <span class="sd">    [&#39;age&#39;, &#39;salary&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; get_columns_from_query(&quot;`衡枢鉴真分老客版` &lt; 600 &amp; `逾期(天)` &gt; 7&quot;)</span>
+<span class="sd">    [&#39;衡枢鉴真分老客版&#39;, &#39;逾期(天)&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">parsed_query</span><span class="p">,</span> <span class="n">backtick_columns</span> <span class="o">=</span> <span class="n">_replace_backtick_columns</span><span class="p">(</span><span class="n">query_str</span><span class="p">)</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">parsed_query</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;eval&#39;</span><span class="p">)</span>
+
     <span class="n">columns</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">reserved_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span> <span class="s1">&#39;None&#39;</span><span class="p">}</span>
+
+    <span class="c1"># 反引号包裹的列名（pandas query/eval 语法，用于含空格/特殊字符/非标识符的列名），</span>
+    <span class="c1"># ast.parse 无法解析反引号，需先用正则提取并替换为占位标识符</span>
+    <span class="n">backtick_names</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;`([^`]+)`&#39;</span><span class="p">,</span> <span class="n">query_str</span><span class="p">)</span>
+    <span class="n">columns</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">backtick_names</span><span class="p">)</span>
+    <span class="n">cleaned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;`[^`]+`&#39;</span><span class="p">,</span> <span class="s1">&#39; _hscredit_bt_ &#39;</span><span class="p">,</span> <span class="n">query_str</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">visit_node</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Attribute</span><span class="p">):</span>
@@ -626,9 +652,15 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Call</span><span class="p">):</span>
             <span class="n">visit_node</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
-        <span class="n">visit_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">cleaned</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;eval&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+            <span class="n">visit_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
+        <span class="c1"># 极端情况下（如复杂的非标识符表达式）退化为仅返回反引号列名</span>
+        <span class="k">pass</span>
 
+    <span class="n">columns</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s1">&#39;_hscredit_bt_&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span></div>
 
 
@@ -636,7 +668,18 @@
 <div class="viewcode-block" id="RuleState">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.RuleState">[文档]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">RuleState</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;规则状态枚举.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;规则生命周期状态枚举。</span>
+
+<span class="sd">    继承 ``str``，可直接与字符串比较。:class:`Rule` 用它标记是否已执行过 predict，</span>
+<span class="sd">    从而约束 :meth:`Rule.result` 等依赖结果的方法。</span>
+
+<span class="sd">    **枚举值**</span>
+
+<span class="sd">    - ``INITIALIZED`` (``&quot;initialized&quot;``)：规则已创建但尚未调用 :meth:`Rule.predict`，</span>
+<span class="sd">      此时无可用结果</span>
+<span class="sd">    - ``APPLIED`` (``&quot;applied&quot;``)：规则已对某数据集执行过 :meth:`Rule.predict`，</span>
+<span class="sd">      ``result_`` 中存有最近一次命中结果</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">INITIALIZED</span> <span class="o">=</span> <span class="s2">&quot;initialized&quot;</span>
     <span class="n">APPLIED</span> <span class="o">=</span> <span class="s2">&quot;applied&quot;</span></div>
 
@@ -645,7 +688,11 @@
 <div class="viewcode-block" id="RuleStateError">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.RuleStateError">[文档]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">RuleStateError</span><span class="p">(</span><span class="n">StateError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;规则状态错误.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;规则状态异常基类。</span>
+
+<span class="sd">    当在规则不允许的状态下调用方法时抛出，继承自</span>
+<span class="sd">    :class:`~hscredit.exceptions.StateError`。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
@@ -653,7 +700,11 @@
 <div class="viewcode-block" id="RuleUnAppliedError">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.RuleUnAppliedError">[文档]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">RuleUnAppliedError</span><span class="p">(</span><span class="n">RuleStateError</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;规则未应用错误.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;规则尚未应用异常。</span>
+
+<span class="sd">    在未先调用 :meth:`Rule.predict` 的情况下访问 :meth:`Rule.result` 等依赖预测</span>
+<span class="sd">    结果的方法时抛出。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span></div>
 
 
@@ -722,7 +773,22 @@
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Rule(</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则与操作。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则&quot;与&quot;（AND）组合，对应 Python ``&amp;`` 运算符。</span>
+
+<span class="sd">        将两条规则用 ``&amp;`` 拼接为复合规则，命中条件为两者同时成立；表达式会经</span>
+<span class="sd">        :func:`beautify_expr` 美化与 :func:`optimize_expr` 化简，名称拼为</span>
+<span class="sd">        ``(A)_AND_(B)``，权重取两者较大值。</span>
+
+<span class="sd">        :param other: 另一条 :class:`Rule` 规则</span>
+<span class="sd">        :return: 组合后的新 :class:`Rule`（不修改原规则）</span>
+<span class="sd">        :raises InputTypeError: ``other`` 不是 :class:`Rule` 时</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; r = Rule(&quot;age &gt; 18&quot;) &amp; Rule(&quot;income &gt; 5000&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; r.expr</span>
+<span class="sd">        &#39;age &gt; 18 &amp; income &gt; 5000&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Rule</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">InputTypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unsupported operand type(s) for &amp;: &#39;Rule&#39; and &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
         <span class="n">combined_expr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">) &amp; (</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">)&quot;</span>
@@ -737,7 +803,21 @@
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则或操作。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则&quot;或&quot;（OR）组合，对应 Python ``|`` 运算符。</span>
+
+<span class="sd">        将两条规则用 ``|`` 拼接为复合规则，命中条件为两者任一成立；表达式经美化与</span>
+<span class="sd">        化简，名称拼为 ``(A)_OR_(B)``，权重取两者较大值。</span>
+
+<span class="sd">        :param other: 另一条 :class:`Rule` 规则</span>
+<span class="sd">        :return: 组合后的新 :class:`Rule`（不修改原规则）</span>
+<span class="sd">        :raises InputTypeError: ``other`` 不是 :class:`Rule` 时</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; r = Rule(&quot;age &gt; 18&quot;) | Rule(&quot;income &gt; 5000&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; r.expr</span>
+<span class="sd">        &#39;age &gt; 18 | income &gt; 5000&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Rule</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">InputTypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unsupported operand type(s) for |: &#39;Rule&#39; and &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
         <span class="n">combined_expr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">) | (</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">)&quot;</span>
@@ -752,7 +832,19 @@
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__invert__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则非操作。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则&quot;非&quot;（NOT）取反，对应 Python ``~`` 运算符。</span>
+
+<span class="sd">        对规则整体取反得到新规则，命中条件为原规则不成立；名称拼为 ``NOT_(A)``，</span>
+<span class="sd">        权重保持不变。</span>
+
+<span class="sd">        :return: 取反后的新 :class:`Rule`（不修改原规则）</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; r = ~Rule(&quot;age &gt; 18&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; r.expr</span>
+<span class="sd">        &#39;~(age &gt; 18)&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">combined_expr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;~(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">)&quot;</span>
         <span class="n">optimized</span> <span class="o">=</span> <span class="n">optimize_expr</span><span class="p">(</span><span class="n">beautify_expr</span><span class="p">(</span><span class="n">combined_expr</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">Rule</span><span class="p">(</span>
@@ -763,10 +855,27 @@
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__xor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则异或操作。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则&quot;异或&quot;（XOR）组合，对应 Python ``^`` 运算符。</span>
+
+<span class="sd">        命中条件为两条规则恰有一条成立。由于 pandas eval 不支持布尔 ``^``，内部以等价</span>
+<span class="sd">        表达式 ``(A &amp; ~B) | (~A &amp; B)`` 实现；名称拼为 ``(A)_XOR_(B)``，权重取较大值。</span>
+
+<span class="sd">        :param other: 另一条 :class:`Rule` 规则</span>
+<span class="sd">        :return: 组合后的新 :class:`Rule`（不修改原规则）</span>
+<span class="sd">        :raises InputTypeError: ``other`` 不是 :class:`Rule` 时</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; r = Rule(&quot;age &gt; 18&quot;) ^ Rule(&quot;income &gt; 5000&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; r.expr</span>
+<span class="sd">        &#39;(age &gt; 18 &amp; ~(income &gt; 5000)) | (~(age &gt; 18) &amp; income &gt; 5000)&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Rule</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">InputTypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unsupported operand type(s) for ^: &#39;Rule&#39; and &#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-        <span class="n">combined_expr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">) ^ (</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="c1"># pandas eval 不支持布尔 ^（BitXor），用等价的 (a &amp; ~b) | (~a &amp; b) 表达异或</span>
+        <span class="n">combined_expr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;((</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">) &amp; ~(</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">)) | (~(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">) &amp; (</span><span class="si">{</span><span class="n">other</span><span class="o">.</span><span class="n">expr</span><span class="si">}</span><span class="s2">))&quot;</span>
+        <span class="p">)</span>
         <span class="n">optimized</span> <span class="o">=</span> <span class="n">optimize_expr</span><span class="p">(</span><span class="n">beautify_expr</span><span class="p">(</span><span class="n">combined_expr</span><span class="p">))</span>
         <span class="n">self_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">expr</span>
         <span class="n">other_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">other</span><span class="o">.</span><span class="n">expr</span>
@@ -778,7 +887,15 @@
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则相等比较。&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;规则相等比较，对应 Python ``==`` 运算符。</span>
+
+<span class="sd">        两条规则当且仅当 ``expr`` 表达式字符串完全相同时视为相等（与 :meth:`__hash__`</span>
+<span class="sd">        保持一致，因此 :class:`Rule` 可放入 set / 作为 dict 键）。</span>
+
+<span class="sd">        :param other: 另一条 :class:`Rule` 规则</span>
+<span class="sd">        :return: 两者表达式是否相同（bool）</span>
+<span class="sd">        :raises InputTypeError: ``other`` 不是 :class:`Rule` 时</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Rule</span><span class="p">):</span>
             <span class="k">raise</span> <span class="n">InputTypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input should be of type Rule, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="si">}</span><span class="s2"> instead.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">expr</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">expr</span>

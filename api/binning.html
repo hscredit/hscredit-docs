@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>分箱 hscredit.core.binning &mdash; hscredit 0.1.0 文档</title>
+  <title>分箱 hscredit.core.binning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -1370,7 +1377,7 @@ TargetBadRateBinning</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.binning.UniformBinning">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">UniformBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/uniform_binning.html#UniformBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.UniformBinning" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">UniformBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/uniform_binning.html#UniformBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.UniformBinning" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.base.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p>
 <p>等距分箱.</p>
 <p>将特征值的范围等分为指定数量的区间，每个区间宽度相同。
@@ -1388,7 +1395,7 @@ TargetBadRateBinning</p></li>
 <li><p><strong>special_codes</strong> (<em>List</em><em> | </em><em>None</em>) -- 特殊值列表，默认为None，如[-999, -98]</p></li>
 <li><p><strong>left_clip</strong> (<em>float</em><em> | </em><em>None</em>) -- 左侧截断分位数，默认为None，如0.01表示截断1%分位数以下的值</p></li>
 <li><p><strong>right_clip</strong> (<em>float</em><em> | </em><em>None</em>) -- 右侧截断分位数，默认为None，如0.99表示截断99%分位数以上的值</p></li>
-<li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为True
+<li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为False（自动识别类别型）
 - True: 将所有特征视为数值型进行等距分箱（默认，因为等距分箱适用于数值型）
 - False: 自动检测特征类型（根据dtype判断）</p></li>
 <li><p><strong>random_state</strong> (<em>int</em><em> | </em><em>None</em>) -- 随机种子，默认为None</p></li>
@@ -1417,8 +1424,13 @@ TargetBadRateBinning</p></li>
 2. 分箱边界由 (max - min) / n_bins 计算得出
 3. 支持通过left_clip/right_clip截断异常值
 4. 支持通过special_codes处理特殊值（如-999表示缺失）
-5. 默认force_numerical=True，确保进行数值型等距分箱
-6. 计算速度快，实现简单</p>
+5. 默认force_numerical=False，自动识别类别型；如需强制数值等距分箱可显式设为 True
+6. 计算速度快，实现简单；为无监督方法，不使用标签 <code class="docutils literal notranslate"><span class="pre">y</span></code> 决定切分
+7. 对偏态分布或含极端值的特征不友好（可能某些箱样本极少），此时优先用等频分箱</p>
+<p><strong>引用</strong></p>
+<p>等距（equal-width）离散化综述见 Dougherty, J., Kohavi, R., &amp; Sahami, M. (1995).
+<em>Supervised and Unsupervised Discretization of Continuous Features.</em> ICML-95.
+<a class="reference external" href="https://ai.stanford.edu/~ronnyk/disc.pdf">https://ai.stanford.edu/~ronnyk/disc.pdf</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.UniformBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/uniform_binning.html#UniformBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.UniformBinning.fit" title="Link to this definition"></a></dt>
@@ -1480,7 +1492,7 @@ TargetBadRateBinning</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.binning.QuantileBinning">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">QuantileBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/quantile_binning.html#QuantileBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.QuantileBinning" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">QuantileBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/quantile_binning.html#QuantileBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.QuantileBinning" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.base.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p>
 <p>等频分箱算法.</p>
 <p>将特征值按照分位数切分成多个区间，确保每个区间的样本数大致相等。
@@ -1492,7 +1504,7 @@ TargetBadRateBinning</p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为10</p></li>
 <li><p><strong>quantiles</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) -- 自定义分位点列表，如[0, 0.2, 0.5, 0.8, 1.0]，默认为None
 - 如果提供，将直接使用这些分位点进行分箱</p></li>
-<li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为True
+<li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为False（自动识别类别型）
 - True: 将所有特征视为数值型进行等频分箱
 - False: 自动检测特征类型</p></li>
 <li><p><strong>min_bin_size</strong> (<em>float</em><em> | </em><em>int</em>) -- 每箱最小样本数或占比，默认为0.01</p></li>
@@ -1526,6 +1538,13 @@ TargetBadRateBinning</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>等频分箱为无监督方法，仅依据特征自身分布切分、不使用标签 <code class="docutils literal notranslate"><span class="pre">y``（``y</span></code> 仅用于
+生成分箱统计表），因此对异常值稳健、各箱样本量均衡，常用作有监督分箱的预分箱。</p>
+<p><strong>引用</strong></p>
+<p>等频（equal-frequency）离散化综述见 Dougherty, J., Kohavi, R., &amp; Sahami, M.
+(1995). <em>Supervised and Unsupervised Discretization of Continuous Features.</em>
+ICML-95. <a class="reference external" href="https://ai.stanford.edu/~ronnyk/disc.pdf">https://ai.stanford.edu/~ronnyk/disc.pdf</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.QuantileBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/quantile_binning.html#QuantileBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.QuantileBinning.fit" title="Link to this definition"></a></dt>
@@ -1591,14 +1610,15 @@ TargetBadRateBinning</p></li>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">TreeBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_leaf_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/tree_binning.html#TreeBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.TreeBinning" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.base.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p>
 <p>决策树分箱算法.</p>
-<p>使用决策树提取最优分割点进行分箱，基于信息增益选择切分点。
-支持最大深度、叶子节点数限制和单调性约束。</p>
+<p>以 sklearn <code class="xref py py-class docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> 对单特征拟合一棵决策树，
+取其内部节点的分裂阈值作为切分点。分裂以基尼系数 / 信息增益最大化为准则，因而切分
+天然贴合目标变量。支持最大深度、叶子节点数与单调性约束。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>max_depth</strong> (<em>int</em>) -- 决策树最大深度，默认为5</p></li>
-<li><p><strong>max_leaf_nodes</strong> (<em>int</em><em> | </em><em>None</em>) -- 最大叶子节点数，默认为None</p></li>
-<li><p><strong>min_samples_leaf</strong> (<em>float</em><em> | </em><em>int</em>) -- 叶子节点最小样本数，默认为0.05</p></li>
+<li><p><strong>max_depth</strong> (<em>int</em>) -- 决策树最大深度，默认为5（越大切分越细）</p></li>
+<li><p><strong>max_leaf_nodes</strong> (<em>int</em><em> | </em><em>None</em>) -- 最大叶子节点数（约等于最大分箱数上限），默认为None</p></li>
+<li><p><strong>min_samples_leaf</strong> (<em>float</em><em> | </em><em>int</em>) -- 叶子节点最小样本数（<code class="docutils literal notranslate"><span class="pre">&lt;1</span></code> 为占比，<code class="docutils literal notranslate"><span class="pre">&gt;=1</span></code> 为绝对数），默认为0.05</p></li>
 <li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为2</p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为10</p></li>
 <li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为False</p></li>
@@ -1629,6 +1649,10 @@ TargetBadRateBinning</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_binned</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>决策树分裂准则参见 Breiman, L. et al. (1984). <em>Classification and Regression
+Trees.</em> Wadsworth；实现基于 sklearn
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.TreeBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/tree_binning.html#TreeBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.TreeBinning.fit" title="Link to this definition"></a></dt>
@@ -1751,6 +1775,12 @@ TargetBadRateBinning</p></li>
 3. 可设置类别权重处理不平衡数据
 4. 支持 p-value 检验确保分箱统计显著性
 5. 支持单调性约束</p>
+<p>与 <a class="reference internal" href="#hscredit.core.binning.TreeBinning" title="hscredit.core.binning.TreeBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeBinning</span></code></a> 的区别：CART 额外提供 p-value 显著性检验合并、相邻箱坏样本率
+最小差异约束（<code class="docutils literal notranslate"><span class="pre">min_event_rate_diff</span></code>）及回归目标支持，预分箱流程对齐 optbinning。</p>
+<p><strong>引用</strong></p>
+<p>Breiman, L., Friedman, J., Olshen, R., &amp; Stone, C. (1984). <em>Classification and
+Regression Trees.</em> Wadsworth；预分箱实现参考 optbinning
+<a class="reference external" href="https://gnpalencia.org/optbinning/">https://gnpalencia.org/optbinning/</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.CartBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/cart_binning.html#CartBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.CartBinning.fit" title="Link to this definition"></a></dt>
@@ -1815,30 +1845,39 @@ TargetBadRateBinning</p></li>
 <dt class="sig sig-object py" id="hscredit.core.binning.ChiMergeBinning">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">ChiMergeBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_chi2_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_chi2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/chi_merge_binning.html#ChiMergeBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.ChiMergeBinning" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.base.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p>
-<p>卡方分箱算法 (ChiMerge).</p>
-<p>基于卡方统计量合并相邻箱的分箱方法。
-初始将每个唯一值作为一个箱，然后迭代合并卡方值最小的相邻箱，
-直到满足停止条件（卡方阈值或最大分箱数）。</p>
+<p>卡方分箱算法 (ChiMerge)。</p>
+<p>一种自底向上（bottom-up）的有监督分箱方法。其核心假设是：若相邻两箱的好坏样本
+分布无显著差异（卡方值小），则可以合并。算法流程：</p>
+<ol class="arabic simple">
+<li><p><strong>初始化</strong>：将每个唯一值（或预分位点）各作为一个箱；</p></li>
+<li><p><strong>迭代合并</strong>：对所有相邻箱对计算 2×2 列联表的卡方统计量，合并卡方值最小的一对；</p></li>
+<li><p><strong>停止</strong>：当最小卡方值超过阈值 <code class="docutils literal notranslate"><span class="pre">min_chi2_threshold</span></code>，或箱数降至 <code class="docutils literal notranslate"><span class="pre">max_n_bins</span></code>、
+<code class="docutils literal notranslate"><span class="pre">min_n_bins</span></code> 限制时停止。</p></li>
+</ol>
+<p>卡方值越大表示相邻两箱坏样本率差异越显著、越不应合并。继承 <a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a>，
+完整的分箱通用参数、属性与转换语义见基类。</p>
+<p><strong>参数（本算法特有及关键项）</strong></p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为10</p></li>
-<li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为2</p></li>
-<li><p><strong>min_chi2_threshold</strong> (<em>float</em><em> | </em><em>None</em>) -- 卡方阈值，默认为None
-- 如果为None，使用自由度为1、显著性水平0.05的卡方临界值</p></li>
-<li><p><strong>min_chi2</strong> (<em>float</em><em> | </em><em>None</em>) -- 卡方阈值的简写形式，与min_chi2_threshold等价
-- 例如：min_chi2=3.841 (等价于 min_chi2_threshold=3.841)</p></li>
-<li><p><strong>significance_level</strong> (<em>float</em>) -- 显著性水平，默认为0.05</p></li>
-<li><p><strong>min_bin_size</strong> (<em>float</em><em> | </em><em>int</em>) -- 每箱最小样本数或占比，默认为0.01</p></li>
-<li><p><strong>max_bin_size</strong> (<em>float</em><em> | </em><em>int</em><em> | </em><em>None</em>) -- 每箱最大样本数或占比，默认为None</p></li>
-<li><p><strong>min_bad_rate</strong> (<em>float</em>) -- 每箱最小坏样本率，默认为0.0</p></li>
-<li><p><strong>monotonic</strong> (<em>bool</em><em> | </em><em>str</em>) -- 是否要求坏样本率单调，默认为False</p></li>
-<li><p><strong>special_codes</strong> (<em>List</em><em> | </em><em>None</em>) -- 特殊值列表，默认为None</p></li>
-<li><p><strong>missing_separate</strong> (<em>bool</em>) -- 是否将缺失值单独分为一箱，默认为True</p></li>
-<li><p><strong>random_state</strong> (<em>int</em><em> | </em><em>None</em>) -- 随机种子，默认为None</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em><em> | </em><em>int</em>) -- 是否输出详细信息，默认为False</p></li>
-<li><p><strong>target</strong> (<em>str</em>)</p></li>
-<li><p><strong>decimal</strong> (<em>int</em>)</p></li>
+<li><p><strong>target</strong> (<em>str</em>) -- 目标列名（scorecardpipeline 风格），默认为 <code class="docutils literal notranslate"><span class="pre">'target'</span></code></p></li>
+<li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为 <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为 <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><strong>min_chi2_threshold</strong> (<em>float</em><em> | </em><em>None</em>) -- 卡方合并阈值（停止合并的下限），默认为 <code class="docutils literal notranslate"><span class="pre">None</span></code>。
+为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 时取自由度 1、显著性水平 <code class="docutils literal notranslate"><span class="pre">significance_level</span></code> 的卡方临界值
+（如 0.05 对应约 3.841）。当相邻箱的最小卡方值大于该阈值即停止合并</p></li>
+<li><p><strong>min_chi2</strong> (<em>float</em><em> | </em><em>None</em>) -- <strong>已废弃</strong>，请改用 <code class="docutils literal notranslate"><span class="pre">min_chi2_threshold</span></code>；传入非 <code class="docutils literal notranslate"><span class="pre">None</span></code> 将报错</p></li>
+<li><p><strong>significance_level</strong> (<em>float</em>) -- 显著性水平，用于在 <code class="docutils literal notranslate"><span class="pre">min_chi2_threshold</span></code> 为 <code class="docutils literal notranslate"><span class="pre">None</span></code> 时
+换算卡方临界值，默认为 <a href="#id1"><span class="problematic" id="id2">``</span></a>0.05``（值越小阈值越大、分箱越粗）</p></li>
+<li><p><strong>min_bin_size</strong> (<em>float</em><em> | </em><em>int</em>) -- 每箱最小样本数（<code class="docutils literal notranslate"><span class="pre">&gt;=1</span></code>）或占比（<code class="docutils literal notranslate"><span class="pre">&lt;1</span></code>），默认为 <code class="docutils literal notranslate"><span class="pre">0.01</span></code></p></li>
+<li><p><strong>max_bin_size</strong> (<em>float</em><em> | </em><em>int</em><em> | </em><em>None</em>) -- 每箱最大样本数或占比，默认为 <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>min_bad_rate</strong> (<em>float</em>) -- 每箱最小坏样本率，默认为 <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></li>
+<li><p><strong>monotonic</strong> (<em>bool</em><em> | </em><em>str</em>) -- 坏样本率单调性约束，取值见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a>，默认为 <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>special_codes</strong> (<em>List</em><em> | </em><em>None</em>) -- 特殊值列表，单独成箱，默认为 <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>missing_separate</strong> (<em>bool</em>) -- 是否将缺失值单独成箱，默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em> | </em><em>None</em>) -- 随机种子，默认为 <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em> | </em><em>int</em>) -- 是否输出合并过程日志，默认为 <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>decimal</strong> (<em>int</em>) -- 数值切分点保留小数位，默认为 <code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -1846,34 +1885,50 @@ TargetBadRateBinning</p></li>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">splits_</span></code>: 每个特征的分箱切分点</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_bins_</span></code>: 每个特征的实际分箱数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bin_tables_</span></code>: 每个特征的分箱统计表</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bin_tables_</span></code>: 每个特征的分箱统计表（中文列名，见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a>）</p></li>
 </ul>
 <p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChiMergeBinning</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">ChiMergeBinning</span><span class="p">(</span><span class="n">max_n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X_binned</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">ChiMergeBinning</span><span class="p">(</span><span class="n">max_n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">significance_level</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>                       <span class="c1"># sklearn 风格</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_woe</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;woe&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">get_bin_table</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>           <span class="c1"># 查看某特征分箱明细</span>
 </pre></div>
 </div>
+<p>指定卡方阈值并要求坏样本率单调递减:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">ChiMergeBinning</span><span class="p">(</span><span class="n">min_chi2_threshold</span><span class="o">=</span><span class="mf">6.635</span><span class="p">,</span> <span class="n">monotonic</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>引用</strong></p>
+<p>Kerber, R. (1992). <em>ChiMerge: Discretization of Numeric Attributes.</em>
+Proceedings of AAAI-92. <a class="reference external" href="https://www.aaai.org/Papers/AAAI/1992/AAAI92-019.pdf">https://www.aaai.org/Papers/AAAI/1992/AAAI92-019.pdf</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.ChiMergeBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/chi_merge_binning.html#ChiMergeBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.ChiMergeBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合卡方分箱.</p>
+<dd><p>拟合卡方分箱。</p>
+<p>对每个特征执行 ChiMerge 合并，得到切分点与分箱统计表。支持 sklearn 风格
+<code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code> 与 scorecardpipeline 风格 <code class="docutils literal notranslate"><span class="pre">fit(df)``（目标列由</span> <span class="pre">``target</span></code> 指定），
+详见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape (n_samples, n_features)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，二分类 (0/1)</p></li>
-<li><p><strong>kwargs</strong> -- 其他参数</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>；可为 DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，二分类（0=好/1=坏）；scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>拟合后的分箱器</p>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.ChiMergeBinning" title="hscredit.core.binning.chi_merge_binning.ChiMergeBinning"><em>ChiMergeBinning</em></a></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ChiMergeBinning</span><span class="p">(</span><span class="n">max_n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;woe&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1954,23 +2009,30 @@ TargetBadRateBinning</p></li>
 </div>
 <p><strong>注意</strong></p>
 <p>Best KS 分箱的特点:
-1. 最大化KS统计量
-2. 使用贪心算法逐步优化
-3. 支持单调性约束
-4. 计算复杂度较高</p>
+1. 以最大化 KS（Kolmogorov–Smirnov）统计量为目标选择切分点
+2. KS = max <a href="#id13"><span class="problematic" id="id14">|累计好样本占比 - 累计坏样本占比|</span></a>，衡量好坏样本累积分布的最大差异
+3. 使用贪心算法逐步优化，支持单调性约束
+4. 相比等频/等距计算复杂度较高，但区分度更优</p>
+<p><strong>引用</strong></p>
+<p>Kolmogorov–Smirnov 检验：<a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov">https://en.wikipedia.org/wiki/Kolmogorov</a>–Smirnov_test ；
+KS 统计量在信用风险中的应用见 Siddiqi, N. (2006). <em>Credit Risk Scorecards.</em> Wiley.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.BestKSBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/best_ks_binning.html#BestKSBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.BestKSBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合 Best KS 分箱.</p>
+<dd><p>拟合 Best KS 分箱。</p>
+<p>对每个特征预分割为细箱后，在单调性约束下贪心选择切分点以最大化 KS 统计量。
+支持 sklearn 风格 <code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code> 与 scorecardpipeline 风格 <code class="docutils literal notranslate"><span class="pre">fit(df)</span></code>，
+详见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>，DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 二分类目标变量（0=好/1=坏）；scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>拟合后的分箱器</p>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.BestKSBinning" title="hscredit.core.binning.best_ks_binning.BestKSBinning"><em>BestKSBinning</em></a></p>
@@ -2056,24 +2118,34 @@ IV是衡量特征预测能力的重要指标。</p>
 </div>
 <p><strong>注意</strong></p>
 <p>Best IV 分箱的特点:
-1. 最大化IV值
-2. IV &gt; 0.02 表示特征有预测能力
-3. IV &gt; 0.1 表示特征有较强的预测能力
-4. IV &gt; 0.3 表示特征预测能力过强（可能有问题）
-5. 使用贪心算法逐步优化</p>
+1. 以最大化 IV（Information Value，信息价值）为目标，逐步贪心优化切分点
+2. IV &lt; 0.02：几乎无预测能力
+3. 0.02 ≤ IV &lt; 0.1：弱预测能力
+4. 0.1 ≤ IV &lt; 0.3：中等预测能力
+5. IV ≥ 0.3：强预测能力（过高时需警惕标签泄漏或过拟合）</p>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">IV</span> <span class="pre">=</span> <span class="pre">Σ</span> <span class="pre">(好样本占比</span> <span class="pre">-</span> <span class="pre">坏样本占比)</span> <span class="pre">×</span> <span class="pre">WOE</span></code>，
+<code class="docutils literal notranslate"><span class="pre">WOE</span> <span class="pre">=</span> <span class="pre">ln(箱内好样本占比</span> <span class="pre">/</span> <span class="pre">箱内坏样本占比)</span></code>。</p>
+<p><strong>引用</strong></p>
+<p>Information Value / WOE 经典出处：Siddiqi, N. (2006). <em>Credit Risk Scorecards:
+Developing and Implementing Intelligent Credit Scoring.</em> Wiley.
+IV 阈值经验区间参考业界通行标准（见 scorecard / toad / optbinning 文档）。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.BestIVBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/best_iv_binning.html#BestIVBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.BestIVBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合 Best IV 分箱.</p>
+<dd><p>拟合 Best IV 分箱。</p>
+<p>对每个特征预分割为细箱后，在单调性约束下贪心合并以最大化 IV，得到切分点与分箱
+统计表。支持 sklearn 风格 <code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code> 与 scorecardpipeline 风格 <code class="docutils literal notranslate"><span class="pre">fit(df)</span></code>，
+详见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>，DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 二分类目标变量（0=好/1=坏）；scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>拟合后的分箱器</p>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.BestIVBinning" title="hscredit.core.binning.best_iv_binning.BestIVBinning"><em>BestIVBinning</em></a></p>
@@ -2140,15 +2212,32 @@ IV是衡量特征预测能力的重要指标。</p>
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量列名，默认为'target'</p></li>
-<li><p><strong>method</strong> (<em>str</em>) -- <p>分箱方法，可选:
-- 基础方法: 'uniform', 'quantile', 'tree', 'chi'
-- 优化方法: 'best_ks', 'best_iv', 'mdlp'
-- 运筹规划: 'or_tools'
-- 高级方法: 'cart', 'kmeans', 'monotonic', 'genetic',</p>
-<blockquote>
-<div><p>'smooth', 'kernel_density', 'best_lift', 'target_bad_rate'</p>
-</div></blockquote>
-<p>默认为'mdlp'</p>
+<li><p><strong>method</strong> (<em>str</em>) -- <p>分箱方法，默认为 <code class="docutils literal notranslate"><span class="pre">'mdlp'</span></code>。可取以下枚举值（按类别）：</p>
+<p><em>无监督（不使用标签决定切分）</em></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'uniform'</span></code>：等距分箱，按数值范围等宽切分，快但对偏态敏感</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'quantile'</span></code>：等频分箱，各箱样本量均衡，对异常值稳健，常作预分箱</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kmeans'</span></code>：K-Means 聚类分箱，按数值聚类结构切分，适合自然分组</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kernel_density'</span></code>：核密度分箱，以分布谷值为边界，适合多峰分布</p></li>
+</ul>
+<p><em>有监督（结合标签寻优）</em></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'tree'</span></code>：决策树分箱，取决策树分裂点，贴合目标</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'cart'</span></code>：CART 分箱（对齐 optbinning 预分箱），支持 p-value 检验/回归目标</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'chi'</span></code>：卡方分箱（ChiMerge），合并分布无显著差异的相邻箱</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'mdlp'</span></code>：MDLP 信息论分箱，自动确定分箱数（默认）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'best_ks'</span></code>：最大化 KS 统计量</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'best_iv'</span></code>：最大化 IV（信息价值），评分卡常用</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'best_lift'</span></code>：最大化头部箱提升度 Lift，偏策略拒绝场景</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'target_bad_rate'</span></code>：按目标坏样本率梯度切分</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'monotonic'</span></code>：单调最优分箱，强约束坏样本率/WOE 单调（含 U/倒U）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'genetic'</span></code>：遗传算法全局寻优，约束复杂时使用</p></li>
+</ul>
+<p><em>运筹规划（数学规划全局最优）</em></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'or_tools'</span></code>：基于 Google OR-Tools 的整数规划分箱</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'cp_sat'</span></code>：基于 CP-SAT 求解器的约束规划分箱</p></li>
+</ul>
 </p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为5</p></li>
 <li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为2</p></li>
@@ -2215,8 +2304,16 @@ IV是衡量特征预测能力的重要指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># 使用quantile预分箱（先将数据分成20等份，再进行MDLP分箱）</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">OptimalBinning</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;mdlp&#39;</span><span class="p">,</span> <span class="n">prebinning</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">,</span> <span class="n">prebinning_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;max_n_bins&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 自动为某特征选择最优分箱方法</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">best</span> <span class="o">=</span> <span class="n">OptimalBinning</span><span class="o">.</span><span class="n">auto_select_method</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">OptimalBinning</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">best</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>最优分箱（optimal binning）的两阶段（预分箱 + 二次合并）框架与单调/规划求解参考
+optbinning：Navas-Palencia, G. (2020). <em>Optimal binning: mathematical programming
+formulation.</em> arXiv:2001.08025. https://arxiv.org/abs/2001.08025 ；
+各子方法的具体出处见对应分箱类文档。</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="hscredit.core.binning.OptimalBinning.VALID_METHODS">
 <span class="sig-name descname"><span class="pre">VALID_METHODS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['uniform',</span> <span class="pre">'quantile',</span> <span class="pre">'tree',</span> <span class="pre">'chi',</span> <span class="pre">'best_ks',</span> <span class="pre">'best_iv',</span> <span class="pre">'mdlp',</span> <span class="pre">'or_tools',</span> <span class="pre">'cp_sat',</span> <span class="pre">'cart',</span> <span class="pre">'kmeans',</span> <span class="pre">'monotonic',</span> <span class="pre">'genetic',</span> <span class="pre">'smooth',</span> <span class="pre">'kernel_density',</span> <span class="pre">'best_lift',</span> <span class="pre">'target_bad_rate']</span></em><a class="headerlink" href="#hscredit.core.binning.OptimalBinning.VALID_METHODS" title="Link to this definition"></a></dt>
@@ -2413,6 +2510,11 @@ IV是衡量特征预测能力的重要指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_binned</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>Fayyad, U. M., &amp; Irani, K. B. (1993). <em>Multi-interval discretization of
+continuous-valued attributes for classification learning.</em> IJCAI-93.
+<a class="reference external" href="https://trs.jpl.nasa.gov/handle/2014/35171">https://trs.jpl.nasa.gov/handle/2014/35171</a> ；
+MDLP（最小描述长度原理）参见 <a class="reference external" href="https://en.wikipedia.org/wiki/Minimum_description_length">https://en.wikipedia.org/wiki/Minimum_description_length</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.MDLPBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/mdlp_binning.html#MDLPBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.MDLPBinning.fit" title="Link to this definition"></a></dt>
@@ -2614,6 +2716,12 @@ IV是衡量特征预测能力的重要指标。</p>
 </div>
 </li>
 </ol>
+<p><strong>引用</strong></p>
+<p>最优分箱的数学规划建模参考 optbinning：Navas-Palencia, G. (2020). <em>Optimal
+binning: mathematical programming formulation.</em> arXiv:2001.08025.
+https://arxiv.org/abs/2001.08025 ；求解器为 Google OR-Tools
+https://developers.google.com/optimization 。与 <a class="reference internal" href="#hscredit.core.binning.CPSATBinning" title="hscredit.core.binning.CPSATBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">CPSATBinning</span></code></a> 相比，
+本类额外支持自定义目标函数与启发式+DP 快速模式（<code class="docutils literal notranslate"><span class="pre">use_cp_sat=False</span></code>）。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.ORBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/or_binning.html#ORBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.ORBinning.fit" title="Link to this definition"></a></dt>
@@ -2934,7 +3042,13 @@ IV是衡量特征预测能力的重要指标。</p>
 1. 能够找到全局最优解（而非贪心算法的局部最优）
 2. 支持复杂的约束条件组合
 3. 计算时间可控，可设置时间限制
-4. 适合对分箱质量要求高的场景</p>
+4. 适合对分箱质量要求高的场景
+5. 依赖可选包 <code class="docutils literal notranslate"><span class="pre">ortools</span></code>，未安装时实例化会抛出 ImportError</p>
+<p><strong>引用</strong></p>
+<p>将最优分箱建模为数学规划问题参考 optbinning：Navas-Palencia, G. (2020).
+<em>Optimal binning: mathematical programming formulation.</em> arXiv:2001.08025.
+https://arxiv.org/abs/2001.08025 ；求解器为 Google OR-Tools CP-SAT
+https://developers.google.com/optimization/cp/cp_solver</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.CPSATBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/cp_sat_binning.html#CPSATBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.CPSATBinning.fit" title="Link to this definition"></a></dt>
@@ -2976,7 +3090,7 @@ IV是衡量特征预测能力的重要指标。</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="hscredit.core.binning.KMeansBinning">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">KMeansBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/kmeans_binning.html#KMeansBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.KMeansBinning" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.core.binning.</span></span><span class="sig-name descname"><span class="pre">KMeansBinning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_bad_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monotonic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_codes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_separate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_numerical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/kmeans_binning.html#KMeansBinning"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.KMeansBinning" title="Link to this definition"></a></dt>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.base.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p>
 <p>K-Means聚类分箱算法.</p>
 <p>使用K-Means算法将特征值聚类成K个簇，每个簇作为一个分箱。
@@ -2993,7 +3107,7 @@ IV是衡量特征预测能力的重要指标。</p>
 <li><p><strong>special_codes</strong> (<em>List</em><em> | </em><em>None</em>) -- 特殊值列表，默认为None</p></li>
 <li><p><strong>missing_separate</strong> (<em>bool</em>) -- 是否将缺失值单独分为一箱，默认为True</p></li>
 <li><p><strong>random_state</strong> (<em>int</em><em> | </em><em>None</em>) -- 随机种子，用于K-Means初始化，默认为None</p></li>
-<li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为True
+<li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为False（自动识别类别型）
 - True: 将所有特征视为数值型进行K-Means聚类分箱
 - False: 自动检测特征类型</p></li>
 <li><p><strong>n_init</strong> (<em>int</em>) -- K-Means初始化次数，默认为10</p></li>
@@ -3021,20 +3135,31 @@ IV是衡量特征预测能力的重要指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bin_table</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">get_bin_table</span><span class="p">(</span><span class="s1">&#39;feature_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>K-Means 为无监督分箱，依据特征数值的聚类结构切分、不使用标签 <code class="docutils literal notranslate"><span class="pre">y</span></code> 决定边界
+（切分点取相邻聚类中心的中点）；对存在自然分组的特征效果好，对均匀分布的特征则
+与等距分箱接近。</p>
+<p><strong>引用</strong></p>
+<p>K-Means 聚类：MacQueen, J. (1967) 与 Lloyd, S. (1982)；
+<a class="reference external" href="https://en.wikipedia.org/wiki/K-means_clustering">https://en.wikipedia.org/wiki/K-means_clustering</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.KMeansBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/kmeans_binning.html#KMeansBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.KMeansBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合K-Means分箱.</p>
+<dd><p>拟合 K-Means 分箱。</p>
+<p>对每个数值特征做一维 K-Means 聚类，以相邻聚类中心的中点作为切分点；类别特征按
+类别成箱。支持 sklearn 风格 <code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code> 与 scorecardpipeline 风格 <code class="docutils literal notranslate"><span class="pre">fit(df)</span></code>，
+详见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape (n_samples, n_features)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 目标变量，二分类 (0/1)</p></li>
-<li><p><strong>kwargs</strong> -- 其他参数</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>，DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 二分类目标变量（0=好/1=坏），仅用于生成分箱统计表；
+scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>拟合后的分箱器</p>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.KMeansBinning" title="hscredit.core.binning.kmeans_binning.KMeansBinning"><em>KMeansBinning</em></a></p>
@@ -3146,6 +3271,10 @@ IV是衡量特征预测能力的重要指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;检测到的模式: </span><span class="si">{</span><span class="n">binner</span><span class="o">.</span><span class="n">monotonic_trend_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>单调最优分箱（monotonic_trend：ascending/descending/peak/valley/convex/concave）
+设计参考 optbinning：Navas-Palencia, G. (2020). <em>Optimal binning: mathematical
+programming formulation.</em> arXiv:2001.08025. https://arxiv.org/abs/2001.08025</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="hscredit.core.binning.MonotonicBinning.VALID_MONOTONIC_MODES">
 <span class="sig-name descname"><span class="pre">VALID_MONOTONIC_MODES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['auto',</span> <span class="pre">'auto_asc_desc',</span> <span class="pre">'auto_heuristic',</span> <span class="pre">'ascending',</span> <span class="pre">'descending',</span> <span class="pre">'peak',</span> <span class="pre">'valley',</span> <span class="pre">'convex',</span> <span class="pre">'concave',</span> <span class="pre">'peak_heuristic',</span> <span class="pre">'valley_heuristic',</span> <span class="pre">None,</span> <span class="pre">False]</span></em><a class="headerlink" href="#hscredit.core.binning.MonotonicBinning.VALID_MONOTONIC_MODES" title="Link to this definition"></a></dt>
@@ -3244,8 +3373,14 @@ IV是衡量特征预测能力的重要指标。</p>
 <li><p><strong>generations</strong> (<em>int</em>) -- 迭代代数，默认为100</p></li>
 <li><p><strong>mutation_rate</strong> (<em>float</em>) -- 变异率，默认为0.1</p></li>
 <li><p><strong>crossover_rate</strong> (<em>float</em>) -- 交叉率，默认为0.8</p></li>
-<li><p><strong>elitism_rate</strong> (<em>float</em>) -- 精英保留率，默认为0.1</p></li>
-<li><p><strong>objective</strong> (<em>str</em>) -- 优化目标，默认为'iv'，可选'iv', 'ks', 'gini'</p></li>
+<li><p><strong>elitism_rate</strong> (<em>float</em>) -- 精英保留率（每代直接保留的最优个体比例），默认为0.1</p></li>
+<li><p><strong>objective</strong> (<em>str</em>) -- <p>适应度（优化目标）函数，默认为 <code class="docutils literal notranslate"><span class="pre">'iv'</span></code>。可取以下枚举值：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'iv'</span></code>：最大化 Information Value（信息价值），最常用，衡量整体预测力</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'ks'</span></code>：最大化 KS 统计量，衡量好坏样本累积分布的最大区分度</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'gini'</span></code>：最大化 Gini 系数（≈ 2×AUC−1），衡量排序区分能力</p></li>
+</ul>
+</p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为5</p></li>
 <li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为2</p></li>
 <li><p><strong>min_bin_size</strong> (<em>float</em><em> | </em><em>int</em>) -- 每箱最小样本数或占比，默认为0.01</p></li>
@@ -3268,19 +3403,32 @@ IV是衡量特征预测能力的重要指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_binned</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>遗传算法为随机全局优化，结果依赖 <code class="docutils literal notranslate"><span class="pre">random_state</span></code>；相比贪心方法更可能跳出局部最优，
+但计算开销随 <code class="docutils literal notranslate"><span class="pre">population_size</span> <span class="pre">×</span> <span class="pre">generations</span></code> 增长，适合约束复杂、对分箱质量要求高的场景。</p>
+<p><strong>引用</strong></p>
+<p>遗传算法：Holland, J. H. (1975). <em>Adaptation in Natural and Artificial Systems.</em>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Genetic_algorithm">https://en.wikipedia.org/wiki/Genetic_algorithm</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.GeneticBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/genetic_binning.html#GeneticBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.GeneticBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合遗传算法分箱.</p>
+<dd><p>拟合遗传算法分箱。</p>
+<p>对每个特征以遗传算法（选择/交叉/变异/精英保留）在候选切分点中搜索使 <code class="docutils literal notranslate"><span class="pre">objective</span></code>
+最大化的分箱方案。支持 sklearn 与 scorecardpipeline 两种调用风格，详见
+<a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>，DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 二分类目标变量（0=好/1=坏）；scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#hscredit.core.binning.GeneticBinning" title="hscredit.core.binning.genetic_binning.GeneticBinning"><em>GeneticBinning</em></a></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.GeneticBinning" title="hscredit.core.binning.genetic_binning.GeneticBinning"><em>GeneticBinning</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3338,18 +3486,32 @@ IV是衡量特征预测能力的重要指标。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<em>str</em>) -- 平滑方法，默认为'adaptive'，可选'laplace', 'bayesian', 'beta', 'adaptive'</p></li>
-<li><p><strong>smoothing_param</strong> (<em>float</em>) -- 平滑参数，默认为0.5（降低默认值）</p></li>
+<li><p><strong>method</strong> (<em>str</em>) -- <p>坏样本率平滑方法，默认为 <code class="docutils literal notranslate"><span class="pre">'adaptive'</span></code>。可取以下枚举值：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'laplace'</span></code>：拉普拉斯（加性）平滑，坏样本率 = (坏数 + k) / (总数 + 2k)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'bayesian'</span></code>：贝叶斯平滑，以全局/先验坏样本率为先验做收缩</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'beta'</span></code>：Beta 分布共轭先验平滑</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'adaptive'</span></code>：自适应平滑，按各箱样本量动态调整平滑强度（样本越少收缩越强）</p></li>
+</ul>
+</p></li>
+<li><p><strong>smoothing_param</strong> (<em>float</em>) -- 平滑强度参数（越大越向先验收缩），默认为0.5</p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为5</p></li>
 <li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为2</p></li>
 <li><p><strong>min_bin_size</strong> (<em>float</em><em> | </em><em>int</em>) -- 每箱最小样本数或占比，默认为0.01</p></li>
 <li><p><strong>max_bin_size</strong> (<em>float</em><em> | </em><em>int</em><em> | </em><em>None</em>) -- 每箱最大样本数或占比，默认为None</p></li>
 <li><p><strong>min_bad_rate</strong> (<em>float</em>) -- 每箱最小坏样本率，默认为0.0</p></li>
 <li><p><strong>prior_bad_rate</strong> (<em>float</em><em> | </em><em>None</em>) -- 先验坏样本率，默认为None（使用全局坏样本率）</p></li>
-<li><p><strong>monotonic</strong> (<em>str</em><em> | </em><em>None</em>) -- 单调性约束，默认为None，可选'ascending', 'descending', 'peak', 'valley'或None</p></li>
+<li><p><strong>monotonic</strong> (<em>str</em><em> | </em><em>None</em>) -- 单调性约束，默认为None，可选 <code class="docutils literal notranslate"><span class="pre">'ascending'</span></code> / <code class="docutils literal notranslate"><span class="pre">'descending'</span></code> /
+<code class="docutils literal notranslate"><span class="pre">'peak'</span></code> / <code class="docutils literal notranslate"><span class="pre">'valley'</span></code> / None，含义见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p></li>
 <li><p><strong>n_prebins</strong> (<em>int</em>) -- 预分箱数量，默认为100（提高预分箱数以获得更多候选点）</p></li>
-<li><p><strong>merge_criterion</strong> (<em>str</em>) -- 合并准则，默认为'iv_chi2'，可选'iv', 'chi2', 'iv_chi2'</p></li>
-<li><p><strong>chi2_threshold</strong> (<em>float</em>) -- 卡方检验阈值，默认为3.84（对应p=0.05）</p></li>
+<li><p><strong>merge_criterion</strong> (<em>str</em>) -- <p>相邻箱合并准则，默认为 <code class="docutils literal notranslate"><span class="pre">'iv_chi2'</span></code>。可取以下枚举值：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'iv'</span></code>：仅按合并前后 IV 损失最小决定合并</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'chi2'</span></code>：仅按相邻箱卡方值（分布差异显著性）决定合并</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'iv_chi2'</span></code>：综合 IV 损失与卡方显著性（推荐）</p></li>
+</ul>
+</p></li>
+<li><p><strong>chi2_threshold</strong> (<em>float</em>) -- 卡方检验阈值，默认为3.84（自由度1、p=0.05）</p></li>
 <li><p><strong>min_iv_improvement</strong> (<em>float</em>) -- 最小IV改进阈值，默认为0.001</p></li>
 <li><p><strong>special_codes</strong> (<em>List</em><em> | </em><em>None</em>) -- 特殊值列表，默认为None</p></li>
 <li><p><strong>missing_separate</strong> (<em>bool</em>) -- 是否将缺失值单独分为一箱，默认为True</p></li>
@@ -3367,19 +3529,32 @@ IV是衡量特征预测能力的重要指标。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_binned</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>平滑分箱通过对各箱坏样本率做收缩（向先验靠拢）来抑制小样本箱的 WOE/IV 虚高，
+适合样本量小或噪声大的场景，可显著降低分箱在跨期数据上的不稳定（PSI）。</p>
+<p><strong>引用</strong></p>
+<p>加性（拉普拉斯）平滑与贝叶斯收缩：<a class="reference external" href="https://en.wikipedia.org/wiki/Additive_smoothing">https://en.wikipedia.org/wiki/Additive_smoothing</a> ；
+经验贝叶斯收缩思想参见 Efron &amp; Morris (1975), James–Stein estimator。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.SmoothBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/smooth_binning.html#SmoothBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.SmoothBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合平滑分箱.</p>
+<dd><p>拟合平滑分箱。</p>
+<p>预分箱后按 <code class="docutils literal notranslate"><span class="pre">merge_criterion</span></code> 合并相邻箱，并以 <code class="docutils literal notranslate"><span class="pre">method</span></code> 指定的平滑方法对各箱
+坏样本率做收缩。支持 sklearn 与 scorecardpipeline 两种调用风格，详见
+<a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>，DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 二分类目标变量（0=好/1=坏）；scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#hscredit.core.binning.SmoothBinning" title="hscredit.core.binning.smooth_binning.SmoothBinning"><em>SmoothBinning</em></a></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.SmoothBinning" title="hscredit.core.binning.smooth_binning.SmoothBinning"><em>SmoothBinning</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3417,8 +3592,16 @@ IV是衡量特征预测能力的重要指标。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>kernel</strong> (<em>str</em>) -- 核函数类型，默认为'gaussian'</p></li>
-<li><p><strong>bandwidth</strong> (<em>str</em><em> | </em><em>float</em>) -- 带宽，默认为'isj'，可选'isj', 'scott', 'silverman', 'normal_reference'或具体数值</p></li>
+<li><p><strong>kernel</strong> (<em>str</em>) -- 核密度估计的核函数类型，默认为 <a href="#id3"><span class="problematic" id="id4">``</span></a>'gaussian'<a href="#id5"><span class="problematic" id="id6">``</span></a>（高斯核，最常用且平滑）</p></li>
+<li><p><strong>bandwidth</strong> (<em>str</em><em> | </em><em>float</em>) -- <p>核密度估计带宽（平滑程度），默认为 <code class="docutils literal notranslate"><span class="pre">'isj'</span></code>。可取以下枚举值或具体数值：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'isj'</span></code>：Improved Sheather–Jones 法自适应选择（对多峰分布更稳健，推荐）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'scott'</span></code>：Scott 经验法则 <code class="docutils literal notranslate"><span class="pre">n^(-1/5)</span></code>，计算快，适合近正态分布</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'silverman'</span></code>：Silverman 经验法则，与 Scott 类似、对长尾略保守</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'normal_reference'</span></code>：正态参考法则</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>：直接指定固定带宽（值越大曲线越平滑、峰越少）</p></li>
+</ul>
+</p></li>
 <li><p><strong>min_peak_height</strong> (<em>float</em>) -- 最小峰高（相对于最大密度），默认为0.05</p></li>
 <li><p><strong>min_peak_distance</strong> (<em>float</em>) -- 峰之间的最小距离（相对于数据范围），默认为0.05</p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为5</p></li>
@@ -3439,19 +3622,42 @@ IV是衡量特征预测能力的重要指标。</p>
 </ul>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">KernelDensityBinning</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">KernelDensityBinning</span><span class="p">(</span><span class="n">bandwidth</span><span class="o">=</span><span class="s1">&#39;isj&#39;</span><span class="p">,</span> <span class="n">max_n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_binned</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>注意</strong></p>
+<p>核密度分箱以数据分布的&quot;谷值&quot;（密度局部极小处）作为切分点，使分箱边界落在自然的
+低密度间隔上，适合明显多峰的特征；当 <code class="docutils literal notranslate"><span class="pre">fallback_to_iv=True</span></code> 且峰谷检测失败时，
+自动回退到基于 IV 的切分策略。</p>
+<p><strong>引用</strong></p>
+<p>核密度估计（KDE）：Rosenblatt (1956), Parzen (1962)，
+<a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">https://en.wikipedia.org/wiki/Kernel_density_estimation</a> ；
+带宽选择 ISJ 见 Botev, Z. I. et al. (2010). <em>Kernel density estimation via
+diffusion.</em> Annals of Statistics.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.KernelDensityBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/kernel_density_binning.html#KernelDensityBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.KernelDensityBinning.fit" title="Link to this definition"></a></dt>
-<dd><p>拟合核密度分箱.</p>
+<dd><p>拟合核密度分箱。</p>
+<p>对每个特征做核密度估计，以密度曲线的谷值作为切分点（必要时回退到 IV 策略）。
+支持 sklearn 与 scorecardpipeline 两种调用风格，详见 <a class="reference internal" href="#hscredit.core.binning.BaseBinning.fit" title="hscredit.core.binning.BaseBinning.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">BaseBinning.fit()</span></code></a>。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>)</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em><em> | </em><em>ndarray</em>) -- 训练数据，shape <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>，DataFrame 或 ndarray</p></li>
+<li><p><strong>y</strong> (<em>ndarray</em><em> | </em><em>Series</em><em> | </em><em>None</em>) -- 二分类目标变量（0=好/1=坏）；当 <code class="docutils literal notranslate"><span class="pre">use_target=True</span></code> 时参与切分点优化，
+scorecardpipeline 风格下可省略</p></li>
+<li><p><strong>kwargs</strong> -- 透传给基类的其他参数</p></li>
 </ul>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#hscredit.core.binning.KernelDensityBinning" title="hscredit.core.binning.kernel_density_binning.KernelDensityBinning"><em>KernelDensityBinning</em></a></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>拟合后的分箱器自身（便于链式调用）</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#hscredit.core.binning.KernelDensityBinning" title="hscredit.core.binning.kernel_density_binning.KernelDensityBinning"><em>KernelDensityBinning</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3531,6 +3737,11 @@ Lift = 箱内坏样本率 / 总体坏样本率。</p>
 2. 支持单调性约束，保证业务可解释性
 3. 自动确定最优单调方向
 4. 高效的动态规划风格实现</p>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">Lift（提升度）=</span> <span class="pre">箱内坏样本率</span> <span class="pre">/</span> <span class="pre">总体坏样本率</span></code>，Lift&gt;1 表示该箱风险高于均值。</p>
+<p><strong>引用</strong></p>
+<p>Lift / 提升度是响应模型与风险分层的标准评估口径，参见 Siddiqi, N. (2006).
+<em>Credit Risk Scorecards.</em> Wiley，以及营销响应模型中的 lift chart 概念
+<a class="reference external" href="https://en.wikipedia.org/wiki/">https://en.wikipedia.org/wiki/</a><a href="#id7"><span class="problematic" id="id8">``</span></a>Lift_``(data_mining)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.BestLiftBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/best_lift_binning.html#BestLiftBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.BestLiftBinning.fit" title="Link to this definition"></a></dt>
@@ -3617,7 +3828,7 @@ Lift = 箱内坏样本率 / 总体坏样本率。</p>
 <dd><p>基类：<a class="reference internal" href="#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.base.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a></p>
 <p>目标坏样本率分箱.</p>
 <p>支持两种分箱模式：</p>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>模式1：严格边界模式**（指定 target_bad_rates）
+<p><a href="#id9"><span class="problematic" id="id10">**</span></a>模式1：严格边界模式**（指定 target_bad_rates）
 按目标坏样本率边界严格划分，确保每箱的坏样本率在指定区间内。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
@@ -3642,7 +3853,7 @@ Lift = 箱内坏样本率 / 总体坏样本率。</p>
 </ul>
 </dd>
 </dl>
-<p><a href="#id3"><span class="problematic" id="id4">**</span></a>模式2：自动模式**（不指定 target_bad_rates，指定 max_n_bins）
+<p><a href="#id11"><span class="problematic" id="id12">**</span></a>模式2：自动模式**（不指定 target_bad_rates，指定 max_n_bins）
 自动寻找使每箱之间坏样本率差异最大的划分。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
@@ -3681,6 +3892,10 @@ Lift = 箱内坏样本率 / 总体坏样本率。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># 结果：5个分箱，每箱间坏样本率差异最大</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>本方法以&quot;业务目标坏样本率&quot;为切分依据，属业务驱动的风险分层分箱（risk-based
+segmentation），无单一学术出处；严格边界模式便于将分箱直接对齐既定的风险定价/
+准入档位。坏样本率（bad rate）即各箱内坏样本占比。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.binning.TargetBadRateBinning.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/binning/target_bad_rate_binning.html#TargetBadRateBinning.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.binning.TargetBadRateBinning.fit" title="Link to this definition"></a></dt>
@@ -3879,6 +4094,12 @@ Lift = 箱内坏样本率 / 总体坏样本率。</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rules</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">export_rules</span><span class="p">()</span>       <span class="c1"># 分箱规则（末尾 np.nan 表示缺失箱）</span>
 </pre></div>
 </div>
+<p><strong>引用</strong></p>
+<p>二维交互最优分箱接口与求解思路参考 optbinning 的 <code class="docutils literal notranslate"><span class="pre">OptimalBinning2D</span></code>：
+Navas-Palencia, G. (2020). <em>Optimal binning: mathematical programming
+formulation.</em> arXiv:2001.08025. https://arxiv.org/abs/2001.08025 ；
+交互效应（feature interaction）背景见
+https://gnpalencia.org/optbinning/binning_2d.html</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>可视化 hscredit.core.viz &mdash; hscredit 0.1.0 文档</title>
+  <title>可视化 hscredit.core.viz &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -649,6 +656,21 @@ for i, col in enumerate(features):</p>
 <dd class="field-even"><p>matplotlib Figure 或 (Figure, DataFrame)，如果传入 ax 则返回 ax</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">bin_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 方式1：原始数据（自动分箱）</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;quantile&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Series + 目标数组</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 方式2：传入已算好的分箱统计表</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">feature_bin_stats</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="n">feature_bin_stats</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_plot</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;衡枢鉴真分&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 纵向 + 返回统计表</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">stat</span> <span class="o">=</span> <span class="n">bin_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">return_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -720,6 +742,16 @@ for i, col in enumerate(features):</p>
 <dd class="field-even"><p>matplotlib Figure</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">bin_2d_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 方式1：原始数据，内部自动二维分箱</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_2d_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;多头数&#39;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">max_n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 方式2：已拟合的 OptimalBinning2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimalBinning2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">OptimalBinning2D</span><span class="p">(</span><span class="n">max_n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">,</span> <span class="s1">&#39;f2&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_2d_plot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -744,9 +776,15 @@ for i, col in enumerate(features):</p>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>matplotlib Figure 或 Axes</p>
+<dd class="field-even"><p>matplotlib Figure 或 Axes（传入 ax 时返回 ax）</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">corr_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corr_plot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corr_plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">],</span> <span class="n">mask</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># 只显示下三角、不标注数值</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -766,14 +804,25 @@ for i, col in enumerate(features):</p>
 <li><p><strong>anchor</strong> -- 图例位置</p></li>
 <li><p><strong>axes</strong> -- 可选的 matplotlib Axes 对象数组 [ax1, ax2]</p></li>
 <li><p><strong>ax</strong> -- 可选的单个 Axes（配合 curve='ks'/'roc' 仅绘制单条曲线时使用）</p></li>
-<li><p><strong>curve</strong> -- 绘制内容，'both'(默认 KS+ROC) / 'ks'(仅KS曲线) / 'roc'(仅ROC曲线)。
-取 'ks' 或 'roc' 时仅需一个 Axes，便于嵌入到组合图中</p></li>
+<li><p><strong>curve</strong> -- <p>绘制内容，默认 <code class="docutils literal notranslate"><span class="pre">'both'</span></code>：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'both'</span></code>：同时绘制 KS 曲线与 ROC 曲线（需两个 Axes）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'ks'</span></code>：仅绘制 KS 曲线（单个 Axes，便于嵌入组合图）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'roc'</span></code>：仅绘制 ROC 曲线（单个 Axes）</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p>matplotlib Figure 或 Axes（嵌入模式下返回所用 Axes）</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">ks_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ks_plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;衡枢鉴真分&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ks_plot</span><span class="p">(</span><span class="n">y_prob</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="s1">&#39;ks&#39;</span><span class="p">)</span>   <span class="c1"># 仅 KS 曲线</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -799,9 +848,15 @@ for i, col in enumerate(features):</p>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>matplotlib Figure 或 Axes</p>
+<dd class="field-even"><p>matplotlib Figure 或 Axes（传入 ax 时返回 ax）</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">hist_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hist_plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">])</span>                              <span class="c1"># 整体分布</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hist_plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">y_true</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 好/坏分组叠加 + 核密度</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -833,14 +888,22 @@ for i, col in enumerate(features):</p>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>pd.DataFrame when result=True</p>
+<dd class="field-even"><p>当 <code class="docutils literal notranslate"><span class="pre">result=True</span></code> 时返回 PSI 分箱统计表（<code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>），否则返回图对象</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">psi_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 原始分数：自动分箱并计算 PSI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">psi_plot</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;评分&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 叠加坏样本率折线，并返回统计表</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tbl</span> <span class="o">=</span> <span class="n">psi_plot</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">result</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.viz.dataframe_plot">
-<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">dataframe_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#2639E9'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/binning_plots.html#dataframe_plot"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.dataframe_plot" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">dataframe_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bbox</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/binning_plots.html#dataframe_plot"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.dataframe_plot" title="Link to this definition"></a></dt>
 <dd><p>将DataFrame转换为图像.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
@@ -861,6 +924,12 @@ for i, col in enumerate(features):</p>
 <dd class="field-even"><p>matplotlib Figure</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataframe_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 将统计表渲染为图片，便于嵌入报告或拼接子图</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataframe_plot</span><span class="p">(</span><span class="n">summary_df</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="s1">&#39;摘要表.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -892,7 +961,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-even"><p>matplotlib Figure or pd.DataFrame</p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单目标模式</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">distribution_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
 </pre></div>
@@ -952,7 +1021,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 按月份查看特征趋势</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">bin_trend_plot</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;apply_date&#39;</span>
@@ -1000,21 +1069,30 @@ for i, col in enumerate(features):</p>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量列名</p></li>
 <li><p><strong>dimension_cols</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 维度列名</p></li>
 <li><p><strong>date_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 日期列名</p></li>
-<li><p><strong>date_freq</strong> (<em>str</em>) -- 日期聚合频率</p></li>
-<li><p><strong>sort_by</strong> (<em>str</em>) -- 排序指标，'iv'/'ks'/'auc'</p></li>
-<li><p><strong>max_features</strong> (<em>int</em>) -- 最大绘制特征数</p></li>
+<li><p><strong>date_freq</strong> (<em>str</em>) -- 日期聚合频率，<code class="docutils literal notranslate"><span class="pre">'D'</span></code> 日 / <code class="docutils literal notranslate"><span class="pre">'W'</span></code> 周 / <code class="docutils literal notranslate"><span class="pre">'M'</span></code> 月 / <code class="docutils literal notranslate"><span class="pre">'Q'</span></code> 季度，默认 <code class="docutils literal notranslate"><span class="pre">'M'</span></code></p></li>
+<li><p><strong>sort_by</strong> (<em>str</em>) -- 特征排序指标，<code class="docutils literal notranslate"><span class="pre">'iv'``（默认）/</span> <span class="pre">``'ks'</span></code> / <code class="docutils literal notranslate"><span class="pre">'auc'</span></code>，决定绘图先后顺序</p></li>
+<li><p><strong>max_features</strong> (<em>int</em>) -- 最大绘制特征数，默认 10</p></li>
 <li><p><strong>figsize_per_feature</strong> (<em>tuple</em>) -- 每个特征的图尺寸</p></li>
-<li><p><strong>save_dir</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存目录</p></li>
+<li><p><strong>save_dir</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存目录，提供时各特征图按特征名保存为图片</p></li>
 <li><p><strong>kwargs</strong> -- 其他参数传递给 bin_trend_plot</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>特征名到 Figure 的字典</p>
+<dd class="field-even"><p>特征名到 <code class="docutils literal notranslate"><span class="pre">Figure</span></code> 的字典</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>Dict</em>[str, <em>Figure</em>]</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">batch_bin_trend_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">figs</span> <span class="o">=</span> <span class="n">batch_bin_trend_plot</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;放款时间&#39;</span><span class="p">,</span> <span class="n">date_freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;iv&#39;</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">figs</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span>   <span class="c1"># 取单个特征的图</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1059,7 +1137,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 方式1：使用原始数据</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">bin_overdues_plot</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">df</span><span class="p">,</span>
@@ -1142,7 +1220,7 @@ for i, col in enumerate(features):</p>
 <span class="gp">... </span>    <span class="n">model</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
 <span class="gp">... </span>    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span> <span class="s1">&#39;#F76E6C&#39;</span><span class="p">,</span> <span class="s1">&#39;#FE7715&#39;</span><span class="p">]</span>
 <span class="gp">... </span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1192,7 +1270,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">roc_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># 多模型对比</span>
@@ -1230,7 +1308,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">pr_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1263,7 +1341,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">lift_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1296,7 +1374,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">gain_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1304,7 +1382,7 @@ for i, col in enumerate(features):</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.viz.confusion_matrix_plot">
-<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">confusion_matrix_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Confusion</span> <span class="pre">Matrix'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Blues'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/risk_plots.html#confusion_matrix_plot"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.confusion_matrix_plot" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">confusion_matrix_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Confusion</span> <span class="pre">Matrix'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/risk_plots.html#confusion_matrix_plot"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.confusion_matrix_plot" title="Link to this definition"></a></dt>
 <dd><p>绘制混淆矩阵热力图.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
@@ -1314,7 +1392,7 @@ for i, col in enumerate(features):</p>
 <li><p><strong>ax</strong> (<em>Axes</em><em> | </em><em>None</em>) -- matplotlib Axes对象</p></li>
 <li><p><strong>figsize</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) -- 图像尺寸</p></li>
 <li><p><strong>title</strong> (<em>str</em>) -- 图表标题</p></li>
-<li><p><strong>cmap</strong> (<em>str</em>) -- 颜色映射</p></li>
+<li><p><strong>cmap</strong> (<em>Any</em><em> | </em><em>None</em>) -- 颜色映射</p></li>
 <li><p><strong>normalize</strong> (<em>str</em><em> | </em><em>None</em>) -- 归一化方式，None/'true'/'pred'/'all'</p></li>
 <li><p><strong>show_values</strong> (<em>bool</em>) -- 是否显示数值</p></li>
 <li><p><strong>show_metrics</strong> (<em>bool</em>) -- 是否显示评估指标</p></li>
@@ -1329,7 +1407,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">confusion_matrix_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">confusion_matrix_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1363,7 +1441,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">calibration_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1397,7 +1475,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_dist_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1432,7 +1510,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_bin_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1465,7 +1543,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">threshold_analysis_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_score</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1496,7 +1574,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">strategies</span> <span class="o">=</span> <span class="p">[</span>
 <span class="gp">... </span>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Current&#39;</span><span class="p">,</span> <span class="s1">&#39;approval_rate&#39;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span> <span class="s1">&#39;bad_rate&#39;</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span> <span class="s1">&#39;ks&#39;</span><span class="p">:</span> <span class="mf">0.40</span><span class="p">},</span>
 <span class="gp">... </span>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;New&#39;</span><span class="p">,</span> <span class="s1">&#39;approval_rate&#39;</span><span class="p">:</span> <span class="mf">0.80</span><span class="p">,</span> <span class="s1">&#39;bad_rate&#39;</span><span class="p">:</span> <span class="mf">0.06</span><span class="p">,</span> <span class="s1">&#39;ks&#39;</span><span class="p">:</span> <span class="mf">0.50</span><span class="p">}</span>
@@ -1535,7 +1613,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">vintage_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;mob&#39;</span><span class="p">,</span> <span class="s1">&#39;ever_dpd30&#39;</span><span class="p">,</span> <span class="s1">&#39;issue_month&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1568,7 +1646,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">importance</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">feature_importance_plot</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">importance</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
@@ -1606,7 +1684,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">approval_rate_trend_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">decision_col</span><span class="o">=</span><span class="s1">&#39;is_approved&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">approval_rate_trend_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">score_col</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
@@ -1641,7 +1719,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">bad_rate_trend_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">bad_rate_trend_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">dimension_col</span><span class="o">=</span><span class="s1">&#39;customer_grade&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1711,7 +1789,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">variable_iv_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd30&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1741,7 +1819,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">binner</span> <span class="o">=</span> <span class="n">OptimalBinning</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">]],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fpd30&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tbl</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">get_bin_table</span><span class="p">()[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">variable_woe_trend_plot</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
@@ -1753,7 +1831,7 @@ for i, col in enumerate(features):</p>
 <dt class="sig sig-object py" id="hscredit.core.viz.variable_psi_heatmap">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">variable_psi_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psi_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(14,</span> <span class="pre">8)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'特征PSI热力图'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/variable_plots.html#variable_psi_heatmap"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.variable_psi_heatmap" title="Link to this definition"></a></dt>
 <dd><p>特征PSI矩阵热力图.</p>
-<p>颜色反映偏移程度：绿色（PSI&lt;0.1稳定）/ 橙色（0.1-0.25略变）/ 红色（&gt;0.25不稳定）。</p>
+<p>颜色反映偏移程度：低 PSI 使用主题冷色，高 PSI 使用粉红风险色。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1771,7 +1849,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">psi_mat</span> <span class="o">=</span> <span class="n">batch_psi_analysis</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">variable_psi_heatmap</span><span class="p">(</span><span class="n">psi_mat</span><span class="p">)</span>
 </pre></div>
@@ -1803,7 +1881,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">imp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;feature&#39;</span><span class="p">:</span> <span class="n">feats</span><span class="p">,</span> <span class="s1">&#39;importance&#39;</span><span class="p">:</span> <span class="n">imps</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">cats</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">variable_importance_grouped_plot</span><span class="p">(</span><span class="n">imp_df</span><span class="p">)</span>
 </pre></div>
@@ -1835,7 +1913,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">variable_missing_badrate_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">feats</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;fpd30&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1864,7 +1942,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_ks_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">proba</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_ks_plot</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;训练集&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">y_tr</span><span class="p">,</span> <span class="n">p_tr</span><span class="p">),</span> <span class="s1">&#39;测试集&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">y_te</span><span class="p">,</span> <span class="n">p_te</span><span class="p">)})</span>
 </pre></div>
@@ -1893,7 +1971,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_distribution_comparison_plot</span><span class="p">({</span><span class="s1">&#39;训练集&#39;</span><span class="p">:</span> <span class="n">s_tr</span><span class="p">,</span> <span class="s1">&#39;测试集&#39;</span><span class="p">:</span> <span class="n">s_te</span><span class="p">})</span>
 </pre></div>
 </div>
@@ -1922,7 +2000,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_badrate_bin_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_score</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1952,7 +2030,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_lift_plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">proba</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1982,7 +2060,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">score_approval_badrate_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_score</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1996,8 +2074,11 @@ for i, col in enumerate(features):</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pipeline</strong> (<em>DataFrame</em>) -- 规则置换流程明细表</p></li>
-<li><p><strong>rule_categories</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 参与规则对比的规则分类</p></li>
+<li><p><strong>pipeline</strong> (<em>DataFrame</em>) -- 规则置换流程明细表，通常来自
+<a class="reference internal" href="report.html#hscredit.report.rule_swap_analysis" title="hscredit.report.rule_swap_analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">rule_swap_analysis()</span></code></a> 的 <code class="docutils literal notranslate"><span class="pre">swap_pipeline</span></code>，
+需含 <code class="docutils literal notranslate"><span class="pre">规则分类</span></code> / <code class="docutils literal notranslate"><span class="pre">样本总数</span></code> / <code class="docutils literal notranslate"><span class="pre">坏样本率</span></code> / <code class="docutils literal notranslate"><span class="pre">LIFT值</span></code> / <code class="docutils literal notranslate"><span class="pre">通过率(绝对值)</span></code> 列</p></li>
+<li><p><strong>rule_categories</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 参与对比的规则分类，默认
+<code class="docutils literal notranslate"><span class="pre">['OUT-OUT拒绝',</span> <span class="pre">'IN-OUT置出',</span> <span class="pre">'OUT-IN置入']</span></code></p></li>
 <li><p><strong>figsize</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) -- 图像尺寸</p></li>
 <li><p><strong>title</strong> (<em>str</em>) -- 总标题</p></li>
 <li><p><strong>save</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存路径</p></li>
@@ -2010,6 +2091,13 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_swap_analysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_swap_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">rule_swap_analysis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">rules_in</span><span class="o">=</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">reference_data</span><span class="o">=</span><span class="n">hist</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_swap_plot</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;swap_pipeline&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;策略置换分析&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -2036,6 +2124,17 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">strategy_simulation_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;评分阈值&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">650</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;通过率(%)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;通过人群坏率(%)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strategy_simulation_plot</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -2064,7 +2163,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">feature_trend_by_time</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;apply_date&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2073,7 +2172,7 @@ for i, col in enumerate(features):</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.viz.feature_drift_comparison">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">feature_drift_comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(12,</span> <span class="pre">8)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'特征分布偏移（PSI）'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/strategy_plots.html#feature_drift_comparison"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.feature_drift_comparison" title="Link to this definition"></a></dt>
-<dd><p>多特征偏移瀑布图：颜色标注偏移等级（绿/黄/红）.</p>
+<dd><p>多特征偏移瀑布图：颜色标注偏移等级.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2094,7 +2193,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">feature_drift_comparison</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">df_oot</span><span class="p">,</span> <span class="n">model_features</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2125,7 +2224,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">feature_effectiveness_by_segment</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd30&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2157,7 +2256,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">feature_cross_heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd30&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2187,7 +2286,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">population_drift_monitor</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">df3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Q1&#39;</span><span class="p">,</span><span class="s1">&#39;Q2&#39;</span><span class="p">,</span><span class="s1">&#39;Q3&#39;</span><span class="p">],</span> <span class="n">feats</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2197,6 +2296,8 @@ for i, col in enumerate(features):</p>
 <dt class="sig sig-object py" id="hscredit.core.viz.segment_scorecard_comparison">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">segment_scorecard_comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(14,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'分客群评分效果对比'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/strategy_plots.html#segment_scorecard_comparison"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.segment_scorecard_comparison" title="Link to this definition"></a></dt>
 <dd><p>按客群分组的评分指标对比柱状图.</p>
+<p>每个指标单独一个子图，对比 <a href="#id9"><span class="problematic" id="id10">**</span></a>同一指标在不同客群下的差异**（各指标量纲不同，
+分子图展示可避免 KS/AUC/LIFT 因量纲差异而无法横向比较）。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2205,7 +2306,7 @@ for i, col in enumerate(features):</p>
 <li><p><strong>target</strong> (<em>str</em>) -- 目标变量列名</p></li>
 <li><p><strong>segment_col</strong> (<em>str</em>) -- 客群列名</p></li>
 <li><p><strong>metrics</strong> (<em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 展示指标，默认 ['KS','AUC','LIFT&#64;10%']</p></li>
-<li><p><strong>ax</strong> -- matplotlib Axes</p></li>
+<li><p><strong>ax</strong> -- matplotlib Axes（仅单指标时生效；多指标时自动创建子图）</p></li>
 <li><p><strong>figsize</strong> -- 图像尺寸</p></li>
 <li><p><strong>title</strong> (<em>str</em>) -- 图标题</p></li>
 <li><p><strong>save</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存路径</p></li>
@@ -2218,7 +2319,7 @@ for i, col in enumerate(features):</p>
 <dd class="field-odd"><p><em>Figure</em></p>
 </dd>
 </dl>
-<p class="rubric">示例</p>
+<p><strong>参考样例</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">segment_scorecard_comparison</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;fpd30&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2508,11 +2609,16 @@ for i, col in enumerate(features):</p>
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fig</strong> -- matplotlib Figure 对象</p></li>
-<li><p><strong>save_path</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存路径</p></li>
-<li><p><strong>dpi</strong> (<em>int</em>) -- 分辨率</p></li>
+<li><p><strong>save_path</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存路径（为 None 时不保存，直接返回）；目录不存在时自动创建</p></li>
+<li><p><strong>dpi</strong> (<em>int</em>) -- 分辨率，默认 240</p></li>
 </ul>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.viz</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_figure</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;output/分箱图.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -2592,6 +2698,98 @@ for i, col in enumerate(features):</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="hscredit.core.viz.get_series_colors">
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">get_series_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/utils.html#get_series_colors"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.get_series_colors" title="Link to this definition"></a></dt>
+<dd><p>获取 n 条数据系列的统一配色（主题色 + 副主题色 + 扩展色循环）.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) -- 需要的颜色数量</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>长度为 n 的颜色列表，优先使用主题色与副主题色，再循环扩展色板</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.core.viz.get_psi_color">
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">get_psi_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/utils.html#get_psi_color"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.get_psi_color" title="Link to this definition"></a></dt>
+<dd><p>根据 PSI 取值返回统一语义色（用于稳定性图表着色）。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) -- PSI 值</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>颜色十六进制字符串：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">&lt;</span> <span class="pre">0.10</span></code>：稳定色（STABLE_COLOR）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.10</span> <span class="pre">&lt;=</span> <span class="pre">value</span> <span class="pre">&lt;</span> <span class="pre">0.25</span></code>：变化色（CHANGING_COLOR）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">&gt;=</span> <span class="pre">0.25</span></code>：不稳定色（UNSTABLE_COLOR）</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.core.viz.make_colormap">
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">make_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/utils.html#make_colormap"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.make_colormap" title="Link to this definition"></a></dt>
+<dd><p>根据统一色板创建 matplotlib colormap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- colormap 名称</p></li>
+<li><p><strong>colors</strong> (<em>list</em><em> | </em><em>None</em>) -- 颜色列表，默认使用蓝紫粉红连续色阶</p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 颜色采样数</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>LinearSegmentedColormap</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.core.viz.make_risk_cmap">
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">make_risk_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hscredit_risk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/utils.html#make_risk_cmap"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.make_risk_cmap" title="Link to this definition"></a></dt>
+<dd><p>创建风险连续色阶（低风险蓝紫 → 高风险粉红）。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- colormap 名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;hscredit_risk&quot;</span></code></p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 颜色采样数，默认 256</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">LinearSegmentedColormap</span></code>，可直接传给热力图的 <code class="docutils literal notranslate"><span class="pre">cmap</span></code> 参数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.core.viz.make_diverging_cmap">
+<span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">make_diverging_cmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hscredit_diverging'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/utils.html#make_diverging_cmap"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.make_diverging_cmap" title="Link to this definition"></a></dt>
+<dd><p>创建发散色阶（主题蓝 → 近白 → 副主题红），适合带正负/中心值的热力图。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- colormap 名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;hscredit_diverging&quot;</span></code></p></li>
+<li><p><strong>n</strong> (<em>int</em>) -- 颜色采样数，默认 256</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">LinearSegmentedColormap</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="hscredit.core.viz.set_style">
 <span class="sig-prename descclassname"><span class="pre">hscredit.core.viz.</span></span><span class="sig-name descname"><span class="pre">set_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'risk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chinese_font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/viz/style.html#set_style"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.viz.set_style" title="Link to this definition"></a></dt>
 <dd><p>设置全局可视化主题.</p>
@@ -2639,7 +2837,7 @@ for i, col in enumerate(features):</p>
 <dd><p>获取配色方案.</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- 方案名称，可选 'default'/'primary'(3色), 'extended'(6色), 'semantic'(语义色字典)</p>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) -- 方案名称，可选 'default'/'primary'(3色), 'extended', 'pink_purple', 'semantic'(语义色字典)</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p>颜色列表或字典</p>

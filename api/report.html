@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>报告 hscredit.report &mdash; hscredit 0.1.0 文档</title>
+  <title>报告 hscredit.report &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -875,6 +882,16 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">ruleset_analysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rules</span> <span class="o">=</span> <span class="p">[</span><span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;score &lt; 600&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;低分&quot;</span><span class="p">),</span> <span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;多头 &gt; 5&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;多头高&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 单标签</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ruleset_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">rules</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 多逾期标签 + 金额口径</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ruleset_analysis</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">rules</span><span class="p">,</span> <span class="n">overdue</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MOB1&#39;</span><span class="p">,</span> <span class="s1">&#39;MOB3&#39;</span><span class="p">],</span> <span class="n">dpds</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">amount</span><span class="o">=</span><span class="s1">&#39;放款金额&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -891,17 +908,27 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <li><p><strong>df</strong> (<em>DataFrame</em>) -- 输入数据 DataFrame</p></li>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) -- 参与挖掘的特征列表</p></li>
 <li><p><strong>labels</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) -- 标签映射 {中文名: 列名}</p></li>
-<li><p><strong>miner_params</strong> (<em>dict</em><em> | </em><em>None</em>) -- 传递给 MultiLabelRuleMiner 的额外参数</p></li>
-<li><p><strong>output_path</strong> (<em>str</em>) -- 输出 Excel 文件路径</p></li>
+<li><p><strong>miner_params</strong> (<em>dict</em><em> | </em><em>None</em>) -- 传递给 MultiLabelRuleMiner 的额外参数（如 min_support、min_lift）</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) -- 输出 Excel 文件路径，默认 <code class="docutils literal notranslate"><span class="pre">'rule_analysis.xlsx'</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>输出文件路径</p>
+<dd class="field-even"><p>输出文件路径（即 <code class="docutils literal notranslate"><span class="pre">output_path</span></code>）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">multi_label_rule_analysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">multi_label_rule_analysis</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">df</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;近六个月非银多头机构数&#39;</span><span class="p">,</span> <span class="s1">&#39;青云24&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;首逾7+&#39;</span><span class="p">:</span> <span class="s1">&#39;fpd7&#39;</span><span class="p">,</span> <span class="s1">&#39;首逾0+&#39;</span><span class="p">:</span> <span class="s1">&#39;fpd0&#39;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;多标签规则分析.xlsx&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -999,8 +1026,8 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <li><p><strong>report</strong> (<em>DataFrame</em>) -- <code class="docutils literal notranslate"><span class="pre">Rule.report</span></code> 返回的 DataFrame</p></li>
 <li><p><strong>rule_name</strong> (<em>str</em><em> | </em><em>None</em>) -- 展示用规则名称，默认使用报告中的指标名称</p></li>
 <li><p><strong>target_names</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期指标名称映射，如 <code class="docutils literal notranslate"><span class="pre">{'MOB1</span> <span class="pre">1+':</span> <span class="pre">'fpd1'}</span></code></p></li>
-<li><p><strong>metrics</strong> (<em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 每个逾期指标需要展示的字段</p></li>
-<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称</p></li>
+<li><p><strong>metrics</strong> (<em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 每个逾期指标需要展示的字段，默认使用内置 <code class="docutils literal notranslate"><span class="pre">_DEFAULT_METRICS</span></code></p></li>
+<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1010,6 +1037,13 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_report_table</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rep</span> <span class="o">=</span> <span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;score &lt; 600&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_report_table</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span> <span class="n">rule_name</span><span class="o">=</span><span class="s1">&#39;低分拒绝&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1026,7 +1060,7 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <li><p><strong>current_pass_rate</strong> (<em>float</em><em> | </em><em>None</em>) -- 规则执行前的当前通过率，取值范围为[0, 1]</p></li>
 <li><p><strong>rule_name</strong> (<em>str</em><em> | </em><em>None</em>) -- 展示用规则名称</p></li>
 <li><p><strong>target_names</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期指标名称映射</p></li>
-<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称</p></li>
+<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1036,26 +1070,46 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_target_analysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rep</span> <span class="o">=</span> <span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;score &lt; 600&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 当前通过率 0.8 时，评估该拒绝规则带来的逾期改善与通过率变化</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_target_analysis</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span> <span class="n">current_pass_rate</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">rule_name</span><span class="o">=</span><span class="s1">&#39;低分拒绝&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.report.rule_target_table">
 <span class="sig-prename descclassname"><span class="pre">hscredit.report.</span></span><span class="sig-name descname"><span class="pre">rule_target_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/rule_strategy.html#rule_target_table"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.rule_target_table" title="Link to this definition"></a></dt>
 <dd><p>生成规则、逾期指标和命中情况组成的纵向明细表.</p>
+<p>与 <a class="reference internal" href="#hscredit.report.rule_report_table" title="hscredit.report.rule_report_table"><code class="xref py py-func docutils literal notranslate"><span class="pre">rule_report_table()</span></code></a> 的横向展开不同，本函数按
+<code class="docutils literal notranslate"><span class="pre">规则</span> <span class="pre">×</span> <span class="pre">逾期指标</span> <span class="pre">×</span> <span class="pre">命中情况</span></code> 逐行纵向罗列各项指标，便于直接落库或透视。</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>report</strong> (<em>DataFrame</em>)</p></li>
-<li><p><strong>rule_name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>target_names</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>metrics</strong> (<em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
-<li><p><strong>target_name</strong> (<em>str</em>)</p></li>
+<li><p><strong>report</strong> (<em>DataFrame</em>) -- <code class="docutils literal notranslate"><span class="pre">Rule.report</span></code> 返回的 DataFrame</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em><em> | </em><em>None</em>) -- 展示用规则名称，默认使用报告中的指标名称</p></li>
+<li><p><strong>target_names</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期指标名称映射，如 <code class="docutils literal notranslate"><span class="pre">{'MOB1</span> <span class="pre">1+':</span> <span class="pre">'fpd1'}</span></code></p></li>
+<li><p><strong>metrics</strong> (<em>Sequence</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 需要展示的字段列表，默认使用内置 <code class="docutils literal notranslate"><span class="pre">_DEFAULT_TARGET_METRICS</span></code></p></li>
+<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code></p></li>
 </ul>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>含 <code class="docutils literal notranslate"><span class="pre">规则详情</span></code> / <code class="docutils literal notranslate"><span class="pre">逾期指标</span></code> / <code class="docutils literal notranslate"><span class="pre">命中情况</span></code> 及各指标列的纵向明细表</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_target_table</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rep</span> <span class="o">=</span> <span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;score &lt; 600&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_target_table</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span> <span class="n">rule_name</span><span class="o">=</span><span class="s1">&#39;低分拒绝&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -1069,7 +1123,7 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <li><p><strong>rule_name</strong> (<em>str</em><em> | </em><em>None</em>) -- 展示用规则名称</p></li>
 <li><p><strong>target_names</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期指标名称映射</p></li>
 <li><p><strong>metrics</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 顶层展示名称到 <code class="docutils literal notranslate"><span class="pre">Rule.report</span></code> 字段名的映射</p></li>
-<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称</p></li>
+<li><p><strong>target_name</strong> (<em>str</em>) -- 单标签报告的逾期指标名称，默认 <code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1079,6 +1133,82 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.rules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rule</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_group_hit_table</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Rule</span><span class="p">(</span><span class="s2">&quot;score &lt; 600&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 对比训练集 / 测试集 / OOT 三个分组下同一规则的命中效果</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reports</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;训练集&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="s1">&#39;测试集&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="s1">&#39;OOT&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">oot</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_group_hit_table</span><span class="p">(</span><span class="n">reports</span><span class="p">,</span> <span class="n">rule_name</span><span class="o">=</span><span class="s1">&#39;低分拒绝&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="hscredit.report.rule_group_compare">
+<span class="sig-prename descclassname"><span class="pre">hscredit.report.</span></span><span class="sig-name descname"><span class="pre">rule_group_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'M'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'target'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overdue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rule_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prior_rules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">del_grey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'asc'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/rule_strategy.html#rule_group_compare"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.rule_group_compare" title="Link to this definition"></a></dt>
+<dd><p>直接从原始数据生成分组下的规则命中效果对比表.</p>
+<p>相比 <a class="reference internal" href="#hscredit.report.rule_group_hit_table" title="hscredit.report.rule_group_hit_table"><code class="xref py py-func docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a> 需要在函数外手工切分样本并逐组调用
+<code class="docutils literal notranslate"><span class="pre">Rule.report</span></code>，本函数接收原始明细数据，按 <code class="docutils literal notranslate"><span class="pre">日期列</span> <span class="pre">+</span> <span class="pre">频率</span></code> 或 <code class="docutils literal notranslate"><span class="pre">分组字段</span></code>
+自动切分样本，对每个分组调用同一规则的 <code class="docutils literal notranslate"><span class="pre">Rule.report``（支持</span>
+<span class="pre">``target</span></code> 单标签或 <code class="docutils literal notranslate"><span class="pre">overdue</span> <span class="pre">+</span> <span class="pre">dpds</span></code> 多标签口径），再汇总为分组对比表。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DataFrame</em>) -- 原始明细数据 DataFrame，需包含规则所需字段、目标/逾期字段及分组依据列</p></li>
+<li><p><strong>rule</strong> (<em>str</em><em> | </em><a class="reference internal" href="rules.html#hscredit.core.rules.Rule" title="hscredit.core.rules.rule.Rule"><em>Rule</em></a>) -- 规则表达式字符串或 <a class="reference internal" href="rules.html#hscredit.core.rules.Rule" title="hscredit.core.rules.Rule"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rule</span></code></a> 实例</p></li>
+<li><p><strong>date_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 日期列名，与 <code class="docutils literal notranslate"><span class="pre">freq</span></code> 配合按时间周期分组（与 <code class="docutils literal notranslate"><span class="pre">group_col</span></code> 二选一）</p></li>
+<li><p><strong>freq</strong> (<em>str</em>) -- 时间频率，<code class="docutils literal notranslate"><span class="pre">'D'</span></code> 日 / <code class="docutils literal notranslate"><span class="pre">'W'</span></code> 周 / <code class="docutils literal notranslate"><span class="pre">'M'</span></code> 月 / <code class="docutils literal notranslate"><span class="pre">'Q'</span></code> 季度，默认 <code class="docutils literal notranslate"><span class="pre">'M'</span></code></p></li>
+<li><p><strong>group_col</strong> (<em>str</em><em> | </em><em>None</em>) -- 分组字段列名，按其取值分组（与 <code class="docutils literal notranslate"><span class="pre">date_col</span></code> 二选一）</p></li>
+<li><p><strong>target</strong> (<em>str</em>) -- 目标变量列名，默认 <code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code>，0=好样本，1=坏样本</p></li>
+<li><p><strong>overdue</strong> (<em>str</em><em> | </em><em>List</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期天数字段名（可选，传入时以逾期天数&gt;DPD定义坏样本，支持多标签）</p></li>
+<li><p><strong>dpds</strong> (<em>int</em><em> | </em><em>List</em><em>[</em><em>int</em><em>] </em><em>| </em><em>None</em>) -- 逾期定义方式，逾期天数 &gt; DPD 为坏样本，可传入列表支持多DPD联合分析</p></li>
+<li><p><strong>rule_name</strong> (<em>str</em><em> | </em><em>None</em>) -- 展示用规则名称，默认使用规则自身名称或报告中的指标名称</p></li>
+<li><p><strong>target_names</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 逾期指标名称映射，如 <code class="docutils literal notranslate"><span class="pre">{'MOB1</span> <span class="pre">1+':</span> <span class="pre">'fpd1'}</span></code></p></li>
+<li><p><strong>metrics</strong> (<em>Mapping</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) -- 顶层展示名称到 <code class="docutils literal notranslate"><span class="pre">Rule.report</span></code> 字段名的映射，默认 <code class="docutils literal notranslate"><span class="pre">_DEFAULT_GROUP_METRICS</span></code></p></li>
+<li><p><strong>prior_rules</strong> (<a class="reference internal" href="rules.html#hscredit.core.rules.Rule" title="hscredit.core.rules.rule.Rule"><em>Rule</em></a><em> | </em><em>None</em>) -- 先验规则（可选），每个分组内先排除命中先验规则的样本再评估</p></li>
+<li><p><strong>amount</strong> (<em>str</em><em> | </em><em>None</em>) -- 金额字段名（可选），传入时以金额口径而非样本数口径统计</p></li>
+<li><p><strong>del_grey</strong> (<em>bool</em>) -- 是否删除逾期天数在(0, DPD]区间内的灰度样本，默认为False</p></li>
+<li><p><strong>dropna</strong> (<em>bool</em>) -- 是否丢弃分组依据缺失的样本，默认为True；为False时缺失样本归入“缺失”分组</p></li>
+<li><p><strong>group_order</strong> (<em>None</em><em> | </em><em>str</em><em> | </em><em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>Sequence</em><em>[</em><em>Any</em><em>]</em>) -- <p>分组排列方式，默认 <code class="docutils literal notranslate"><span class="pre">&quot;asc&quot;</span></code> 升序。支持：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;asc&quot;</span></code> / <code class="docutils literal notranslate"><span class="pre">&quot;desc&quot;</span></code> — 按分组标签升序 / 降序</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;appearance&quot;</span></code> — 按分组在数据中首次出现的顺序</p></li>
+<li><p>可调用对象 — 作为 <code class="docutils literal notranslate"><span class="pre">sorted</span></code> 的 <code class="docutils literal notranslate"><span class="pre">key</span></code> 排序键</p></li>
+<li><p>分组名称序列 — 按给定顺序排列，未列出的分组按出现顺序追加在末尾</p></li>
+</ul>
+</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) -- 透传给 <code class="docutils literal notranslate"><span class="pre">Rule.report</span></code> 的其他参数（如 <code class="docutils literal notranslate"><span class="pre">desc</span></code>、<code class="docutils literal notranslate"><span class="pre">filter_cols</span></code>、<code class="docutils literal notranslate"><span class="pre">margins</span></code> 等）</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>两层列头的分组命中对比表，不包含合计行；列头第二层为各分组名称</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> -- <code class="docutils literal notranslate"><span class="pre">date_col</span></code> 与 <code class="docutils literal notranslate"><span class="pre">group_col</span></code> 未二选一，或所需列缺失时</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">rule_group_compare</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 按放款月份对比同一拒绝规则在各月样本上的命中效果（多标签口径）</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_group_compare</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;score &lt; 600&quot;</span><span class="p">,</span> <span class="n">date_col</span><span class="o">=</span><span class="s1">&#39;放款时间&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">overdue</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MOB1&#39;</span><span class="p">],</span> <span class="n">dpds</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rule_name</span><span class="o">=</span><span class="s1">&#39;低分拒绝&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 按商品类别分组、金额口径，并自定义分组展示顺序</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rule_group_compare</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;score &lt; 600&quot;</span><span class="p">,</span> <span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;商品类别&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">amount</span><span class="o">=</span><span class="s1">&#39;放款金额&#39;</span><span class="p">,</span> <span class="n">group_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;手机通讯&#39;</span><span class="p">,</span> <span class="s1">&#39;电脑数码&#39;</span><span class="p">,</span> <span class="s1">&#39;家用电器&#39;</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py class">
@@ -1763,18 +1893,40 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hscredit.report.</span></span><span class="sig-name descname"><span class="pre">QuickModelReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overdue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/model_report.html#QuickModelReport"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.QuickModelReport" title="Link to this definition"></a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>面向报表输出的快速模型报告封装.</p>
-<p>参考风控建模标准报告模板，生成多 Sheet 结构的 Excel / HTML 报告。</p>
+<p>参考风控建模标准报告模板，对已训练模型一站式生成多 Sheet 结构的
+Excel / HTML 报告，并提供各分项结果的获取方法（指标、分箱表、特征重要性、
+描述统计、相关性等）。支持任意多个数据集（训练/测试/OOT…）的横向对比，
+以及 <code class="docutils literal notranslate"><span class="pre">overdue</span></code> + <code class="docutils literal notranslate"><span class="pre">dpds</span></code> 的多逾期标签构建。</p>
+<p><strong>参数</strong></p>
+<p>（完整说明见 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code>）</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>feature_names</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>)</p></li>
-<li><p><strong>target</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>]</em><em>]</em>)</p></li>
-<li><p><strong>datasets</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>, </em><em>Dict</em><em>]</em><em>]</em>)</p></li>
-<li><p><strong>overdue</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>)</p></li>
-<li><p><strong>dpds</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>]</em><em>]</em><em>]</em><em>]</em>)</p></li>
+<li><p><strong>model</strong> -- 已训练好的模型，需实现 <code class="docutils literal notranslate"><span class="pre">predict</span></code> / <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code></p></li>
+<li><p><strong>datasets</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>, </em><em>Dict</em><em>]</em><em>]</em>) -- 数据集字典或列表（推荐），如 <code class="docutils literal notranslate"><span class="pre">{'train':</span> <span class="pre">df,</span> <span class="pre">'test':</span> <span class="pre">df}</span></code>；
+DataFrame 需含目标列或配合 <code class="docutils literal notranslate"><span class="pre">overdue</span></code>/<code class="docutils literal notranslate"><span class="pre">dpds</span></code> 构建标签</p></li>
+<li><p><strong>X_train/y_train/X_test/y_test</strong> -- 兼容 sklearn 风格的数据传入方式</p></li>
+<li><p><strong>target</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>]</em><em>]</em>) -- 目标列名（sklearn/scorecardpipeline 风格）</p></li>
+<li><p><strong>overdue</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) -- 逾期天数列名或列表，配合 <code class="docutils literal notranslate"><span class="pre">dpds</span></code> 自动构建 0/1 标签</p></li>
+<li><p><strong>dpds</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>]</em><em>]</em><em>]</em><em>]</em>) -- 逾期定义天数或列表（逾期天数 &gt; dpds 记为坏样本）</p></li>
+<li><p><strong>feature_names</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) -- 特征名称列表，可选</p></li>
 </ul>
 </dd>
 </dl>
+<p><strong>属性</strong></p>
+<ul class="simple">
+<li><p>model: 传入的已训练模型</p></li>
+<li><p>feature_names: 最终使用的特征名称列表</p></li>
+<li><p>_datasets: 解析后的各数据集（key -&gt; <code class="xref py py-class docutils literal notranslate"><span class="pre">ReportDataset</span></code>）</p></li>
+</ul>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuickModelReport</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span> <span class="o">=</span> <span class="n">QuickModelReport</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">train_df</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">test_df</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>            <span class="c1"># 各数据集指标对比</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">get_feature_importance</span><span class="p">(</span><span class="n">top_n</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">report</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;模型报告.xlsx&#39;</span><span class="p">)</span>  <span class="c1"># 导出多 Sheet 报告</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.report.QuickModelReport.add_dataset">
 <span class="sig-name descname"><span class="pre">add_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/model_report.html#QuickModelReport.add_dataset"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.QuickModelReport.add_dataset" title="Link to this definition"></a></dt>
@@ -2055,17 +2207,37 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="hscredit.report.compare_models">
 <span class="sig-prename descclassname"><span class="pre">hscredit.report.</span></span><span class="sig-name descname"><span class="pre">compare_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excel_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/model_report.html#compare_models"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.compare_models" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<dd><p>横向对比多个模型的评估指标.</p>
+<p>对每个模型分别构建 <a class="reference internal" href="#hscredit.report.QuickModelReport" title="hscredit.report.QuickModelReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a> 并取其 <a class="reference internal" href="#hscredit.report.QuickModelReport.summary" title="hscredit.report.QuickModelReport.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">summary()</span></code></a>，
+纵向拼接为一张对比表；单个模型构建失败时以 <code class="docutils literal notranslate"><span class="pre">错误</span></code> 列记录原因，不影响其余模型。</p>
+<dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>models</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>object</em><em>]</em>)</p></li>
-<li><p><strong>excel_path</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>models</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>object</em><em>]</em>) -- 模型名称到模型对象的映射，如 <code class="docutils literal notranslate"><span class="pre">{'XGB':</span> <span class="pre">xgb_model,</span> <span class="pre">'LR':</span> <span class="pre">lr_model}</span></code></p></li>
+<li><p><strong>X_train</strong> -- 训练集特征</p></li>
+<li><p><strong>y_train</strong> -- 训练集标签（0/1）</p></li>
+<li><p><strong>X_test</strong> -- 测试集特征，可选</p></li>
+<li><p><strong>y_test</strong> -- 测试集标签，可选</p></li>
+<li><p><strong>excel_path</strong> (<em>str</em><em> | </em><em>None</em>) -- 可选，若提供则将对比表导出到该 Excel 路径</p></li>
 </ul>
 </dd>
-<dt class="field-even">返回类型<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em></p>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>含 <code class="docutils literal notranslate"><span class="pre">模型名称</span></code> 列的指标对比 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_models</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">compare_models</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">{</span><span class="s1">&#39;XGBoost&#39;</span><span class="p">:</span> <span class="n">xgb_model</span><span class="p">,</span> <span class="s1">&#39;逻辑回归&#39;</span><span class="p">:</span> <span class="n">lr_model</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">excel_path</span><span class="o">=</span><span class="s1">&#39;模型对比.xlsx&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -2092,12 +2264,27 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>输出文件路径</p>
+<dd class="field-even"><p>输出文件路径（即 <code class="docutils literal notranslate"><span class="pre">output</span></code>）</p>
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">population_drift</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 基础：仅特征分布 PSI 对比</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">population_drift</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">prod_df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 含逾期率与评分分布对比</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">population_drift</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">train_df</span><span class="p">,</span> <span class="n">prod_df</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;FPD&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">score_col</span><span class="o">=</span><span class="s1">&#39;model_score&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">output</span><span class="o">=</span><span class="s1">&#39;客群偏移监控报告.xlsx&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <div class="admonition note">
@@ -3196,6 +3383,34 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="hscredit.report.mining.DecisionTreeAnalyzer.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matplotlib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/mining/manual_tree_extractor.html#DecisionTreeAnalyzer.plot"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.mining.DecisionTreeAnalyzer.plot" title="Link to this definition"></a></dt>
+<dd><p>绘制当前决策树结构。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>backend</strong> (<em>str</em>) -- 渲染后端，可选 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> / <code class="docutils literal notranslate"><span class="pre">pyecharts</span></code> / <code class="docutils literal notranslate"><span class="pre">graphviz</span></code></p></li>
+<li><p><strong>save</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存路径（可选）</p></li>
+<li><p><strong>title</strong> (<em>str</em>) -- 图表标题</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) -- 其余参数透传给 <a class="reference internal" href="viz.html#hscredit.core.viz.plot_tree" title="hscredit.core.viz.plot_tree"><code class="xref py py-func docutils literal notranslate"><span class="pre">hscredit.core.viz.plot_tree()</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib Figure / pyecharts Chart / graphviz Source</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">DecisionTreeAnalyzer</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;graphviz&#39;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="s1">&#39;tree.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="hscredit.report.mining.DecisionTreeAnalyzer.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/mining/manual_tree_extractor.html#DecisionTreeAnalyzer.save"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.mining.DecisionTreeAnalyzer.save" title="Link to this definition"></a></dt>
 <dd><p>将决策树保存为 pickle 文件。</p>
@@ -3452,6 +3667,34 @@ KS 曲线、分布图等内容的 Excel 分析结果。</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ext</span><span class="o">.</span><span class="n">manual_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">get_rule_table</span><span class="p">())</span>          <span class="c1"># 在训练数据上评估</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ext</span><span class="o">.</span><span class="n">get_rule_table</span><span class="p">(</span><span class="n">df_test</span><span class="p">))</span>   <span class="c1"># 在新数据上评估</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.report.mining.ManualTreeExtractor.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matplotlib'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/report/mining/manual_tree_extractor.html#ManualTreeExtractor.plot"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.report.mining.ManualTreeExtractor.plot" title="Link to this definition"></a></dt>
+<dd><p>绘制当前人工决策树结构。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>backend</strong> (<em>str</em>) -- 渲染后端，可选 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> / <code class="docutils literal notranslate"><span class="pre">pyecharts</span></code> / <code class="docutils literal notranslate"><span class="pre">graphviz</span></code></p></li>
+<li><p><strong>save</strong> (<em>str</em><em> | </em><em>None</em>) -- 保存路径（可选）</p></li>
+<li><p><strong>title</strong> (<em>str</em>) -- 图表标题</p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) -- 其余参数透传给 <a class="reference internal" href="viz.html#hscredit.core.viz.plot_tree" title="hscredit.core.viz.plot_tree"><code class="xref py py-func docutils literal notranslate"><span class="pre">hscredit.core.viz.plot_tree()</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib Figure / pyecharts Chart / graphviz Source</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Any</em></p>
+</dd>
+</dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ext</span> <span class="o">=</span> <span class="n">ManualTreeExtractor</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">ext</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ext</span><span class="o">.</span><span class="n">manual_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">save</span><span class="o">=</span><span class="s1">&#39;tree.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

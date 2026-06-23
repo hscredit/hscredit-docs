@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>编码器 hscredit.core.encoders &mdash; hscredit 0.1.0 文档</title>
+  <title>编码器 hscredit.core.encoders &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../_static/documentation_options.js?v=c5408746"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
@@ -334,6 +334,11 @@
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -344,6 +349,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -371,9 +377,9 @@
 <li class="toctree-l2"><a class="reference internal" href="modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -405,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -604,6 +611,24 @@ Cardinality / GBM），统一继承 <code class="docutils literal notranslate"><
 <li><p><code class="docutils literal notranslate"><span class="pre">cols_</span></code>: 实际进行编码的列名列表（经过自动识别或过滤后）</p></li>
 <li><p>_dropped_cols: 被删除的方差为0的列</p></li>
 </ul>
+<p><strong>参考样例</strong></p>
+<p>所有子类（WOE/Target/Count/OneHot/Ordinal/Quantile/CatBoost/GBM/Cardinality）
+共享下述两种调用风格:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.encoders</span><span class="w"> </span><span class="kn">import</span> <span class="n">WOEEncoder</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># sklearn 风格：X、y 分开传</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enc</span> <span class="o">=</span> <span class="n">WOEEncoder</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_enc</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># scorecardpipeline 风格：目标列在 df 中，初始化指定 target</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enc</span> <span class="o">=</span> <span class="n">WOEEncoder</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_enc</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enc</span><span class="o">.</span><span class="n">get_mapping</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">)</span>        <span class="c1"># 查看某列的类别→编码映射</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">enc</span><span class="o">.</span><span class="n">export_mapping</span><span class="p">()</span>           <span class="c1"># 导出可序列化映射</span>
+</pre></div>
+</div>
+<p><strong>引用</strong></p>
+<p>接口约定（<code class="docutils literal notranslate"><span class="pre">cols</span></code> / <code class="docutils literal notranslate"><span class="pre">drop_invariant</span></code> / <code class="docutils literal notranslate"><span class="pre">handle_unknown</span></code> / <code class="docutils literal notranslate"><span class="pre">handle_missing</span></code> /
+<code class="docutils literal notranslate"><span class="pre">return_df</span></code>）对齐 category_encoders 库：
+<a class="reference external" href="https://contrib.scikit-learn.org/category_encoders/">https://contrib.scikit-learn.org/category_encoders/</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.BaseEncoder.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/base.html#BaseEncoder.fit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.BaseEncoder.fit" title="Link to this definition"></a></dt>
@@ -772,11 +797,23 @@ WOE = ln(P(坏样本|类别) / P(好样本|类别)) = ln(坏样本占比/好样�
 这会导致评分卡中对应分箱的分数异常。
 设置此参数可将WOE限制在[-woe_clip, woe_clip]范围内。
 设置为None则不进行截断。</p></li>
-<li><p><strong>handle_unknown</strong> (<em>str</em>) -- 处理未知类别的方式，默认为'value'</p></li>
-<li><p><strong>handle_missing</strong> (<em>str</em>) -- 处理缺失值的方式，默认为'value'</p></li>
+<li><p><strong>handle_unknown</strong> (<em>str</em>) -- <p>transform 时遇到 fit 未见过的类别的处理方式，默认为 <code class="docutils literal notranslate"><span class="pre">'value'</span></code>：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'value'</span></code>：编码为 0.0（中性 WOE）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'return_nan'</span></code>：编码为 NaN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'error'</span></code>：抛出异常</p></li>
+</ul>
+</p></li>
+<li><p><strong>handle_missing</strong> (<em>str</em>) -- <p>缺失值（NaN）的处理方式，默认为 <code class="docutils literal notranslate"><span class="pre">'value'</span></code>：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'value'</span></code>：编码为 0.0（中性 WOE）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'return_nan'</span></code>：编码为 NaN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'error'</span></code>：fit/transform 遇缺失即抛出异常</p></li>
+</ul>
+</p></li>
 <li><p><strong>drop_invariant</strong> (<em>bool</em>) -- 是否删除方差为0的列，默认为False</p></li>
 <li><p><strong>return_df</strong> (<em>bool</em>) -- 是否返回DataFrame，默认为True</p></li>
-<li><p><strong>target</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>target</strong> (<em>str</em><em> | </em><em>None</em>) -- scorecardpipeline 风格的目标列名，提供后 fit 时从 X 中提取该列作为 y</p></li>
 </ul>
 </dd>
 </dl>
@@ -796,10 +833,20 @@ WOE = ln(P(坏样本|类别) / P(好样本|类别)) = ln(坏样本占比/好样�
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>参考:</dt><dd><p><a class="reference external" href="https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html">https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html</a></p>
-</dd>
-</dl>
+<p>导出/加载（与 toad、scorecardpipeline 规则格式互通）:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rules</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">to_json</span><span class="o">=</span><span class="s1">&#39;woe_rules.json&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">WOEEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;woe_rules.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>注意</strong></p>
+<p>与 <a class="reference internal" href="binning.html#hscredit.core.binning.BaseBinning" title="hscredit.core.binning.BaseBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseBinning</span></code></a> 的 <code class="docutils literal notranslate"><span class="pre">metric='woe'</span></code> 不同，本编码器
+直接对原始类别取值计算 WOE、不做数值分箱，适合基数适中的类别特征。<code class="docutils literal notranslate"><span class="pre">regularization</span></code>
+采用加性平滑以避免某类别好/坏样本数为 0 时 WOE 取 ±∞。</p>
+<p><strong>引用</strong></p>
+<p>WOE（证据权重）与 IV（信息价值）出自信息论，系统应用于信用评分见
+Siddiqi, N. (2006). <em>Credit Risk Scorecards.</em> Wiley；
+公式与直观解释参考
+<a class="reference external" href="https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html">https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.WOEEncoder.get_iv">
 <span class="sig-name descname"><span class="pre">get_iv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/woe_encoder.html#WOEEncoder.get_iv"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.WOEEncoder.get_iv" title="Link to this definition"></a></dt>
@@ -836,15 +883,29 @@ col 为 None 时返回 {col: {category: woe_value}}</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.WOEEncoder.summary">
 <span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/woe_encoder.html#WOEEncoder.summary"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.WOEEncoder.summary" title="Link to this definition"></a></dt>
-<dd><p>获取WOE编码摘要。</p>
+<dd><p>获取 WOE 编码摘要表（按 IV 降序）。</p>
+<p>对每个已编码特征给出 IV 值及对应的预测能力评级，评级阈值为：</p>
+<ul class="simple">
+<li><p>IV &lt; 0.02：无预测力</p></li>
+<li><p>0.02 ≤ IV &lt; 0.1：弱预测力</p></li>
+<li><p>0.1 ≤ IV &lt; 0.3：中等预测力</p></li>
+<li><p>0.3 ≤ IV &lt; 0.5：强预测力</p></li>
+<li><p>IV ≥ 0.5：超强预测力（需检查是否标签泄漏）</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">返回<span class="colon">:</span></dt>
-<dd class="field-odd"><p>包含各特征IV值和预测能力的摘要表</p>
+<dd class="field-odd"><p>含 <code class="docutils literal notranslate"><span class="pre">特征</span></code> / <code class="docutils literal notranslate"><span class="pre">IV值</span></code> / <code class="docutils literal notranslate"><span class="pre">预测能力</span></code> 三列的 DataFrame，按 <code class="docutils literal notranslate"><span class="pre">IV值</span></code> 降序；
+未拟合或无特征时返回空 DataFrame</p>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>DataFrame</em></p>
 </dd>
 </dl>
+<p><strong>参考样例</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -981,6 +1042,14 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>目标编码直接使用了标签信息，存在目标泄漏/过拟合风险，应配合 <code class="docutils literal notranslate"><span class="pre">smoothing</span></code>、
+<code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code>、<code class="docutils literal notranslate"><span class="pre">noise</span></code> 等正则手段，并务必在训练集 fit、在验证/测试集
+transform；若需更强的防泄漏，改用 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>CatBoostEncoder`（有序目标统计）。</p>
+<p><strong>引用</strong></p>
+<p>Micci-Barreca, D. (2001). <em>A preprocessing scheme for high-cardinality
+categorical attributes in classification and prediction problems.</em>
+ACM SIGKDD Explorations, 3(1). <a class="reference external" href="https://doi.org/10.1145/507533.507538">https://doi.org/10.1145/507533.507538</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1024,6 +1093,13 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>计数/频率编码为无监督方法，不使用标签 <code class="docutils literal notranslate"><span class="pre">y</span></code>，仅以类别出现频次反映其流行度，对高基数
+类别尤其紧凑；但不同类别若频次相同会被编码为同一值（信息混淆），必要时与其他编码并用。</p>
+<p><strong>引用</strong></p>
+<p>频率/计数编码（frequency / count encoding）是类别特征工程的常用基线方法，参见
+category_encoders <code class="docutils literal notranslate"><span class="pre">CountEncoder</span></code>：
+<a class="reference external" href="https://contrib.scikit-learn.org/category_encoders/count.html">https://contrib.scikit-learn.org/category_encoders/count.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1069,6 +1145,13 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>独热编码为无监督方法，列数随类别基数线性增长，仅适合低基数特征；用于线性/逻辑回归时
+建议 <code class="docutils literal notranslate"><span class="pre">drop='first'</span></code> 以消除虚拟变量陷阱（多重共线性），用于树模型可保留全部列。</p>
+<p><strong>引用</strong></p>
+<p>虚拟变量（dummy variables）/ one-hot 编码是统计建模标准做法，参见 sklearn
+<code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code>：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.OneHotEncoder.inverse_transform">
 <span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/one_hot_encoder.html#OneHotEncoder.inverse_transform"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.OneHotEncoder.inverse_transform" title="Link to this definition"></a></dt>
@@ -1162,6 +1245,13 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>默认整数映射不含真实序关系，仅对天然有序的类别（如学历 高/中/低）通过 <code class="docutils literal notranslate"><span class="pre">mapping</span></code>
+显式指定顺序才有意义；无序类别用于线性模型时应改用 OneHot 或 WOE 编码，否则会引入
+虚假的大小关系。</p>
+<p><strong>引用</strong></p>
+<p>序数编码参见 sklearn <code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code>：
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.OrdinalEncoder.inverse_transform">
 <span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/ordinal_encoder.html#OrdinalEncoder.inverse_transform"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.OrdinalEncoder.inverse_transform" title="Link to this definition"></a></dt>
@@ -1241,6 +1331,13 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>以目标分位数（而非均值）编码，对异常值更稳健；通过 <code class="docutils literal notranslate"><span class="pre">m</span></code> 先验权重向全局分位数做收缩
+（类别样本越少越靠近全局值）以抑制过拟合。同属有监督编码，需训练集 fit、测试集 transform。</p>
+<p><strong>引用</strong></p>
+<p>Valdez-Valenzuela, A. et al. (2021). <em>Measuring the quantile encoder.</em>
+<a class="reference external" href="https://arxiv.org/abs/2105.13783">https://arxiv.org/abs/2105.13783</a> ；另见 category_encoders <code class="docutils literal notranslate"><span class="pre">QuantileEncoder</span></code>：
+<a class="reference external" href="https://contrib.scikit-learn.org/category_encoders/quantile.html">https://contrib.scikit-learn.org/category_encoders/quantile.html</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1280,6 +1377,13 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>与普通目标编码相比，本编码器对样本随机排序后只用&quot;当前样本之前&quot;的目标累积统计来编码
+（ordered target statistics），从而显著降低目标泄漏；<code class="docutils literal notranslate"><span class="pre">random_state</span></code> 决定排序，
+影响结果可复现性。</p>
+<p><strong>引用</strong></p>
+<p>Prokhorenkova, L. et al. (2018). <em>CatBoost: unbiased boosting with categorical
+features.</em> NeurIPS 2018. <a class="reference external" href="https://arxiv.org/abs/1706.09516">https://arxiv.org/abs/1706.09516</a></p>
 </dd></dl>
 
 <dl class="py class">
@@ -1391,15 +1495,12 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>参考:</dt><dd><ul class="simple">
-<li><p>Facebook GBDT + LR: <a class="reference external" href="https://dl.acm.org/doi/10.1145/2648584.2648589">https://dl.acm.org/doi/10.1145/2648584.2648589</a></p></li>
-<li><p>XGBoost: <a class="reference external" href="https://xgboost.readthedocs.io/">https://xgboost.readthedocs.io/</a></p></li>
-<li><p>LightGBM: <a class="reference external" href="https://lightgbm.readthedocs.io/">https://lightgbm.readthedocs.io/</a></p></li>
-<li><p>CatBoost: <a class="reference external" href="https://catboost.ai/">https://catboost.ai/</a></p></li>
-</ul>
-</dd>
-</dl>
+<p><strong>引用</strong></p>
+<p>GBDT 叶子节点作为特征输入 LR 的范式出自 He, X. et al. (2014). <em>Practical Lessons
+from Predicting Clicks on Ads at Facebook.</em> ADKDD'14.
+<a class="reference external" href="https://dl.acm.org/doi/10.1145/2648584.2648589">https://dl.acm.org/doi/10.1145/2648584.2648589</a> 。底层树模型文档：
+XGBoost <a class="reference external" href="https://xgboost.readthedocs.io/">https://xgboost.readthedocs.io/</a> 、LightGBM <a class="reference external" href="https://lightgbm.readthedocs.io/">https://lightgbm.readthedocs.io/</a> 、
+CatBoost <a class="reference external" href="https://catboost.ai/">https://catboost.ai/</a> 。</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.GBMEncoder.get_model">
 <span class="sig-name descname"><span class="pre">get_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/gbm_encoder.html#GBMEncoder.get_model"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.GBMEncoder.get_model" title="Link to this definition"></a></dt>
@@ -1521,6 +1622,14 @@ encoded = (count * mean + smoothing * global_mean) / (count + smoothing)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X_original</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_encoded</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>注意</strong></p>
+<p>本编码器只做&quot;高基数→低基数&quot;的类别合并（频次 top-N 保留、其余归入 <code class="docutils literal notranslate"><span class="pre">other_label</span></code>），
+输出仍为类别值，通常作为 WOE/Target/OneHot 等编码的前置步骤，用于抑制长尾稀有类别带来的
+过拟合与不稳定。合并依据为训练集频次，故为无监督步骤。</p>
+<p><strong>引用</strong></p>
+<p>高基数类别的稀有类别合并（rare-category grouping）是类别特征工程的常用预处理，参见
+Micci-Barreca, D. (2001). <em>A preprocessing scheme for high-cardinality categorical
+attributes.</em> ACM SIGKDD Explorations. <a class="reference external" href="https://doi.org/10.1145/507533.507538">https://doi.org/10.1145/507533.507538</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.encoders.CardinalityEncoder.inverse_transform">
 <span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/cardinality_encoder.html#CardinalityEncoder.inverse_transform"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.CardinalityEncoder.inverse_transform" title="Link to this definition"></a></dt>

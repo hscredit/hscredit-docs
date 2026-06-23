@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.viz.variable_plots &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.viz.variable_plots &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -565,8 +572,7 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpatches</span>
@@ -574,18 +580,26 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.figure</span><span class="w"> </span><span class="kn">import</span> <span class="n">Figure</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_COLORS</span><span class="p">,</span> <span class="n">get_or_create_ax</span><span class="p">,</span> <span class="n">save_figure</span><span class="p">,</span> <span class="n">setup_axis_style</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DEFAULT_COLORS</span><span class="p">,</span> <span class="n">get_or_create_ax</span><span class="p">,</span> <span class="n">save_figure</span><span class="p">,</span> <span class="n">setup_axis_style</span><span class="p">,</span>
+    <span class="n">BLUE_GRADIENT</span><span class="p">,</span> <span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">STABLE_COLOR</span><span class="p">,</span> <span class="n">CHANGING_COLOR</span><span class="p">,</span> <span class="n">UNSTABLE_COLOR</span><span class="p">,</span>
+    <span class="n">get_series_colors</span><span class="p">,</span> <span class="n">get_psi_color</span><span class="p">,</span> <span class="n">make_risk_cmap</span><span class="p">,</span>
+<span class="p">)</span>
 
+
+<span class="c1"># IV 强度配色：采用 hscredit 主题蓝色阶（浅→深，越深表示 IV 越强），保持整体风格统一</span>
+<span class="n">_IV_COLORS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">BLUE_GRADIENT</span><span class="p">)</span>   <span class="c1"># [&#39;#E3F2FD&#39;, &#39;#90CAF9&#39;, &#39;#42A5F5&#39;, &#39;#1565C0&#39;]</span>
 
 <span class="c1"># IV评级参考线</span>
 <span class="n">_IV_THRESHOLDS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;弱（&lt; 0.02）&#39;</span><span class="p">,</span> <span class="s1">&#39;#E0E0E0&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;一般（0.02-0.10）&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFF9C4&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="mf">0.30</span><span class="p">,</span> <span class="s1">&#39;较强（0.10-0.30）&#39;</span><span class="p">,</span> <span class="s1">&#39;#C8E6C9&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s1">&#39;强（≥ 0.30）&#39;</span><span class="p">,</span> <span class="s1">&#39;#A5D6A7&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;弱（&lt; 0.02）&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;一般（0.02-0.10）&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+    <span class="p">(</span><span class="mf">0.30</span><span class="p">,</span> <span class="s1">&#39;较强（0.10-0.30）&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s1">&#39;强（≥ 0.30）&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
 <span class="p">]</span>
 
-<span class="n">_PSI_THRESHOLDS</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;稳定&#39;</span><span class="p">,</span> <span class="s1">&#39;#4CAF50&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;略变&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF9800&#39;</span><span class="p">),</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s1">&#39;不稳定&#39;</span><span class="p">,</span> <span class="s1">&#39;#F44336&#39;</span><span class="p">)]</span>
+<span class="c1"># PSI 稳定性配色：复用 hscredit 语义色（稳定/略变/不稳定）</span>
+<span class="n">_PSI_THRESHOLDS</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;稳定&#39;</span><span class="p">,</span> <span class="n">STABLE_COLOR</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;略变&#39;</span><span class="p">,</span> <span class="n">CHANGING_COLOR</span><span class="p">),</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s1">&#39;不稳定&#39;</span><span class="p">,</span> <span class="n">UNSTABLE_COLOR</span><span class="p">)]</span>
 
 
 <div class="viewcode-block" id="metric_comparison_plot">
@@ -649,17 +663,17 @@
     <span class="n">labels</span> <span class="o">=</span> <span class="n">plot_data</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">color_scheme</span> <span class="o">==</span> <span class="s1">&#39;iv&#39;</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s1">&#39;#BDBDBD&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.02</span> <span class="k">else</span> <span class="s1">&#39;#FDD835&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.10</span> <span class="k">else</span> <span class="s1">&#39;#66BB6A&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.30</span> <span class="k">else</span> <span class="s1">&#39;#1B5E20&#39;</span>
+            <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.02</span> <span class="k">else</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.10</span> <span class="k">else</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.30</span> <span class="k">else</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span>
         <span class="p">]</span>
         <span class="k">if</span> <span class="n">reference_lines</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">reference_lines</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;IV=0.02&#39;</span><span class="p">,</span> <span class="s1">&#39;#BDBDBD&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;IV=0.10&#39;</span><span class="p">,</span> <span class="s1">&#39;#FDD835&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.30</span><span class="p">,</span> <span class="s1">&#39;IV=0.30&#39;</span><span class="p">,</span> <span class="s1">&#39;#66BB6A&#39;</span><span class="p">)]</span>
+            <span class="n">reference_lines</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;IV=0.02&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;IV=0.10&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="p">(</span><span class="mf">0.30</span><span class="p">,</span> <span class="s1">&#39;IV=0.30&#39;</span><span class="p">,</span> <span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">3</span><span class="p">])]</span>
     <span class="k">elif</span> <span class="n">color_scheme</span> <span class="o">==</span> <span class="s1">&#39;psi&#39;</span><span class="p">:</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#4CAF50&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.10</span> <span class="k">else</span> <span class="s1">&#39;#FF9800&#39;</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.25</span> <span class="k">else</span> <span class="s1">&#39;#F44336&#39;</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_psi_color</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">reference_lines</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">reference_lines</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;轻微偏移 0.10&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF9800&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;显著偏移 0.25&#39;</span><span class="p">,</span> <span class="s1">&#39;#F44336&#39;</span><span class="p">)]</span>
+            <span class="n">reference_lines</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;轻微偏移 0.10&#39;</span><span class="p">,</span> <span class="n">CHANGING_COLOR</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;显著偏移 0.25&#39;</span><span class="p">,</span> <span class="n">UNSTABLE_COLOR</span><span class="p">)]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">DEFAULT_COLORS</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
@@ -730,8 +744,9 @@
 <span class="sd">    :param save: 保存路径，None时不保存</span>
 <span class="sd">    :return: matplotlib Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = variable_iv_plot(df, features=df.columns.tolist(), target=&#39;fpd30&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = variable_iv_plot(df, features=df.columns.tolist(), target=&#39;fpd30&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics.feature</span><span class="w"> </span><span class="kn">import</span> <span class="n">iv</span>
 
@@ -749,17 +764,17 @@
     <span class="n">feat_names</span> <span class="o">=</span> <span class="n">iv_series</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">iv_values</span> <span class="o">=</span> <span class="n">iv_series</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="c1"># 颜色：按IV强度着色</span>
+    <span class="c1"># 颜色：按IV强度着色（hscredit 主题蓝色阶，越深越强）</span>
     <span class="n">bar_colors</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">iv_values</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">:</span>
-            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;#BDBDBD&#39;</span><span class="p">)</span>
+            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">elif</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">0.10</span><span class="p">:</span>
-            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;#FDD835&#39;</span><span class="p">)</span>
+            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">elif</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">0.30</span><span class="p">:</span>
-            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;#66BB6A&#39;</span><span class="p">)</span>
+            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;#1B5E20&#39;</span><span class="p">)</span>
+            <span class="n">bar_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_IV_COLORS</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
@@ -770,10 +785,9 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
 
     <span class="c1"># 参考线</span>
-    <span class="k">for</span> <span class="n">thresh</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">[(</span><span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;IV=0.02&#39;</span><span class="p">,</span> <span class="s1">&#39;#BDBDBD&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;IV=0.10&#39;</span><span class="p">,</span> <span class="s1">&#39;#FDD835&#39;</span><span class="p">),</span>
-                              <span class="p">(</span><span class="mf">0.30</span><span class="p">,</span> <span class="s1">&#39;IV=0.30&#39;</span><span class="p">,</span> <span class="s1">&#39;#66BB6A&#39;</span><span class="p">)]:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">thresh</span> <span class="o">+</span> <span class="mf">0.002</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">thresh</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="mf">0.02</span><span class="p">,</span> <span class="s1">&#39;IV=0.02&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="s1">&#39;IV=0.10&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.30</span><span class="p">,</span> <span class="s1">&#39;IV=0.30&#39;</span><span class="p">)]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">thresh</span> <span class="o">+</span> <span class="mf">0.002</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
 
     <span class="c1"># 数值标签</span>
     <span class="k">for</span> <span class="n">bar</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bars</span><span class="p">,</span> <span class="n">iv_values</span><span class="p">):</span>
@@ -813,10 +827,11 @@
 <span class="sd">    :param save: 保存路径</span>
 <span class="sd">    :return: Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; binner = OptimalBinning().fit(df[[&#39;age&#39;]], df[&#39;fpd30&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; tbl = binner.get_bin_table()[&#39;age&#39;]</span>
-<span class="sd">        &gt;&gt;&gt; fig = variable_woe_trend_plot(tbl, feature=&#39;age&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; binner = OptimalBinning().fit(df[[&#39;age&#39;]], df[&#39;fpd30&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; tbl = binner.get_bin_table()[&#39;age&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; fig = variable_woe_trend_plot(tbl, feature=&#39;age&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 兼容列名</span>
     <span class="n">label_col</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;分箱标签&#39;</span><span class="p">,</span> <span class="s1">&#39;bin_label&#39;</span><span class="p">,</span> <span class="s1">&#39;Bin&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">bin_table</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
@@ -850,7 +865,7 @@
     <span class="c1"># 折线图：WOE</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">woe_vals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
              <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;WOE&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;WOE&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
@@ -884,7 +899,7 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Figure</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;特征PSI矩阵热力图.</span>
 
-<span class="sd">    颜色反映偏移程度：绿色（PSI&lt;0.1稳定）/ 橙色（0.1-0.25略变）/ 红色（&gt;0.25不稳定）。</span>
+<span class="sd">    颜色反映偏移程度：低 PSI 使用主题冷色，高 PSI 使用粉红风险色。</span>
 
 <span class="sd">    :param psi_matrix: PSI矩阵，行=特征，列=时间周期或数据集，格=PSI值</span>
 <span class="sd">    :param ax: matplotlib Axes</span>
@@ -893,9 +908,10 @@
 <span class="sd">    :param save: 保存路径</span>
 <span class="sd">    :return: Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; psi_mat = batch_psi_analysis(df_train, df_test, features)</span>
-<span class="sd">        &gt;&gt;&gt; fig = variable_psi_heatmap(psi_mat)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; psi_mat = batch_psi_analysis(df_train, df_test, features)</span>
+<span class="sd">    &gt;&gt;&gt; fig = variable_psi_heatmap(psi_mat)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
 
@@ -904,10 +920,10 @@
     <span class="n">data</span> <span class="o">=</span> <span class="n">psi_matrix</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
 
-    <span class="c1"># 三段色：绿→橙→红</span>
+    <span class="c1"># 三段色：稳定→略变→不稳定（hscredit 统一蓝紫红风险色阶）</span>
     <span class="n">cmap</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
         <span class="s1">&#39;psi_cmap&#39;</span><span class="p">,</span>
-        <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;#4CAF50&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">/</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;#FF9800&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;#F44336&#39;</span><span class="p">)],</span>
+        <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">STABLE_COLOR</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">/</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">CHANGING_COLOR</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">UNSTABLE_COLOR</span><span class="p">)],</span>
         <span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
@@ -966,9 +982,10 @@
 <span class="sd">    :param save: 保存路径</span>
 <span class="sd">    :return: Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; imp_df = pd.DataFrame({&#39;feature&#39;: feats, &#39;importance&#39;: imps, &#39;category&#39;: cats})</span>
-<span class="sd">        &gt;&gt;&gt; fig = variable_importance_grouped_plot(imp_df)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; imp_df = pd.DataFrame({&#39;feature&#39;: feats, &#39;importance&#39;: imps, &#39;category&#39;: cats})</span>
+<span class="sd">    &gt;&gt;&gt; fig = variable_importance_grouped_plot(imp_df)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">importance_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">value_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">feature_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -982,8 +999,8 @@
     <span class="k">if</span> <span class="n">group_col</span> <span class="ow">and</span> <span class="n">group_col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">group_col</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="n">unique_groups</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">groups</span><span class="p">))</span>
-        <span class="n">palette</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_groups</span><span class="p">))</span>
-        <span class="n">group_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">g</span><span class="p">:</span> <span class="n">palette</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_groups</span><span class="p">)}</span>
+        <span class="n">palette</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_groups</span><span class="p">))</span>
+        <span class="n">group_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">g</span><span class="p">:</span> <span class="n">palette</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_groups</span><span class="p">)}</span>
         <span class="n">bar_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">group_colors</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">]</span>
         <span class="n">legend_patches</span> <span class="o">=</span> <span class="p">[</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">group_colors</span><span class="p">[</span><span class="n">g</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">unique_groups</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1039,8 +1056,9 @@
 <span class="sd">    :param save: 保存路径</span>
 <span class="sd">    :return: Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; fig = variable_missing_badrate_plot(df, features=feats, target=&#39;fpd30&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; fig = variable_missing_badrate_plot(df, features=feats, target=&#39;fpd30&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
     <span class="n">overall_br</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1070,9 +1088,9 @@
     <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">miss_brs</span> <span class="o">-</span> <span class="n">overall_br</span><span class="p">)</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">get_or_create_ax</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-    <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">miss_rates</span><span class="p">,</span> <span class="n">miss_brs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">diff</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn_r&#39;</span><span class="p">,</span>
+    <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">miss_rates</span><span class="p">,</span> <span class="n">miss_brs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">diff</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">make_risk_cmap</span><span class="p">(</span><span class="s2">&quot;hscredit_missing_badrate&quot;</span><span class="p">),</span>
                     <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">overall_br</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">overall_br</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">NEUTRAL_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;总体坏率 </span><span class="si">{</span><span class="n">overall_br</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="c1"># 标注差异大的特征</span>

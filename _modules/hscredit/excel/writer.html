@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.excel.writer &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.excel.writer &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -596,8 +603,6 @@
 
 <span class="c1"># hscredit 可视化主题配色（与 core.viz 保持一致）：主题蓝 / 坏样本红 / 提升橙</span>
 <span class="n">HSCREDIT_CHART_COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;F76E6C&quot;</span><span class="p">,</span> <span class="s2">&quot;FE7715&quot;</span><span class="p">]</span>
-
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ExcelWriter">
@@ -1412,6 +1417,8 @@
         <span class="n">data_first_row</span> <span class="o">=</span> <span class="n">start_row</span> <span class="o">+</span> <span class="n">n_header_rows</span>
         <span class="n">data_last_row</span> <span class="o">=</span> <span class="n">data_first_row</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">header_row</span> <span class="o">=</span> <span class="n">data_first_row</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># 表头所在行（取值列标题）</span>
+        <span class="c1"># 系列取数起始行：有表头时从表头行起（标题取自首格），无表头时从数据首行起</span>
+        <span class="n">series_min_row</span> <span class="o">=</span> <span class="n">header_row</span> <span class="k">if</span> <span class="n">header</span> <span class="k">else</span> <span class="n">data_first_row</span>
 
         <span class="c1"># 分类轴列</span>
         <span class="k">if</span> <span class="n">category_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1429,8 +1436,8 @@
         <span class="n">valid_bar_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">bar_columns</span> <span class="k">if</span> <span class="n">_col_letter_idx</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">valid_bar_cols</span><span class="p">):</span>
             <span class="n">col_idx</span> <span class="o">=</span> <span class="n">_col_letter_idx</span><span class="p">(</span><span class="n">col_name</span><span class="p">)</span>
-            <span class="n">ref</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="n">col_idx</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">header_row</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">data_last_row</span><span class="p">)</span>
-            <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">title_from_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">ref</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="n">col_idx</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">series_min_row</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">data_last_row</span><span class="p">)</span>
+            <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">title_from_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">header</span> <span class="k">else</span> <span class="n">Series</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">col_name</span><span class="p">)</span>
             <span class="n">color</span> <span class="o">=</span> <span class="n">HSCREDIT_CHART_COLORS</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">HSCREDIT_CHART_COLORS</span><span class="p">)]</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">series</span><span class="o">.</span><span class="n">graphicalProperties</span><span class="o">.</span><span class="n">solidFill</span> <span class="o">=</span> <span class="n">color</span>
@@ -1440,16 +1447,24 @@
             <span class="n">bar</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
 
         <span class="c1"># 折线图：坏样本率（右轴）</span>
+        <span class="c1"># 双坐标轴组合图必须为折线分配独立的分类轴（axId=500）与数值轴（axId=200），</span>
+        <span class="c1"># 形成「分类轴↔数值轴」两两交叉引用的完整轴图；折线分类轴隐藏（delete），</span>
+        <span class="c1"># 否则只有一条分类轴会导致次数值轴 crossAx 指向不一致，Excel 会判定损坏并删除图形。</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">LineChart</span><span class="p">()</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">x_axis</span><span class="o">.</span><span class="n">axId</span> <span class="o">=</span> <span class="mi">500</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">x_axis</span><span class="o">.</span><span class="n">crossAx</span> <span class="o">=</span> <span class="mi">200</span>       <span class="c1"># 次分类轴 ↔ 次数值轴 互相交叉引用</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">x_axis</span><span class="o">.</span><span class="n">delete</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">x_axis</span><span class="o">.</span><span class="n">crosses</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span>     <span class="c1"># 次数值轴显示在右侧</span>
         <span class="n">line</span><span class="o">.</span><span class="n">y_axis</span><span class="o">.</span><span class="n">axId</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">y_axis</span><span class="o">.</span><span class="n">crossAx</span> <span class="o">=</span> <span class="mi">500</span>
         <span class="n">line</span><span class="o">.</span><span class="n">y_axis</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;坏样本率&quot;</span>
         <span class="n">line</span><span class="o">.</span><span class="n">y_axis</span><span class="o">.</span><span class="n">crosses</span> <span class="o">=</span> <span class="s2">&quot;max&quot;</span>
 
         <span class="n">valid_line_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">line_columns</span> <span class="k">if</span> <span class="n">_col_letter_idx</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">valid_line_cols</span><span class="p">):</span>
             <span class="n">col_idx</span> <span class="o">=</span> <span class="n">_col_letter_idx</span><span class="p">(</span><span class="n">col_name</span><span class="p">)</span>
-            <span class="n">ref</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="n">col_idx</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">header_row</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">data_last_row</span><span class="p">)</span>
-            <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">title_from_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">ref</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="n">col_idx</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="n">series_min_row</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="n">data_last_row</span><span class="p">)</span>
+            <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">title_from_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">header</span> <span class="k">else</span> <span class="n">Series</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">col_name</span><span class="p">)</span>
             <span class="n">color</span> <span class="o">=</span> <span class="n">HSCREDIT_CHART_COLORS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">HSCREDIT_CHART_COLORS</span><span class="p">[</span><span class="mi">2</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">HSCREDIT_CHART_COLORS</span><span class="p">)]</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">series</span><span class="o">.</span><span class="n">graphicalProperties</span><span class="o">.</span><span class="n">line</span><span class="o">.</span><span class="n">solidFill</span> <span class="o">=</span> <span class="n">color</span>
@@ -2290,10 +2305,8 @@
 <span class="sd">        :param color: 颜色值，支持 ``#RRGGBB`` / ``RRGGBB`` / ``AARRGGBB``</span>
 <span class="sd">        :return: ``AARRGGBB`` 格式颜色（默认不透明 FF）</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">hex_color</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_color</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;FF&quot;</span> <span class="o">+</span> <span class="n">hex_color</span>
-        <span class="k">return</span> <span class="n">hex_color</span>
+        <span class="c1"># 复用 _pivot 中的实现，保持单一来源</span>
+        <span class="k">return</span> <span class="n">_pivot</span><span class="o">.</span><span class="n">_to_argb</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_quote_sheet_title</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -2557,6 +2570,38 @@
             <span class="k">return</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">space</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">space</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sanitize_sheet_title</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;将字符串规范为合法的Excel工作表名（替换非法字符并截断到31字符）。</span>
+
+<span class="sd">        Excel 工作表名不允许包含 ``: \\ / ? * [ ]``，且长度上限为31个字符。</span>
+
+<span class="sd">        :param title: 原始名称</span>
+<span class="sd">        :return: 合法的工作表名</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[:</span><span class="se">\\</span><span class="s2">/?*\[\]]&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">title</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">cleaned</span><span class="p">[:</span><span class="mi">31</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;Sheet&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_unique_source_sheet_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;为自动创建的源数据表生成合法且唯一的工作表名（≤31字符）。</span>
+
+<span class="sd">        :param name: 透视表名称</span>
+<span class="sd">        :return: 不与现有工作表重名的合法源数据表名</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;_源数据&quot;</span>
+        <span class="c1"># 预留后缀长度，仅截断名称主体，保证 ``_源数据`` 标识不被裁掉且总长 ≤31</span>
+        <span class="n">stem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitize_sheet_title</span><span class="p">(</span><span class="n">name</span><span class="p">)[:</span> <span class="mi">31</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">suffix</span><span class="p">)]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">stem</span> <span class="o">+</span> <span class="n">suffix</span>
+        <span class="k">if</span> <span class="n">base</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">workbook</span><span class="o">.</span><span class="n">sheetnames</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">seq</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">candidate</span> <span class="o">=</span> <span class="p">(</span><span class="n">stem</span><span class="p">[:</span> <span class="mi">31</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="n">suffix</span> <span class="o">+</span> <span class="n">seq</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">candidate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">workbook</span><span class="o">.</span><span class="n">sheetnames</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">candidate</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
 <div class="viewcode-block" id="ExcelWriter.insert_pivot_table2sheet">
 <a class="viewcode-back" href="../../../api/excel.html#hscredit.excel.ExcelWriter.insert_pivot_table2sheet">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">insert_pivot_table2sheet</span><span class="p">(</span>
@@ -2587,6 +2632,11 @@
 <span class="sd">        ``pivotCacheDefinition`` / ``pivotCacheRecords`` / ``pivotTable`` 等部件注入到</span>
 <span class="sd">        xlsx 中，生成 Excel 可交互、可刷新的原生数据透视表。透视缓存写入 ``refreshOnLoad=&quot;1&quot;``，</span>
 <span class="sd">        Excel 打开时会基于源数据自动刷新。</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            透视表通过在保存后直接注入 xlsx 内部部件实现。openpyxl 追加模式（``mode=&#39;append&#39;``）</span>
+<span class="sd">            会基于单元格值/样式重建工作簿，不保留原文件中的透视表、原生图、迷你图与图片。</span>
+<span class="sd">            因此请勿用追加模式向已含透视表的文件追加内容，否则原透视表会丢失；建议透视表在最终输出步骤生成。</span>
 
 <span class="sd">        :param worksheet: 透视表放置的工作表对象或名称</span>
 <span class="sd">        :param data: 源数据 DataFrame（透视缓存基于此构建）</span>
@@ -2678,7 +2728,7 @@
         <span class="c1"># 解析/写入源数据</span>
         <span class="n">src_row</span><span class="p">,</span> <span class="n">src_col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_anchor</span><span class="p">(</span><span class="n">source_anchor</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">source_sheet</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">source_ws</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_源数据&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="n">source_ws</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_unique_source_sheet_name</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
             <span class="n">do_write</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">write_source</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">write_source</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">source_ws</span> <span class="o">=</span> <span class="n">source_sheet</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source_sheet</span><span class="p">,</span> <span class="n">Worksheet</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sheet_by_name</span><span class="p">(</span><span class="n">source_sheet</span><span class="p">)</span>
@@ -3083,6 +3133,11 @@
 <a class="viewcode-back" href="../../../api/excel.html#hscredit.excel.ExcelWriter.save">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">close</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;保存Excel文件。</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            迷你图、数据透视表/透视图均在 openpyxl 保存后通过注入 xlsx 内部 XML 实现。</span>
+<span class="sd">            追加模式（``mode=&#39;append&#39;``）会基于单元格值/样式重建工作簿，不保留原文件中的</span>
+<span class="sd">            迷你图、透视表、原生图与图片，请在最终输出步骤再添加这些内容。</span>
 
 <span class="sd">        :param filename: 保存路径</span>
 <span class="sd">        :param close: 是否关闭workbook，默认为True</span>

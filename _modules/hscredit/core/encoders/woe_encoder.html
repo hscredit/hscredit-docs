@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.encoders.woe_encoder &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.encoders.woe_encoder &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -583,10 +590,21 @@
 <span class="sd">        这会导致评分卡中对应分箱的分数异常。</span>
 <span class="sd">        设置此参数可将WOE限制在[-woe_clip, woe_clip]范围内。</span>
 <span class="sd">        设置为None则不进行截断。</span>
-<span class="sd">    :param handle_unknown: 处理未知类别的方式，默认为&#39;value&#39;</span>
-<span class="sd">    :param handle_missing: 处理缺失值的方式，默认为&#39;value&#39;</span>
+<span class="sd">    :param handle_unknown: transform 时遇到 fit 未见过的类别的处理方式，默认为 ``&#39;value&#39;``：</span>
+
+<span class="sd">        - ``&#39;value&#39;``：编码为 0.0（中性 WOE）</span>
+<span class="sd">        - ``&#39;return_nan&#39;``：编码为 NaN</span>
+<span class="sd">        - ``&#39;error&#39;``：抛出异常</span>
+
+<span class="sd">    :param handle_missing: 缺失值（NaN）的处理方式，默认为 ``&#39;value&#39;``：</span>
+
+<span class="sd">        - ``&#39;value&#39;``：编码为 0.0（中性 WOE）</span>
+<span class="sd">        - ``&#39;return_nan&#39;``：编码为 NaN</span>
+<span class="sd">        - ``&#39;error&#39;``：fit/transform 遇缺失即抛出异常</span>
+
 <span class="sd">    :param drop_invariant: 是否删除方差为0的列，默认为False</span>
 <span class="sd">    :param return_df: 是否返回DataFrame，默认为True</span>
+<span class="sd">    :param target: scorecardpipeline 风格的目标列名，提供后 fit 时从 X 中提取该列作为 y</span>
 
 <span class="sd">    **属性**</span>
 
@@ -604,8 +622,23 @@
 <span class="sd">    &gt;&gt;&gt; summary = encoder.summary()</span>
 <span class="sd">    &gt;&gt;&gt; print(summary)</span>
 
-<span class="sd">    参考:</span>
-<span class="sd">        https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html</span>
+<span class="sd">    导出/加载（与 toad、scorecardpipeline 规则格式互通）::</span>
+
+<span class="sd">        &gt;&gt;&gt; rules = encoder.export(to_json=&#39;woe_rules.json&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; WOEEncoder().load(&#39;woe_rules.json&#39;)</span>
+
+<span class="sd">    **注意**</span>
+
+<span class="sd">    与 :class:`~hscredit.core.binning.BaseBinning` 的 ``metric=&#39;woe&#39;`` 不同，本编码器</span>
+<span class="sd">    直接对原始类别取值计算 WOE、不做数值分箱，适合基数适中的类别特征。``regularization``</span>
+<span class="sd">    采用加性平滑以避免某类别好/坏样本数为 0 时 WOE 取 ±∞。</span>
+
+<span class="sd">    **引用**</span>
+
+<span class="sd">    WOE（证据权重）与 IV（信息价值）出自信息论，系统应用于信用评分见</span>
+<span class="sd">    Siddiqi, N. (2006). *Credit Risk Scorecards.* Wiley；</span>
+<span class="sd">    公式与直观解释参考</span>
+<span class="sd">    https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -830,9 +863,23 @@
 <div class="viewcode-block" id="WOEEncoder.summary">
 <a class="viewcode-back" href="../../../../api/encoders.html#hscredit.core.encoders.WOEEncoder.summary">[文档]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取WOE编码摘要。</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取 WOE 编码摘要表（按 IV 降序）。</span>
 
-<span class="sd">        :return: 包含各特征IV值和预测能力的摘要表</span>
+<span class="sd">        对每个已编码特征给出 IV 值及对应的预测能力评级，评级阈值为：</span>
+
+<span class="sd">        - IV &lt; 0.02：无预测力</span>
+<span class="sd">        - 0.02 ≤ IV &lt; 0.1：弱预测力</span>
+<span class="sd">        - 0.1 ≤ IV &lt; 0.3：中等预测力</span>
+<span class="sd">        - 0.3 ≤ IV &lt; 0.5：强预测力</span>
+<span class="sd">        - IV ≥ 0.5：超强预测力（需检查是否标签泄漏）</span>
+
+<span class="sd">        :return: 含 ``特征`` / ``IV值`` / ``预测能力`` 三列的 DataFrame，按 ``IV值`` 降序；</span>
+<span class="sd">            未拟合或无特征时返回空 DataFrame</span>
+
+<span class="sd">        **参考样例**</span>
+
+<span class="sd">        &gt;&gt;&gt; encoder.fit(X, y)</span>
+<span class="sd">        &gt;&gt;&gt; encoder.summary()</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">iv_</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>

@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.eda.report &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.eda.report &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -591,11 +598,12 @@
 <span class="sd">    :param date_col: 日期列名（可选）</span>
 <span class="sd">    :return: EDA摘要字典</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; summary = eda_summary(df, target=&#39;fpd15&#39;, date_col=&#39;apply_date&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; for key, value in summary.items():</span>
-<span class="sd">        ...     print(f&quot;\n=== {key} ===&quot;)</span>
-<span class="sd">        ...     print(value)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; summary = eda_summary(df, target=&#39;fpd15&#39;, date_col=&#39;apply_date&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; for key, value in summary.items():</span>
+<span class="sd">    ...     print(f&quot;\n=== {key} ===&quot;)</span>
+<span class="sd">    ...     print(value)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -648,10 +656,11 @@
 <span class="sd">    :param config: 配置参数</span>
 <span class="sd">    :return: 完整报告字典</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; report = generate_report(df, target=&#39;fpd15&#39;, date_col=&#39;apply_date&#39;,</span>
-<span class="sd">        ...                          config={&#39;iv_threshold&#39;: 0.02})</span>
-<span class="sd">        &gt;&gt;&gt; export_report_to_excel(report, &#39;eda_report.xlsx&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; report = generate_report(df, target=&#39;fpd15&#39;, date_col=&#39;apply_date&#39;,</span>
+<span class="sd">    ...                          config={&#39;iv_threshold&#39;: 0.02})</span>
+<span class="sd">    &gt;&gt;&gt; export_report_to_excel(report, &#39;eda_report.xlsx&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -719,9 +728,10 @@
 <span class="sd">    :param theme_color: 主题颜色，默认 &#39;2639E9&#39;（蓝色）</span>
 <span class="sd">    :param auto_width: 是否自动调整列宽，默认 True</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; export_report_to_excel(report, &#39;eda_report.xlsx&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; export_report_to_excel(report, &#39;eda_report.xlsx&#39;, theme_color=&#39;00A651&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; export_report_to_excel(report, &#39;eda_report.xlsx&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; export_report_to_excel(report, &#39;eda_report.xlsx&#39;, theme_color=&#39;00A651&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 处理sheet名称（Excel限制：最多31个字符，不能包含特殊字符）</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">clean_sheet_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -777,8 +787,9 @@
 <span class="sd">    :param filepath: 导出文件路径</span>
 <span class="sd">    :param title: 报告标题</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; generate_html_report(report, &#39;eda_report.html&#39;, title=&#39;信贷数据EDA报告&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; generate_html_report(report, &#39;eda_report.html&#39;, title=&#39;信贷数据EDA报告&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">html_parts</span> <span class="o">=</span> <span class="p">[]</span>
     

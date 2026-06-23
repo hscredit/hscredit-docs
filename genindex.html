@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>索引 &mdash; hscredit 0.1.0 文档</title>
+  <title>索引 &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=709b0e5d" />
@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="_static/hengshucredit_logo.svg"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="_static/documentation_options.js?v=c5408746"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -783,6 +790,8 @@
       <li><a href="api/models.html#hscredit.core.models.ScoreCard.coef_">coef_（hscredit.core.models.ScoreCard 属性）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.combine_rules">combine_rules()（在 hscredit.core.models 模块中）</a>
+</li>
+      <li><a href="api/rules.html#hscredit.core.rules.RuleFlow.compare">compare() （hscredit.core.rules.RuleFlow 方法）</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1248,10 +1257,10 @@
 </li>
       <li><a href="api/encoders.html#hscredit.core.encoders.BaseEncoder.get_mapping">get_mapping() （hscredit.core.encoders.BaseEncoder 方法）</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/encoders.html#hscredit.core.encoders.CardinalityEncoder.get_mapping">get_mapping() （hscredit.core.encoders.CardinalityEncoder 方法）</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/encoders.html#hscredit.core.encoders.OrdinalEncoder.get_mapping">get_mapping() （hscredit.core.encoders.OrdinalEncoder 方法）</a>
 </li>
       <li><a href="api/encoders.html#hscredit.core.encoders.WOEEncoder.get_mapping">get_mapping() （hscredit.core.encoders.WOEEncoder 方法）</a>
@@ -1285,6 +1294,8 @@
       <li><a href="api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner.get_pareto_front">get_pareto_front() （hscredit.core.models.tuning.tuning.ModelTuner 方法）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.ModelReport.get_psi">get_psi() （hscredit.core.models.ModelReport 方法）</a>
+</li>
+      <li><a href="api/viz.html#hscredit.core.viz.get_psi_color">get_psi_color()（在 hscredit.core.viz 模块中）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.ScoreCard.get_reason">get_reason() （hscredit.core.models.ScoreCard 方法）</a>
 </li>
@@ -1333,6 +1344,8 @@
       <li><a href="api/selectors.html#hscredit.core.selectors.BaseFeatureSelector.get_selection_report_df">get_selection_report_df() （hscredit.core.selectors.BaseFeatureSelector 方法）</a>
 </li>
       <li><a href="api/selectors.html#hscredit.core.selectors.CompositeFeatureSelector.get_selection_report_df">get_selection_report_df() （hscredit.core.selectors.CompositeFeatureSelector 方法）</a>
+</li>
+      <li><a href="api/viz.html#hscredit.core.viz.get_series_colors">get_series_colors()（在 hscredit.core.viz 模块中）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.BaseRiskModel.get_shap_explainer">get_shap_explainer() （hscredit.core.models.BaseRiskModel 方法）</a>
 </li>
@@ -1702,6 +1715,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/metrics.html#hscredit.core.metrics.mae">mae()（在 hscredit.core.metrics 模块中）</a>
 </li>
+      <li><a href="api/viz.html#hscredit.core.viz.make_colormap">make_colormap()（在 hscredit.core.viz 模块中）</a>
+</li>
+      <li><a href="api/viz.html#hscredit.core.viz.make_diverging_cmap">make_diverging_cmap()（在 hscredit.core.viz 模块中）</a>
+</li>
+      <li><a href="api/viz.html#hscredit.core.viz.make_risk_cmap">make_risk_cmap()（在 hscredit.core.viz 模块中）</a>
+</li>
       <li><a href="api/report.html#hscredit.report.mining.ManualTreeExtractor.manual_split">manual_split() （hscredit.report.mining.ManualTreeExtractor 方法）</a>
 </li>
       <li><a href="api/report.html#hscredit.report.mining.ManualTreeExtractor">ManualTreeExtractor（hscredit.report.mining 中的类）</a>
@@ -1746,10 +1765,10 @@
 </li>
       <li><a href="api/models.html#hscredit.core.models.ModelReport">ModelReport（hscredit.core.models 中的类）</a>
 </li>
-      <li><a href="api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner">ModelTuner（hscredit.core.models.tuning.tuning 中的类）</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/tuning.html#hscredit.core.models.tuning.tuning.ModelTuner">ModelTuner（hscredit.core.models.tuning.tuning 中的类）</a>
+</li>
       <li><a href="api/selectors.html#hscredit.core.selectors.ModeSelector">ModeSelector（hscredit.core.selectors 中的类）</a>
 </li>
       <li>
@@ -1889,6 +1908,10 @@
 </li>
       <li><a href="api/viz.html#hscredit.core.viz.DecisionTreeViz.plot">plot() （hscredit.core.viz.DecisionTreeViz 方法）</a>
 </li>
+      <li><a href="api/report.html#hscredit.report.mining.DecisionTreeAnalyzer.plot">plot() （hscredit.report.mining.DecisionTreeAnalyzer 方法）</a>
+</li>
+      <li><a href="api/report.html#hscredit.report.mining.ManualTreeExtractor.plot">plot() （hscredit.report.mining.ManualTreeExtractor 方法）</a>
+</li>
       <li><a href="api/report.html#hscredit.report.mining.MultiFeatureRuleMiner.plot_2d_binning">plot_2d_binning() （hscredit.report.mining.MultiFeatureRuleMiner 方法）</a>
 </li>
       <li><a href="api/binning.html#hscredit.core.binning.OptimalBinning2D.plot_3d">plot_3d() （hscredit.core.binning.OptimalBinning2D 方法）</a>
@@ -1957,10 +1980,10 @@
 </li>
       <li><a href="api/viz.html#hscredit.core.viz.pr_plot">pr_plot()（在 hscredit.core.viz 模块中）</a>
 </li>
-      <li><a href="api/metrics.html#hscredit.core.metrics.precision">precision()（在 hscredit.core.metrics 模块中）</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/metrics.html#hscredit.core.metrics.precision">precision()（在 hscredit.core.metrics 模块中）</a>
+</li>
       <li><a href="api/boosting.html#hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel.pred_dist">pred_dist() （hscredit.core.models.boosting.ngboost_model.NGBoostRiskModel 方法）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.BaseRiskModel.predict">predict() （hscredit.core.models.BaseRiskModel 方法）</a>
@@ -1980,6 +2003,8 @@
       <li><a href="api/models.html#hscredit.core.models.ScoreCard.predict">predict() （hscredit.core.models.ScoreCard 方法）</a>
 </li>
       <li><a href="api/rules.html#hscredit.core.rules.Rule.predict">predict() （hscredit.core.rules.Rule 方法）</a>
+</li>
+      <li><a href="api/rules.html#hscredit.core.rules.RuleFlow.predict">predict() （hscredit.core.rules.RuleFlow 方法）</a>
 </li>
       <li><a href="api/report.html#hscredit.report.mining.DecisionTreeAnalyzer.predict">predict() （hscredit.report.mining.DecisionTreeAnalyzer 方法）</a>
 </li>
@@ -2095,6 +2120,8 @@
 </li>
       <li><a href="api/rules.html#hscredit.core.rules.Rule.report">report() （hscredit.core.rules.Rule 方法）</a>
 </li>
+      <li><a href="api/rules.html#hscredit.core.rules.RuleFlow.report">report() （hscredit.core.rules.RuleFlow 方法）</a>
+</li>
       <li><a href="api/report.html#hscredit.report.mining.DecisionTreeAnalyzer.report">report() （hscredit.report.mining.DecisionTreeAnalyzer 方法）</a>
 </li>
       <li><a href="api/report.html#hscredit.report.mining.ManualTreeExtractor.report">report() （hscredit.report.mining.ManualTreeExtractor 方法）</a>
@@ -2123,6 +2150,8 @@
 </li>
       <li><a href="api/utils.html#hscredit.utils.round_float">round_float()（在 hscredit.utils 模块中）</a>
 </li>
+      <li><a href="api/report.html#hscredit.report.rule_group_compare">rule_group_compare()（在 hscredit.report 模块中）</a>
+</li>
       <li><a href="api/report.html#hscredit.report.rule_group_hit_table">rule_group_hit_table()（在 hscredit.report 模块中）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.RuleResult.rule_id">rule_id（hscredit.core.models.RuleResult 属性）</a>
@@ -2140,6 +2169,8 @@
       <li><a href="api/report.html#hscredit.report.rule_target_analysis">rule_target_analysis()（在 hscredit.report 模块中）</a>
 </li>
       <li><a href="api/report.html#hscredit.report.rule_target_table">rule_target_table()（在 hscredit.report 模块中）</a>
+</li>
+      <li><a href="api/rules.html#hscredit.core.rules.RuleFlow">RuleFlow（hscredit.core.rules 中的类）</a>
 </li>
       <li><a href="api/report.html#hscredit.report.mining.RuleMetrics">RuleMetrics（hscredit.report.mining 中的类）</a>
 </li>
@@ -2237,10 +2268,10 @@
 </li>
       <li><a href="api/selectors.html#hscredit.core.selectors.SelectionReportCollector">SelectionReportCollector（hscredit.core.selectors 中的类）</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/selectors.html#hscredit.core.selectors.SequentialFeatureSelector">SequentialFeatureSelector（hscredit.core.selectors 中的类）</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/exceptions.html#hscredit.exceptions.SerializationError">SerializationError</a>
 </li>
       <li><a href="api/report.html#hscredit.report.OverduePredictor.set_coefficients">set_coefficients() （hscredit.report.OverduePredictor 方法）</a>
@@ -2286,6 +2317,8 @@
       <li><a href="api/encoders.html#hscredit.core.encoders.WOEEncoder.summary">summary() （hscredit.core.encoders.WOEEncoder 方法）</a>
 </li>
       <li><a href="api/models.html#hscredit.core.models.LogisticRegression.summary">summary() （hscredit.core.models.LogisticRegression 方法）</a>
+</li>
+      <li><a href="api/rules.html#hscredit.core.rules.RuleFlow.summary">summary() （hscredit.core.rules.RuleFlow 方法）</a>
 </li>
       <li><a href="api/selectors.html#hscredit.core.selectors.StepwiseSelector.summary">summary() （hscredit.core.selectors.StepwiseSelector 方法）</a>
 </li>

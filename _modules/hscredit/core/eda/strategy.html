@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.eda.strategy &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.eda.strategy &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -614,13 +621,15 @@
 <span class="sd">    :param score_low_risk: &#39;high&#39; 表示高分为低风险（通过），&#39;low&#39; 表示低分为低风险</span>
 <span class="sd">    :return: 权衡表 DataFrame</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; tradeoff = approval_badrate_tradeoff(df[&#39;fpd15&#39;], df[&#39;score&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; # 找坏率≤3% 时通过率最高的阈值</span>
-<span class="sd">        &gt;&gt;&gt; tradeoff[tradeoff[&#39;通过人群坏率(%)&#39;] &lt;= 3].head(1)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; tradeoff = approval_badrate_tradeoff(df[&#39;fpd15&#39;], df[&#39;score&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; # 找坏率≤3% 时通过率最高的阈值</span>
+<span class="sd">    &gt;&gt;&gt; tradeoff[tradeoff[&#39;通过人群坏率(%)&#39;] &lt;= 3].head(1)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+    <span class="c1"># 统一转换为 Series（按位置对齐），兼容传入 np.ndarray / list / Series</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_true</span><span class="p">)),</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">score</span><span class="p">)),</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">s</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
     <span class="n">y</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
     <span class="n">_check_binary_target</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;y_true&#39;</span><span class="p">)</span>
@@ -692,9 +701,10 @@
 <span class="sd">    :param score_low_risk: &#39;high&#39; 表示高分为低风险，&#39;low&#39; 表示低分为低风险</span>
 <span class="sd">    :return: 各阈值下的策略仿真结果 DataFrame</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = score_strategy_simulation(df, score_col=&#39;score&#39;, target=&#39;fpd15&#39;,</span>
-<span class="sd">        ...     thresholds=[500, 520, 540, 560], amount_col=&#39;loan_amount&#39;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = score_strategy_simulation(df, score_col=&#39;score&#39;, target=&#39;fpd15&#39;,</span>
+<span class="sd">    ...     thresholds=[500, 520, 540, 560], amount_col=&#39;loan_amount&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">score_col</span><span class="p">,</span> <span class="n">target</span><span class="p">])</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -775,9 +785,10 @@
 <span class="sd">    :param amount_col: 金额列名（可选），提供时输出金额加权坏率</span>
 <span class="sd">    :return: Vintage 绩效汇总宽表，行=vintage，列=MOB_X_坏率</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; summary = vintage_performance_summary(df, vintage_col=&#39;loan_month&#39;,</span>
-<span class="sd">        ...     mob_col=&#39;mob&#39;, target_col=&#39;fpd15&#39;, mob_points=[3,6,9,12])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; summary = vintage_performance_summary(df, vintage_col=&#39;loan_month&#39;,</span>
+<span class="sd">    ...     mob_col=&#39;mob&#39;, target_col=&#39;fpd15&#39;, mob_points=[3,6,9,12])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">vintage_col</span><span class="p">,</span> <span class="n">mob_col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">])</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -916,16 +927,17 @@
 <span class="sd">        - ``&#39;金额矩阵&#39;``: 当 ``amount_col`` 提供时，金额口径的迁移宽表，含汇总列</span>
 <span class="sd">        - ``&#39;金额比例矩阵&#39;``: 当 ``amount_col`` 提供时，基于金额行归一化的迁移比例（原始小数）</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = roll_rate_matrix(</span>
-<span class="sd">        ...     df, dpd_t0=&#39;dpd_mob12&#39;, dpd_t1=&#39;dpd_mob18&#39;,</span>
-<span class="sd">        ...     mob_t0=12, mob_t1=18, amount_col=&#39;loan_amount&#39;</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; display(result[&#39;元信息&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; display(result[&#39;计数矩阵&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; display(result[&#39;订单比例矩阵&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; display(result[&#39;金额矩阵&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; display(result[&#39;金额比例矩阵&#39;])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = roll_rate_matrix(</span>
+<span class="sd">    ...     df, dpd_t0=&#39;dpd_mob12&#39;, dpd_t1=&#39;dpd_mob18&#39;,</span>
+<span class="sd">    ...     mob_t0=12, mob_t1=18, amount_col=&#39;loan_amount&#39;</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; display(result[&#39;元信息&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; display(result[&#39;计数矩阵&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; display(result[&#39;订单比例矩阵&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; display(result[&#39;金额矩阵&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; display(result[&#39;金额比例矩阵&#39;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">dpd_t0</span><span class="p">,</span> <span class="n">dpd_t1</span><span class="p">])</span>
 
@@ -1119,10 +1131,11 @@
 <span class="sd">    :param n_bins: IV 计算分箱数</span>
 <span class="sd">    :return: 标签泄露检测结果 DataFrame</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = label_leakage_check(df, features=df.columns[:-1].tolist(), target=&#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; suspected = result[result[&#39;疑似泄露&#39;] == True]</span>
-<span class="sd">        &gt;&gt;&gt; print(suspected[[&#39;特征名&#39;, &#39;IV&#39;, &#39;AUC&#39;, &#39;泄露原因&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = label_leakage_check(df, features=df.columns[:-1].tolist(), target=&#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; suspected = result[result[&#39;疑似泄露&#39;] == True]</span>
+<span class="sd">    &gt;&gt;&gt; print(suspected[[&#39;特征名&#39;, &#39;IV&#39;, &#39;AUC&#39;, &#39;泄露原因&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">+</span> <span class="n">features</span><span class="p">)</span>
 
@@ -1206,9 +1219,10 @@
 <span class="sd">    :param threshold: 高相关告警阈值（绝对值），默认 0.7</span>
 <span class="sd">    :return: 相关性矩阵 DataFrame，附带高相关标签对描述</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; corr_df = multi_label_correlation(df, labels=[&#39;fpd7&#39;, &#39;fpd15&#39;, &#39;fpd30&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; print(corr_df)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; corr_df = multi_label_correlation(df, labels=[&#39;fpd7&#39;, &#39;fpd15&#39;, &#39;fpd30&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; print(corr_df)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;pearson&#39;</span><span class="p">,</span> <span class="s1">&#39;spearman&#39;</span><span class="p">),</span> <span class="s2">&quot;method 须为 &#39;pearson&#39; 或 &#39;spearman&#39;&quot;</span>

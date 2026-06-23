@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.eda.relationship &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.eda.relationship &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -556,6 +563,12 @@
 
 <span class="sd">提供IV分析、WOE分箱、单调性检验等特征与目标变量关系分析功能.</span>
 <span class="sd">主要复用 hscredit.core.metrics 的功能.</span>
+
+<span class="sd">**引用**</span>
+
+<span class="sd">IV（信息价值）/ WOE（证据权重）的定义与分级阈值见</span>
+<span class="sd">Siddiqi, N. (2006). *Credit Risk Scorecards.* Wiley；单变量 AUC 见</span>
+<span class="sd">Fawcett, T. (2006). *An introduction to ROC analysis.* Pattern Recognition Letters。</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -580,13 +593,16 @@
 <span class="sd">    :param feature: 特征名</span>
 <span class="sd">    :param target: 目标变量名</span>
 <span class="sd">    :param n_bins: 分箱数</span>
-<span class="sd">    :param method: 分箱方法</span>
+<span class="sd">    :param method: 分箱方法，取值同 :class:`~hscredit.core.binning.OptimalBinning`</span>
+<span class="sd">        （如 ``&#39;quantile&#39;`` 等频、``&#39;tree&#39;`` 决策树、``&#39;chi&#39;`` 卡方、``&#39;mdlp&#39;`` 信息论、</span>
+<span class="sd">        ``&#39;best_iv&#39;`` 最优IV 等），默认 ``&#39;quantile&#39;``</span>
 <span class="sd">    :return: IV分析结果字典，包含[特征名, IV值, 预测能力, 分箱明细]</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = iv_analysis(df, &#39;age&#39;, &#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;IV值: {result[&#39;IV值&#39;]}, 预测能力: {result[&#39;预测能力&#39;]}&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; print(result[&#39;分箱明细&#39;])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = iv_analysis(df, &#39;age&#39;, &#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;IV值: {result[&#39;IV值&#39;]}, 预测能力: {result[&#39;预测能力&#39;]}&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; print(result[&#39;分箱明细&#39;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="p">])</span>
     <span class="n">validate_binary_target</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
@@ -626,13 +642,16 @@
 <span class="sd">    :param features: 特征列表</span>
 <span class="sd">    :param target: 目标变量名</span>
 <span class="sd">    :param n_bins: 分箱数</span>
-<span class="sd">    :param method: 分箱方法</span>
+<span class="sd">    :param method: 分箱方法，取值同 :class:`~hscredit.core.binning.OptimalBinning`</span>
+<span class="sd">        （如 ``&#39;quantile&#39;`` 等频、``&#39;tree&#39;`` 决策树、``&#39;chi&#39;`` 卡方、``&#39;mdlp&#39;`` 信息论、</span>
+<span class="sd">        ``&#39;best_iv&#39;`` 最优IV 等），默认 ``&#39;quantile&#39;``</span>
 <span class="sd">    :param return_details: 是否返回详细分箱结果</span>
 <span class="sd">    :return: IV分析结果DataFrame，列包括[特征名, IV值, 预测能力, 分箱数]</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; iv_result = batch_iv_analysis(df, [&#39;age&#39;, &#39;income&#39;, &#39;score&#39;], &#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(iv_result[[&#39;特征名&#39;, &#39;IV值&#39;, &#39;预测能力&#39;]].sort_values(&#39;IV值&#39;, ascending=False))</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; iv_result = batch_iv_analysis(df, [&#39;age&#39;, &#39;income&#39;, &#39;score&#39;], &#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(iv_result[[&#39;特征名&#39;, &#39;IV值&#39;, &#39;预测能力&#39;]].sort_values(&#39;IV值&#39;, ascending=False))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
     <span class="n">validate_binary_target</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
@@ -689,12 +708,15 @@
 <span class="sd">    :param feature: 特征名</span>
 <span class="sd">    :param target: 目标变量名</span>
 <span class="sd">    :param n_bins: 分箱数</span>
-<span class="sd">    :param method: 分箱方法</span>
+<span class="sd">    :param method: 分箱方法，取值同 :class:`~hscredit.core.binning.OptimalBinning`</span>
+<span class="sd">        （如 ``&#39;quantile&#39;`` 等频、``&#39;tree&#39;`` 决策树、``&#39;chi&#39;`` 卡方、``&#39;mdlp&#39;`` 信息论、</span>
+<span class="sd">        ``&#39;best_iv&#39;`` 最优IV 等），默认 ``&#39;quantile&#39;``</span>
 <span class="sd">    :return: WOE分析DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; woe_df = woe_analysis(df, &#39;age&#39;, &#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(woe_df[[&#39;分箱&#39;, &#39;分箱标签&#39;, &#39;WOE值&#39;, &#39;IV值&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; woe_df = woe_analysis(df, &#39;age&#39;, &#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(woe_df[[&#39;分箱&#39;, &#39;分箱标签&#39;, &#39;WOE值&#39;, &#39;IV值&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="p">])</span>
     <span class="n">validate_binary_target</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
@@ -734,12 +756,15 @@
 <span class="sd">    :param feature: 特征名</span>
 <span class="sd">    :param target: 目标变量名</span>
 <span class="sd">    :param n_bins: 分箱数</span>
-<span class="sd">    :param method: 分箱方法</span>
+<span class="sd">    :param method: 分箱方法，取值同 :class:`~hscredit.core.binning.OptimalBinning`</span>
+<span class="sd">        （如 ``&#39;quantile&#39;`` 等频、``&#39;tree&#39;`` 决策树、``&#39;chi&#39;`` 卡方、``&#39;mdlp&#39;`` 信息论、</span>
+<span class="sd">        ``&#39;best_iv&#39;`` 最优IV 等），默认 ``&#39;quantile&#39;``</span>
 <span class="sd">    :return: 分箱逾期率DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; bin_df = binning_bad_rate(df, &#39;score&#39;, &#39;fpd15&#39;, n_bins=10)</span>
-<span class="sd">        &gt;&gt;&gt; print(bin_df[[&#39;分箱&#39;, &#39;样本数&#39;, &#39;逾期率&#39;, &#39;LIFT值&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; bin_df = binning_bad_rate(df, &#39;score&#39;, &#39;fpd15&#39;, n_bins=10)</span>
+<span class="sd">    &gt;&gt;&gt; print(bin_df[[&#39;分箱&#39;, &#39;样本数&#39;, &#39;逾期率&#39;, &#39;LIFT值&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="p">])</span>
     <span class="n">validate_binary_target</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
@@ -790,9 +815,10 @@
 <span class="sd">    :param n_bins: 分箱数</span>
 <span class="sd">    :return: 单调性检验结果</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = monotonicity_check(df, &#39;score&#39;, &#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;单调性: {result[&#39;单调性&#39;]}, 相关系数: {result[&#39;Spearman相关系数&#39;]}&quot;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = monotonicity_check(df, &#39;score&#39;, &#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;单调性: {result[&#39;单调性&#39;]}, 相关系数: {result[&#39;Spearman相关系数&#39;]}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="p">])</span>
     <span class="n">validate_binary_target</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
@@ -851,9 +877,10 @@
 <span class="sd">    :param target: 目标变量名</span>
 <span class="sd">    :return: AUC分析结果</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; result = univariate_auc(df, &#39;score&#39;, &#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;AUC: {result[&#39;AUC值&#39;]}, 区分能力: {result[&#39;区分能力&#39;]}&quot;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; result = univariate_auc(df, &#39;score&#39;, &#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;AUC: {result[&#39;AUC值&#39;]}, 区分能力: {result[&#39;区分能力&#39;]}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">feature</span><span class="p">,</span> <span class="n">target</span><span class="p">])</span>
     <span class="n">validate_binary_target</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
@@ -907,9 +934,10 @@
 <span class="sd">    :param metrics: 评估指标列表</span>
 <span class="sd">    :return: 特征重要性DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; ranking = feature_importance_ranking(df, feature_list, &#39;fpd15&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; print(ranking[[&#39;特征名&#39;, &#39;IV值&#39;, &#39;AUC值&#39;, &#39;综合得分&#39;, &#39;排名&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; ranking = feature_importance_ranking(df, feature_list, &#39;fpd15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(ranking[[&#39;特征名&#39;, &#39;IV值&#39;, &#39;AUC值&#39;, &#39;综合得分&#39;, &#39;排名&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
     

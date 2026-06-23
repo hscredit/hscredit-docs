@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.viz.binning_plots &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.viz.binning_plots &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -568,7 +575,6 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">PercentFormatter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Line2D</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Patch</span>
@@ -576,9 +582,16 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">DEFAULT_COLORS</span><span class="p">,</span> <span class="n">setup_axis_style</span><span class="p">,</span> <span class="n">save_figure</span><span class="p">,</span> 
-    <span class="n">get_or_create_ax</span><span class="p">,</span> <span class="n">format_bin_label</span>
+    <span class="n">DEFAULT_COLORS</span><span class="p">,</span> <span class="n">setup_axis_style</span><span class="p">,</span> <span class="n">save_figure</span><span class="p">,</span>
+    <span class="n">format_bin_label</span><span class="p">,</span>
+    <span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">REFERENCE_COLOR</span><span class="p">,</span> <span class="n">EXTENDED_COLORS</span><span class="p">,</span> <span class="n">get_series_colors</span><span class="p">,</span>
+    <span class="n">make_colormap</span><span class="p">,</span> <span class="n">make_diverging_cmap</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..._lazy</span><span class="w"> </span><span class="kn">import</span> <span class="n">LazyModule</span>
+
+<span class="c1"># 延迟加载 seaborn：仅在首次实际绘图（访问 sns 属性）时才导入，</span>
+<span class="c1"># 避免 import hscredit 时即触发 seaborn（及其 ipywidgets/IPython 依赖）的加载。</span>
+<span class="n">sns</span> <span class="o">=</span> <span class="n">LazyModule</span><span class="p">(</span><span class="s2">&quot;seaborn&quot;</span><span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -983,6 +996,21 @@
 <span class="sd">    :param orientation: 图表方向，&#39;horizontal&#39;/&#39;h&#39;(横向，默认) 或 &#39;vertical&#39;/&#39;v&#39;(纵向)</span>
 <span class="sd">    :param kwargs: 其他参数（兼容性）</span>
 <span class="sd">    :return: matplotlib Figure 或 (Figure, DataFrame)，如果传入 ax 则返回 ax</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import bin_plot</span>
+<span class="sd">    &gt;&gt;&gt; # 方式1：原始数据（自动分箱）</span>
+<span class="sd">    &gt;&gt;&gt; bin_plot(df, feature=&#39;score&#39;, target=&#39;target&#39;, n_bins=10, method=&#39;quantile&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # Series + 目标数组</span>
+<span class="sd">    &gt;&gt;&gt; bin_plot(df[&#39;score&#39;], target=df[&#39;target&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; # 方式2：传入已算好的分箱统计表</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import feature_bin_stats</span>
+<span class="sd">    &gt;&gt;&gt; table = feature_bin_stats(df, &#39;score&#39;, target=&#39;target&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; bin_plot(table, desc=&#39;衡枢鉴真分&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 纵向 + 返回统计表</span>
+<span class="sd">    &gt;&gt;&gt; fig, stat = bin_plot(df, feature=&#39;score&#39;, target=&#39;target&#39;,</span>
+<span class="sd">    ...                      orientation=&#39;vertical&#39;, return_frame=True)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
@@ -1083,8 +1111,8 @@
 
     <span class="n">overall_bad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">feature_table</span><span class="p">[</span><span class="s1">&#39;坏样本率&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">feature_table</span><span class="p">[</span><span class="s1">&#39;样本总数&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">feature_table</span><span class="p">[</span><span class="s1">&#39;样本总数&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
     <span class="n">axis_theme</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">line_color</span> <span class="o">=</span> <span class="s1">&#39;#E85D4A&#39;</span>
-    <span class="n">reference_color</span> <span class="o">=</span> <span class="s1">&#39;#4C8DFF&#39;</span>
+    <span class="n">line_color</span> <span class="o">=</span> <span class="n">BAD_RATE_COLOR</span>
+    <span class="n">reference_color</span> <span class="o">=</span> <span class="n">REFERENCE_COLOR</span>
     <span class="n">rate_fontdict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">line_color</span><span class="p">,</span>
         <span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -1283,7 +1311,13 @@
 <span class="sd">    :param linewidths: 边框宽度</span>
 <span class="sd">    :param linecolor: 边框颜色</span>
 <span class="sd">    :param ax: 可选的 matplotlib Axes 对象</span>
-<span class="sd">    :return: matplotlib Figure 或 Axes</span>
+<span class="sd">    :return: matplotlib Figure 或 Axes（传入 ax 时返回 ax）</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import corr_plot</span>
+<span class="sd">    &gt;&gt;&gt; corr_plot(df[[&#39;score&#39;, &#39;age&#39;, &#39;income&#39;]])</span>
+<span class="sd">    &gt;&gt;&gt; corr_plot(df[num_cols], mask=True, annot=False)   # 只显示下三角、不标注数值</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">max_len</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
@@ -1304,7 +1338,7 @@
         <span class="n">return_ax</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="n">map_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
-        <span class="n">corr</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">267</span><span class="p">,</span> <span class="mi">267</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">40</span><span class="p">),</span>
+        <span class="n">corr</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">make_diverging_cmap</span><span class="p">(</span><span class="s2">&quot;hscredit_corr&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
         <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="n">linewidths</span><span class="p">,</span>
         <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="n">fmt</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="n">linecolor</span><span class="p">,</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">corr_mask</span> <span class="k">if</span> <span class="n">mask</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
@@ -1338,9 +1372,19 @@
 <span class="sd">    :param anchor: 图例位置</span>
 <span class="sd">    :param axes: 可选的 matplotlib Axes 对象数组 [ax1, ax2]</span>
 <span class="sd">    :param ax: 可选的单个 Axes（配合 curve=&#39;ks&#39;/&#39;roc&#39; 仅绘制单条曲线时使用）</span>
-<span class="sd">    :param curve: 绘制内容，&#39;both&#39;(默认 KS+ROC) / &#39;ks&#39;(仅KS曲线) / &#39;roc&#39;(仅ROC曲线)。</span>
-<span class="sd">        取 &#39;ks&#39; 或 &#39;roc&#39; 时仅需一个 Axes，便于嵌入到组合图中</span>
+<span class="sd">    :param curve: 绘制内容，默认 ``&#39;both&#39;``：</span>
+
+<span class="sd">        - ``&#39;both&#39;``：同时绘制 KS 曲线与 ROC 曲线（需两个 Axes）</span>
+<span class="sd">        - ``&#39;ks&#39;``：仅绘制 KS 曲线（单个 Axes，便于嵌入组合图）</span>
+<span class="sd">        - ``&#39;roc&#39;``：仅绘制 ROC 曲线（单个 Axes）</span>
+
 <span class="sd">    :return: matplotlib Figure 或 Axes（嵌入模式下返回所用 Axes）</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import ks_plot</span>
+<span class="sd">    &gt;&gt;&gt; ks_plot(df[&#39;score&#39;], df[&#39;target&#39;], title=&#39;衡枢鉴真分&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ks_plot(y_prob, y_true, curve=&#39;ks&#39;)   # 仅 KS 曲线</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
@@ -1529,7 +1573,13 @@
 <span class="sd">    :param title: 完整标题（优先级高于 desc）</span>
 <span class="sd">    :param ax: 可选的 matplotlib Axes 对象</span>
 <span class="sd">    :param kwargs: 其他参数</span>
-<span class="sd">    :return: matplotlib Figure 或 Axes</span>
+<span class="sd">    :return: matplotlib Figure 或 Axes（传入 ax 时返回 ax）</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import hist_plot</span>
+<span class="sd">    &gt;&gt;&gt; hist_plot(df[&#39;score&#39;])                              # 整体分布</span>
+<span class="sd">    &gt;&gt;&gt; hist_plot(df[&#39;score&#39;], y_true=df[&#39;target&#39;], kde=True)  # 好/坏分组叠加 + 核密度</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;好样本&quot;</span><span class="p">,</span> <span class="s2">&quot;坏样本&quot;</span><span class="p">]</span>
@@ -1555,7 +1605,7 @@
         <span class="n">return_ax</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
 
-    <span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">340</span><span class="p">,</span> <span class="mi">267</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">target_unique</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+    <span class="n">palette</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="n">target_unique</span><span class="p">)</span>
 
     <span class="c1"># 处理 hue_order 参数</span>
     <span class="k">if</span> <span class="n">hue_order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1642,7 +1692,15 @@
 <span class="sd">    :param max_len: 标签最大长度</span>
 <span class="sd">    :param hatch: 是否显示斜线</span>
 <span class="sd">    :param title: 完整标题（优先级高于 desc）</span>
-<span class="sd">    :return: pd.DataFrame when result=True</span>
+<span class="sd">    :return: 当 ``result=True`` 时返回 PSI 分箱统计表（``pd.DataFrame``），否则返回图对象</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import psi_plot</span>
+<span class="sd">    &gt;&gt;&gt; # 原始分数：自动分箱并计算 PSI</span>
+<span class="sd">    &gt;&gt;&gt; psi_plot(train_df[&#39;score&#39;], test_df[&#39;score&#39;], desc=&#39;评分&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 叠加坏样本率折线，并返回统计表</span>
+<span class="sd">    &gt;&gt;&gt; tbl = psi_plot(train_df[&#39;score&#39;], test_df[&#39;score&#39;], y=train_df[&#39;target&#39;], result=True)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;预期&quot;</span><span class="p">,</span> <span class="s2">&quot;实际&quot;</span><span class="p">]</span>
@@ -1854,20 +1912,21 @@
         <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">save</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+            <span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">save</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">df_psi</span><span class="p">[[</span><span class="s2">&quot;指标名称&quot;</span><span class="p">,</span> <span class="s2">&quot;分箱&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">样本数&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">样本占比&quot;</span><span class="p">,</span> 
                       <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">坏样本率&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">样本数&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">样本占比&quot;</span><span class="p">,</span> 
                       <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">坏样本率&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">% - </span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> 
-                      <span class="sa">f</span><span class="s2">&quot;ln(</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">% / </span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">,</span> <span class="s2">&quot;分档PSI值&quot;</span><span class="p">,</span> <span class="s2">&quot;总体PSI值&quot;</span><span class="p">]]</span></div>
+                      <span class="sa">f</span><span class="s2">&quot;ln(</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">% / </span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">,</span> <span class="s2">&quot;分档PSI值&quot;</span><span class="p">,</span> <span class="s2">&quot;总体PSI值&quot;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
 
 
 
 <div class="viewcode-block" id="dataframe_plot">
 <a class="viewcode-back" href="../../../../api/viz.html#hscredit.core.viz.dataframe_plot">[文档]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">dataframe_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">row_height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">header_color</span><span class="o">=</span><span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">dataframe_plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">row_height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">header_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">row_colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">header_columns</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
                   <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1884,9 +1943,17 @@
 <span class="sd">    :param ax: 坐标系</span>
 <span class="sd">    :param save: 保存路径</span>
 <span class="sd">    :return: matplotlib Figure</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import dataframe_plot</span>
+<span class="sd">    &gt;&gt;&gt; # 将统计表渲染为图片，便于嵌入报告或拼接子图</span>
+<span class="sd">    &gt;&gt;&gt; dataframe_plot(summary_df, save=&#39;摘要表.png&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">header_color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">header_color</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">row_colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">row_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#dae3f3&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span>
+        <span class="n">row_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#EEF1FF&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s1">&#39;datetime&#39;</span><span class="p">):</span>
@@ -1926,9 +1993,7 @@
 
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">save</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+    <span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">save</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">fig</span></div>
 
@@ -1961,15 +2026,16 @@
 <span class="sd">    :param title: 图表标题</span>
 <span class="sd">    :return: matplotlib Figure or pd.DataFrame</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 单目标模式</span>
-<span class="sd">        &gt;&gt;&gt; distribution_plot(df, date=&#39;apply_date&#39;, target=&#39;target&#39;)</span>
+<span class="sd">    **参考样例**</span>
 
-<span class="sd">        &gt;&gt;&gt; # 多逾期口径模式</span>
-<span class="sd">        &gt;&gt;&gt; distribution_plot(</span>
-<span class="sd">        ...     df, date=&#39;apply_date&#39;,</span>
-<span class="sd">        ...     overdue=[&#39;dpd7&#39;, &#39;dpd15&#39;, &#39;dpd30&#39;], dpds=[1, 1, 1]</span>
-<span class="sd">        ... )</span>
+<span class="sd">    &gt;&gt;&gt; # 单目标模式</span>
+<span class="sd">    &gt;&gt;&gt; distribution_plot(df, date=&#39;apply_date&#39;, target=&#39;target&#39;)</span>
+
+<span class="sd">    &gt;&gt;&gt; # 多逾期口径模式</span>
+<span class="sd">    &gt;&gt;&gt; distribution_plot(</span>
+<span class="sd">    ...     df, date=&#39;apply_date&#39;,</span>
+<span class="sd">    ...     overdue=[&#39;dpd7&#39;, &#39;dpd15&#39;, &#39;dpd30&#39;], dpds=[1, 1, 1]</span>
+<span class="sd">    ... )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
@@ -2007,10 +2073,11 @@
         <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
         <span class="c1"># 定义多条折线的样式</span>
         <span class="n">line_styles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))]</span>
-        <span class="n">line_colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;#E85D4A&#39;</span><span class="p">,</span> <span class="s1">&#39;#4C8DFF&#39;</span><span class="p">,</span> <span class="s1">&#39;#67C23A&#39;</span><span class="p">,</span> <span class="s1">&#39;#E6A23C&#39;</span><span class="p">,</span> <span class="s1">&#39;#909399&#39;</span><span class="p">]</span>
+        <span class="c1"># 多条逾期口径折线统一使用 hscredit 扩展色板（坏样本率/基线语义色打头），保持整体风格一致</span>
+        <span class="n">line_colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">([</span><span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">REFERENCE_COLOR</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">EXTENDED_COLORS</span><span class="p">))</span>
         <span class="c1"># 确保颜色足够</span>
-        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_colors</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">overdue</span><span class="p">):</span>
-            <span class="n">line_colors</span> <span class="o">=</span> <span class="n">line_colors</span> <span class="o">+</span> <span class="n">line_colors</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line_colors</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">overdue</span><span class="p">):</span>
+            <span class="n">line_colors</span> <span class="o">=</span> <span class="n">get_series_colors</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">overdue</span><span class="p">))</span>
 
         <span class="n">result_frames</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">dpd_col</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">overdue</span><span class="p">,</span> <span class="n">dpds</span><span class="p">)):</span>
@@ -2043,9 +2110,7 @@
 
         <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">save</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+        <span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">save</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">counts_df</span> <span class="o">=</span> <span class="n">total_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -2080,7 +2145,7 @@
 
     <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
     <span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s2">&quot;坏样本&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">temp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-        <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;坏样本率&quot;</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;坏样本率&quot;</span>
     <span class="p">)</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;坏样本率&#39;</span><span class="p">)</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
@@ -2092,9 +2157,7 @@
 
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">save</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+    <span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">save</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
@@ -2307,34 +2370,35 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 按月份查看特征趋势</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_trend_plot(</span>
-<span class="sd">        ...     df, feature=&#39;age&#39;, target=&#39;bad&#39;, date_col=&#39;apply_date&#39;</span>
-<span class="sd">        ... )</span>
+<span class="sd">    **参考样例**</span>
 
-<span class="sd">        &gt;&gt;&gt; # 按客群维度查看</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_trend_plot(</span>
-<span class="sd">        ...     df, feature=&#39;score&#39;, target=&#39;bad&#39;, dimension_cols=&#39;customer_type&#39;</span>
-<span class="sd">        ... )</span>
+<span class="sd">    &gt;&gt;&gt; # 按月份查看特征趋势</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_trend_plot(</span>
+<span class="sd">    ...     df, feature=&#39;age&#39;, target=&#39;bad&#39;, date_col=&#39;apply_date&#39;</span>
+<span class="sd">    ... )</span>
 
-<span class="sd">        &gt;&gt;&gt; # 多维度交叉</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_trend_plot(</span>
-<span class="sd">        ...     df, feature=&#39;income&#39;, target=&#39;bad&#39;,</span>
-<span class="sd">        ...     dimension_cols=[&#39;region&#39;, &#39;channel&#39;]</span>
-<span class="sd">        ... )</span>
+<span class="sd">    &gt;&gt;&gt; # 按客群维度查看</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_trend_plot(</span>
+<span class="sd">    ...     df, feature=&#39;score&#39;, target=&#39;bad&#39;, dimension_cols=&#39;customer_type&#39;</span>
+<span class="sd">    ... )</span>
 
-<span class="sd">        &gt;&gt;&gt; # 自定义分箱规则</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_trend_plot(</span>
-<span class="sd">        ...     df, feature=&#39;score&#39;, target=&#39;bad&#39;,</span>
-<span class="sd">        ...     rules={&#39;score&#39;: [300, 500, 600, 700, 800]}</span>
-<span class="sd">        ... )</span>
+<span class="sd">    &gt;&gt;&gt; # 多维度交叉</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_trend_plot(</span>
+<span class="sd">    ...     df, feature=&#39;income&#39;, target=&#39;bad&#39;,</span>
+<span class="sd">    ...     dimension_cols=[&#39;region&#39;, &#39;channel&#39;]</span>
+<span class="sd">    ... )</span>
 
-<span class="sd">        &gt;&gt;&gt; # 各分组使用第一个分组的切分点</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_trend_plot(</span>
-<span class="sd">        ...     df, feature=&#39;score&#39;, target=&#39;bad&#39;, date_col=&#39;apply_date&#39;,</span>
-<span class="sd">        ...     shared_bins=&#39;first&#39;</span>
-<span class="sd">        ... )</span>
+<span class="sd">    &gt;&gt;&gt; # 自定义分箱规则</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_trend_plot(</span>
+<span class="sd">    ...     df, feature=&#39;score&#39;, target=&#39;bad&#39;,</span>
+<span class="sd">    ...     rules={&#39;score&#39;: [300, 500, 600, 700, 800]}</span>
+<span class="sd">    ... )</span>
+
+<span class="sd">    &gt;&gt;&gt; # 各分组使用第一个分组的切分点</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_trend_plot(</span>
+<span class="sd">    ...     df, feature=&#39;score&#39;, target=&#39;bad&#39;, date_col=&#39;apply_date&#39;,</span>
+<span class="sd">    ...     shared_bins=&#39;first&#39;</span>
+<span class="sd">    ... )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
@@ -2473,8 +2537,8 @@
     <span class="n">legend_handles</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;好样本&#39;</span><span class="p">),</span>
         <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;坏样本&#39;</span><span class="p">),</span>
-        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#E85D4A&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;坏样本率&#39;</span><span class="p">),</span>
-        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#4C8DFF&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;整体坏样本率&#39;</span><span class="p">),</span>
+        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;坏样本率&#39;</span><span class="p">),</span>
+        <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">REFERENCE_COLOR</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;整体坏样本率&#39;</span><span class="p">),</span>
     <span class="p">]</span>
 
     <span class="n">summary_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;指标IV值&#39;</span><span class="p">,</span> <span class="s1">&#39;分档KS值&#39;</span><span class="p">,</span> <span class="s1">&#39;LIFT值&#39;</span><span class="p">]</span>
@@ -2555,13 +2619,22 @@
 <span class="sd">    :param target: 目标变量列名</span>
 <span class="sd">    :param dimension_cols: 维度列名</span>
 <span class="sd">    :param date_col: 日期列名</span>
-<span class="sd">    :param date_freq: 日期聚合频率</span>
-<span class="sd">    :param sort_by: 排序指标，&#39;iv&#39;/&#39;ks&#39;/&#39;auc&#39;</span>
-<span class="sd">    :param max_features: 最大绘制特征数</span>
+<span class="sd">    :param date_freq: 日期聚合频率，``&#39;D&#39;`` 日 / ``&#39;W&#39;`` 周 / ``&#39;M&#39;`` 月 / ``&#39;Q&#39;`` 季度，默认 ``&#39;M&#39;``</span>
+<span class="sd">    :param sort_by: 特征排序指标，``&#39;iv&#39;``（默认）/ ``&#39;ks&#39;`` / ``&#39;auc&#39;``，决定绘图先后顺序</span>
+<span class="sd">    :param max_features: 最大绘制特征数，默认 10</span>
 <span class="sd">    :param figsize_per_feature: 每个特征的图尺寸</span>
-<span class="sd">    :param save_dir: 保存目录</span>
+<span class="sd">    :param save_dir: 保存目录，提供时各特征图按特征名保存为图片</span>
 <span class="sd">    :param kwargs: 其他参数传递给 bin_trend_plot</span>
-<span class="sd">    :return: 特征名到 Figure 的字典</span>
+<span class="sd">    :return: 特征名到 ``Figure`` 的字典</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import batch_bin_trend_plot</span>
+<span class="sd">    &gt;&gt;&gt; figs = batch_bin_trend_plot(</span>
+<span class="sd">    ...     df, features=[&#39;score&#39;, &#39;age&#39;, &#39;income&#39;], target=&#39;target&#39;,</span>
+<span class="sd">    ...     date_col=&#39;放款时间&#39;, date_freq=&#39;M&#39;, sort_by=&#39;iv&#39;, max_features=5,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; figs[&#39;score&#39;]   # 取单个特征的图</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -2600,10 +2673,9 @@
             <span class="n">results</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span> <span class="o">=</span> <span class="n">fig</span>
 
             <span class="k">if</span> <span class="n">save_dir</span><span class="p">:</span>
-                <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feat</span><span class="si">}</span><span class="s2">_trend.png&quot;</span><span class="p">)</span>
-                <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+                <span class="n">save_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;绘制特征 </span><span class="si">{</span><span class="n">feat</span><span class="si">}</span><span class="s2"> 失败: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2735,25 +2807,26 @@
 <span class="sd">    :param kwargs: 其他参数</span>
 <span class="sd">    :return: matplotlib Figure</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 方式1：使用原始数据</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_overdues_plot(</span>
-<span class="sd">        ...     df,</span>
-<span class="sd">        ...     feature=&#39;score&#39;,</span>
-<span class="sd">        ...     overdue=[&#39;dpd7&#39;, &#39;dpd15&#39;, &#39;dpd30&#39;],</span>
-<span class="sd">        ...     dpds=[1, 1, 1],</span>
-<span class="sd">        ...     max_n_bins=5</span>
-<span class="sd">        ... )</span>
+<span class="sd">    **参考样例**</span>
 
-<span class="sd">        &gt;&gt;&gt; # 方式2：使用 feature_bin_stats 生成的分箱表</span>
-<span class="sd">        &gt;&gt;&gt; from hscredit.report.feature_analyzer import feature_bin_stats</span>
-<span class="sd">        &gt;&gt;&gt; bin_table = feature_bin_stats(</span>
-<span class="sd">        ...     df, </span>
-<span class="sd">        ...     feature=&#39;score&#39;, </span>
-<span class="sd">        ...     overdue=[&#39;MOB1&#39;, &#39;MOB3&#39;], </span>
-<span class="sd">        ...     dpds=[0, 7]</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; fig = bin_overdues_plot(bin_table=bin_table)</span>
+<span class="sd">    &gt;&gt;&gt; # 方式1：使用原始数据</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_overdues_plot(</span>
+<span class="sd">    ...     df,</span>
+<span class="sd">    ...     feature=&#39;score&#39;,</span>
+<span class="sd">    ...     overdue=[&#39;dpd7&#39;, &#39;dpd15&#39;, &#39;dpd30&#39;],</span>
+<span class="sd">    ...     dpds=[1, 1, 1],</span>
+<span class="sd">    ...     max_n_bins=5</span>
+<span class="sd">    ... )</span>
+
+<span class="sd">    &gt;&gt;&gt; # 方式2：使用 feature_bin_stats 生成的分箱表</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.report.feature_analyzer import feature_bin_stats</span>
+<span class="sd">    &gt;&gt;&gt; bin_table = feature_bin_stats(</span>
+<span class="sd">    ...     df, </span>
+<span class="sd">    ...     feature=&#39;score&#39;, </span>
+<span class="sd">    ...     overdue=[&#39;MOB1&#39;, &#39;MOB3&#39;], </span>
+<span class="sd">    ...     dpds=[0, 7]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; fig = bin_overdues_plot(bin_table=bin_table)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span>
@@ -3011,7 +3084,7 @@
     <span class="n">annot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">diverging</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">fontsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="n">axis_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span>
+    <span class="n">axis_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;在指定 Axes 上绘制二维分箱交叉指标热力图（类似相关性图）.</span>
 
@@ -3040,14 +3113,14 @@
         <span class="n">vabs</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">M</span><span class="p">)))</span> <span class="k">if</span> <span class="n">finite</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">else</span> <span class="mf">1.0</span>
         <span class="n">vabs</span> <span class="o">=</span> <span class="n">vabs</span> <span class="k">if</span> <span class="n">vabs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">TwoSlopeNorm</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="n">vabs</span><span class="p">,</span> <span class="n">vcenter</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vabs</span><span class="p">)</span>
-        <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">make_diverging_cmap</span><span class="p">(</span><span class="s2">&quot;hscredit_cross_diverging&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">vmin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="k">if</span> <span class="n">finite</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">else</span> <span class="mf">0.0</span>
         <span class="n">vmax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="k">if</span> <span class="n">finite</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">else</span> <span class="mf">1.0</span>
         <span class="k">if</span> <span class="n">vmin</span> <span class="o">==</span> <span class="n">vmax</span><span class="p">:</span>
             <span class="n">vmax</span> <span class="o">=</span> <span class="n">vmin</span> <span class="o">+</span> <span class="mf">1e-9</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
-        <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">light_palette</span><span class="p">(</span><span class="n">base_color</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">make_colormap</span><span class="p">(</span><span class="s2">&quot;hscredit_cross&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;#F7F8FF&quot;</span><span class="p">,</span> <span class="n">base_color</span><span class="p">])</span>
 
     <span class="n">cmap</span> <span class="o">=</span> <span class="n">_copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
     <span class="n">cmap</span><span class="o">.</span><span class="n">set_bad</span><span class="p">(</span><span class="s1">&#39;#f0f0f0&#39;</span><span class="p">)</span>
@@ -3090,7 +3163,7 @@
     <span class="n">ylabels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">x_top</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">y_right</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">axis_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span>
+    <span class="n">axis_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_COLORS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">rotation</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">35</span><span class="p">,</span>
     <span class="n">fontsize</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span>
     <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span>
@@ -3197,6 +3270,16 @@
 <span class="sd">    :param save: 保存路径</span>
 <span class="sd">    :param binner_kwargs: 透传给 OptimalBinning2D 的其他参数（方式1）</span>
 <span class="sd">    :return: matplotlib Figure</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import bin_2d_plot</span>
+<span class="sd">    &gt;&gt;&gt; # 方式1：原始数据，内部自动二维分箱</span>
+<span class="sd">    &gt;&gt;&gt; bin_2d_plot(df, features=[&#39;score&#39;, &#39;多头数&#39;], target=&#39;target&#39;, max_n_bins=5)</span>
+<span class="sd">    &gt;&gt;&gt; # 方式2：已拟合的 OptimalBinning2D</span>
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.binning import OptimalBinning2D</span>
+<span class="sd">    &gt;&gt;&gt; b = OptimalBinning2D(max_n_bins=5).fit(df, y=df[&#39;target&#39;], features=[&#39;f1&#39;, &#39;f2&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; bin_2d_plot(b)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimalBinning2D</span>
 
@@ -3317,19 +3400,19 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;semibold&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
     <span class="c1"># ---------- 5 个交叉指标热力图 ----------</span>
-    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_prop</span><span class="p">,</span> <span class="n">M_prop</span><span class="p">,</span> <span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
+    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_prop</span><span class="p">,</span> <span class="n">M_prop</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
                         <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span> <span class="n">axis_color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
     <span class="n">_cell_title</span><span class="p">(</span><span class="n">ax_prop</span><span class="p">,</span> <span class="s1">&#39;样本占比&#39;</span><span class="p">)</span>
-    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_bad</span><span class="p">,</span> <span class="n">M_bad</span><span class="p">,</span> <span class="s1">&#39;#E85D4A&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
+    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_bad</span><span class="p">,</span> <span class="n">M_bad</span><span class="p">,</span> <span class="n">BAD_RATE_COLOR</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
                         <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span> <span class="n">axis_color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
     <span class="n">_cell_title</span><span class="p">(</span><span class="n">ax_bad</span><span class="p">,</span> <span class="s1">&#39;坏样本率&#39;</span><span class="p">)</span>
-    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_lift</span><span class="p">,</span> <span class="n">M_lift</span><span class="p">,</span> <span class="s1">&#39;#FE7715&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
+    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_lift</span><span class="p">,</span> <span class="n">M_lift</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
                         <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span> <span class="n">axis_color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
     <span class="n">_cell_title</span><span class="p">(</span><span class="n">ax_lift</span><span class="p">,</span> <span class="s1">&#39;LIFT&#39;</span><span class="p">)</span>
-    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_reject</span><span class="p">,</span> <span class="n">M_reject</span><span class="p">,</span> <span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
+    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_reject</span><span class="p">,</span> <span class="n">M_reject</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
                         <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span> <span class="n">axis_color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
     <span class="n">_cell_title</span><span class="p">(</span><span class="n">ax_reject</span><span class="p">,</span> <span class="s1">&#39;风险拒绝比&#39;</span><span class="p">)</span>
-    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_improve</span><span class="p">,</span> <span class="n">M_improve</span><span class="p">,</span> <span class="s1">&#39;#2639E9&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
+    <span class="n">_cross_heatmap_cell</span><span class="p">(</span><span class="n">ax_improve</span><span class="p">,</span> <span class="n">M_improve</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.1%&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">annot</span><span class="p">,</span>
                         <span class="n">diverging</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span> <span class="n">axis_color</span><span class="o">=</span><span class="n">axis_color</span><span class="p">)</span>
     <span class="n">_cell_title</span><span class="p">(</span><span class="n">ax_improve</span><span class="p">,</span> <span class="s1">&#39;坏账改善&#39;</span><span class="p">)</span>
 

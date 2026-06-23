@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.report.model_report &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.report.model_report &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -765,7 +772,37 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">QuickModelReport</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;面向报表输出的快速模型报告封装.</span>
 
-<span class="sd">    参考风控建模标准报告模板，生成多 Sheet 结构的 Excel / HTML 报告。</span>
+<span class="sd">    参考风控建模标准报告模板，对已训练模型一站式生成多 Sheet 结构的</span>
+<span class="sd">    Excel / HTML 报告，并提供各分项结果的获取方法（指标、分箱表、特征重要性、</span>
+<span class="sd">    描述统计、相关性等）。支持任意多个数据集（训练/测试/OOT…）的横向对比，</span>
+<span class="sd">    以及 ``overdue`` + ``dpds`` 的多逾期标签构建。</span>
+
+<span class="sd">    **参数**</span>
+
+<span class="sd">    （完整说明见 :meth:`__init__`）</span>
+
+<span class="sd">    :param model: 已训练好的模型，需实现 ``predict`` / ``predict_proba``</span>
+<span class="sd">    :param datasets: 数据集字典或列表（推荐），如 ``{&#39;train&#39;: df, &#39;test&#39;: df}``；</span>
+<span class="sd">        DataFrame 需含目标列或配合 ``overdue``/``dpds`` 构建标签</span>
+<span class="sd">    :param X_train/y_train/X_test/y_test: 兼容 sklearn 风格的数据传入方式</span>
+<span class="sd">    :param target: 目标列名（sklearn/scorecardpipeline 风格）</span>
+<span class="sd">    :param overdue: 逾期天数列名或列表，配合 ``dpds`` 自动构建 0/1 标签</span>
+<span class="sd">    :param dpds: 逾期定义天数或列表（逾期天数 &gt; dpds 记为坏样本）</span>
+<span class="sd">    :param feature_names: 特征名称列表，可选</span>
+
+<span class="sd">    **属性**</span>
+
+<span class="sd">    - model: 传入的已训练模型</span>
+<span class="sd">    - feature_names: 最终使用的特征名称列表</span>
+<span class="sd">    - _datasets: 解析后的各数据集（key -&gt; :class:`ReportDataset`）</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import QuickModelReport</span>
+<span class="sd">    &gt;&gt;&gt; report = QuickModelReport(model, datasets={&#39;train&#39;: train_df, &#39;test&#39;: test_df})</span>
+<span class="sd">    &gt;&gt;&gt; report.get_metrics()            # 各数据集指标对比</span>
+<span class="sd">    &gt;&gt;&gt; report.get_feature_importance(top_n=20)</span>
+<span class="sd">    &gt;&gt;&gt; report.to_excel(&#39;模型报告.xlsx&#39;)  # 导出多 Sheet 报告</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_PERCENT_COLS</span> <span class="o">=</span> <span class="p">[</span>
@@ -3270,6 +3307,29 @@
     <span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">excel_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;横向对比多个模型的评估指标.</span>
+
+<span class="sd">    对每个模型分别构建 :class:`QuickModelReport` 并取其 :meth:`~QuickModelReport.summary`，</span>
+<span class="sd">    纵向拼接为一张对比表；单个模型构建失败时以 ``错误`` 列记录原因，不影响其余模型。</span>
+
+<span class="sd">    :param models: 模型名称到模型对象的映射，如 ``{&#39;XGB&#39;: xgb_model, &#39;LR&#39;: lr_model}``</span>
+<span class="sd">    :param X_train: 训练集特征</span>
+<span class="sd">    :param y_train: 训练集标签（0/1）</span>
+<span class="sd">    :param X_test: 测试集特征，可选</span>
+<span class="sd">    :param y_test: 测试集标签，可选</span>
+<span class="sd">    :param excel_path: 可选，若提供则将对比表导出到该 Excel 路径</span>
+<span class="sd">    :return: 含 ``模型名称`` 列的指标对比 ``DataFrame``</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.report import compare_models</span>
+<span class="sd">    &gt;&gt;&gt; result = compare_models(</span>
+<span class="sd">    ...     {&#39;XGBoost&#39;: xgb_model, &#39;逻辑回归&#39;: lr_model},</span>
+<span class="sd">    ...     X_train, y_train, X_test, y_test,</span>
+<span class="sd">    ...     excel_path=&#39;模型对比.xlsx&#39;,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; print(result)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rows</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">try</span><span class="p">:</span>

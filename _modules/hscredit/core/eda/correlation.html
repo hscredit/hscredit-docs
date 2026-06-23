@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.eda.correlation &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.eda.correlation &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -555,6 +562,12 @@
 <span></span><span class="sd">&quot;&quot;&quot;相关性分析模块.</span>
 
 <span class="sd">提供相关性矩阵、高相关筛选、VIF分析等功能.</span>
+
+<span class="sd">**引用**</span>
+
+<span class="sd">VIF（方差膨胀因子，VIF = 1/(1−R²)）用于多重共线性诊断，经验阈值 VIF&gt;10 视为</span>
+<span class="sd">强共线性，见 Kutner, M. et al. (2004). *Applied Linear Statistical Models.* McGraw-Hill；</span>
+<span class="sd">Pearson / Spearman 相关系数封装自 pandas ``DataFrame.corr``。</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -573,12 +586,17 @@
 <span class="sd">    </span>
 <span class="sd">    :param df: 输入数据</span>
 <span class="sd">    :param features: 指定分析的特征，None则分析全部数值型</span>
-<span class="sd">    :param method: 相关计算方法</span>
+<span class="sd">    :param method: 相关计算方法，默认 ``&#39;pearson&#39;``：</span>
+
+<span class="sd">        - ``&#39;pearson&#39;``：皮尔逊线性相关系数</span>
+<span class="sd">        - ``&#39;spearman&#39;``：斯皮尔曼秩相关（单调关系，抗非线性/异常值）</span>
+<span class="sd">        - ``&#39;kendall&#39;``：肯德尔 τ 秩相关（小样本/有序类别更稳健）</span>
 <span class="sd">    :return: 相关性矩阵DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; corr = correlation_matrix(df, [&#39;age&#39;, &#39;income&#39;, &#39;score&#39;])</span>
-<span class="sd">        &gt;&gt;&gt; print(corr)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; corr = correlation_matrix(df, [&#39;age&#39;, &#39;income&#39;, &#39;score&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; print(corr)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -609,16 +627,21 @@
 <span class="sd">    :param df: 输入数据</span>
 <span class="sd">    :param features: 指定分析的特征</span>
 <span class="sd">    :param threshold: 高相关阈值</span>
-<span class="sd">    :param method: 相关计算方法</span>
+<span class="sd">    :param method: 相关计算方法，默认 ``&#39;pearson&#39;``：</span>
+
+<span class="sd">        - ``&#39;pearson&#39;``：皮尔逊线性相关系数</span>
+<span class="sd">        - ``&#39;spearman&#39;``：斯皮尔曼秩相关（单调关系，抗非线性/异常值）</span>
+<span class="sd">        - ``&#39;kendall&#39;``：肯德尔 τ 秩相关（小样本/有序类别更稳健）</span>
 <span class="sd">    :return: 高相关特征对DataFrame，列为[&#39;特征1&#39;, &#39;特征2&#39;, &#39;相关系数&#39;, &#39;绝对相关系数&#39;, &#39;相关评级&#39;]；</span>
 <span class="sd">        若没有特征对达到threshold，则返回仅含&#39;信息&#39;列的提示性DataFrame</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; pairs = high_correlation_pairs(df, threshold=0.8)</span>
-<span class="sd">        &gt;&gt;&gt; if &#39;特征1&#39; in pairs.columns:</span>
-<span class="sd">        ...     print(pairs[[&#39;特征1&#39;, &#39;特征2&#39;, &#39;相关系数&#39;, &#39;相关评级&#39;]])</span>
-<span class="sd">        ... else:</span>
-<span class="sd">        ...     print(pairs[&#39;信息&#39;].iloc[0])  # 未发现高相关特征对时的提示信息</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; pairs = high_correlation_pairs(df, threshold=0.8)</span>
+<span class="sd">    &gt;&gt;&gt; if &#39;特征1&#39; in pairs.columns:</span>
+<span class="sd">    ...     print(pairs[[&#39;特征1&#39;, &#39;特征2&#39;, &#39;相关系数&#39;, &#39;相关评级&#39;]])</span>
+<span class="sd">    ... else:</span>
+<span class="sd">    ...     print(pairs[&#39;信息&#39;].iloc[0])  # 未发现高相关特征对时的提示信息</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">correlation_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
     
@@ -663,12 +686,17 @@
 <span class="sd">    :param features: 特征列表</span>
 <span class="sd">    :param target: 目标变量</span>
 <span class="sd">    :param threshold: 高相关阈值</span>
-<span class="sd">    :param method: 相关计算方法</span>
+<span class="sd">    :param method: 相关计算方法，默认 ``&#39;pearson&#39;``：</span>
+
+<span class="sd">        - ``&#39;pearson&#39;``：皮尔逊线性相关系数</span>
+<span class="sd">        - ``&#39;spearman&#39;``：斯皮尔曼秩相关（单调关系，抗非线性/异常值）</span>
+<span class="sd">        - ``&#39;kendall&#39;``：肯德尔 τ 秩相关（小样本/有序类别更稳健）</span>
 <span class="sd">    :return: 筛选后的特征列表</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; selected = correlation_filter(df, feature_list, &#39;fpd15&#39;, threshold=0.8)</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;从{len(feature_list)}个特征中筛选出{len(selected)}个&quot;)</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; selected = correlation_filter(df, feature_list, &#39;fpd15&#39;, threshold=0.8)</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;从{len(feature_list)}个特征中筛选出{len(selected)}个&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">required_cols</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
     
@@ -715,9 +743,10 @@
 <span class="sd">    :param threshold: VIF阈值</span>
 <span class="sd">    :return: VIF分析DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; vif_df = vif_analysis(df, threshold=10)</span>
-<span class="sd">        &gt;&gt;&gt; print(vif_df[[&#39;特征名&#39;, &#39;VIF值&#39;, &#39;共线性评级&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; vif_df = vif_analysis(df, threshold=10)</span>
+<span class="sd">    &gt;&gt;&gt; print(vif_df[[&#39;特征名&#39;, &#39;VIF值&#39;, &#39;共线性评级&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     

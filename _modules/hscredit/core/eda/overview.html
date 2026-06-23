@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.eda.overview &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.eda.overview &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -574,17 +581,18 @@
 <span class="sd">    :param df: 输入数据</span>
 <span class="sd">    :return: 数据集信息DataFrame，列包括[信息项, 值]</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; info = data_info(df)</span>
-<span class="sd">        &gt;&gt;&gt; print(info)</span>
-<span class="sd">                    信息项         值</span>
-<span class="sd">        0      样本数（行）     10000</span>
-<span class="sd">        1     特征数（列）        50</span>
-<span class="sd">        2      数值型特征        30</span>
-<span class="sd">        3      分类型特征        15</span>
-<span class="sd">        4      日期型特征         5</span>
-<span class="sd">        5      缺失值列数        10</span>
-<span class="sd">        6    内存使用(MB)      15.5</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; info = data_info(df)</span>
+<span class="sd">    &gt;&gt;&gt; print(info)</span>
+<span class="sd">                信息项         值</span>
+<span class="sd">    0      样本数（行）     10000</span>
+<span class="sd">    1     特征数（列）        50</span>
+<span class="sd">    2      数值型特征        30</span>
+<span class="sd">    3      分类型特征        15</span>
+<span class="sd">    4      日期型特征         5</span>
+<span class="sd">    5      缺失值列数        10</span>
+<span class="sd">    6    内存使用(MB)      15.5</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">check_empty</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
@@ -645,12 +653,13 @@
 <span class="sd">    :param features: 指定分析的特征列表，None则分析全部</span>
 <span class="sd">    :return: 缺失值分析DataFrame，列包括[特征名, 缺失数, 缺失率, 非空数, 查得率]</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; missing = missing_analysis(df, threshold=0.05)</span>
-<span class="sd">        &gt;&gt;&gt; print(missing)</span>
-<span class="sd">              特征名  缺失数   缺失率(%)  非空数  查得率(%)</span>
-<span class="sd">        0     age      0      0.00  10000    100.0</span>
-<span class="sd">        1  income    500      5.00   9500     95.0</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; missing = missing_analysis(df, threshold=0.05)</span>
+<span class="sd">    &gt;&gt;&gt; print(missing)</span>
+<span class="sd">          特征名  缺失数   缺失率(%)  非空数  查得率(%)</span>
+<span class="sd">    0     age      0      0.00  10000    100.0</span>
+<span class="sd">    1  income    500      5.00   9500     95.0</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -751,28 +760,29 @@
 <span class="sd">        - categorical: 类别型特征</span>
 <span class="sd">        - unknown: 无法确定趋势</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 基础统计（无目标变量）</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df)</span>
+<span class="sd">    **参考样例**</span>
 
-<span class="sd">        &gt;&gt;&gt; # 包含IV、KS、趋势（传入目标变量）</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 基础统计（无目标变量）</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df)</span>
 
-<span class="sd">        &gt;&gt;&gt; # 包含PSI（随机拆分）</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, psi_method=&#39;random_split&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 包含IV、KS、趋势（传入目标变量）</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;)</span>
 
-<span class="sd">        &gt;&gt;&gt; # 按日期分组计算PSI</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, psi_method=&#39;date_col&#39;, psi_date_col=&#39;apply_date&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 包含PSI（随机拆分）</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, psi_method=&#39;random_split&#39;)</span>
 
-<span class="sd">        &gt;&gt;&gt; # 传入已训练模型获取特征重要性</span>
-<span class="sd">        &gt;&gt;&gt; models = {&#39;XGB&#39;: xgb_model, &#39;LGB&#39;: lgb_model}</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, models=models)</span>
+<span class="sd">    &gt;&gt;&gt; # 按日期分组计算PSI</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, psi_method=&#39;date_col&#39;, psi_date_col=&#39;apply_date&#39;)</span>
 
-<span class="sd">        &gt;&gt;&gt; # 自动训练模型获取特征重要性</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, model_type=&#39;xgboost&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; # 传入已训练模型获取特征重要性</span>
+<span class="sd">    &gt;&gt;&gt; models = {&#39;XGB&#39;: xgb_model, &#39;LGB&#39;: lgb_model}</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, models=models)</span>
 
-<span class="sd">        &gt;&gt;&gt; # 指定数值列视为分类变量（如年龄分段编码）</span>
-<span class="sd">        &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, numeric_as_categorical=[&#39;age_group&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; # 自动训练模型获取特征重要性</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, model_type=&#39;xgboost&#39;)</span>
+
+<span class="sd">    &gt;&gt;&gt; # 指定数值列视为分类变量（如年龄分段编码）</span>
+<span class="sd">    &gt;&gt;&gt; summary = feature_summary(df, y=&#39;target&#39;, numeric_as_categorical=[&#39;age_group&#39;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">iv</span> <span class="k">as</span> <span class="n">iv_metric</span><span class="p">,</span> <span class="n">ks</span> <span class="k">as</span> <span class="n">ks_metric</span><span class="p">,</span> <span class="n">psi_table</span>
     
@@ -1207,9 +1217,10 @@
 <span class="sd">    :param percentiles: 额外分位数，默认[0.01, 0.05, 0.95, 0.99]</span>
 <span class="sd">    :return: 数值特征统计DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; num_stats = numeric_summary(df)</span>
-<span class="sd">        &gt;&gt;&gt; print(num_stats[[&#39;特征名&#39;, &#39;均值&#39;, &#39;标准差&#39;, &#39;偏度&#39;, &#39;峰度&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; num_stats = numeric_summary(df)</span>
+<span class="sd">    &gt;&gt;&gt; print(num_stats[[&#39;特征名&#39;, &#39;均值&#39;, &#39;标准差&#39;, &#39;偏度&#39;, &#39;峰度&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -1271,9 +1282,10 @@
 <span class="sd">    :param max_categories: 显示最常见的N个类别</span>
 <span class="sd">    :return: 类别特征统计DataFrame</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; cat_stats = category_summary(df)</span>
-<span class="sd">        &gt;&gt;&gt; print(cat_stats[[&#39;特征名&#39;, &#39;类别数&#39;, &#39;最常见类别&#39;, &#39;最常见占比(%)&#39;]])</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; cat_stats = category_summary(df)</span>
+<span class="sd">    &gt;&gt;&gt; print(cat_stats[[&#39;特征名&#39;, &#39;类别数&#39;, &#39;最常见类别&#39;, &#39;最常见占比(%)&#39;]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -1330,12 +1342,13 @@
 <span class="sd">    :param constant_threshold: 常数比例阈值，超过视为准常数特征</span>
 <span class="sd">    :return: 数据质量报告DataFrame，列包括[特征名, 问题类型, 严重程度, 建议处理]</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; quality = data_quality_report(df)</span>
-<span class="sd">        &gt;&gt;&gt; print(quality)</span>
-<span class="sd">              特征名      问题类型  严重程度         建议处理</span>
-<span class="sd">        0    phone      高缺失率      高    考虑删除或填充</span>
-<span class="sd">        1   status    准常数特征      中  检查业务意义</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; quality = data_quality_report(df)</span>
+<span class="sd">    &gt;&gt;&gt; print(quality)</span>
+<span class="sd">          特征名      问题类型  严重程度         建议处理</span>
+<span class="sd">    0    phone      高缺失率      高    考虑删除或填充</span>
+<span class="sd">    1   status    准常数特征      中  检查业务意义</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     
@@ -1456,54 +1469,55 @@
 <span class="sd">        - Index: 分层标签（单级或多级索引）</span>
 <span class="sd">        - Columns: (维度, 指标) 多级列，维度包含expected和各actual维度</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 1. 基础用法：监控生产客群相对训练集的变化</span>
-<span class="sd">        &gt;&gt;&gt; result = population_stability_monitor(</span>
-<span class="sd">        ...     expected=train_df,              # 训练集作为基准</span>
-<span class="sd">        ...     actual=prod_df,                 # 生产数据</span>
-<span class="sd">        ...     segment_cols=&#39;income&#39;           # 收入分层监控</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 2. 时间维度：监控各月客群变化趋势</span>
-<span class="sd">        &gt;&gt;&gt; result = population_stability_monitor(</span>
-<span class="sd">        ...     expected=historical_df,</span>
-<span class="sd">        ...     actual=prod_df,</span>
-<span class="sd">        ...     segment_cols=&#39;risk_score&#39;,</span>
-<span class="sd">        ...     date_col=&#39;apply_date&#39;,</span>
-<span class="sd">        ...     date_freq=&#39;M&#39;</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 3. 多维度交叉：收入+信用等级</span>
-<span class="sd">        &gt;&gt;&gt; result = population_stability_monitor(</span>
-<span class="sd">        ...     expected=baseline_df,</span>
-<span class="sd">        ...     actual=current_df,</span>
-<span class="sd">        ...     segment_cols=[&#39;income_level&#39;, &#39;credit_grade&#39;]</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 4. 自定义分箱边界（expected可传可不传）</span>
-<span class="sd">        &gt;&gt;&gt; bin_edges = {&#39;age&#39;: [0, 25, 35, 45, 55, 100]}</span>
-<span class="sd">        &gt;&gt;&gt; result = population_stability_monitor(</span>
-<span class="sd">        ...     expected=None,                  # 传入bin_edges后可不传</span>
-<span class="sd">        ...     actual=prod_df,</span>
-<span class="sd">        ...     segment_cols=&#39;age&#39;,</span>
-<span class="sd">        ...     bin_edges=bin_edges</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 5. 多指标显示</span>
-<span class="sd">        &gt;&gt;&gt; result = population_stability_monitor(</span>
-<span class="sd">        ...     expected=train_df,</span>
-<span class="sd">        ...     actual=prod_df,</span>
-<span class="sd">        ...     segment_cols=&#39;score&#39;,</span>
-<span class="sd">        ...     metrics=[&#39;占比&#39;, &#39;样本数&#39;, &#39;绝对变化率&#39;, &#39;相对变化率&#39;]</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 6. 渠道维度对比</span>
-<span class="sd">        &gt;&gt;&gt; result = population_stability_monitor(</span>
-<span class="sd">        ...     expected=train_df,</span>
-<span class="sd">        ...     actual=current_df,</span>
-<span class="sd">        ...     segment_cols=&#39;customer_type&#39;,</span>
-<span class="sd">        ...     group_col=&#39;channel&#39;</span>
-<span class="sd">        ... )</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; # 1. 基础用法：监控生产客群相对训练集的变化</span>
+<span class="sd">    &gt;&gt;&gt; result = population_stability_monitor(</span>
+<span class="sd">    ...     expected=train_df,              # 训练集作为基准</span>
+<span class="sd">    ...     actual=prod_df,                 # 生产数据</span>
+<span class="sd">    ...     segment_cols=&#39;income&#39;           # 收入分层监控</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 2. 时间维度：监控各月客群变化趋势</span>
+<span class="sd">    &gt;&gt;&gt; result = population_stability_monitor(</span>
+<span class="sd">    ...     expected=historical_df,</span>
+<span class="sd">    ...     actual=prod_df,</span>
+<span class="sd">    ...     segment_cols=&#39;risk_score&#39;,</span>
+<span class="sd">    ...     date_col=&#39;apply_date&#39;,</span>
+<span class="sd">    ...     date_freq=&#39;M&#39;</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 3. 多维度交叉：收入+信用等级</span>
+<span class="sd">    &gt;&gt;&gt; result = population_stability_monitor(</span>
+<span class="sd">    ...     expected=baseline_df,</span>
+<span class="sd">    ...     actual=current_df,</span>
+<span class="sd">    ...     segment_cols=[&#39;income_level&#39;, &#39;credit_grade&#39;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 4. 自定义分箱边界（expected可传可不传）</span>
+<span class="sd">    &gt;&gt;&gt; bin_edges = {&#39;age&#39;: [0, 25, 35, 45, 55, 100]}</span>
+<span class="sd">    &gt;&gt;&gt; result = population_stability_monitor(</span>
+<span class="sd">    ...     expected=None,                  # 传入bin_edges后可不传</span>
+<span class="sd">    ...     actual=prod_df,</span>
+<span class="sd">    ...     segment_cols=&#39;age&#39;,</span>
+<span class="sd">    ...     bin_edges=bin_edges</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 5. 多指标显示</span>
+<span class="sd">    &gt;&gt;&gt; result = population_stability_monitor(</span>
+<span class="sd">    ...     expected=train_df,</span>
+<span class="sd">    ...     actual=prod_df,</span>
+<span class="sd">    ...     segment_cols=&#39;score&#39;,</span>
+<span class="sd">    ...     metrics=[&#39;占比&#39;, &#39;样本数&#39;, &#39;绝对变化率&#39;, &#39;相对变化率&#39;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 6. 渠道维度对比</span>
+<span class="sd">    &gt;&gt;&gt; result = population_stability_monitor(</span>
+<span class="sd">    ...     expected=train_df,</span>
+<span class="sd">    ...     actual=current_df,</span>
+<span class="sd">    ...     segment_cols=&#39;customer_type&#39;,</span>
+<span class="sd">    ...     group_col=&#39;channel&#39;</span>
+<span class="sd">    ... )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantileBinning</span><span class="p">,</span> <span class="n">UniformBinning</span><span class="p">,</span> <span class="n">TreeBinning</span>
     
@@ -1806,58 +1820,59 @@
 <span class="sd">        - pivot=True时：多级索引(特征名, 统计项)，列为分组</span>
 <span class="sd">        - pivot=False时：长格式，包含[特征名, 统计项, 分组, 值]等列</span>
 <span class="sd">    </span>
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; # 单维度客群分组分析</span>
-<span class="sd">        &gt;&gt;&gt; result = feature_group_analysis(</span>
-<span class="sd">        ...     df, </span>
-<span class="sd">        ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
-<span class="sd">        ...     group_cols=&#39;customer_segment&#39;,</span>
-<span class="sd">        ...     stats=[&#39;均值&#39;, &#39;中位数&#39;, &#39;缺失率&#39;]</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 时间维度分析（按月）</span>
-<span class="sd">        &gt;&gt;&gt; result = feature_group_analysis(</span>
-<span class="sd">        ...     df,</span>
-<span class="sd">        ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
-<span class="sd">        ...     date_col=&#39;apply_date&#39;,</span>
-<span class="sd">        ...     date_freq=&#39;M&#39;,</span>
-<span class="sd">        ...     stats=&#39;default&#39;</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 客群+时间交叉分析（多级列）</span>
-<span class="sd">        &gt;&gt;&gt; result = feature_group_analysis(</span>
-<span class="sd">        ...     df,</span>
-<span class="sd">        ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
-<span class="sd">        ...     group_cols=&#39;segment&#39;,</span>
-<span class="sd">        ...     date_col=&#39;apply_date&#39;,</span>
-<span class="sd">        ...     date_freq=&#39;M&#39;</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 自定义统计指标</span>
-<span class="sd">        &gt;&gt;&gt; custom_stats = {</span>
-<span class="sd">        ...     &#39;变异系数&#39;: lambda x: x.std() / x.mean() if x.mean() != 0 else np.nan,</span>
-<span class="sd">        ...     &#39;10%分位数&#39;: lambda x: x.quantile(0.1),</span>
-<span class="sd">        ...     &#39;90%分位数&#39;: lambda x: x.quantile(0.9),</span>
-<span class="sd">        ... }</span>
-<span class="sd">        &gt;&gt;&gt; result = feature_group_analysis(df, features=[&#39;age&#39;], stats=custom_stats)</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 包含目标变量分析（如逾期率）</span>
-<span class="sd">        &gt;&gt;&gt; result = feature_group_analysis(</span>
-<span class="sd">        ...     df,</span>
-<span class="sd">        ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
-<span class="sd">        ...     group_cols=&#39;segment&#39;,</span>
-<span class="sd">        ...     y=&#39;fpd15&#39;,</span>
-<span class="sd">        ...     y_stats=[&#39;逾期率&#39;, &#39;样本数&#39;]</span>
-<span class="sd">        ... )</span>
-<span class="sd">        &gt;&gt;&gt; </span>
-<span class="sd">        &gt;&gt;&gt; # 排序展示</span>
-<span class="sd">        &gt;&gt;&gt; result = feature_group_analysis(</span>
-<span class="sd">        ...     df,</span>
-<span class="sd">        ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
-<span class="sd">        ...     group_cols=&#39;segment&#39;,</span>
-<span class="sd">        ...     sort_by=(&#39;age&#39;, &#39;均值&#39;),</span>
-<span class="sd">        ...     sort_order=&#39;desc&#39;</span>
-<span class="sd">        ... )</span>
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; # 单维度客群分组分析</span>
+<span class="sd">    &gt;&gt;&gt; result = feature_group_analysis(</span>
+<span class="sd">    ...     df, </span>
+<span class="sd">    ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
+<span class="sd">    ...     group_cols=&#39;customer_segment&#39;,</span>
+<span class="sd">    ...     stats=[&#39;均值&#39;, &#39;中位数&#39;, &#39;缺失率&#39;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 时间维度分析（按月）</span>
+<span class="sd">    &gt;&gt;&gt; result = feature_group_analysis(</span>
+<span class="sd">    ...     df,</span>
+<span class="sd">    ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
+<span class="sd">    ...     date_col=&#39;apply_date&#39;,</span>
+<span class="sd">    ...     date_freq=&#39;M&#39;,</span>
+<span class="sd">    ...     stats=&#39;default&#39;</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 客群+时间交叉分析（多级列）</span>
+<span class="sd">    &gt;&gt;&gt; result = feature_group_analysis(</span>
+<span class="sd">    ...     df,</span>
+<span class="sd">    ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
+<span class="sd">    ...     group_cols=&#39;segment&#39;,</span>
+<span class="sd">    ...     date_col=&#39;apply_date&#39;,</span>
+<span class="sd">    ...     date_freq=&#39;M&#39;</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 自定义统计指标</span>
+<span class="sd">    &gt;&gt;&gt; custom_stats = {</span>
+<span class="sd">    ...     &#39;变异系数&#39;: lambda x: x.std() / x.mean() if x.mean() != 0 else np.nan,</span>
+<span class="sd">    ...     &#39;10%分位数&#39;: lambda x: x.quantile(0.1),</span>
+<span class="sd">    ...     &#39;90%分位数&#39;: lambda x: x.quantile(0.9),</span>
+<span class="sd">    ... }</span>
+<span class="sd">    &gt;&gt;&gt; result = feature_group_analysis(df, features=[&#39;age&#39;], stats=custom_stats)</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 包含目标变量分析（如逾期率）</span>
+<span class="sd">    &gt;&gt;&gt; result = feature_group_analysis(</span>
+<span class="sd">    ...     df,</span>
+<span class="sd">    ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
+<span class="sd">    ...     group_cols=&#39;segment&#39;,</span>
+<span class="sd">    ...     y=&#39;fpd15&#39;,</span>
+<span class="sd">    ...     y_stats=[&#39;逾期率&#39;, &#39;样本数&#39;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # 排序展示</span>
+<span class="sd">    &gt;&gt;&gt; result = feature_group_analysis(</span>
+<span class="sd">    ...     df,</span>
+<span class="sd">    ...     features=[&#39;age&#39;, &#39;income&#39;],</span>
+<span class="sd">    ...     group_cols=&#39;segment&#39;,</span>
+<span class="sd">    ...     sort_by=(&#39;age&#39;, &#39;均值&#39;),</span>
+<span class="sd">    ...     sort_order=&#39;desc&#39;</span>
+<span class="sd">    ... )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">iv</span> <span class="k">as</span> <span class="n">iv_metric</span><span class="p">,</span> <span class="n">ks</span> <span class="k">as</span> <span class="n">ks_metric</span>
     

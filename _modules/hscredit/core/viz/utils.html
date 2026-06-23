@@ -5,16 +5,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hscredit.core.viz.utils &mdash; hscredit 0.1.0 文档</title>
+  <title>hscredit.core.viz.utils &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=bb381e50" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=d786bb5c"></script>
+      <script src="../../../../_static/documentation_options.js?v=c5408746"></script>
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
@@ -331,6 +331,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_or_create_ax"><code class="docutils literal notranslate"><span class="pre">get_or_create_ax()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.create_legend"><code class="docutils literal notranslate"><span class="pre">create_legend()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.format_bin_label"><code class="docutils literal notranslate"><span class="pre">format_bin_label()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors"><code class="docutils literal notranslate"><span class="pre">get_series_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color"><code class="docutils literal notranslate"><span class="pre">get_psi_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_colormap"><code class="docutils literal notranslate"><span class="pre">make_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap"><code class="docutils literal notranslate"><span class="pre">make_risk_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap"><code class="docutils literal notranslate"><span class="pre">make_diverging_cmap()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.set_style"><code class="docutils literal notranslate"><span class="pre">set_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.reset_style"><code class="docutils literal notranslate"><span class="pre">reset_style()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/viz.html#hscredit.core.viz.get_current_theme"><code class="docutils literal notranslate"><span class="pre">get_current_theme()</span></code></a></li>
@@ -341,6 +346,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/rules.html">规则引擎 <code class="docutils literal notranslate"><span class="pre">hscredit.core.rules</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow"><code class="docutils literal notranslate"><span class="pre">RuleFlow</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.get_columns_from_query"><code class="docutils literal notranslate"><span class="pre">get_columns_from_query()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.optimize_expr"><code class="docutils literal notranslate"><span class="pre">optimize_expr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/rules.html#hscredit.core.rules.beautify_expr"><code class="docutils literal notranslate"><span class="pre">beautify_expr()</span></code></a></li>
@@ -368,9 +374,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/modeling.html">模型</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/models.html">模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id1">经典模型与评分卡</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id2">规则模型</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id3">损失函数与指标</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id10">模型报告</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id6">规则模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id7">损失函数与指标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/models.html#id14">模型报告</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/boosting.html">Boosting 模型 <code class="docutils literal notranslate"><span class="pre">hscredit.core.models.boosting</span></code></a><ul>
@@ -402,6 +408,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_analysis"><code class="docutils literal notranslate"><span class="pre">rule_target_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -560,13 +567,120 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
 
+<span class="c1"># 统一配色：以 style 模块为唯一来源，所有图表均引用这些常量，</span>
+<span class="c1"># 后续扩充色阶时只需在 style.py 中调整一处即可全局生效。</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.style</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PRIMARY_COLORS</span><span class="p">,</span>
+    <span class="n">EXTENDED_COLORS</span><span class="p">,</span>
+    <span class="n">SEMANTIC_COLORS</span><span class="p">,</span>
+    <span class="n">GRADIENT_PALETTES</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="c1"># 默认配色方案</span>
-<span class="n">DEFAULT_COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#2639E9&quot;</span><span class="p">,</span> <span class="s2">&quot;#F76E6C&quot;</span><span class="p">,</span> <span class="s2">&quot;#FE7715&quot;</span><span class="p">]</span>
+
+<span class="c1"># 默认配色方案：主题色 + 2 个副主题色（与 PRIMARY_COLORS 一致）</span>
+<span class="n">DEFAULT_COLORS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">PRIMARY_COLORS</span><span class="p">)</span>
+
+<span class="c1"># 语义色（与 bin_plot 参考样式一致）：坏样本率折线、整体基线参考线</span>
+<span class="n">BAD_RATE_COLOR</span> <span class="o">=</span> <span class="n">SEMANTIC_COLORS</span><span class="p">[</span><span class="s2">&quot;bad_rate&quot;</span><span class="p">]</span>            <span class="c1"># #F0556F 坏样本率折线（副主题红融粉）</span>
+<span class="n">REFERENCE_COLOR</span> <span class="o">=</span> <span class="n">SEMANTIC_COLORS</span><span class="p">[</span><span class="s2">&quot;overall_baseline&quot;</span><span class="p">]</span>  <span class="c1"># #2639E9 整体基线参考线（主题蓝）</span>
+<span class="c1"># PSI/稳定性状态语义色</span>
+<span class="n">STABLE_COLOR</span> <span class="o">=</span> <span class="n">SEMANTIC_COLORS</span><span class="p">[</span><span class="s2">&quot;stable&quot;</span><span class="p">]</span>
+<span class="n">CHANGING_COLOR</span> <span class="o">=</span> <span class="n">SEMANTIC_COLORS</span><span class="p">[</span><span class="s2">&quot;changing&quot;</span><span class="p">]</span>
+<span class="n">UNSTABLE_COLOR</span> <span class="o">=</span> <span class="n">SEMANTIC_COLORS</span><span class="p">[</span><span class="s2">&quot;unstable&quot;</span><span class="p">]</span>
+<span class="n">NEUTRAL_COLOR</span> <span class="o">=</span> <span class="n">SEMANTIC_COLORS</span><span class="p">[</span><span class="s2">&quot;neutral&quot;</span><span class="p">]</span>
+<span class="c1"># 风险渐变色阶（浅蓝→玫紫→粉→深红），用于热力图/风险等级连续着色</span>
+<span class="n">RISK_GRADIENT</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">GRADIENT_PALETTES</span><span class="p">[</span><span class="s2">&quot;risk&quot;</span><span class="p">])</span>
+<span class="c1"># 主题蓝色阶（浅→深，主题色叠白），用于「数值越大越好/越强」的顺序着色（如 IV 强度）</span>
+<span class="n">BLUE_GRADIENT</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">GRADIENT_PALETTES</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">])</span>
+<span class="c1"># 蓝→紫→粉→红 连续色阶，用于热力图/条件格式</span>
+<span class="n">SEQUENTIAL_GRADIENT</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">GRADIENT_PALETTES</span><span class="p">[</span><span class="s2">&quot;blue_purple_red&quot;</span><span class="p">])</span>
+<span class="c1"># 发散色阶，用于相关性、改善率等可正可负指标</span>
+<span class="n">DIVERGING_GRADIENT</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">GRADIENT_PALETTES</span><span class="p">[</span><span class="s2">&quot;diverging&quot;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="make_colormap">
+<a class="viewcode-back" href="../../../../api/viz.html#hscredit.core.viz.make_colormap">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_colormap</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">colors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;根据统一色板创建 matplotlib colormap.</span>
+
+<span class="sd">    :param name: colormap 名称</span>
+<span class="sd">    :param colors: 颜色列表，默认使用蓝紫粉红连续色阶</span>
+<span class="sd">    :param n: 颜色采样数</span>
+<span class="sd">    :return: LinearSegmentedColormap</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">colors</span> <span class="ow">or</span> <span class="n">SEQUENTIAL_GRADIENT</span><span class="p">,</span>
+        <span class="n">N</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="make_risk_cmap">
+<a class="viewcode-back" href="../../../../api/viz.html#hscredit.core.viz.make_risk_cmap">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_risk_cmap</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hscredit_risk&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;创建风险连续色阶（低风险蓝紫 → 高风险粉红）。</span>
+
+<span class="sd">    :param name: colormap 名称，默认 ``&quot;hscredit_risk&quot;``</span>
+<span class="sd">    :param n: 颜色采样数，默认 256</span>
+<span class="sd">    :return: ``LinearSegmentedColormap``，可直接传给热力图的 ``cmap`` 参数</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">make_colormap</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">RISK_GRADIENT</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="make_diverging_cmap">
+<a class="viewcode-back" href="../../../../api/viz.html#hscredit.core.viz.make_diverging_cmap">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_diverging_cmap</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hscredit_diverging&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;创建发散色阶（主题蓝 → 近白 → 副主题红），适合带正负/中心值的热力图。</span>
+
+<span class="sd">    :param name: colormap 名称，默认 ``&quot;hscredit_diverging&quot;``</span>
+<span class="sd">    :param n: 颜色采样数，默认 256</span>
+<span class="sd">    :return: ``LinearSegmentedColormap``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">make_colormap</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">DIVERGING_GRADIENT</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_psi_color">
+<a class="viewcode-back" href="../../../../api/viz.html#hscredit.core.viz.get_psi_color">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_psi_color</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;根据 PSI 取值返回统一语义色（用于稳定性图表着色）。</span>
+
+<span class="sd">    :param value: PSI 值</span>
+<span class="sd">    :return: 颜色十六进制字符串：</span>
+
+<span class="sd">        - ``value &lt; 0.10``：稳定色（STABLE_COLOR）</span>
+<span class="sd">        - ``0.10 &lt;= value &lt; 0.25``：变化色（CHANGING_COLOR）</span>
+<span class="sd">        - ``value &gt;= 0.25``：不稳定色（UNSTABLE_COLOR）</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.10</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">STABLE_COLOR</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">CHANGING_COLOR</span>
+    <span class="k">return</span> <span class="n">UNSTABLE_COLOR</span></div>
+
+
+
+<div class="viewcode-block" id="get_series_colors">
+<a class="viewcode-back" href="../../../../api/viz.html#hscredit.core.viz.get_series_colors">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_series_colors</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;获取 n 条数据系列的统一配色（主题色 + 副主题色 + 扩展色循环）.</span>
+
+<span class="sd">    :param n: 需要的颜色数量</span>
+<span class="sd">    :return: 长度为 n 的颜色列表，优先使用主题色与副主题色，再循环扩展色板</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">EXTENDED_COLORS</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">base</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">base</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span></div>
+
 
 
 <div class="viewcode-block" id="setup_axis_style">
@@ -587,6 +701,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">hide_top_right</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -600,8 +715,13 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;保存图表.</span>
 <span class="sd">    </span>
 <span class="sd">    :param fig: matplotlib Figure 对象</span>
-<span class="sd">    :param save_path: 保存路径</span>
-<span class="sd">    :param dpi: 分辨率</span>
+<span class="sd">    :param save_path: 保存路径（为 None 时不保存，直接返回）；目录不存在时自动创建</span>
+<span class="sd">    :param dpi: 分辨率，默认 240</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; from hscredit.core.viz import save_figure</span>
+<span class="sd">    &gt;&gt;&gt; save_figure(fig, &#39;output/分箱图.png&#39;, dpi=300)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">save_path</span><span class="p">:</span>
         <span class="n">save_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
