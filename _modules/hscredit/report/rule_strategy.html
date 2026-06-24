@@ -8,7 +8,7 @@
   <title>hscredit.report.rule_strategy &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=17317042" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=1d75c9b6" />
 
   
     <link rel="shortcut icon" href="../../../_static/hengshucredit_logo.svg"/>
@@ -1169,6 +1169,47 @@
     <span class="k">return</span> <span class="n">_METHOD_DISPLAY_NAMES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">分箱&quot;</span><span class="p">)</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_target_label</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;将逾期标签的三种生成形式统一为 ``Rule.report`` 的空格形式 ``MOB1 7+``。</span>
+
+<span class="sd">    样本情况用 ``MOB1_7+``、分箱详情用 ``MOB1@7``、规则报告用 ``MOB1 7+``，三者</span>
+<span class="sd">    混排会令同一报告内同一标签出现三种写法，此处统一为空格形式；非标签字符串原样返回。</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;@&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">head</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">head</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tail</span><span class="si">}</span><span class="s2">+&quot;</span> <span class="k">if</span> <span class="n">head</span> <span class="ow">and</span> <span class="n">tail</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">text</span>
+    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;_&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">head</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">head</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tail</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">head</span> <span class="ow">and</span> <span class="n">tail</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">text</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_target_names</span><span class="p">(</span><span class="n">target_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;将 ``target_names`` 的键统一为空格形式，使任意写法的键都能匹配到标签。&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">target_names</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">target_names</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">_normalize_target_label</span><span class="p">(</span><span class="n">key</span><span class="p">):</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">target_names</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_display_target_label</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">target_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;规整单个逾期标签：先统一为空格形式，再套用 ``target_names`` 映射。&quot;&quot;&quot;</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="n">_normalize_target_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">target_names</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span> <span class="n">normalized</span><span class="p">)</span> <span class="k">if</span> <span class="n">target_names</span> <span class="k">else</span> <span class="n">normalized</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rename_target_level</span><span class="p">(</span>
+    <span class="n">table</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">target_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;规整多层列中某一层的逾期标签（统一形式 + target_names 映射），非标签值保持不变。&quot;&quot;&quot;</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">level</span><span class="p">)):</span>
+        <span class="n">display</span> <span class="o">=</span> <span class="n">_display_target_label</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">target_names</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">display</span> <span class="o">!=</span> <span class="n">label</span><span class="p">:</span>
+            <span class="n">mapping</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">display</span>
+    <span class="k">return</span> <span class="n">table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">mapping</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span> <span class="k">if</span> <span class="n">mapping</span> <span class="k">else</span> <span class="n">table</span>
+
+
 <span class="k">def</span><span class="w"> </span><span class="nf">_as_text_list</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;将文本参数规整为字符串列表，``None`` 返回空列表.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1245,9 +1286,10 @@
     <span class="n">targets</span><span class="p">:</span> <span class="s2">&quot;OrderedDict[str, Tuple[pd.DataFrame, pd.Series]]&quot;</span><span class="p">,</span>
     <span class="n">date_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">target_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;构建样本情况表：全量数据在各标签下的样本总数与坏样本率.&quot;&quot;&quot;</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">targets</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">_display_target_label</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">target_names</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">targets</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
     <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;样本情况&quot;</span><span class="p">,</span> <span class="s2">&quot;数据集&quot;</span><span class="p">)]</span>
     <span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;全量数据&quot;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">date_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">date_col</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -1441,6 +1483,7 @@
     <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">methods</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">sheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;变量分箱&quot;</span><span class="p">,</span>
+    <span class="n">target_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;将各分箱方法的明细分箱表横向并排写入「变量分箱」sheet（数据源自 feature_binning_summary）.</span>
 
@@ -1454,6 +1497,9 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">method_tables</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="n">block</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">method_tables</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;逾期标签&quot;</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">block</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">block</span><span class="p">[</span><span class="s2">&quot;逾期标签&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">_display_target_label</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">target_names</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;逾期标签&quot;</span><span class="p">]]</span>
         <span class="n">merge_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;指标名称&quot;</span><span class="p">,</span> <span class="s2">&quot;指标含义&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
         <span class="n">_write_swap_table</span><span class="p">(</span>
             <span class="n">writer</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">start_col</span><span class="p">,</span> <span class="n">_method_display</span><span class="p">(</span><span class="n">method</span><span class="p">),</span>
@@ -1558,6 +1604,8 @@
 
     <span class="n">combined_rule</span><span class="p">,</span> <span class="n">rule_objs</span><span class="p">,</span> <span class="n">multi</span> <span class="o">=</span> <span class="n">_resolve_swap_rules</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
     <span class="n">methods_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">methods</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">methods</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span>
+    <span class="c1"># 统一 target_names 的键形式（兼容 MOB1_7+ / MOB1@7 / MOB1 7+ 三种写法）</span>
+    <span class="n">target_names</span> <span class="o">=</span> <span class="n">_normalize_target_names</span><span class="p">(</span><span class="n">target_names</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">features</span> <span class="o">=</span> <span class="n">_ordered_unique</span><span class="p">([</span><span class="n">col</span> <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rule_objs</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rule</span><span class="o">.</span><span class="n">feature_names_in_</span><span class="p">])</span>
@@ -1585,8 +1633,8 @@
             <span class="n">target</span><span class="o">=</span><span class="kc">None</span> <span class="k">if</span> <span class="n">overdue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">target</span><span class="p">,</span>
             <span class="n">overdue</span><span class="o">=</span><span class="n">overdue</span><span class="p">,</span> <span class="n">dpds</span><span class="o">=</span><span class="n">dpds</span><span class="p">,</span> <span class="n">del_grey</span><span class="o">=</span><span class="n">del_grey</span><span class="p">,</span> <span class="n">long_format</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="k">if</span> <span class="n">target_names</span><span class="p">:</span>
-            <span class="n">binning_summary</span> <span class="o">=</span> <span class="n">binning_summary</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">target_names</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># 统一分箱详情的逾期标签形式（MOB1@7 → MOB1 7+）并套用 target_names 映射</span>
+        <span class="n">binning_summary</span> <span class="o">=</span> <span class="n">_rename_target_level</span><span class="p">(</span><span class="n">binning_summary</span><span class="p">,</span> <span class="n">target_names</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">start_col</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">ExcelWriter</span><span class="p">(</span><span class="n">theme_color</span><span class="o">=</span><span class="n">theme_color</span><span class="p">)</span>
@@ -1594,7 +1642,7 @@
     <span class="n">row</span> <span class="o">=</span> <span class="mi">2</span>
 
     <span class="c1"># 各模块的内容宽度：保证标题横幅与文本宽度同模块内最宽表格一致</span>
-    <span class="n">overview</span> <span class="o">=</span> <span class="n">_swap_sample_overview</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">date_col</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">overview</span> <span class="o">=</span> <span class="n">_swap_sample_overview</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">date_col</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">target_names</span><span class="p">)</span>
     <span class="n">corr</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -1720,7 +1768,7 @@
 
     <span class="c1"># —— 第二个 sheet：变量分箱明细（数据源自 feature_binning_summary 的 binning_tables）——</span>
     <span class="k">if</span> <span class="n">binning_tables</span> <span class="ow">and</span> <span class="n">features</span><span class="p">:</span>
-        <span class="n">_write_binning_detail_sheet</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">binning_tables</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">methods_list</span><span class="p">)</span>
+        <span class="n">_write_binning_detail_sheet</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">binning_tables</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">methods_list</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">save</span><span class="p">)</span>
