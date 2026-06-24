@@ -587,7 +587,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -1517,7 +1517,8 @@
         <span class="n">auto_width</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">fill</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">merge</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">merge_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">merge_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">merge_header</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;向Excel插入DataFrame。</span>
 
@@ -1531,6 +1532,8 @@
 <span class="sd">        :param fill: 是否使用颜色填充而非边框，默认为False</span>
 <span class="sd">        :param merge: 是否合并单元格，默认为False</span>
 <span class="sd">        :param merge_index: 当存储index时，是否合并连续相同的index值，默认为True</span>
+<span class="sd">        :param merge_header: 多层列名是否横向合并相邻相同标题，默认True合并全部层级；</span>
+<span class="sd">            可传False/``&quot;none&quot;``不合并，或传层级序号/序号列表仅合并指定层级</span>
 <span class="sd">        :return: (下一行行号, 下一列列号)</span>
 
 <span class="sd">        **参考样例**</span>
@@ -1629,6 +1632,37 @@
             <span class="n">merge_cols</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">merge_rows</span> <span class="o">=</span> <span class="kc">None</span>
 
+        <span class="k">def</span><span class="w"> </span><span class="nf">_resolve_merge_header_levels</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">nlevels</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">nlevels</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">_normalize_level</span><span class="p">(</span><span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+                <span class="n">level</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">level</span> <span class="o">+=</span> <span class="n">nlevels</span>
+                <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="n">nlevels</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;merge_header 层级超出范围: </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">level</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nlevels</span><span class="p">))</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nlevels</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">option</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">option</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;全部&quot;</span><span class="p">,</span> <span class="s2">&quot;合并&quot;</span><span class="p">}:</span>
+                    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nlevels</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">option</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;不合并&quot;</span><span class="p">}:</span>
+                    <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+                <span class="k">return</span> <span class="p">{</span><span class="n">_normalize_level</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">option</span><span class="p">))}</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="p">{</span><span class="n">_normalize_level</span><span class="p">(</span><span class="n">value</span><span class="p">)}</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+                <span class="k">return</span> <span class="p">{</span><span class="n">_normalize_level</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">value</span><span class="p">}</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;merge_header 仅支持 bool、&#39;all&#39;/&#39;none&#39;、层级序号或层级序号列表&quot;</span><span class="p">)</span>
+
+        <span class="n">merge_header_levels</span> <span class="o">=</span> <span class="n">_resolve_merge_header_levels</span><span class="p">(</span><span class="n">merge_header</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span><span class="p">)</span>
+
         <span class="c1"># 迭代行数据</span>
         <span class="k">def</span><span class="w"> </span><span class="nf">_iter_rows</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
             <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -1674,7 +1708,7 @@
                         <span class="n">worksheet</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">start_row</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">start_col</span><span class="p">,</span>
                         <span class="n">style</span><span class="o">=</span><span class="s2">&quot;header&quot;</span><span class="p">,</span>
                         <span class="n">auto_width</span><span class="o">=</span><span class="n">auto_width</span><span class="p">,</span>
-                        <span class="n">multi_levels</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">False</span>
+                        <span class="n">multi_levels</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">merge_header_levels</span>
                     <span class="p">)</span>
                 <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">insert_rows</span><span class="p">(</span>
@@ -1708,7 +1742,7 @@
                         <span class="n">worksheet</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">start_row</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">start_col</span><span class="p">,</span>
                         <span class="n">style</span><span class="o">=</span><span class="s2">&quot;header&quot;</span><span class="p">,</span>
                         <span class="n">auto_width</span><span class="o">=</span><span class="n">auto_width</span><span class="p">,</span>
-                        <span class="n">multi_levels</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">False</span>
+                        <span class="n">multi_levels</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">merge_header_levels</span>
                     <span class="p">)</span>
                 <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">insert_rows</span><span class="p">(</span>

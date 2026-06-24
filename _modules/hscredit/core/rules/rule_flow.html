@@ -965,6 +965,15 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">_rate</span><span class="p">(</span><span class="n">numerator</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">denominator</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span> <span class="k">if</span> <span class="n">denominator</span> <span class="k">else</span> <span class="mf">0.0</span>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_group_key_names</span><span class="p">(</span><span class="n">date_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">group_cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">group_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">date_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">group_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;统计周期&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">group_cols</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">group_names</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">group_cols</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">group_cols</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">group_cols</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">group_names</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">_report_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
         <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -982,20 +991,46 @@
             <span class="n">pass_count</span> <span class="o">=</span> <span class="n">current_total</span> <span class="o">-</span> <span class="n">hit_count</span>
             <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="p">{</span>
+                    <span class="s2">&quot;统计类型&quot;</span><span class="p">:</span> <span class="s2">&quot;明细&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;规则序号&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
                     <span class="s2">&quot;规则名称&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                     <span class="s2">&quot;规则表达式&quot;</span><span class="p">:</span> <span class="n">rule</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span>
-                    <span class="s2">&quot;样本总数&quot;</span><span class="p">:</span> <span class="n">current_total</span><span class="p">,</span>
+                    <span class="s2">&quot;统计范围样本数&quot;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
+                    <span class="s2">&quot;当前规则样本数&quot;</span><span class="p">:</span> <span class="n">current_total</span><span class="p">,</span>
                     <span class="s2">&quot;规则命中&quot;</span><span class="p">:</span> <span class="n">hit_count</span><span class="p">,</span>
-                    <span class="s2">&quot;命中率(绝对值)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">hit_count</span><span class="p">,</span> <span class="n">total</span><span class="p">),</span>
-                    <span class="s2">&quot;命中率(相对值)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">hit_count</span><span class="p">,</span> <span class="n">current_total</span><span class="p">),</span>
+                    <span class="s2">&quot;命中率(统计范围)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">hit_count</span><span class="p">,</span> <span class="n">total</span><span class="p">),</span>
+                    <span class="s2">&quot;命中率(当前规则)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">hit_count</span><span class="p">,</span> <span class="n">current_total</span><span class="p">),</span>
                     <span class="s2">&quot;规则通过&quot;</span><span class="p">:</span> <span class="n">pass_count</span><span class="p">,</span>
-                    <span class="s2">&quot;通过率(绝对值)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">pass_count</span><span class="p">,</span> <span class="n">total</span><span class="p">),</span>
-                    <span class="s2">&quot;通过率(相对值)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">pass_count</span><span class="p">,</span> <span class="n">current_total</span><span class="p">),</span>
+                    <span class="s2">&quot;通过率(统计范围)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">pass_count</span><span class="p">,</span> <span class="n">total</span><span class="p">),</span>
+                    <span class="s2">&quot;通过率(当前规则)&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">pass_count</span><span class="p">,</span> <span class="n">current_total</span><span class="p">),</span>
                 <span class="p">}</span>
             <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_report_total_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">row_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_one</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">row_type</span><span class="o">=</span><span class="n">row_type</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;样本总数&quot;</span><span class="p">])</span>
+        <span class="n">hit_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;命中样本&quot;</span><span class="p">])</span>
+        <span class="n">pass_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s2">&quot;通过样本&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;统计类型&quot;</span><span class="p">:</span> <span class="n">row_type</span><span class="p">,</span>
+                    <span class="s2">&quot;规则序号&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span>
+                    <span class="s2">&quot;规则名称&quot;</span><span class="p">:</span> <span class="n">row_type</span><span class="p">,</span>
+                    <span class="s2">&quot;规则表达式&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;统计范围样本数&quot;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
+                    <span class="s2">&quot;当前规则样本数&quot;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
+                    <span class="s2">&quot;规则命中&quot;</span><span class="p">:</span> <span class="n">hit_count</span><span class="p">,</span>
+                    <span class="s2">&quot;命中率(统计范围)&quot;</span><span class="p">:</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;命中率&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;命中率(当前规则)&quot;</span><span class="p">:</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;命中率&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;规则通过&quot;</span><span class="p">:</span> <span class="n">pass_count</span><span class="p">,</span>
+                    <span class="s2">&quot;通过率(统计范围)&quot;</span><span class="p">:</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;通过率&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;通过率(当前规则)&quot;</span><span class="p">:</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;通过率&quot;</span><span class="p">],</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="RuleFlow.report">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow.report">[文档]</a>
@@ -1018,29 +1053,40 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">group_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_key_names</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span> <span class="n">group_cols</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_slices</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">date_col</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">group_cols</span><span class="p">,</span> <span class="n">dropna</span><span class="p">):</span>
             <span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_report_one</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">prefix</span><span class="p">:</span>
+                <span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">table</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_report_total_row</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="s2">&quot;分组合计&quot;</span><span class="p">)],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">prefix</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
                 <span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
             <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+
+        <span class="n">overall</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_report_total_row</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;整体合计&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">group_names</span><span class="p">):</span>
+            <span class="n">overall</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;全部&quot;</span><span class="p">)</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">overall</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_summary_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_summary_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">row_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
         <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">hit_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="s2">&quot;是否命中&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
         <span class="n">pass_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="s2">&quot;是否通过&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-        <span class="k">return</span> <span class="p">{</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;样本总数&quot;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
             <span class="s2">&quot;通过样本&quot;</span><span class="p">:</span> <span class="n">pass_count</span><span class="p">,</span>
             <span class="s2">&quot;命中样本&quot;</span><span class="p">:</span> <span class="n">hit_count</span><span class="p">,</span>
             <span class="s2">&quot;通过率&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">pass_count</span><span class="p">,</span> <span class="n">total</span><span class="p">),</span>
             <span class="s2">&quot;命中率&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span><span class="p">(</span><span class="n">hit_count</span><span class="p">,</span> <span class="n">total</span><span class="p">),</span>
         <span class="p">}</span>
+        <span class="k">if</span> <span class="n">row_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;统计类型&quot;</span><span class="p">:</span> <span class="n">row_type</span><span class="p">,</span> <span class="o">**</span><span class="n">row</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">row</span>
 
 <div class="viewcode-block" id="RuleFlow.summary">
 <a class="viewcode-back" href="../../../../api/rules.html#hscredit.core.rules.RuleFlow.summary">[文档]</a>
@@ -1058,9 +1104,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">group_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_key_names</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span> <span class="n">group_cols</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_slices</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">date_col</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">group_cols</span><span class="p">,</span> <span class="n">dropna</span><span class="p">):</span>
-            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">prefix</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_summary_one</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">])}</span>
+            <span class="n">row_type</span> <span class="o">=</span> <span class="s2">&quot;分组合计&quot;</span> <span class="k">if</span> <span class="n">prefix</span> <span class="k">else</span> <span class="s2">&quot;整体合计&quot;</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">prefix</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_summary_one</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">row_type</span><span class="o">=</span><span class="n">row_type</span><span class="p">)}</span>
             <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">group_names</span><span class="p">:</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="o">**</span><span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="s2">&quot;全部&quot;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">group_names</span><span class="p">},</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_summary_one</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">row_type</span><span class="o">=</span><span class="s2">&quot;整体合计&quot;</span><span class="p">)})</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span></div>
 
 
