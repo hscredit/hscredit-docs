@@ -8,7 +8,7 @@
   <title>hscredit.core.eda.stability &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -1195,6 +1198,131 @@
         <span class="p">}</span>
 
     <span class="k">return</span> <span class="n">report</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_predict_monitor_score</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">X</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">score_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="n">predict_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;按监控口径从模型生成一维评分序列.&quot;&quot;&quot;</span>
+    <span class="n">predict_kwargs</span> <span class="o">=</span> <span class="n">predict_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">score_method</span> <span class="o">=</span> <span class="n">score_method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">score_method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;proba&#39;</span><span class="p">}:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;score_method 必须是 &#39;auto&#39;/&#39;score&#39;/&#39;proba&#39; 之一&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">score_method</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">}</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;predict_score&#39;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">predict_kwargs</span><span class="p">))</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="s1">&#39;评分&#39;</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict_score</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="s1">&#39;评分&#39;</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">score_method</span> <span class="o">==</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span>
+                <span class="k">raise</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;predict_proba&#39;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;模型需提供 predict_score 或 predict_proba 才能计算漂移监控评分&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">predict_kwargs</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">proba</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">proba</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">proba</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;predict_proba 返回二维数组时至少需要包含正类概率列&quot;</span><span class="p">)</span>
+        <span class="n">proba</span> <span class="o">=</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">proba</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="s1">&#39;坏账概率&#39;</span>
+
+
+<div class="viewcode-block" id="model_drift_report">
+<a class="viewcode-back" href="../../../../api/eda.html#hscredit.core.eda.model_drift_report">[文档]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">model_drift_report</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">X_base</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">X_target</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">y_base</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">y_target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">score_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="n">psi_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">predict_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;模型漂移监控报告.</span>
+
+<span class="sd">    从已训练模型生成基准集/目标集评分，统一输出评分漂移、特征漂移和摘要信息。</span>
+
+<span class="sd">    :param model: 已训练模型，需提供 ``predict_score`` 或 ``predict_proba``</span>
+<span class="sd">    :param X_base: 基准特征数据，如训练集或上线基准窗口</span>
+<span class="sd">    :param X_target: 目标特征数据，如生产监控窗口</span>
+<span class="sd">    :param y_base: 基准真实标签，可选</span>
+<span class="sd">    :param y_target: 目标真实标签，可选</span>
+<span class="sd">    :param features: 参与特征漂移监控的字段，默认取两个数据集公共数值列</span>
+<span class="sd">    :param score_method: 评分口径，``&#39;auto&#39;`` / ``&#39;score&#39;`` / ``&#39;proba&#39;``</span>
+<span class="sd">    :param psi_bins: PSI 分箱数，默认 10</span>
+<span class="sd">    :param predict_kwargs: 透传给模型预测方法的参数</span>
+<span class="sd">    :return: 字典，包含 ``评分漂移`` / ``特征漂移`` / ``漂移摘要``</span>
+
+<span class="sd">    **参考样例**</span>
+
+<span class="sd">    &gt;&gt;&gt; report = model_drift_report(model, train_x, oot_x, y_base=train_y, y_target=oot_y)</span>
+<span class="sd">    &gt;&gt;&gt; print(report[&#39;漂移摘要&#39;])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">X_base</span><span class="p">)</span>
+    <span class="n">validate_dataframe</span><span class="p">(</span><span class="n">X_target</span><span class="p">)</span>
+
+    <span class="n">score_base</span><span class="p">,</span> <span class="n">score_name</span> <span class="o">=</span> <span class="n">_predict_monitor_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_base</span><span class="p">,</span> <span class="n">score_method</span><span class="p">,</span> <span class="n">predict_kwargs</span><span class="p">)</span>
+    <span class="n">score_target</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_predict_monitor_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_target</span><span class="p">,</span> <span class="n">score_method</span><span class="p">,</span> <span class="n">predict_kwargs</span><span class="p">)</span>
+
+    <span class="n">score_report</span> <span class="o">=</span> <span class="n">score_drift_report</span><span class="p">(</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">score_base</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">score_name</span><span class="p">),</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">score_target</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">score_name</span><span class="p">),</span>
+        <span class="n">y_base</span><span class="o">=</span><span class="n">y_base</span><span class="p">,</span>
+        <span class="n">y_target</span><span class="o">=</span><span class="n">y_target</span><span class="p">,</span>
+        <span class="n">n_bins</span><span class="o">=</span><span class="n">psi_bins</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">feature_report</span> <span class="o">=</span> <span class="n">feature_drift_report</span><span class="p">(</span>
+        <span class="n">X_base</span><span class="p">,</span>
+        <span class="n">X_target</span><span class="p">,</span>
+        <span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
+        <span class="n">psi_bins</span><span class="o">=</span><span class="n">psi_bins</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">drifted_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">monitored_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_feature_psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">feature_report</span><span class="o">.</span><span class="n">empty</span> <span class="ow">and</span> <span class="s1">&#39;PSI&#39;</span> <span class="ow">in</span> <span class="n">feature_report</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">psi_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">feature_report</span><span class="p">[</span><span class="s1">&#39;PSI&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+        <span class="n">monitored_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">psi_values</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+        <span class="n">drifted_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">psi_values</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+        <span class="n">max_feature_psi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">psi_values</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="k">if</span> <span class="n">monitored_count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">summary_rows</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;评分口径&#39;</span><span class="p">,</span> <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="n">score_name</span><span class="p">,</span> <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;评分PSI&#39;</span><span class="p">,</span> <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="n">score_report</span><span class="p">[</span><span class="s1">&#39;PSI&#39;</span><span class="p">],</span> <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="n">score_report</span><span class="p">[</span><span class="s1">&#39;偏移等级&#39;</span><span class="p">]},</span>
+        <span class="p">{</span><span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;监控特征数&#39;</span><span class="p">,</span> <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="n">monitored_count</span><span class="p">,</span> <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;偏移特征数&#39;</span><span class="p">,</span> <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="n">drifted_count</span><span class="p">,</span> <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;最大特征PSI&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">max_feature_psi</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">max_feature_psi</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+            <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="n">psi_rating</span><span class="p">(</span><span class="n">max_feature_psi</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">max_feature_psi</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;未知&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;模型性能&#39;</span> <span class="ow">in</span> <span class="n">score_report</span><span class="p">:</span>
+        <span class="n">perf</span> <span class="o">=</span> <span class="n">score_report</span><span class="p">[</span><span class="s1">&#39;模型性能&#39;</span><span class="p">]</span>
+        <span class="n">summary_rows</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+            <span class="p">{</span><span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;KS变化&#39;</span><span class="p">,</span> <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="n">perf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;KS变化&#39;</span><span class="p">),</span> <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s1">&#39;指标&#39;</span><span class="p">:</span> <span class="s1">&#39;AUC变化&#39;</span><span class="p">,</span> <span class="s1">&#39;数值&#39;</span><span class="p">:</span> <span class="n">perf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;AUC变化&#39;</span><span class="p">),</span> <span class="s1">&#39;等级&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+        <span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;评分漂移&#39;</span><span class="p">:</span> <span class="n">score_report</span><span class="p">,</span>
+        <span class="s1">&#39;特征漂移&#39;</span><span class="p">:</span> <span class="n">feature_report</span><span class="p">,</span>
+        <span class="s1">&#39;漂移摘要&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary_rows</span><span class="p">),</span>
+    <span class="p">}</span></div>
 
 </pre></div>
 

@@ -8,7 +8,7 @@
   <title>hscredit.core.binning.quantile_binning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -587,6 +590,8 @@
 <span class="sd">    :param max_n_bins: 最大分箱数，默认为10</span>
 <span class="sd">    :param quantiles: 自定义分位点列表，如[0, 0.2, 0.5, 0.8, 1.0]，默认为None</span>
 <span class="sd">        - 如果提供，将直接使用这些分位点进行分箱</span>
+<span class="sd">        - 首尾的 0 与 1 支持自动补齐：可传入完整的 [0, ..., 1]，</span>
+<span class="sd">          也可只传中间分位点（如 [0.2, 0.5, 0.8]），缺失的 0 / 1 会自动补齐</span>
 <span class="sd">    :param force_numerical: 是否强制作为数值型处理，默认为False（自动识别类别型）</span>
 <span class="sd">        - True: 将所有特征视为数值型进行等频分箱</span>
 <span class="sd">        - False: 自动检测特征类型</span>
@@ -660,21 +665,44 @@
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
             <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">quantiles</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">force_numerical</span> <span class="o">=</span> <span class="n">force_numerical</span>
-        
-        <span class="c1"># 验证quantiles参数</span>
-        <span class="k">if</span> <span class="n">quantiles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles必须是列表或数组&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">quantiles</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles至少需要2个元素&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">quantiles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles第一个元素必须是0，最后一个必须是1&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">q</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quantiles</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles所有元素必须在[0, 1]范围内&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">quantiles</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quantiles</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles必须是非递减的&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 验证并标准化 quantiles 参数（首尾的 0 / 1 支持自动补齐，也支持显式传入）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_quantiles</span><span class="p">(</span><span class="n">quantiles</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_normalize_quantiles</span><span class="p">(</span><span class="n">quantiles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;校验并标准化自定义分位点。</span>
+
+<span class="sd">        首尾的 0 与 1 支持自动补齐：既可显式传入完整的 ``[0, ..., 1]``，</span>
+<span class="sd">        也可只传入中间分位点（如 ``[0.01, 0.5, 0.99]``），缺失的 0 / 1 会自动补齐。</span>
+
+<span class="sd">        :param quantiles: 自定义分位点，None 表示不使用</span>
+<span class="sd">        :return: 标准化后的分位点列表（已补齐首尾 0 / 1），None 时原样返回</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">quantiles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles必须是列表或数组&quot;</span><span class="p">)</span>
+
+        <span class="n">quantiles</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quantiles</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">quantiles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles不能为空&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">q</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quantiles</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles所有元素必须在[0, 1]范围内&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">quantiles</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quantiles</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles必须是非递减的&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 自动补齐首尾的 0 / 1</span>
+        <span class="k">if</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">quantiles</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="n">quantiles</span>
+        <span class="k">if</span> <span class="n">quantiles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">quantiles</span> <span class="o">=</span> <span class="n">quantiles</span> <span class="o">+</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">quantiles</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantiles至少需要2个元素&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">quantiles</span>
 
 <div class="viewcode-block" id="QuantileBinning.fit">
 <a class="viewcode-back" href="../../../../api/binning.html#hscredit.core.binning.QuantileBinning.fit">[文档]</a>
@@ -714,6 +742,9 @@
                 <span class="c1"># 数值型特征：等频分箱</span>
                 <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_numerical</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
                 <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_round_splits</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># 四舍五入后可能产生相同切分点，去重以避免空箱</span>
+                    <span class="n">splits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">monotonic</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="kn">from</span><span class="w"> </span><span class="nn">.monotonic_binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">MonotonicBinning</span>
                     <span class="n">mono</span> <span class="o">=</span> <span class="n">MonotonicBinning</span><span class="p">(</span>
@@ -770,19 +801,13 @@
 
         <span class="c1"># 使用自定义分位点或基于max_n_bins计算</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="c1"># 使用自定义分位点</span>
-            <span class="n">quantiles_to_use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span>
-            <span class="n">target_n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="c1"># 使用自定义分位点：直接按用户指定的分位点切分，</span>
+            <span class="c1"># 不受 min_n_bins / max_n_bins / min_bin_size 的二次约束（见类文档）</span>
+            <span class="n">quantiles_to_use</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="n">target_n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">quantiles_to_use</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># 基于max_n_bins计算分位点</span>
-            <span class="n">target_n_bins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_n_bins</span>
-            <span class="n">quantiles_to_use</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target_n_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1"># 确保目标分箱数在约束范围内</span>
-        <span class="n">target_n_bins</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_n_bins</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">target_n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_n_bins</span><span class="p">))</span>
-        
-        <span class="c1"># 重新计算分位点（如果需要调整分箱数）</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># 基于max_n_bins计算分位点，并约束在 [min_n_bins, max_n_bins] 范围内</span>
+            <span class="n">target_n_bins</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_n_bins</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_n_bins</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_n_bins</span><span class="p">))</span>
             <span class="n">quantiles_to_use</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target_n_bins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="c1"># 获取唯一值</span>
@@ -796,14 +821,18 @@
         <span class="n">split_quantiles</span> <span class="o">=</span> <span class="n">quantiles_to_use</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_quantiles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-            
+
         <span class="n">splits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">split_quantiles</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
 
-        <span class="c1"># 处理重复值边界问题</span>
-        <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_duplicate_boundaries</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">)</span>
-
-        <span class="c1"># 根据约束调整分箱数</span>
-        <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adjust_bins</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># 自定义分位点：仅去除离散重复值导致的相同切分点以保证分箱有效，</span>
+            <span class="c1"># 不进行 max_n_bins / min_bin_size 的合并裁剪，确保严格按指定分位点切分</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 处理重复值边界问题</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_duplicate_boundaries</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">)</span>
+            <span class="c1"># 根据约束调整分箱数</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adjust_bins</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">splits</span>
 

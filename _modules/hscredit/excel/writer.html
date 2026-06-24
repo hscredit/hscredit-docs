@@ -8,7 +8,7 @@
   <title>hscredit.excel.writer &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -800,15 +803,39 @@
 <span class="sd">        :param width: 列宽</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">col_letter</span> <span class="o">=</span> <span class="n">column</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">get_column_letter</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
-        <span class="n">worksheet</span><span class="o">.</span><span class="n">column_dimensions</span><span class="p">[</span><span class="n">col_letter</span><span class="p">]</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span></div>
+        <span class="n">ExcelWriter</span><span class="o">.</span><span class="n">_set_column_width_preserving_style</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_column_cells_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">:</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取指定列的所有单元格数据。</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_column_dimension_style</span><span class="p">(</span><span class="n">worksheet</span><span class="p">:</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取指定列在模板列维度中继承的样式。&quot;&quot;&quot;</span>
+        <span class="n">exact_dimension</span> <span class="o">=</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">column_dimensions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col_letter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">exact_dimension</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">exact_dimension</span><span class="o">.</span><span class="n">has_style</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">exact_dimension</span><span class="o">.</span><span class="n">_style</span><span class="p">)</span>
+
+        <span class="n">col_idx</span> <span class="o">=</span> <span class="n">column_index_from_string</span><span class="p">(</span><span class="n">col_letter</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dimension</span> <span class="ow">in</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">column_dimensions</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">start_idx</span> <span class="o">=</span> <span class="n">dimension</span><span class="o">.</span><span class="n">min</span> <span class="ow">or</span> <span class="n">column_index_from_string</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">end_idx</span> <span class="o">=</span> <span class="n">dimension</span><span class="o">.</span><span class="n">max</span> <span class="ow">or</span> <span class="n">start_idx</span>
+            <span class="k">if</span> <span class="n">start_idx</span> <span class="o">&lt;=</span> <span class="n">col_idx</span> <span class="o">&lt;=</span> <span class="n">end_idx</span> <span class="ow">and</span> <span class="n">dimension</span><span class="o">.</span><span class="n">has_style</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">dimension</span><span class="o">.</span><span class="n">_style</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_column_width_preserving_style</span><span class="p">(</span><span class="n">worksheet</span><span class="p">:</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;设置列宽时保留模板列维度样式。&quot;&quot;&quot;</span>
+        <span class="n">style_snapshot</span> <span class="o">=</span> <span class="n">ExcelWriter</span><span class="o">.</span><span class="n">_get_column_dimension_style</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">)</span>
+        <span class="n">column_dimension</span> <span class="o">=</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">column_dimensions</span><span class="p">[</span><span class="n">col_letter</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">style_snapshot</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">column_dimension</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">style_snapshot</span><span class="p">)</span>
+        <span class="n">column_dimension</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_column_cells_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">:</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取指定列的单元格样式快照。</span>
 
 <span class="sd">        :param worksheet: 工作表对象</span>
 <span class="sd">        :param col_letter: 列字母</span>
-<span class="sd">        :return: 列表，每项为 (row_idx, value, style_name, fill)</span>
+<span class="sd">        :return: 列表，每项为 (row_idx, value, style_snapshot)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">col_idx</span> <span class="o">=</span> <span class="n">column_index_from_string</span><span class="p">(</span><span class="n">col_letter</span><span class="p">)</span>
         <span class="n">cells_data</span> <span class="o">=</span> <span class="p">[]</span>
@@ -816,41 +843,27 @@
         <span class="n">max_row</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">worksheet</span><span class="o">.</span><span class="n">max_row</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">style_sheet</span><span class="o">.</span><span class="n">max_row</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">row_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="n">cell</span> <span class="o">=</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">col_idx</span><span class="p">)</span>
-            <span class="n">style_name</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">style</span> <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">style</span> <span class="k">else</span> <span class="kc">None</span>
-            <span class="c1"># 保存填充样式，用于后续恢复</span>
-            <span class="n">fill_copy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">fill</span><span class="p">)</span> <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">fill</span> <span class="k">else</span> <span class="kc">None</span>
-            <span class="n">cells_data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">style_name</span><span class="p">,</span> <span class="n">fill_copy</span><span class="p">))</span>
+            <span class="n">style_snapshot</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">_style</span><span class="p">)</span> <span class="k">if</span> <span class="n">cell</span><span class="o">.</span><span class="n">has_style</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">cells_data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">style_snapshot</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">cells_data</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_reapply_styles_to_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">:</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cells_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_reapply_styles_to_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">:</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cells_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;重新应用样式到指定列的单元格。</span>
 
 <span class="sd">        :param worksheet: 工作表对象</span>
 <span class="sd">        :param col_letter: 列字母</span>
 <span class="sd">        :param cells_data: 单元格数据列表</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">openpyxl.styles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatternFill</span>
-        
         <span class="n">col_idx</span> <span class="o">=</span> <span class="n">column_index_from_string</span><span class="p">(</span><span class="n">col_letter</span><span class="p">)</span>
-        <span class="n">white_fill</span> <span class="o">=</span> <span class="n">PatternFill</span><span class="p">(</span><span class="n">fill_type</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">start_color</span><span class="o">=</span><span class="s1">&#39;FFFFFF&#39;</span><span class="p">)</span>
-        
-        <span class="k">for</span> <span class="n">row_idx</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">style_name</span><span class="p">,</span> <span class="n">original_fill</span> <span class="ow">in</span> <span class="n">cells_data</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">row_idx</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">style_snapshot</span> <span class="ow">in</span> <span class="n">cells_data</span><span class="p">:</span>
             <span class="n">cell</span> <span class="o">=</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">col_idx</span><span class="p">)</span>
             <span class="c1"># 检查是否需要保留文本格式（用于消除绿色感叹号）</span>
             <span class="n">need_text_format</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_numeric_like_string</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-            
-            <span class="c1"># 重新应用样式</span>
-            <span class="k">if</span> <span class="n">style_name</span> <span class="ow">and</span> <span class="n">style_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">workbook</span><span class="o">.</span><span class="n">named_styles</span><span class="p">:</span>
-                <span class="n">cell</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">style_name</span>
-            
-            <span class="c1"># 恢复原始填充样式（空白单元格的背景色）</span>
-            <span class="k">if</span> <span class="n">original_fill</span> <span class="ow">and</span> <span class="n">original_fill</span><span class="o">.</span><span class="n">fill_type</span><span class="p">:</span>
-                <span class="c1"># 如果原始有填充，恢复原始填充</span>
-                <span class="n">cell</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="n">original_fill</span>
-            <span class="k">elif</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">style_name</span> <span class="ow">or</span> <span class="n">style_name</span> <span class="o">==</span> <span class="s1">&#39;常规&#39;</span><span class="p">):</span>
-                <span class="c1"># 如果原始无填充且是空白单元格（style为None或&#39;常规&#39;），设置白色填充以保持一致性</span>
-                <span class="n">cell</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="n">white_fill</span>
-            
+
+            <span class="c1"># 仅恢复调用前已经存在的样式；空白模板区域依赖列维度样式提供白底。</span>
+            <span class="n">cell</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">style_snapshot</span><span class="p">)</span> <span class="k">if</span> <span class="n">style_snapshot</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
             <span class="c1"># 如果值是类似数字的字符串，强制设置为文本格式以消除绿色感叹号</span>
             <span class="c1"># 这必须在应用样式之后执行，因为命名样式可能包含数字格式</span>
             <span class="k">if</span> <span class="n">need_text_format</span><span class="p">:</span>
@@ -868,9 +881,9 @@
         <span class="n">min_width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
         <span class="n">extra_padding</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;批量调整多列宽度，确保边框样式不丢失。</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;批量调整多列宽度，确保已有单元格和模板列样式不丢失。</span>
 
-<span class="sd">        通过重新应用命名样式的方式来确保样式不丢失。</span>
+<span class="sd">        通过恢复调用前的单元格样式快照，并保留模板列维度样式，避免列宽调整影响空白区域白底。</span>
 
 <span class="sd">        :param worksheet: 工作表对象</span>
 <span class="sd">        :param columns: 需要调整宽度的列，可以是列字母或列索引列表，默认为None（自动检测所有有数据的列）</span>
@@ -926,23 +939,11 @@
 
             <span class="c1"># 应用列宽限制</span>
             <span class="n">final_width</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_content_width</span><span class="p">,</span> <span class="n">max_width</span><span class="p">)</span>
-            <span class="n">worksheet</span><span class="o">.</span><span class="n">column_dimensions</span><span class="p">[</span><span class="n">col_letter</span><span class="p">]</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">final_width</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_column_width_preserving_style</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">,</span> <span class="n">final_width</span><span class="p">)</span>
 
         <span class="c1"># 重新应用样式到所有列</span>
         <span class="k">for</span> <span class="n">col_letter</span><span class="p">,</span> <span class="n">cells_data</span> <span class="ow">in</span> <span class="n">columns_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_reapply_styles_to_column</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">,</span> <span class="n">cells_data</span><span class="p">)</span>
-        
-        <span class="c1"># 为数据区域的空白单元格添加白色填充（确保视觉效果一致）</span>
-        <span class="c1"># 只填充到实际数据行 + 缓冲行数，不填充整个Excel（100万+行）</span>
-        <span class="n">white_fill</span> <span class="o">=</span> <span class="n">PatternFill</span><span class="p">(</span><span class="n">fill_type</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">start_color</span><span class="o">=</span><span class="s1">&#39;FFFFFF&#39;</span><span class="p">)</span>
-        <span class="n">max_row_to_fill</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">worksheet</span><span class="o">.</span><span class="n">max_row</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># 最多填充到数据行+10行或1000行</span>
-        <span class="k">for</span> <span class="n">col_letter</span> <span class="ow">in</span> <span class="n">col_letters</span><span class="p">:</span>
-            <span class="n">col_idx</span> <span class="o">=</span> <span class="n">column_index_from_string</span><span class="p">(</span><span class="n">col_letter</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">row_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_row_to_fill</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">cell</span> <span class="o">=</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">col_idx</span><span class="p">)</span>
-                <span class="c1"># 如果没有值且没有填充，设置为白色填充</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">cell</span><span class="o">.</span><span class="n">fill</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">cell</span><span class="o">.</span><span class="n">fill</span><span class="o">.</span><span class="n">fill_type</span><span class="p">):</span>
-                    <span class="n">cell</span><span class="o">.</span><span class="n">fill</span> <span class="o">=</span> <span class="n">white_fill</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reapply_styles_to_column</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">col_letter</span><span class="p">,</span> <span class="n">cells_data</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ExcelWriter.set_number_format">
@@ -1225,7 +1226,7 @@
             <span class="p">)</span>
             
             <span class="c1"># 设置列宽</span>
-            <span class="n">worksheet</span><span class="o">.</span><span class="n">column_dimensions</span><span class="p">[</span><span class="n">start_col</span><span class="p">]</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">calculated_width</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_column_width_preserving_style</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">start_col</span><span class="p">,</span> <span class="n">calculated_width</span><span class="p">)</span>
             
             <span class="c1"># 重新应用样式</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_reapply_styles_to_column</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">start_col</span><span class="p">,</span> <span class="n">cells_data</span><span class="p">)</span>

@@ -8,7 +8,7 @@
   <title>hscredit.report.feature_analyzer &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -590,6 +593,81 @@
 <span class="n">_BINNING_SUMMARY_METRICS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;分档KS值&#39;</span><span class="p">,</span> <span class="s1">&#39;LIFT值&#39;</span><span class="p">,</span> <span class="s1">&#39;指标IV值&#39;</span><span class="p">,</span> <span class="s1">&#39;坏样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;坏样本率&#39;</span><span class="p">)</span>
 
 
+<span class="c1"># feature_binning_summary 支持的摘要指标及其跨分箱聚合方式（取自 feature_bin_stats 的输出列）。</span>
+<span class="c1"># 聚合方式说明：</span>
+<span class="c1">#   &#39;sum&#39;      —— 对各分箱（不含合计行）求和</span>
+<span class="c1">#   &#39;max&#39;      —— 取各分箱的最大值</span>
+<span class="c1">#   &#39;max_abs&#39;  —— 取各分箱绝对值的最大值</span>
+<span class="c1">#   &#39;bad_rate&#39; —— 按 sum(坏样本数) / sum(样本总数) 重新计算总体坏样本率</span>
+<span class="n">_BINNING_SUMMARY_AGG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;样本总数&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;好样本数&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;坏样本数&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;样本占比&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;好样本占比&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;坏样本占比&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;坏样本率&#39;</span><span class="p">:</span> <span class="s1">&#39;bad_rate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;分档WOE值&#39;</span><span class="p">:</span> <span class="s1">&#39;max_abs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;分档IV值&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;指标IV值&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LIFT值&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;坏账改善&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;风险拒绝比&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累积LIFT值&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累积坏账改善&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累计风险拒绝比&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累积好样本数&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累积坏样本数&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;分档KS值&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_normalize_binning_summary_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;标准化摘要指标并保持传入顺序（去重、校验是否受支持）。&quot;&quot;&quot;</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="p">[</span><span class="n">metrics</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">normalized</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;metrics 不能为空&quot;</span><span class="p">)</span>
+
+    <span class="n">invalid</span> <span class="o">=</span> <span class="p">[</span><span class="n">metric</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">normalized</span> <span class="k">if</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_BINNING_SUMMARY_AGG</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">invalid</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;不支持的metrics: </span><span class="si">{</span><span class="n">invalid</span><span class="si">}</span><span class="s2">，可选: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">_BINNING_SUMMARY_AGG</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">deduped</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">normalized</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
+            <span class="n">deduped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">deduped</span>
+
+
+<span class="c1"># 长格式（逾期标签按行堆叠）分箱表的标准列顺序</span>
+<span class="n">_LONG_FORMAT_COLUMNS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;指标名称&#39;</span><span class="p">,</span> <span class="s1">&#39;指标含义&#39;</span><span class="p">,</span> <span class="s1">&#39;逾期标签&#39;</span><span class="p">,</span> <span class="s1">&#39;分箱标签&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;样本总数&#39;</span><span class="p">,</span> <span class="s1">&#39;样本占比&#39;</span><span class="p">,</span> <span class="s1">&#39;好样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;坏样本数&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;好样本占比&#39;</span><span class="p">,</span> <span class="s1">&#39;坏样本占比&#39;</span><span class="p">,</span> <span class="s1">&#39;坏样本率&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;分档WOE值&#39;</span><span class="p">,</span> <span class="s1">&#39;分档IV值&#39;</span><span class="p">,</span> <span class="s1">&#39;指标IV值&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LIFT值&#39;</span><span class="p">,</span> <span class="s1">&#39;坏账改善&#39;</span><span class="p">,</span> <span class="s1">&#39;风险拒绝比&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累积LIFT值&#39;</span><span class="p">,</span> <span class="s1">&#39;累积坏账改善&#39;</span><span class="p">,</span> <span class="s1">&#39;累计风险拒绝比&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;累积好样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;累积坏样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;分档KS值&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_summary_display_name</span><span class="p">(</span><span class="n">target_name</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;将目标名称转换为摘要展示名称（``MOB1_3+`` → ``MOB1@3``）。&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">target_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;_&#39;</span> <span class="ow">in</span> <span class="n">target_name</span><span class="p">:</span>
+        <span class="n">overdue_name</span><span class="p">,</span> <span class="n">dpd</span> <span class="o">=</span> <span class="n">target_name</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">overdue_name</span><span class="si">}</span><span class="s1">@</span><span class="si">{</span><span class="n">dpd</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">return</span> <span class="n">target_name</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_reorder_long_format_columns</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;按 :data:`_LONG_FORMAT_COLUMNS` 重排长格式分箱表列顺序，保留未列出的额外列。&quot;&quot;&quot;</span>
+    <span class="n">ordered</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">_LONG_FORMAT_COLUMNS</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="n">extras</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_LONG_FORMAT_COLUMNS</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">table</span><span class="p">[</span><span class="n">ordered</span> <span class="o">+</span> <span class="n">extras</span><span class="p">]</span>
+
+
 <span class="k">def</span><span class="w"> </span><span class="nf">_normalize_binning_summary_methods</span><span class="p">(</span><span class="n">methods</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;标准化分箱方法并保持传入顺序。&quot;&quot;&quot;</span>
     <span class="n">normalized</span> <span class="o">=</span> <span class="p">[</span><span class="n">methods</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">methods</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span>
@@ -633,44 +711,74 @@
     <span class="k">for</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target_name</span> <span class="o">==</span> <span class="s1">&#39;分箱详情&#39;</span> <span class="ow">or</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">targets</span><span class="p">]:</span>
             <span class="k">continue</span>
-        <span class="n">display_name</span> <span class="o">=</span> <span class="n">target_name</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">target_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;_&#39;</span> <span class="ow">in</span> <span class="n">target_name</span><span class="p">:</span>
-            <span class="n">overdue_name</span><span class="p">,</span> <span class="n">dpd</span> <span class="o">=</span> <span class="n">target_name</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">display_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">overdue_name</span><span class="si">}</span><span class="s1">@</span><span class="si">{</span><span class="n">dpd</span><span class="si">}</span><span class="s1">&#39;</span>
-        <span class="n">targets</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">target_name</span><span class="p">,</span> <span class="n">display_name</span><span class="p">))</span>
+        <span class="n">targets</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">target_name</span><span class="p">,</span> <span class="n">_summary_display_name</span><span class="p">(</span><span class="n">target_name</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">targets</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_aggregate_summary_metrics</span><span class="p">(</span><span class="n">valid</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">resolve</span><span class="p">,</span> <span class="n">metrics</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;按 :data:`_BINNING_SUMMARY_AGG` 定义的聚合方式汇总单个目标的指标。</span>
+
+<span class="sd">    :param valid: 已剔除合计行的分箱明细</span>
+<span class="sd">    :param resolve: 指标名 → 实际列键 的映射函数（兼容单层/多级表头）</span>
+<span class="sd">    :param metrics: 需要汇总的指标列表</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">aggregated</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+        <span class="n">kind</span> <span class="o">=</span> <span class="n">_BINNING_SUMMARY_AGG</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;bad_rate&#39;</span><span class="p">:</span>
+            <span class="n">bad_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">resolve</span><span class="p">(</span><span class="s1">&#39;坏样本数&#39;</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">sample_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">resolve</span><span class="p">(</span><span class="s1">&#39;样本总数&#39;</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="n">bad_count</span> <span class="o">/</span> <span class="n">sample_count</span> <span class="k">if</span> <span class="n">sample_count</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">continue</span>
+        <span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">resolve</span><span class="p">(</span><span class="n">metric</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;max_abs&#39;</span><span class="p">:</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># &#39;max&#39;</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">aggregated</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_summarize_binning_table</span><span class="p">(</span>
     <span class="n">table</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
     <span class="n">single_target_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">_BINNING_SUMMARY_METRICS</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;按目标汇总一个特征、一个方法的分箱结果。&quot;&quot;&quot;</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">_normalize_binning_summary_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
     <span class="n">multi_columns</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">)</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># 长格式：逾期标签按行堆叠，按 ``逾期标签`` 分组逐目标汇总</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">multi_columns</span> <span class="ow">and</span> <span class="s1">&#39;逾期标签&#39;</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">target_name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;逾期标签&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">valid</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;分箱标签&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;合计&#39;</span><span class="p">]</span>
+            <span class="n">display_name</span> <span class="o">=</span> <span class="n">_summary_display_name</span><span class="p">(</span><span class="n">target_name</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">_aggregate_summary_metrics</span><span class="p">(</span><span class="n">valid</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="n">m</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">result</span><span class="p">[(</span><span class="n">metric</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">result</span>
+
     <span class="n">label_column</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="s1">&#39;分箱标签&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">multi_columns</span> <span class="k">else</span> <span class="s1">&#39;分箱标签&#39;</span>
     <span class="n">valid</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">table</span><span class="p">[</span><span class="n">label_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;合计&#39;</span><span class="p">]</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">target_columns</span> <span class="o">=</span> <span class="n">_summary_target_columns</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">multi_columns</span><span class="p">:</span>
         <span class="n">target_columns</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">single_target_name</span><span class="p">)]</span>
 
     <span class="k">for</span> <span class="n">target_name</span><span class="p">,</span> <span class="n">display_name</span> <span class="ow">in</span> <span class="n">target_columns</span><span class="p">:</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">column</span><span class="p">(</span><span class="n">metric</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">(</span><span class="n">target_name</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span> <span class="k">if</span> <span class="n">multi_columns</span> <span class="k">else</span> <span class="n">metric</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">resolve</span><span class="p">(</span><span class="n">metric</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">_target</span><span class="o">=</span><span class="n">target_name</span><span class="p">):</span>
+            <span class="c1"># 单层表头直接取列名；多级表头优先取目标层，样本数等公共列回落到&quot;分箱详情&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">multi_columns</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">metric</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">_target</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span> <span class="ow">in</span> <span class="n">valid</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">_target</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span> <span class="ow">in</span> <span class="n">valid</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">_target</span><span class="p">,</span> <span class="n">metric</span><span class="p">)</span>
 
-        <span class="n">bad_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;坏样本数&#39;</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-        <span class="n">sample_count_column</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="p">(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="s1">&#39;样本总数&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">multi_columns</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="s1">&#39;样本总数&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">valid</span><span class="o">.</span><span class="n">columns</span>
-            <span class="k">else</span> <span class="n">column</span><span class="p">(</span><span class="s1">&#39;样本总数&#39;</span><span class="p">)</span>
-        <span class="p">)</span>
-        <span class="n">sample_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">sample_count_column</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-        <span class="n">result</span><span class="p">[(</span><span class="s1">&#39;分档KS值&#39;</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;分档KS值&#39;</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-        <span class="n">result</span><span class="p">[(</span><span class="s1">&#39;LIFT值&#39;</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;LIFT值&#39;</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-        <span class="n">result</span><span class="p">[(</span><span class="s1">&#39;指标IV值&#39;</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">valid</span><span class="p">[</span><span class="n">column</span><span class="p">(</span><span class="s1">&#39;指标IV值&#39;</span><span class="p">)],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-        <span class="n">result</span><span class="p">[(</span><span class="s1">&#39;坏样本数&#39;</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">bad_count</span>
-        <span class="n">result</span><span class="p">[(</span><span class="s1">&#39;坏样本率&#39;</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">bad_count</span> <span class="o">/</span> <span class="n">sample_count</span> <span class="k">if</span> <span class="n">sample_count</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">_aggregate_summary_metrics</span><span class="p">(</span><span class="n">valid</span><span class="p">,</span> <span class="n">resolve</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">result</span><span class="p">[(</span><span class="n">metric</span><span class="p">,</span> <span class="n">display_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">return</span> <span class="n">result</span>
 
 
@@ -703,6 +811,8 @@
     <span class="n">amount</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">monotonic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">long_format</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">_BINNING_SUMMARY_METRICS</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]],</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;对一个或多个字段执行多种分箱，并生成跨方法摘要。</span>
@@ -710,6 +820,25 @@
 <span class="sd">    ``bin_params`` 支持两种格式：单层参数应用于所有方法；以 method 为 key、</span>
 <span class="sd">    参数字典为 value 的多层参数仅应用于对应方法。参数优先级为</span>
 <span class="sd">    ``bin_params &gt; 显式公共参数/kwargs``。</span>
+
+<span class="sd">    ``long_format`` 控制 ``binning_tables`` 中每张分箱表的输出格式：默认 ``False``</span>
+<span class="sd">    沿用原多级表头样式（多目标时按列展开）；设为 ``True`` 时每张表按 ``逾期标签``</span>
+<span class="sd">    列将各目标纵向堆叠输出（透传给 :func:`feature_bin_stats`）。摘要 ``binning_summary``</span>
+<span class="sd">    的结构不受影响。</span>
+
+<span class="sd">    ``metrics`` 指定 ``binning_summary`` 中按目标汇总的指标及其展示顺序，默认</span>
+<span class="sd">    ``[&#39;分档KS值&#39;, &#39;LIFT值&#39;, &#39;指标IV值&#39;, &#39;坏样本数&#39;, &#39;坏样本率&#39;]``。可选值为</span>
+<span class="sd">    :func:`feature_bin_stats` 输出的指标列，各指标的跨分箱聚合方式如下（合计行不参与）：</span>
+
+<span class="sd">    - **求和（sum）**：``样本总数`` / ``好样本数`` / ``坏样本数`` / ``分档IV值`` /</span>
+<span class="sd">      ``样本占比`` / ``好样本占比`` / ``坏样本占比``</span>
+<span class="sd">    - **取最大值（max）**：``指标IV值`` / ``LIFT值`` / ``坏账改善`` / ``风险拒绝比`` /</span>
+<span class="sd">      ``累积LIFT值`` / ``累积坏账改善`` / ``累计风险拒绝比`` / ``累积好样本数`` /</span>
+<span class="sd">      ``累积坏样本数`` / ``分档KS值``</span>
+<span class="sd">    - **取绝对值最大值（max_abs）**：``分档WOE值``</span>
+<span class="sd">    - **总体坏样本率（bad_rate）**：``坏样本率`` 按 ``sum(坏样本数) / sum(样本总数)`` 重新计算</span>
+
+<span class="sd">    传入不受支持的指标将抛出 ``ValueError``。</span>
 
 <span class="sd">    :return: ``(binning_tables, binning_summary)``。分箱表结构为</span>
 <span class="sd">        ``{feature: {method: binning_table}}``，摘要使用两级列索引。</span>
@@ -730,6 +859,7 @@
         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;数据中不存在字段: </span><span class="si">{</span><span class="n">missing_features</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="n">normalized_methods</span> <span class="o">=</span> <span class="n">_normalize_binning_summary_methods</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span>
+    <span class="n">normalized_metrics</span> <span class="o">=</span> <span class="n">_normalize_binning_summary_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
     <span class="n">per_method_params</span> <span class="o">=</span> <span class="n">_normalize_binning_summary_params</span><span class="p">(</span><span class="n">normalized_methods</span><span class="p">,</span> <span class="n">bin_params</span><span class="p">)</span>
     <span class="n">common_params</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
@@ -754,6 +884,7 @@
         <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="n">amount</span><span class="p">,</span>
         <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="n">verbose</span><span class="p">,</span>
         <span class="s1">&#39;monotonic&#39;</span><span class="p">:</span> <span class="n">monotonic</span><span class="p">,</span>
+        <span class="s1">&#39;long_format&#39;</span><span class="p">:</span> <span class="n">long_format</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">}</span>
 
@@ -776,7 +907,7 @@
             <span class="n">table</span> <span class="o">=</span> <span class="n">feature_bin_stats</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="o">**</span><span class="n">method_params</span><span class="p">)</span>
             <span class="n">binning_tables</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">method</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span>
             <span class="n">row</span> <span class="o">=</span> <span class="p">{(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="s1">&#39;分箱方法&#39;</span><span class="p">):</span> <span class="n">method</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;分箱详情&#39;</span><span class="p">,</span> <span class="s1">&#39;指标名称&#39;</span><span class="p">):</span> <span class="n">name</span><span class="p">}</span>
-            <span class="n">row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_summarize_binning_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">single_target_name</span><span class="o">=</span><span class="n">single_target_name</span><span class="p">))</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_summarize_binning_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">single_target_name</span><span class="o">=</span><span class="n">single_target_name</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">normalized_metrics</span><span class="p">))</span>
             <span class="n">summary_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
     <span class="n">binning_summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary_rows</span><span class="p">)</span>
@@ -784,9 +915,9 @@
     <span class="n">target_names</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">summary_rows</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">_BINNING_SUMMARY_METRICS</span> <span class="ow">and</span> <span class="n">target_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">target_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">normalized_metrics</span> <span class="ow">and</span> <span class="n">target_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">target_names</span><span class="p">:</span>
                 <span class="n">target_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">target_name</span><span class="p">)</span>
-    <span class="n">ordered_columns</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">metric</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">_BINNING_SUMMARY_METRICS</span> <span class="k">for</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="n">target_names</span><span class="p">)</span>
+    <span class="n">ordered_columns</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">metric</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">normalized_metrics</span> <span class="k">for</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="n">target_names</span><span class="p">)</span>
     <span class="n">binning_summary</span> <span class="o">=</span> <span class="n">binning_summary</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">ordered_columns</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">binning_tables</span><span class="p">,</span> <span class="n">binning_summary</span></div>
 
@@ -979,6 +1110,7 @@
     <span class="n">amount</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">monotonic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">long_format</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;特征分箱统计表，汇总统计特征每个分箱的各项指标信息.</span>
@@ -1038,6 +1170,11 @@
 <span class="sd">        - &#39;valley&#39;: 先降后升</span>
 <span class="sd">        - bool: True=强制升序，False=强制降序</span>
 <span class="sd">        注意：需配合 method 参数使用，部分 method 默认已包含单调约束（如 &#39;monotonic&#39; 方法）</span>
+<span class="sd">    :param long_format: 分箱表输出格式，默认 False</span>
+<span class="sd">        - False: 沿用原样式。多目标时使用多级表头（``分箱详情`` + 各逾期标签）按列展开</span>
+<span class="sd">        - True: 长格式输出。各逾期标签纵向堆叠，新增 ``逾期标签`` 列标识目标，</span>
+<span class="sd">          列顺序为 指标名称/指标含义/逾期标签/分箱标签/样本总数/样本占比/好样本数/坏样本数/...</span>
+<span class="sd">          单目标时同样会输出 ``逾期标签`` 列。``margins=True`` 时按各逾期标签分组分别追加合计行</span>
 <span class="sd">    :param kwargs: 其他分箱器参数（如 lift_refine、prebinning 等）</span>
 <span class="sd">    </span>
 <span class="sd">    :return: </span>
@@ -1069,6 +1206,9 @@
 <span class="sd">    &gt;&gt;&gt; </span>
 <span class="sd">    &gt;&gt;&gt; # 金额口径分析</span>
 <span class="sd">    &gt;&gt;&gt; table = feature_bin_stats(data, &#39;score&#39;, target=&#39;target&#39;, amount=&#39;loan_amount&#39;)</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # 长格式输出：多逾期标签纵向堆叠，新增&quot;逾期标签&quot;列</span>
+<span class="sd">    &gt;&gt;&gt; table = feature_bin_stats(data, &#39;score&#39;, overdue=&#39;MOB1&#39;, dpds=[15, 0], long_format=True)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># 统一处理 feature 参数</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -1294,13 +1434,19 @@
                 <span class="n">bin_labels</span><span class="o">=</span><span class="n">bin_labels</span><span class="p">,</span>
             <span class="p">)</span>
             
+            <span class="c1"># 长格式：插入&quot;逾期标签&quot;列标识当前目标</span>
+            <span class="k">if</span> <span class="n">long_format</span><span class="p">:</span>
+                <span class="n">bin_table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;逾期标签&#39;</span><span class="p">,</span> <span class="n">target_name</span><span class="p">)</span>
+
             <span class="c1"># 筛选指定列</span>
             <span class="k">if</span> <span class="n">return_cols</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="c1"># 确保基础列存在</span>
                 <span class="n">base_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;指标名称&#39;</span><span class="p">,</span> <span class="s1">&#39;指标含义&#39;</span><span class="p">,</span> <span class="s1">&#39;分箱标签&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">long_format</span><span class="p">:</span>
+                    <span class="n">base_cols</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;逾期标签&#39;</span><span class="p">)</span>
                 <span class="n">available_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">base_cols</span> <span class="o">+</span> <span class="n">return_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">bin_table</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
                 <span class="n">bin_table</span> <span class="o">=</span> <span class="n">bin_table</span><span class="p">[</span><span class="n">available_cols</span><span class="p">]</span>
-            
+
             <span class="n">feat_tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_table</span><span class="p">)</span>
             
             <span class="k">if</span> <span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -1310,11 +1456,16 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;特征 </span><span class="si">{</span><span class="n">feat</span><span class="si">}</span><span class="s2"> - 目标 </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s2">: 样本数 </span><span class="si">{</span><span class="n">n_samples</span><span class="si">}</span><span class="s2">, 坏样本数 </span><span class="si">{</span><span class="n">n_bad</span><span class="si">}</span><span class="s2">, 坏样本率 </span><span class="si">{</span><span class="n">bad_rate</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, 分箱数 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_table</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         
         <span class="c1"># 合并多目标表</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">feat_tables</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">long_format</span><span class="p">:</span>
+            <span class="c1"># 长格式：各逾期标签纵向堆叠；margins 时按目标分别追加合计行</span>
+            <span class="k">if</span> <span class="n">margins</span><span class="p">:</span>
+                <span class="n">feat_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">add_margins</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">feat_tables</span><span class="p">]</span>
+            <span class="n">merged_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">feat_tables</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">feat_tables</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">merged_table</span> <span class="o">=</span> <span class="n">_merge_multi_target_tables</span><span class="p">(</span><span class="n">feat_tables</span><span class="p">,</span> <span class="n">target_names</span><span class="p">,</span> <span class="n">merge_cols</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">merged_table</span> <span class="o">=</span> <span class="n">feat_tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        
+
         <span class="n">all_feature_tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">merged_table</span><span class="p">)</span>
         
         <span class="c1"># 保存分箱规则</span>
@@ -1326,11 +1477,14 @@
         <span class="n">final_table</span> <span class="o">=</span> <span class="n">all_feature_tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">final_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_feature_tables</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
-    <span class="c1"># 添加合计行</span>
-    <span class="k">if</span> <span class="n">margins</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">long_format</span><span class="p">:</span>
+        <span class="c1"># 长格式合计行已按目标分组追加，此处仅规范列顺序</span>
+        <span class="n">final_table</span> <span class="o">=</span> <span class="n">_reorder_long_format_columns</span><span class="p">(</span><span class="n">final_table</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">margins</span><span class="p">:</span>
+        <span class="c1"># 添加合计行</span>
         <span class="n">final_table</span> <span class="o">=</span> <span class="n">add_margins</span><span class="p">(</span><span class="n">final_table</span><span class="p">)</span>
-    
+
     <span class="k">if</span> <span class="n">return_rules</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">final_table</span><span class="p">,</span> <span class="n">all_feature_rules</span>
     <span class="k">return</span> <span class="n">final_table</span></div>

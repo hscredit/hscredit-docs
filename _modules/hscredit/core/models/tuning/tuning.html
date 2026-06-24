@@ -8,7 +8,7 @@
   <title>hscredit.core.models.tuning.tuning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -846,6 +849,8 @@
 <span class="sd">    - ``&#39;lift_head_monotonic&#39;`` : KS × (1 - 违反单调比例 × penalty)</span>
 <span class="sd">    - ``&#39;ks_with_lift_constraint&#39;`` : 满足头部 LIFT 约束下的 KS</span>
 <span class="sd">    - ``&#39;head_ks&#39;``       : 仅头部 ratio 比例样本的 KS</span>
+<span class="sd">    - ``&#39;approval_bad_rate&#39;`` : 固定通过率下优化低风险通过客群坏率</span>
+<span class="sd">    - ``&#39;expected_profit&#39;`` : 固定通过率下优化通过客群期望利润</span>
 
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt; from hscredit.core.models import ModelTuner, XGBoostRiskModel</span>
@@ -862,6 +867,7 @@
         <span class="s1">&#39;ks&#39;</span><span class="p">,</span> <span class="s1">&#39;auc&#39;</span><span class="p">,</span> <span class="s1">&#39;lift_head&#39;</span><span class="p">,</span> <span class="s1">&#39;lift_tail&#39;</span><span class="p">,</span>
         <span class="s1">&#39;lift_head_monotonic&#39;</span><span class="p">,</span> <span class="s1">&#39;ks_with_lift_constraint&#39;</span><span class="p">,</span> <span class="s1">&#39;head_ks&#39;</span><span class="p">,</span>
         <span class="s1">&#39;ks_lift_combined&#39;</span><span class="p">,</span> <span class="s1">&#39;tail_purity_ks&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;approval_bad_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;expected_profit&#39;</span><span class="p">,</span>
     <span class="p">]</span>
 
 <div class="viewcode-block" id="TuningObjective.ks">
@@ -1074,6 +1080,64 @@
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">ks_val</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">norm_purity</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="TuningObjective.approval_bad_rate">
+<a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.TuningObjective.approval_bad_rate">[文档]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">approval_bad_rate</span><span class="p">(</span>
+        <span class="n">y_true</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">y_prob</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">approval_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.30</span><span class="p">,</span>
+        <span class="n">bad_rate_weight</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;通过率坏率目标：固定通过率下最大化通过收益、惩罚通过坏率.</span>
+
+<span class="sd">        默认把预测概率最低的 ``approval_rate`` 样本视为通过客群。</span>
+<span class="sd">        score = approval_rate × (1 - 通过坏率 × bad_rate_weight)</span>
+
+<span class="sd">        :param approval_rate: 通过率，默认 0.30</span>
+<span class="sd">        :param bad_rate_weight: 坏率惩罚权重，默认 1.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">approval_rate</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;approval_rate 必须在 (0, 1] 范围内&quot;</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+        <span class="n">n_approved</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span> <span class="o">*</span> <span class="n">approval_rate</span><span class="p">))</span>
+        <span class="n">approved_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">y_prob</span><span class="p">)[:</span><span class="n">n_approved</span><span class="p">]</span>
+        <span class="n">approved_br</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_true</span><span class="p">)[</span><span class="n">approved_idx</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">approval_rate</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">approved_br</span> <span class="o">*</span> <span class="n">bad_rate_weight</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="TuningObjective.expected_profit">
+<a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.TuningObjective.expected_profit">[文档]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">expected_profit</span><span class="p">(</span>
+        <span class="n">y_true</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">y_prob</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">approval_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.30</span><span class="p">,</span>
+        <span class="n">good_profit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">bad_loss</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;期望利润目标：固定通过率下最大化通过客群单位样本收益.</span>
+
+<span class="sd">        默认预测概率最低的样本为通过客群，好客户收益为 ``good_profit``，</span>
+<span class="sd">        坏客户损失为 ``bad_loss``，拒绝样本收益记为 0。</span>
+
+<span class="sd">        :param approval_rate: 通过率，默认 0.30</span>
+<span class="sd">        :param good_profit: 通过好客户收益，默认 1.0</span>
+<span class="sd">        :param bad_loss: 通过坏客户损失，默认 5.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">approval_rate</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;approval_rate 必须在 (0, 1] 范围内&quot;</span><span class="p">)</span>
+        <span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+        <span class="n">n_approved</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span> <span class="o">*</span> <span class="n">approval_rate</span><span class="p">))</span>
+        <span class="n">approved_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">y_prob</span><span class="p">)[:</span><span class="n">n_approved</span><span class="p">]</span>
+        <span class="n">approved_y</span> <span class="o">=</span> <span class="n">y_true</span><span class="p">[</span><span class="n">approved_idx</span><span class="p">]</span>
+        <span class="n">profit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">approved_y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">bad_loss</span><span class="p">,</span> <span class="n">good_profit</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">profit</span> <span class="o">/</span> <span class="n">total</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="TuningObjective.get">
 <a class="viewcode-back" href="../../../../../api/tuning.html#hscredit.core.models.tuning.tuning.TuningObjective.get">[文档]</a>
     <span class="nd">@classmethod</span>
@@ -1128,6 +1192,15 @@
         <span class="s1">&#39;logloss&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="s1">&#39;neg_log_loss&#39;</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
         <span class="s1">&#39;ks&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>  <span class="c1"># 使用自定义计算</span>
         <span class="s1">&#39;ks_diff&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;minimize&#39;</span><span class="p">},</span>  <span class="c1"># KS差异，需要特殊处理</span>
+        <span class="s1">&#39;lift_head&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;lift_tail&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;lift_head_monotonic&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;ks_with_lift_constraint&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;head_ks&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;ks_lift_combined&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;tail_purity_ks&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;approval_bad_rate&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;expected_profit&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;scorer&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span><span class="p">},</span>
     <span class="p">}</span>
     
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -1179,6 +1252,8 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;计算ks_diff需要提供训练集预测结果&quot;</span><span class="p">)</span>
             <span class="n">_</span><span class="p">,</span> <span class="n">ks_diff</span> <span class="o">=</span> <span class="n">_calc_ks_with_diff</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">ks_diff</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_builtin</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">TuningObjective</span><span class="o">.</span><span class="n">BUILTIN_OBJECTIVES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TuningObjective</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">lower</span><span class="p">())(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_builtin</span><span class="p">:</span>
             <span class="c1"># 其他内置指标使用sklearn scorer</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1373,11 +1448,12 @@
         <span class="c1"># 若指定了 objective（TuningObjective 风格），将其转换为 metric callable</span>
         <span class="k">if</span> <span class="n">objective</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">objective</span> <span class="ow">in</span> <span class="n">TuningObjective</span><span class="o">.</span><span class="n">BUILTIN_OBJECTIVES</span><span class="p">:</span>
-                    <span class="n">_obj_func</span> <span class="o">=</span> <span class="n">TuningObjective</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">objective_kwargs</span><span class="p">)</span>
+                <span class="n">objective_key</span> <span class="o">=</span> <span class="n">objective</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">objective_key</span> <span class="ow">in</span> <span class="n">TuningObjective</span><span class="o">.</span><span class="n">BUILTIN_OBJECTIVES</span><span class="p">:</span>
+                    <span class="n">_obj_func</span> <span class="o">=</span> <span class="n">TuningObjective</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">objective_key</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">objective_kwargs</span><span class="p">)</span>
                     <span class="n">metric</span> <span class="o">=</span> <span class="n">_obj_func</span>
                     <span class="n">direction</span> <span class="o">=</span> <span class="s1">&#39;maximize&#39;</span>
-                    <span class="n">metric_names</span> <span class="o">=</span> <span class="n">metric_names</span> <span class="ow">or</span> <span class="p">[</span><span class="n">objective</span><span class="p">]</span>
+                    <span class="n">metric_names</span> <span class="o">=</span> <span class="n">metric_names</span> <span class="ow">or</span> <span class="p">[</span><span class="n">objective_key</span><span class="p">]</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="c1"># 可能是旧式 metric 字符串，直接透传</span>
                     <span class="n">metric</span> <span class="o">=</span> <span class="n">objective</span>

@@ -9,7 +9,7 @@
   <title>分箱 hscredit.core.binning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -19,7 +19,7 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
-      <script src="../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -258,6 +258,7 @@
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -412,6 +413,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -422,6 +424,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -1502,8 +1505,13 @@ TargetBadRateBinning</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>min_n_bins</strong> (<em>int</em>) -- 最小分箱数，默认为2</p></li>
 <li><p><strong>max_n_bins</strong> (<em>int</em>) -- 最大分箱数，默认为10</p></li>
-<li><p><strong>quantiles</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) -- 自定义分位点列表，如[0, 0.2, 0.5, 0.8, 1.0]，默认为None
-- 如果提供，将直接使用这些分位点进行分箱</p></li>
+<li><p><strong>quantiles</strong> (<em>List</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) -- <p>自定义分位点列表，如[0, 0.2, 0.5, 0.8, 1.0]，默认为None
+- 如果提供，将直接使用这些分位点进行分箱
+- 首尾的 0 与 1 支持自动补齐：可传入完整的 [0, ..., 1]，</p>
+<blockquote>
+<div><p>也可只传中间分位点（如 [0.2, 0.5, 0.8]），缺失的 0 / 1 会自动补齐</p>
+</div></blockquote>
+</p></li>
 <li><p><strong>force_numerical</strong> (<em>bool</em>) -- 是否强制作为数值型处理，默认为False（自动识别类别型）
 - True: 将所有特征视为数值型进行等频分箱
 - False: 自动检测特征类型</p></li>

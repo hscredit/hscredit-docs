@@ -9,7 +9,7 @@
   <title>编码器 hscredit.core.encoders &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -19,7 +19,7 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
-      <script src="../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -258,6 +258,7 @@
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -412,6 +413,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -422,6 +424,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -728,10 +731,36 @@ Cardinality / GBM），统一继承 <code class="docutils literal notranslate"><
 <dd class="field-even"><p>编码映射字典</p>
 </dd>
 <dt class="field-odd">抛出<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.FeatureNotFoundError" title="hscredit.exceptions.FeatureNotFoundError"><strong>FeatureNotFoundError</strong></a> -- 当指定的 col 不在编码器中时抛出</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 当编码器尚未拟合时抛出</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.FeatureNotFoundError" title="hscredit.exceptions.FeatureNotFoundError"><strong>FeatureNotFoundError</strong></a> -- 当指定的 col 不在编码器中时抛出</p></li>
+</ul>
 </dd>
 <dt class="field-even">返回类型<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Dict</em>[str, <em>Any</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.encoders.BaseEncoder.inverse_transform">
+<span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/base.html#BaseEncoder.inverse_transform"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.BaseEncoder.inverse_transform" title="Link to this definition"></a></dt>
+<dd><p>逆编码（将编码值还原为原始类别）。</p>
+<p>编码器基类的默认实现：多数有监督/有损编码器（WOE/Target/Count/Quantile/CatBoost/GBM）
+无法唯一还原原始类别，调用时抛出 <code class="xref py py-class docutils literal notranslate"><span class="pre">NotImplementedError</span></code>。
+支持逆编码的子类（OneHot/Ordinal/Cardinality）会覆盖本方法。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em>) -- 编码后的数据</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>逆编码后的数据</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> -- 当该编码器不支持逆编码时抛出</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>DataFrame</em></p>
 </dd>
 </dl>
 </dd></dl>
@@ -874,8 +903,14 @@ Siddiqi, N. (2006). <em>Credit Risk Scorecards.</em> Wiley；
 <dd class="field-even"><p>WOE映射字典。当 col 指定时返回 {category: woe_value}，
 col 为 None 时返回 {col: {category: woe_value}}</p>
 </dd>
-<dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Dict</em> | <em>Dict</em>[str, <em>Dict</em>]</p>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.NotFittedError" title="hscredit.exceptions.NotFittedError"><strong>NotFittedError</strong></a> -- 当编码器尚未拟合时抛出</p></li>
+<li><p><a class="reference internal" href="exceptions.html#hscredit.exceptions.FeatureNotFoundError" title="hscredit.exceptions.FeatureNotFoundError"><strong>FeatureNotFoundError</strong></a> -- 当指定的 col 不在编码器中时抛出</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Dict</em> | <em>Dict</em>[str, <em>Dict</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1274,23 +1309,6 @@ category_encoders <code class="docutils literal notranslate"><span class="pre">C
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="hscredit.core.encoders.OrdinalEncoder.get_mapping">
-<span class="sig-name descname"><span class="pre">get_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/ordinal_encoder.html#OrdinalEncoder.get_mapping"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.OrdinalEncoder.get_mapping" title="Link to this definition"></a></dt>
-<dd><p>获取序数映射。</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>str</em><em> | </em><em>None</em>) -- 列名，如果为None则返回所有映射</p>
-</dd>
-<dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>序数映射字典</p>
-</dd>
-<dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Dict</em></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -1645,23 +1663,6 @@ attributes.</em> ACM SIGKDD Explorations. <a class="reference external" href="ht
 </dd>
 <dt class="field-odd">返回类型<span class="colon">:</span></dt>
 <dd class="field-odd"><p><em>DataFrame</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="hscredit.core.encoders.CardinalityEncoder.get_mapping">
-<span class="sig-name descname"><span class="pre">get_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/encoders/cardinality_encoder.html#CardinalityEncoder.get_mapping"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.encoders.CardinalityEncoder.get_mapping" title="Link to this definition"></a></dt>
-<dd><p>获取类别映射关系。</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>col</strong> (<em>str</em><em> | </em><em>None</em>) -- 列名，如果为None则返回所有映射</p>
-</dd>
-<dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>映射字典</p>
-</dd>
-<dt class="field-odd">返回类型<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Dict</em></p>
 </dd>
 </dl>
 </dd></dl>

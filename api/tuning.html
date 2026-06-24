@@ -9,7 +9,7 @@
   <title>超参数调优 hscredit.core.models.tuning &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../_static/hengshucredit_logo.svg"/>
@@ -19,7 +19,7 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/translations.js?v=beaddf03"></script>
-      <script src="../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -258,6 +258,7 @@
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -412,6 +413,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -422,6 +424,7 @@
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -1044,7 +1047,9 @@ study（按 trial 索引取），而非外部传入的参数点；结果额外�
 - <code class="docutils literal notranslate"><span class="pre">'lift_tail'</span></code>     : 尾部 LIFT（低概率前 ratio 比例的纯净度）
 - <code class="docutils literal notranslate"><span class="pre">'lift_head_monotonic'</span></code> : KS × (1 - 违反单调比例 × penalty)
 - <code class="docutils literal notranslate"><span class="pre">'ks_with_lift_constraint'</span></code> : 满足头部 LIFT 约束下的 KS
-- <code class="docutils literal notranslate"><span class="pre">'head_ks'</span></code>       : 仅头部 ratio 比例样本的 KS</p>
+- <code class="docutils literal notranslate"><span class="pre">'head_ks'</span></code>       : 仅头部 ratio 比例样本的 KS
+- <code class="docutils literal notranslate"><span class="pre">'approval_bad_rate'</span></code> : 固定通过率下优化低风险通过客群坏率
+- <code class="docutils literal notranslate"><span class="pre">'expected_profit'</span></code> : 固定通过率下优化通过客群期望利润</p>
 <p class="rubric">示例</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">hscredit.core.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelTuner</span><span class="p">,</span> <span class="n">XGBoostRiskModel</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tuner</span> <span class="o">=</span> <span class="n">ModelTuner</span><span class="p">(</span>
@@ -1057,7 +1062,7 @@ study（按 trial 索引取），而非外部传入的参数点；结果额外�
 </div>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.TuningObjective.BUILTIN_OBJECTIVES">
-<span class="sig-name descname"><span class="pre">BUILTIN_OBJECTIVES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ks',</span> <span class="pre">'auc',</span> <span class="pre">'lift_head',</span> <span class="pre">'lift_tail',</span> <span class="pre">'lift_head_monotonic',</span> <span class="pre">'ks_with_lift_constraint',</span> <span class="pre">'head_ks',</span> <span class="pre">'ks_lift_combined',</span> <span class="pre">'tail_purity_ks']</span></em><a class="headerlink" href="#hscredit.core.models.tuning.tuning.TuningObjective.BUILTIN_OBJECTIVES" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">BUILTIN_OBJECTIVES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ks',</span> <span class="pre">'auc',</span> <span class="pre">'lift_head',</span> <span class="pre">'lift_tail',</span> <span class="pre">'lift_head_monotonic',</span> <span class="pre">'ks_with_lift_constraint',</span> <span class="pre">'head_ks',</span> <span class="pre">'ks_lift_combined',</span> <span class="pre">'tail_purity_ks',</span> <span class="pre">'approval_bad_rate',</span> <span class="pre">'expected_profit']</span></em><a class="headerlink" href="#hscredit.core.models.tuning.tuning.TuningObjective.BUILTIN_OBJECTIVES" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1230,6 +1235,49 @@ score = 0.5 × KS + 0.5 × tail_purity</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.TuningObjective.approval_bad_rate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">approval_bad_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approval_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bad_rate_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#TuningObjective.approval_bad_rate"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.TuningObjective.approval_bad_rate" title="Link to this definition"></a></dt>
+<dd><p>通过率坏率目标：固定通过率下最大化通过收益、惩罚通过坏率.</p>
+<p>默认把预测概率最低的 <code class="docutils literal notranslate"><span class="pre">approval_rate</span></code> 样本视为通过客群。
+score = approval_rate × (1 - 通过坏率 × bad_rate_weight)</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>approval_rate</strong> (<em>float</em>) -- 通过率，默认 0.30</p></li>
+<li><p><strong>bad_rate_weight</strong> (<em>float</em>) -- 坏率惩罚权重，默认 1.0</p></li>
+<li><p><strong>y_true</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>y_prob</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.TuningObjective.expected_profit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expected_profit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approval_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">good_profit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bad_loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#TuningObjective.expected_profit"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.TuningObjective.expected_profit" title="Link to this definition"></a></dt>
+<dd><p>期望利润目标：固定通过率下最大化通过客群单位样本收益.</p>
+<p>默认预测概率最低的样本为通过客群，好客户收益为 <code class="docutils literal notranslate"><span class="pre">good_profit</span></code>，
+坏客户损失为 <code class="docutils literal notranslate"><span class="pre">bad_loss</span></code>，拒绝样本收益记为 0。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>approval_rate</strong> (<em>float</em>) -- 通过率，默认 0.30</p></li>
+<li><p><strong>good_profit</strong> (<em>float</em>) -- 通过好客户收益，默认 1.0</p></li>
+<li><p><strong>bad_loss</strong> (<em>float</em>) -- 通过坏客户损失，默认 5.0</p></li>
+<li><p><strong>y_true</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>y_prob</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.TuningObjective.get">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hscredit/core/models/tuning/tuning.html#TuningObjective.get"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#hscredit.core.models.tuning.tuning.TuningObjective.get" title="Link to this definition"></a></dt>
 <dd><p>按名称获取目标函数（偏函数形式）.</p>
@@ -1270,7 +1318,7 @@ score = 0.5 × KS + 0.5 × tail_purity</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="hscredit.core.models.tuning.tuning.Metric.BUILTIN_METRICS">
-<span class="sig-name descname"><span class="pre">BUILTIN_METRICS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'accuracy':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'accuracy'},</span> <span class="pre">'auc':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'roc_auc'},</span> <span class="pre">'f1':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'f1'},</span> <span class="pre">'ks':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'ks_diff':</span> <span class="pre">{'direction':</span> <span class="pre">'minimize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'logloss':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'neg_log_loss'},</span> <span class="pre">'precision':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'precision'},</span> <span class="pre">'recall':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'recall'}}</span></em><a class="headerlink" href="#hscredit.core.models.tuning.tuning.Metric.BUILTIN_METRICS" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">BUILTIN_METRICS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'accuracy':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'accuracy'},</span> <span class="pre">'approval_bad_rate':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'auc':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'roc_auc'},</span> <span class="pre">'expected_profit':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'f1':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'f1'},</span> <span class="pre">'head_ks':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'ks':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'ks_diff':</span> <span class="pre">{'direction':</span> <span class="pre">'minimize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'ks_lift_combined':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'ks_with_lift_constraint':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'lift_head':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'lift_head_monotonic':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'lift_tail':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None},</span> <span class="pre">'logloss':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'neg_log_loss'},</span> <span class="pre">'precision':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'precision'},</span> <span class="pre">'recall':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">'recall'},</span> <span class="pre">'tail_purity_ks':</span> <span class="pre">{'direction':</span> <span class="pre">'maximize',</span> <span class="pre">'scorer':</span> <span class="pre">None}}</span></em><a class="headerlink" href="#hscredit.core.models.tuning.tuning.Metric.BUILTIN_METRICS" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

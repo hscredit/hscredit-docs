@@ -8,7 +8,7 @@
   <title>hscredit.core.encoders.woe_encoder &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -569,6 +572,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">NotFittedError</span><span class="p">,</span> <span class="n">FeatureNotFoundError</span>
 
 
 <div class="viewcode-block" id="WOEEncoder">
@@ -640,6 +644,9 @@
 <span class="sd">    公式与直观解释参考</span>
 <span class="sd">    https://www.listendata.com/2015/03/weight-of-evidence-woe-and-information.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># iv_ 为各特征信息价值，随映射一并序列化以便 import_mapping 后仍可查</span>
+    <span class="n">_EXTRA_STATE_ATTRS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;iv_&quot;</span><span class="p">]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -820,7 +827,23 @@
                 <span class="k">continue</span>
 
             <span class="n">woe_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-            <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">woe_map</span><span class="p">)</span>
+            <span class="n">mapped</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">woe_map</span><span class="p">)</span>
+
+            <span class="c1"># 类型鲁棒回退：对“未命中且非缺失”的原始值，用字符串键再映射一次。</span>
+            <span class="c1"># 覆盖两类键/输入类型不一致的场景，保证 export→load 往返一致：</span>
+            <span class="c1">#   1) load() 后 woe_map 为字符串键，而 transform 输入为数值（如 int 100）；</span>
+            <span class="c1">#   2) fit() 后 woe_map 为数值键，而 transform 输入为数字型字符串 &#39;100&#39;。</span>
+            <span class="n">unmapped</span> <span class="o">=</span> <span class="n">mapped</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">unmapped</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">str_map</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span>
+                    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">woe_map</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;__UNKNOWN__&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">str_map</span><span class="p">:</span>
+                    <span class="n">mapped</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unmapped</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">unmapped</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">str_map</span><span class="p">)</span>
+
+            <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span>
                 <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
@@ -850,13 +873,15 @@
 <span class="sd">            如果为None，返回所有列的映射</span>
 <span class="sd">        :return: WOE映射字典。当 col 指定时返回 {category: woe_value}，</span>
 <span class="sd">            col 为 None 时返回 {col: {category: woe_value}}</span>
+<span class="sd">        :raises NotFittedError: 当编码器尚未拟合时抛出</span>
+<span class="sd">        :raises FeatureNotFoundError: 当指定的 col 不在编码器中时抛出</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;mapping_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;WOEEncoder 尚未拟合，请先调用 fit 方法&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">NotFittedError</span><span class="p">(</span><span class="s2">&quot;WOEEncoder 尚未拟合，请先调用 fit 方法&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span>
         <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;列 &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; 不在编码器中，请检查列名是否正确&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">FeatureNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;列 &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; 不在编码器中，请检查列名是否正确&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span></div>
 
 
@@ -1026,36 +1051,37 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">update</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="o">=</span> <span class="p">[]</span>
-        
+        <span class="c1"># 规范化容器：update=True 时若在未 fit 的新实例上调用，</span>
+        <span class="c1"># cols_/mapping_ 仍为基类初始的 None，下方成员判断会崩溃，这里统一兜底为空容器</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span> <span class="o">=</span> <span class="p">{}</span>
+
         <span class="c1"># 加载规则</span>
         <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">col_rules</span> <span class="ow">in</span> <span class="n">rules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cols_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-            
+
             <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">woe</span> <span class="ow">in</span> <span class="n">col_rules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="c1"># 处理 toad 的特殊值</span>
+                <span class="c1"># toad/scorecardpipeline 用字符串 &#39;nan&#39; 表示缺失键</span>
                 <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;nan&#39;</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span> <span class="o">=</span> <span class="n">woe</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="c1"># 尝试转换为原始类型</span>
-                    <span class="k">try</span><span class="p">:</span>
-                        <span class="c1"># 尝试作为数字解析</span>
-                        <span class="k">if</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-                            <span class="n">key</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">key</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
-                        <span class="n">key</span> <span class="o">=</span> <span class="n">value</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">woe</span>
-            
+                    <span class="c1"># 保持原始（字符串）键，不做 int/float 强转：</span>
+                    <span class="c1"># 否则数字型字符串类别（如城市码/商品码 &#39;100&#39;）会被转成 int，</span>
+                    <span class="c1"># 与 transform 时的字符串输入不匹配，导致 WOE 全部落到未知值（静默错误）。</span>
+                    <span class="c1"># 数值型输入的兼容由 _transform 的字符串回退映射保证。</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">woe</span>
+
             <span class="c1"># 添加未知值处理</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="s1">&#39;__UNKNOWN__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown</span> <span class="o">==</span> <span class="s1">&#39;return_nan&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapping_</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="s1">&#39;__UNKNOWN__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-        
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 </div>

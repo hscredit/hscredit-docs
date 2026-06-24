@@ -8,7 +8,7 @@
   <title>hscredit.core.metrics.stability &mdash; hscredit 0.1.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=709b0e5d" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=17317042" />
 
   
     <link rel="shortcut icon" href="../../../../_static/hengshucredit_logo.svg"/>
@@ -18,7 +18,7 @@
       <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../../_static/translations.js?v=beaddf03"></script>
-      <script src="../../../../_static/sidebar-nav.js?v=4bb96e40"></script>
+      <script src="../../../../_static/sidebar-nav.js?v=70cb4d65"></script>
       <script src="../../../../_static/copy-code.js?v=60bfc96f"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../../../genindex.html" />
@@ -255,6 +255,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.psi_cross_analysis"><code class="docutils literal notranslate"><span class="pre">psi_cross_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.feature_drift_report"><code class="docutils literal notranslate"><span class="pre">feature_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.score_drift_report"><code class="docutils literal notranslate"><span class="pre">score_drift_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.model_drift_report"><code class="docutils literal notranslate"><span class="pre">model_drift_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_profile"><code class="docutils literal notranslate"><span class="pre">population_profile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_shift_analysis"><code class="docutils literal notranslate"><span class="pre">population_shift_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/eda.html#hscredit.core.eda.population_monitoring_report"><code class="docutils literal notranslate"><span class="pre">population_monitoring_report()</span></code></a></li>
@@ -409,6 +410,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_target_table"><code class="docutils literal notranslate"><span class="pre">rule_target_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_hit_table"><code class="docutils literal notranslate"><span class="pre">rule_group_hit_table()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.rule_group_compare"><code class="docutils literal notranslate"><span class="pre">rule_group_compare()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.swap_out_report"><code class="docutils literal notranslate"><span class="pre">swap_out_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ReferenceDataProvider"><code class="docutils literal notranslate"><span class="pre">ReferenceDataProvider</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalyzer"><code class="docutils literal notranslate"><span class="pre">SwapAnalyzer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapAnalysisResult"><code class="docutils literal notranslate"><span class="pre">SwapAnalysisResult</span></code></a></li>
@@ -419,6 +421,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.SwapType"><code class="docutils literal notranslate"><span class="pre">SwapType</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.OverduePredictor"><code class="docutils literal notranslate"><span class="pre">OverduePredictor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.overdue_prediction_report"><code class="docutils literal notranslate"><span class="pre">overdue_prediction_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.ModelReport"><code class="docutils literal notranslate"><span class="pre">ModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.QuickModelReport"><code class="docutils literal notranslate"><span class="pre">QuickModelReport</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.auto_model_report"><code class="docutils literal notranslate"><span class="pre">auto_model_report()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/report.html#hscredit.report.compare_models"><code class="docutils literal notranslate"><span class="pre">compare_models()</span></code></a></li>
@@ -680,6 +683,11 @@
     <span class="c1"># 移除缺失值</span>
     <span class="n">expected_clean</span> <span class="o">=</span> <span class="n">expected</span><span class="p">[</span><span class="o">~</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">expected</span><span class="p">)]</span>
     <span class="n">actual_clean</span> <span class="o">=</span> <span class="n">actual</span><span class="p">[</span><span class="o">~</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">actual</span><span class="p">)]</span>
+    <span class="n">total_expected</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_clean</span><span class="p">)</span>
+    <span class="n">total_actual</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual_clean</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">total_expected</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">total_actual</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;分箱&#39;</span><span class="p">,</span> <span class="s1">&#39;期望样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;实际样本数&#39;</span><span class="p">,</span> <span class="s1">&#39;期望占比&#39;</span><span class="p">,</span> <span class="s1">&#39;实际占比&#39;</span><span class="p">,</span> <span class="s1">&#39;PSI贡献&#39;</span><span class="p">])</span>
 
     <span class="c1"># 使用OptimalBinning进行分箱</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">..binning</span><span class="w"> </span><span class="kn">import</span> <span class="n">OptimalBinning</span>
@@ -689,9 +697,6 @@
     <span class="n">df_actual</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">actual_clean</span><span class="p">,</span> <span class="s1">&#39;is_expected&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
     <span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_expected</span><span class="p">,</span> <span class="n">df_actual</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="c1"># 创建临时目标用于分箱</span>
-    <span class="n">dummy_target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df_combined</span><span class="p">))</span>
-
     <span class="n">binner</span> <span class="o">=</span> <span class="n">OptimalBinning</span><span class="p">(</span>
         <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
         <span class="n">max_n_bins</span><span class="o">=</span><span class="n">max_n_bins</span><span class="p">,</span>
@@ -699,7 +704,9 @@
         <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span>
-    <span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_combined</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]],</span> <span class="n">dummy_target</span><span class="p">)</span>
+    <span class="c1"># PSI 的分箱边界必须可复现。对于有监督分箱方法，用“基准/实际”作为确定性目标，</span>
+    <span class="c1"># 避免随机 dummy target 让同一输入多次调用得到不同分箱和 PSI。</span>
+    <span class="n">binner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_combined</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]],</span> <span class="n">df_combined</span><span class="p">[</span><span class="s1">&#39;is_expected&#39;</span><span class="p">])</span>
 
     <span class="c1"># 分别转换expected和actual</span>
     <span class="n">bins_expected</span> <span class="o">=</span> <span class="n">binner</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_expected</span><span class="p">[[</span><span class="s1">&#39;value&#39;</span><span class="p">]],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;indices&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -710,9 +717,6 @@
 
     <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-10</span>
-
-    <span class="n">total_expected</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_clean</span><span class="p">)</span>
-    <span class="n">total_actual</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual_clean</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">bin_idx</span> <span class="ow">in</span> <span class="n">unique_bins</span><span class="p">:</span>
         <span class="n">expected_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bins_expected</span> <span class="o">==</span> <span class="n">bin_idx</span><span class="p">)</span>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>决策树可视化</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v6/echarts.min.js"></script>
+
+    
+</head>
+<body >
+    <div id="42221eb88847404d90500a7501d78e6d" class="chart-container" style="width:1400px; height:900px; "></div>
+    <script>
+        var chart_42221eb88847404d90500a7501d78e6d = echarts.init(
+            document.getElementById('42221eb88847404d90500a7501d78e6d'), 'white', {renderer: 'canvas', locale: 'ZH'});
+        var option_42221eb88847404d90500a7501d78e6d = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "graph",
+            "name": "\u51b3\u7b56\u6811",
+            "layout": "none",
+            "symbolSize": 10,
+            "circular": {
+                "rotateLabel": false
+            },
+            "force": {
+                "repulsion": 50,
+                "gravity": 0.2,
+                "edgeLength": 30,
+                "friction": 0.6,
+                "layoutAnimation": true
+            },
+            "label": {
+                "show": true,
+                "margin": 8,
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "lineStyle": {
+                "show": false
+            },
+            "roam": true,
+            "nodeScaleRatio": 0.6,
+            "draggable": false,
+            "focusNodeAdjacency": true,
+            "data": [
+                {
+                    "name": "0",
+                    "x": 0.0,
+                    "y": -0.0,
+                    "fixed": false,
+                    "symbolSize": 50,
+                    "itemStyle": {
+                        "color": "#E1E2FA",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u8861\u67a2\u659f\u4fe1\u5206 <= 600|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:679\n\u6837\u672c\u5360\u6bd4:100.00%\n\u574f\u6837\u672c\u7387:13.99%\nLIFT\u6307\u6807:1.00",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u5206\u88c2\u8282\u70b9 N0</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u8861\u67a2\u659f\u4fe1\u5206 <= 600<br/><b>\u6837\u672c\u603b\u6570:</b> 679 (100.0%)<br/><b>\u597d\u6837\u672c\u6570:</b> 584<br/><b>\u574f\u6837\u672c\u6570:</b> 95<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#9956A4;font-weight:bold'>13.99%</span><br/><b>Gini:</b> 1.0000<br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                },
+                {
+                    "name": "1",
+                    "x": -3.3999999999999995,
+                    "y": 2.8,
+                    "fixed": false,
+                    "symbolSize": 50,
+                    "itemStyle": {
+                        "color": "#EADFF0",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u8fd1\u516d\u4e2a\u6708\u975e\u94f6\u591a\u5934\u673a\u6784\u6570 <= 55|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:328\n\u6837\u672c\u5360\u6bd4:48.31%\n\u574f\u6837\u672c\u7387:18.29%\nLIFT\u6307\u6807:1.31",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u5206\u88c2\u8282\u70b9 N1</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u8fd1\u516d\u4e2a\u6708\u975e\u94f6\u591a\u5934\u673a\u6784\u6570 <= 55<br/><b>\u6837\u672c\u603b\u6570:</b> 328 (48.3%)<br/><b>\u597d\u6837\u672c\u6570:</b> 268<br/><b>\u574f\u6837\u672c\u6570:</b> 60<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#9956A4;font-weight:bold'>18.29%</span><br/><b>Gini:</b> 1.0000<br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                },
+                {
+                    "name": "2",
+                    "x": 3.3999999999999995,
+                    "y": 2.8,
+                    "fixed": false,
+                    "symbolSize": 50,
+                    "itemStyle": {
+                        "color": "#C8CDF9",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u8861\u67a2\u9274\u771f\u5206\u8001\u5ba2\u7248 <= 0.1649|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:351\n\u6837\u672c\u5360\u6bd4:51.69%\n\u574f\u6837\u672c\u7387:9.97%\nLIFT\u6307\u6807:0.71",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u5206\u88c2\u8282\u70b9 N2</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u8861\u67a2\u9274\u771f\u5206\u8001\u5ba2\u7248 <= 0.1649<br/><b>\u6837\u672c\u603b\u6570:</b> 351 (51.7%)<br/><b>\u597d\u6837\u672c\u6570:</b> 316<br/><b>\u574f\u6837\u672c\u6570:</b> 35<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#7884F1;font-weight:bold'>9.97%</span><br/><b>Gini:</b> 1.0000<br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                },
+                {
+                    "name": "3",
+                    "x": -5.1,
+                    "y": 5.6,
+                    "fixed": false,
+                    "symbolSize": 60,
+                    "itemStyle": {
+                        "color": "#E4E2F9",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u53f6\u5b50\u8282\u70b9|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:108\n\u6837\u672c\u5360\u6bd4:15.91%\n\u574f\u6837\u672c\u7387:14.81%\nLIFT\u6307\u6807:1.06",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u53f6\u5b50\u8282\u70b9 N3 [\u4e2d\u98ce\u9669]</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u53f6\u5b50\u8282\u70b9<br/><b>\u6837\u672c\u603b\u6570:</b> 108 (15.9%)<br/><b>\u597d\u6837\u672c\u6570:</b> 92<br/><b>\u574f\u6837\u672c\u6570:</b> 16<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#9956A4;font-weight:bold'>14.81%</span><br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                },
+                {
+                    "name": "4",
+                    "x": -1.6999999999999993,
+                    "y": 5.6,
+                    "fixed": false,
+                    "symbolSize": 60,
+                    "itemStyle": {
+                        "color": "#ECDCEA",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u53f6\u5b50\u8282\u70b9|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:220\n\u6837\u672c\u5360\u6bd4:32.40%\n\u574f\u6837\u672c\u7387:20.00%\nLIFT\u6307\u6807:1.43",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u53f6\u5b50\u8282\u70b9 N4 [\u4e2d\u98ce\u9669]</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u53f6\u5b50\u8282\u70b9<br/><b>\u6837\u672c\u603b\u6570:</b> 220 (32.4%)<br/><b>\u597d\u6837\u672c\u6570:</b> 176<br/><b>\u574f\u6837\u672c\u6570:</b> 44<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#9956A4;font-weight:bold'>20.00%</span><br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                },
+                {
+                    "name": "5",
+                    "x": 1.6999999999999997,
+                    "y": 5.6,
+                    "fixed": false,
+                    "symbolSize": 60,
+                    "itemStyle": {
+                        "color": "#BEC4F8",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u53f6\u5b50\u8282\u70b9|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:329\n\u6837\u672c\u5360\u6bd4:48.45%\n\u574f\u6837\u672c\u7387:8.51%\nLIFT\u6307\u6807:0.61",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u53f6\u5b50\u8282\u70b9 N5 [\u4f4e\u98ce\u9669]</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u53f6\u5b50\u8282\u70b9<br/><b>\u6837\u672c\u603b\u6570:</b> 329 (48.5%)<br/><b>\u597d\u6837\u672c\u6570:</b> 301<br/><b>\u574f\u6837\u672c\u6570:</b> 28<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#7884F1;font-weight:bold'>8.51%</span><br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                },
+                {
+                    "name": "6",
+                    "x": 5.1,
+                    "y": 5.6,
+                    "fixed": false,
+                    "symbolSize": 60,
+                    "itemStyle": {
+                        "color": "#FCC8C7",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 2.5
+                    },
+                    "label": {
+                        "show": true,
+                        "color": "#1D2129",
+                        "margin": 8,
+                        "fontSize": 7,
+                        "formatter": "{{b}}\n{\u53f6\u5b50\u8282\u70b9|\n}\nGINI:1.0000\n\u6837\u672c\u603b\u6570:22\n\u6837\u672c\u5360\u6bd4:3.24%\n\u574f\u6837\u672c\u7387:31.82%\nLIFT\u6307\u6807:2.27",
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "tooltip": {
+                        "show": true,
+                        "trigger": "item",
+                        "triggerOn": "mousemove",
+                        "axisPointer": {
+                            "type": "line"
+                        },
+                        "showContent": true,
+                        "alwaysShowContent": false,
+                        "showDelay": 0,
+                        "hideDelay": 100,
+                        "enterable": false,
+                        "confine": false,
+                        "appendToBody": false,
+                        "transitionDuration": 0.4,
+                        "displayTransition": true,
+                        "formatter": "<div style='font-family:Arial,sans-serif;font-size:12px;'><b style='color:#1D2129'>\u53f6\u5b50\u8282\u70b9 N6 [\u9ad8\u98ce\u9669]</b><br/><hr style='margin:4px 0'/><b>\u6761\u4ef6:</b> \u53f6\u5b50\u8282\u70b9<br/><b>\u6837\u672c\u603b\u6570:</b> 22 (3.2%)<br/><b>\u597d\u6837\u672c\u6570:</b> 15<br/><b>\u574f\u6837\u672c\u6570:</b> 7<br/><b>\u574f\u6837\u672c\u7387:</b> <span style='color:#E73B72;font-weight:bold'>31.82%</span><br/><span style='color:#F76E6C'>\u2605 \u4eba\u5de5\u5206\u88c2\u8282\u70b9</span></div>",
+                        "textStyle": {
+                            "color": "#1D2129",
+                            "richInheritPlainLabel": true
+                        },
+                        "backgroundColor": "#FFFFFF",
+                        "borderColor": "#E8ECFF",
+                        "borderWidth": 1,
+                        "padding": 5,
+                        "order": "seriesAsc"
+                    }
+                }
+            ],
+            "edgeLabel": {
+                "show": false,
+                "margin": 8,
+                "richInheritPlainLabel": true,
+                "valueAnimation": false
+            },
+            "edgeSymbol": [
+                "circle",
+                "arrow"
+            ],
+            "edgeSymbolSize": 6,
+            "links": [
+                {
+                    "source": "0",
+                    "target": "1",
+                    "lineStyle": {
+                        "show": false,
+                        "width": 2.5,
+                        "opacity": 0.85,
+                        "curveness": 0.0,
+                        "color": "#2639E9"
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "middle",
+                        "color": "#2639E9",
+                        "margin": 8,
+                        "fontSize": 9,
+                        "fontWeight": "bold",
+                        "formatter": "<=",
+                        "backgroundColor": "#E8F0FF",
+                        "borderColor": "#2639E9",
+                        "borderWidth": 1.0,
+                        "borderRadius": 3,
+                        "padding": 2,
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "ignoreForceLayout": false
+                },
+                {
+                    "source": "0",
+                    "target": "2",
+                    "lineStyle": {
+                        "show": false,
+                        "width": 2.5,
+                        "opacity": 0.85,
+                        "curveness": 0.0,
+                        "color": "#F76E6C"
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "middle",
+                        "color": "#F76E6C",
+                        "margin": 8,
+                        "fontSize": 9,
+                        "fontWeight": "bold",
+                        "formatter": ">",
+                        "backgroundColor": "#FFF1F0",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 1.0,
+                        "borderRadius": 3,
+                        "padding": 2,
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "ignoreForceLayout": false
+                },
+                {
+                    "source": "1",
+                    "target": "3",
+                    "lineStyle": {
+                        "show": false,
+                        "width": 2.5,
+                        "opacity": 0.85,
+                        "curveness": 0.0,
+                        "color": "#2639E9"
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "middle",
+                        "color": "#2639E9",
+                        "margin": 8,
+                        "fontSize": 8,
+                        "fontWeight": "bold",
+                        "formatter": "<=",
+                        "backgroundColor": "#E8F0FF",
+                        "borderColor": "#2639E9",
+                        "borderWidth": 1.0,
+                        "borderRadius": 3,
+                        "padding": 2,
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "ignoreForceLayout": false
+                },
+                {
+                    "source": "1",
+                    "target": "4",
+                    "lineStyle": {
+                        "show": false,
+                        "width": 2.5,
+                        "opacity": 0.85,
+                        "curveness": 0.0,
+                        "color": "#F76E6C"
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "middle",
+                        "color": "#F76E6C",
+                        "margin": 8,
+                        "fontSize": 8,
+                        "fontWeight": "bold",
+                        "formatter": ">",
+                        "backgroundColor": "#FFF1F0",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 1.0,
+                        "borderRadius": 3,
+                        "padding": 2,
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "ignoreForceLayout": false
+                },
+                {
+                    "source": "2",
+                    "target": "5",
+                    "lineStyle": {
+                        "show": false,
+                        "width": 2.5,
+                        "opacity": 0.85,
+                        "curveness": 0.0,
+                        "color": "#2639E9"
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "middle",
+                        "color": "#2639E9",
+                        "margin": 8,
+                        "fontSize": 8,
+                        "fontWeight": "bold",
+                        "formatter": "<=",
+                        "backgroundColor": "#E8F0FF",
+                        "borderColor": "#2639E9",
+                        "borderWidth": 1.0,
+                        "borderRadius": 3,
+                        "padding": 2,
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "ignoreForceLayout": false
+                },
+                {
+                    "source": "2",
+                    "target": "6",
+                    "lineStyle": {
+                        "show": false,
+                        "width": 2.5,
+                        "opacity": 0.85,
+                        "curveness": 0.0,
+                        "color": "#F76E6C"
+                    },
+                    "label": {
+                        "show": true,
+                        "position": "middle",
+                        "color": "#F76E6C",
+                        "margin": 8,
+                        "fontSize": 8,
+                        "fontWeight": "bold",
+                        "formatter": ">",
+                        "backgroundColor": "#FFF1F0",
+                        "borderColor": "#F76E6C",
+                        "borderWidth": 1.0,
+                        "borderRadius": 3,
+                        "padding": 2,
+                        "richInheritPlainLabel": true,
+                        "valueAnimation": false
+                    },
+                    "emphasis": {},
+                    "blur": {},
+                    "select": {},
+                    "ignoreForceLayout": false
+                }
+            ],
+            "preserveAspect": false
+        }
+    ],
+    "legend": [
+        {
+            "data": [],
+            "selected": {},
+            "show": true,
+            "left": "right",
+            "top": "top",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "color": "#4B5563",
+                "fontSize": 10,
+                "richInheritPlainLabel": true
+            },
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+            "triggerEvent": false
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "displayTransition": true,
+        "textStyle": {
+            "color": "#1D2129",
+            "richInheritPlainLabel": true
+        },
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#E8ECFF",
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "color": [
+        "#2639E9",
+        "#F76E6C",
+        "#FE7715",
+        "#9956A4",
+        "#E73B72"
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u4ea4\u4e92\u5f0f\u4eba\u5de5\u51b3\u7b56\u6811\u89c4\u5219\u56fe",
+            "target": "blank",
+            "subtext": "AntV G6 \u98ce\u683c \u00b7 \u5361\u7247\u5f0f\u51b3\u7b56\u6811\u53ef\u89c6\u5316",
+            "subtarget": "blank",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "color": "#1D2129",
+                "fontWeight": "bold",
+                "fontSize": 16,
+                "richInheritPlainLabel": true
+            },
+            "subtextStyle": {
+                "color": "#86909C",
+                "fontSize": 11,
+                "richInheritPlainLabel": true
+            }
+        }
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "right",
+        "bottom": "bottom",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "name": "\u51b3\u7b56\u6811",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "pixelRatio": 2
+            },
+            "restore": {
+                "show": true
+            },
+            "dataView": {
+                "show": true,
+                "readOnly": false,
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {},
+                "icon": {},
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {},
+                "icon": {}
+            }
+        }
+    }
+};
+        chart_42221eb88847404d90500a7501d78e6d.setOption(option_42221eb88847404d90500a7501d78e6d);
+    </script>
+</body>
+</html>
